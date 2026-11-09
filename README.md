@@ -14,6 +14,7 @@ Use Python 3.14 ou superior e UV. O checkout do [Avoar Core](https://github.com/
 deve estar ao lado deste repositório, em `../core`:
 
 ```bash
+git submodule update --init --recursive
 uv sync --locked
 cp .env.example .env
 ```

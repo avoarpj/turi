@@ -1,0 +1,3 @@
+[submodule "assets/files/partidos-brasil-svg"]
+	path = assets/files/partidos-brasil-svg
+	url = https://github.com/avoarpj/partidos-brasil-svg.git
