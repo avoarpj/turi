@@ -78,9 +78,10 @@ Não existe limite global novo de RAM ou alteração automática de threads.
 | `venato_data/` | Índices Tantivy gerados pelo Venato |
 | `apps/turi/src/scripts/__metadata__/` | Checkpoints de execução |
 
-A migração copia assets, dumps e o cache do SDS. Os brutos dos outros
-downloaders permanecem na origem: execute `uv run turi-download` antes de
-regenerar seus dumps ou copie os arquivos brutos necessários para `downloads/`.
+A migração copia assets, dumps, índices existentes do Venato e o cache do SDS.
+Os brutos dos outros downloaders permanecem na origem: execute
+`uv run turi-download` antes de regenerar seus dumps ou copie os arquivos brutos
+necessários para `downloads/`.
 Metadados de download com caminhos absolutos antigos devem ser recriados.
 Os checkpoints de execução não foram copiados.
 

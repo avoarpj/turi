@@ -10,14 +10,20 @@
     "explorer.excludeGitIgnore": false,
     "files.exclude": {
         "**/assets/brazilgeo": false,
-        "**/assets/candidatures": false
+        "**/assets/candidatures": false,
+        "**/assets/localidades": false
     },
     "files.watcherExclude": {
         "**/assets/brazilgeo/**": true,
-        "**/assets/candidatures/**": true
+        "**/assets/candidatures/**": true,
+        "**/assets/localidades/**": true
     },
     "search.exclude": {
         "**/assets/brazilgeo": true,
-        "**/assets/candidatures": true
-    }
+        "**/assets/candidatures": true,
+        "**/assets/localidades": true
+    },
+    "python.analysis.exclude": [
+        "**/assets/localidades"
+    ]
 }
