@@ -1,0 +1,131 @@
+index_id: opendata_business_establishment
+
+columns:
+  - name: id
+    stored: true
+    fast: false
+    type: u64
+
+  - name: empresa_id
+    stored: true
+    fast: false
+    type: u64
+
+  - name: tipo
+    stored: false
+    fast: false
+    type: string
+
+  - name: cnpj
+    stored: false
+    fast: false
+    type: string
+
+  - name: nome_fantasia
+    stored: false
+    fast: false
+    type: string
+
+  - name: situacao_cadastral
+    stored: false
+    fast: false
+    type: i64
+
+  - name: data_situacao_cadastral
+    stored: false
+    fast: true
+    type: date
+
+  - name: motivo_situacao_cadastral
+    stored: false
+    fast: false
+    type: string
+
+  - name: cidade_exterior
+    stored: false
+    fast: false
+    type: string
+
+  - name: codigo_pais
+    stored: false
+    fast: false
+    type: string
+
+  - name: data_inicio_atividade
+    stored: false
+    fast: true
+    type: date
+
+  - name: cnaes
+    stored: false
+    fast: false
+    type: string
+
+  - name: endereco_tipo_logradouro
+    stored: false
+    fast: false
+    type: string
+
+  - name: endereco_logradouro
+    stored: false
+    fast: false
+    type: string
+
+  - name: endereco_numero
+    stored: false
+    fast: false
+    type: string
+
+  - name: endereco_complemento
+    stored: false
+    fast: false
+    type: string
+
+  - name: endereco_bairro
+    stored: false
+    fast: false
+    type: string
+
+  - name: endereco_cep
+    stored: false
+    fast: false
+    type: string
+
+  - name: endereco_uf
+    stored: false
+    fast: true
+    type: string
+
+  - name: endereco_municipio
+    stored: false
+    fast: false
+    type: string
+
+  - name: telefones
+    stored: false
+    fast: false
+    type: string
+
+  - name: fax
+    stored: false
+    fast: false
+    type: string
+
+  - name: email
+    stored: false
+    fast: false
+    type: string
+
+  - name: situacao_especial
+    stored: false
+    fast: false
+    type: string
+
+  - name: data_situacao_especial
+    stored: false
+    fast: true
+    type: string
+
+sources:
+  - path: "parquet_dumps/opendata/opendata_business_establishment/*.parquet"
+    format: "parquet"

@@ -1,0 +1,250 @@
+{
+  "referencia": {
+    "eleicao": {
+      "turno_eleicao_id": "12398529996733181366",
+      "eleicao_id": "13061069986186862196",
+      "pleito_id": "2637794076754536956",
+      "ano": 2018,
+      "tipo_pleito": 1,
+      "numero_turno": 1,
+      "data_turno": "2018-10-07",
+      "codigo_local": "BR",
+      "localidade": "Brasil",
+      "codigo_cargo_tse": 1
+    },
+    "candidatos": [
+      {
+        "candidatura_id": "13956870447948442135",
+        "pessoa_publica_id": "5923455771136555564",
+        "nome": "jair bolsonaro",
+        "partido": "PSL",
+        "numero": 17,
+        "votos": 49276990
+      },
+      {
+        "candidatura_id": null,
+        "pessoa_publica_id": null,
+        "nome": null,
+        "partido": "PT",
+        "numero": 13,
+        "votos": 31342005
+      }
+    ],
+    "votos_nominais": 107050673,
+    "votos_sem_candidatura": 31342005,
+    "empate_geral": false
+  },
+  "comparada": {
+    "eleicao": {
+      "turno_eleicao_id": "16008957474998751596",
+      "eleicao_id": "5339565789616563097",
+      "pleito_id": "9447349894321270069",
+      "ano": 2022,
+      "tipo_pleito": 1,
+      "numero_turno": 1,
+      "data_turno": "2022-10-02",
+      "codigo_local": "BR",
+      "localidade": "Brasil",
+      "codigo_cargo_tse": 1
+    },
+    "candidatos": [
+      {
+        "candidatura_id": "12532415070181288738",
+        "pessoa_publica_id": "1252032428258504762",
+        "nome": "lula",
+        "partido": "PT",
+        "numero": 13,
+        "votos": 57259504
+      },
+      {
+        "candidatura_id": "14390854381053477928",
+        "pessoa_publica_id": "5923455771136555564",
+        "nome": "jair bolsonaro",
+        "partido": "PL",
+        "numero": 22,
+        "votos": 51072345
+      }
+    ],
+    "votos_nominais": 118229719,
+    "votos_sem_candidatura": 81129,
+    "empate_geral": false
+  },
+  "locais_comparaveis": 86403,
+  "locais_no_mapa": 81037,
+  "locais_sem_referencia": 4259,
+  "locais_sem_cadastro": 1081,
+  "votos_comparados_sem_cadastro": 1443617,
+  "locais_apenas_referencia": 6012,
+  "seconds": 3.6723531760071637,
+  "places_returned": 91295,
+  "auditoria": {
+    "totais_e_ranking_conferidos_independentemente_com_polars": true,
+    "soma_votos_comparada_mais_sem_cadastro_fecha_total": true,
+    "todos_calculos_de_guinada_conferidos": true,
+    "coordenadas_tse_conferidas_por_id_no_historico": true,
+    "modelo_core_validado_com_payload_nacional": true,
+    "fontes_coordenadas": {
+      "TSE": 78300,
+      "IBGE": 7116,
+      "null": 5879
+    },
+    "sem_votacao_suficiente": 633,
+    "escopo": "Dumps padronizados locais; não reaudita os CSVs brutos do TSE nem pretende provar cobertura de todas as eleições."
+  },
+  "validacao_frontend": {
+    "errors": [],
+    "requests": [
+      "http://127.0.0.1:8769/opendata/vote_shift?reference_round_id=12398529996733181366&round_id=16008957474998751596&office=1",
+      "http://127.0.0.1:8769/assets/brazilgeo/BR.geojson",
+      "http://127.0.0.1:8769/opendata/vote_shift?reference_round_id=16008957474998751596&round_id=12398529996733181366&office=1"
+    ],
+    "first_load_seconds": 7.611508153990144,
+    "headline": "Guinada de votos",
+    "coverage": "81.037 locais no mapa\n5.366 comparáveis sem coordenadas\n4.259 sem referência correspondente\n633 com votação insuficiente para comparar\n6.012 presentes apenas na referência\n1.443.617 votos da base comparada sem cadastro geográfico",
+    "candidates": [
+      "1º\nJair Bolsonaro\nPSL · 17\n49.276.990\n2º\nCandidato 13\nPT · 13\nIdentidade não resolvida; votação preservada pelo número.\n31.342.005",
+      "1º\nLula\nPT · 13\n57.259.504\n2º\nJair Bolsonaro\nPL · 22\n51.072.345"
+    ],
+    "picked_id": "1403015234490004119",
+    "picked_detail": "BA · ZONA 110 · LOCAL 1120\n\nESCOLA DE 1 E 2 GRAU GOVERNADOR WALDIR PIRES\n\nAV. HELVÉCIO PEREIRA DE SANTANA - ZONA URBANA\n\n↗ 137,75 p.p.\n\nVariação da vantagem entre as duas posições.\n\nVotos nominais no local\nPosição geral\tReferência\tComparada\n1º colocado\t182\t1.801\n2º colocado\t1.546\t232\nTotal nominal\t2.081\t2.173\n\nMunicípio IBGE: 2911857\n\nCoordenadas: TSE",
+    "individual_arrow_swing": 137.74973667700647,
+    "search_result": "ESCOLA MUNICIPAL SANTO ANTONIO",
+    "reverse_comparison": true,
+    "country_geometry_downloads": 1,
+    "mobile_overflow": false,
+    "map_cleanup": true
+  },
+  "validacao_producao": {
+    "errors": [],
+    "workers": [
+      "http://127.0.0.1:5179/_app/immutable/assets/maplibre-gl-worker.BrB25tGK.mjs"
+    ],
+    "assets": [
+      "http://127.0.0.1:8769/assets/brazilgeo/BR.geojson"
+    ],
+    "coverage": "81.037 locais no mapa\n5.366 comparáveis sem coordenadas\n4.259 sem referência correspondente\n633 com votação insuficiente para comparar\n6.012 presentes apenas na referência\n1.443.617 votos da base comparada sem cadastro geográfico"
+  },
+  "testes": {
+    "api_infra": 76,
+    "frontend": 51,
+    "novos_api_infra": 6,
+    "novos_frontend": 3,
+    "svelte_check": "0 erros e 0 avisos",
+    "build": "concluído"
+  },
+  "validacao_setas_sem_agrupamento": {
+    "errors": [],
+    "requests": [
+      "http://127.0.0.1:8769/opendata/vote_shift?reference_round_id=12398529996733181366&round_id=16008957474998751596&office=1",
+      "http://127.0.0.1:8769/assets/brazilgeo/BR.geojson",
+      "http://127.0.0.1:8769/opendata/vote_shift?reference_round_id=16008957474998751596&round_id=15129782100932921088&office=1"
+    ],
+    "first_load_seconds": 8.13060692299041,
+    "headline": "Guinada de votos",
+    "coverage": "81.037 locais no mapa\n5.366 comparáveis sem coordenadas\n4.259 sem referência correspondente\n633 com votação insuficiente para comparar\n6.012 presentes apenas na referência\n1.443.617 votos da base comparada sem cadastro geográfico",
+    "candidates": [
+      "1º\nJair Bolsonaro\nPSL · 17\n49.276.990\n2º\nCandidato 13\nPT · 13\nIdentidade não resolvida; votação preservada pelo número.\n31.342.005",
+      "1º\nLula\nPT · 13\n57.259.504\n2º\nJair Bolsonaro\nPL · 22\n51.072.345"
+    ],
+    "national_arrows": {
+      "cluster": false,
+      "points": 81037,
+      "rendered": 81031,
+      "overlap": true,
+      "clustersLayer": false,
+      "zoom": 3.232153333520115
+    },
+    "minimum_zoom_arrows": 81031,
+    "picked_id": "121536595619238",
+    "picked_detail": "BA · ZONA 110 · LOCAL 1155\n\nCRECHE LUZIA DE SOUZA BASTOS\n\nAV. HELVÉCIO PEREIRA DE SANTANA - ZONA URBANA\n\n↗ 140,95 p.p.\n\nVariação da vantagem entre as duas posições.\n\nVotos nominais no local\nPosição geral\tReferência\tComparada\n1º colocado\t29\t440\n2º colocado\t356\t57\nTotal nominal\t477\t529\n\nMunicípio IBGE: 2911857\n\nCoordenadas: TSE",
+    "individual_arrow_swing": 140.95421526316414,
+    "search_result": "ESCOLA MUNICIPAL SANTO ANTONIO",
+    "same_year_turn_comparison": "85.170 locais no mapa\n5.851 comparáveis sem coordenadas\n165 sem referência correspondente\n211 com votação insuficiente para comparar\n63 presentes apenas na referência\n1.361.776 votos da base comparada sem cadastro geográfico",
+    "first_to_second_round": true,
+    "country_geometry_downloads": 1,
+    "mobile_overflow": false,
+    "map_cleanup": true
+  },
+  "validacao_niveis_geograficos": {
+    "errors": [],
+    "requests": [
+      "http://127.0.0.1:8769/opendata/vote_shift?reference_round_id=12398529996733181366&round_id=16008957474998751596&office=1",
+      "http://127.0.0.1:8769/assets/brazilgeo/BR.geojson",
+      "http://127.0.0.1:8769/opendata/vote_shift?reference_round_id=16008957474998751596&round_id=15129782100932921088&office=1"
+    ],
+    "municipalities": 5570,
+    "municipalities_on_map": 5151,
+    "municipal_nominal_totals": {
+      "reference": 106855508,
+      "compared": 117934401
+    },
+    "national": {
+      "zoom": 3.232153333520115,
+      "municipal": 5151,
+      "local": 0,
+      "sourceCount": 5151
+    },
+    "municipal_click": "Rorainópolis",
+    "state_detail": {
+      "zoom": 6,
+      "municipal": 0,
+      "local": 1024
+    },
+    "return_to_municipalities": true,
+    "turns_2022_coverage": "5.426 municípios no mapa\n85.170 locais no detalhe\n5.851 comparáveis sem coordenadas\n165 sem referência correspondente\n211 com votação insuficiente para comparar\n63 presentes apenas na referência\n1.361.776 votos da base comparada sem cadastro geográfico",
+    "geometry_downloads": 1,
+    "mobile_overflow": false,
+    "cleanup": true,
+    "zoom_boundary": [
+      {
+        "zoom": 5.49,
+        "municipalities": 1760,
+        "locations": 0
+      },
+      {
+        "zoom": 5.5,
+        "municipalities": 0,
+        "locations": 26379
+      }
+    ],
+    "focused_api_tests": 7,
+    "frontend_test_file_passed": true,
+    "svelte_check": {
+      "errors": 0,
+      "warnings": 0
+    },
+    "production_build_passed": true
+  },
+  "validacao_colisoes_frontend": {
+    "errors": [],
+    "national": {
+      "imageWidth": 32,
+      "supplied": 5151,
+      "rendered": 215,
+      "overlap": false,
+      "ignore": false
+    },
+    "state_detail": {
+      "rendered": 500,
+      "municipal": 0
+    },
+    "nearby_points": [
+      {
+        "zoom": 8,
+        "ids": [
+          "d"
+        ]
+      },
+      {
+        "zoom": 18,
+        "ids": [
+          "d",
+          "b",
+          "c"
+        ]
+      }
+    ],
+    "data_source": "Resposta real salva da revisão municipal/local; nenhum novo scan eleitoral.",
+    "close_points_fixture": "Quatro pontos sintéticos em três lotes; dois na mesma coordenada."
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "checked_at": "2026-10-27T22:16:54.339412+00:00",
+  "catalog_url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/buweb/bweb_2t_RR_261020260742.zip.sha512",
+  "archive_url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/buweb/bweb_2t_RR_261020260742.zip",
+  "previous_files_preserved": 221,
+  "metadata_files_after": 222,
+  "raw_parquet_full_equality": true,
+  "sha512": "3986628e101b7a9fc24ab5377e0ed8b2eb94fa735b5999aa408df37d3be91d1c4d8ab11c8bec03398dcc0005b76782617a5045cb170e0efafdeabd1602d6d4cf",
+  "archive_bytes": 500520,
+  "rows": 5332,
+  "columns": 45,
+  "votes": 308597,
+  "recovered_parquet": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/f0a2890044474a46.parquet"
+}

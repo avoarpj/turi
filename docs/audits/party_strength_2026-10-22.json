@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-22",
+  "runtime_memory_pool": "512MB",
+  "target_partitions": 2,
+  "process_address_space_limit_gib": 6,
+  "process_rss_watchdog_limit_gib": 2,
+  "requests_executed_sequentially": true,
+  "max_rss_is_cumulative_process_peak": true,
+  "redis_cache": false,
+  "all_roles_and_rounds": true,
+  "national_sp_matches_municipal_by_party": true,
+  "measurements": [
+    {
+      "path": "/opendata/political_party/strength",
+      "params": {
+        "pleito_id": "9447349894321270069"
+      },
+      "seconds": 2.395,
+      "rows": 819,
+      "total_votos": 727803227,
+      "max_rss_mib": 576.5
+    },
+    {
+      "path": "/opendata/political_party/strength/SP",
+      "params": {
+        "pleito_id": "9447349894321270069"
+      },
+      "seconds": 1.623,
+      "rows": 20080,
+      "total_votos": 167769935,
+      "max_rss_mib": 578.9
+    },
+    {
+      "path": "/opendata/political_party/strength",
+      "params": {},
+      "seconds": 6.618,
+      "rows": 1117,
+      "total_votos": 1699451801,
+      "max_rss_mib": 884.8
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+index_id: opendata_public_people
+
+columns:
+  - name: id
+    stored: true
+    fast: true
+    type: u64
+
+  - name: nome
+    stored: false
+    fast: false
+    type: string
+
+  - name: genero
+    stored: false
+    fast: true
+    type: string
+
+  - name: data_nascimento
+    stored: false
+    fast: true
+    type: string
+
+  - name: uf_nascimento
+    stored: false
+    fast: false
+    type: string
+
+sources:
+  - path: "parquet_dumps/opendata/opendata_public_people/*.parquet"
+    format: "parquet"

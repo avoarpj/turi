@@ -1,0 +1,500 @@
+{
+  "people_before": 10086,
+  "people_after": 423593,
+  "existing_people_ids_preserved": 10086,
+  "eligible_raw_people_missing": 0,
+  "camara_external_links_before": 1082,
+  "camara_external_links_after": 1083,
+  "camara_external_links_preserved": 1081,
+  "camara_external_links_corrected": {
+    "removed": [
+      {
+        "pessoa_publica_id": 14774364669693652731,
+        "identificador": "220612",
+        "tipo_identificador": "external",
+        "fonte": "camaradosdeputados"
+      }
+    ],
+    "added": [
+      {
+        "pessoa_publica_id": 5661464036817965484,
+        "identificador": "220612",
+        "tipo_identificador": "external",
+        "fonte": "camaradosdeputados"
+      },
+      {
+        "pessoa_publica_id": 10427331407501121200,
+        "identificador": "178966",
+        "tipo_identificador": "external",
+        "fonte": "camaradosdeputados"
+      }
+    ]
+  },
+  "identifiers_after": 848269,
+  "coverage_by_year_and_office": [
+    {
+      "ANO_ELEICAO": "2018",
+      "CD_CARGO": "1",
+      "source_rows_with_person": 8,
+      "unique_people": 3
+    },
+    {
+      "ANO_ELEICAO": "2018",
+      "CD_CARGO": "10",
+      "source_rows_with_person": 218,
+      "unique_people": 109
+    },
+    {
+      "ANO_ELEICAO": "2018",
+      "CD_CARGO": "2",
+      "source_rows_with_person": 8,
+      "unique_people": 3
+    },
+    {
+      "ANO_ELEICAO": "2018",
+      "CD_CARGO": "3",
+      "source_rows_with_person": 118,
+      "unique_people": 45
+    },
+    {
+      "ANO_ELEICAO": "2018",
+      "CD_CARGO": "4",
+      "source_rows_with_person": 130,
+      "unique_people": 51
+    },
+    {
+      "ANO_ELEICAO": "2018",
+      "CD_CARGO": "5",
+      "source_rows_with_person": 144,
+      "unique_people": 72
+    },
+    {
+      "ANO_ELEICAO": "2018",
+      "CD_CARGO": "6",
+      "source_rows_with_person": 11208,
+      "unique_people": 5591
+    },
+    {
+      "ANO_ELEICAO": "2018",
+      "CD_CARGO": "7",
+      "source_rows_with_person": 30568,
+      "unique_people": 15253
+    },
+    {
+      "ANO_ELEICAO": "2018",
+      "CD_CARGO": "8",
+      "source_rows_with_person": 1584,
+      "unique_people": 792
+    },
+    {
+      "ANO_ELEICAO": "2018",
+      "CD_CARGO": "9",
+      "source_rows_with_person": 198,
+      "unique_people": 98
+    },
+    {
+      "ANO_ELEICAO": "2020",
+      "CD_CARGO": "11",
+      "source_rows_with_person": 12316,
+      "unique_people": 6076
+    },
+    {
+      "ANO_ELEICAO": "2020",
+      "CD_CARGO": "12",
+      "source_rows_with_person": 13044,
+      "unique_people": 6418
+    },
+    {
+      "ANO_ELEICAO": "2020",
+      "CD_CARGO": "13",
+      "source_rows_with_person": 768164,
+      "unique_people": 383776
+    },
+    {
+      "ANO_ELEICAO": "2022",
+      "CD_CARGO": "1",
+      "source_rows_with_person": 10,
+      "unique_people": 4
+    },
+    {
+      "ANO_ELEICAO": "2022",
+      "CD_CARGO": "10",
+      "source_rows_with_person": 150,
+      "unique_people": 74
+    },
+    {
+      "ANO_ELEICAO": "2022",
+      "CD_CARGO": "2",
+      "source_rows_with_person": 10,
+      "unique_people": 4
+    },
+    {
+      "ANO_ELEICAO": "2022",
+      "CD_CARGO": "3",
+      "source_rows_with_person": 114,
+      "unique_people": 45
+    },
+    {
+      "ANO_ELEICAO": "2022",
+      "CD_CARGO": "4",
+      "source_rows_with_person": 148,
+      "unique_people": 62
+    },
+    {
+      "ANO_ELEICAO": "2022",
+      "CD_CARGO": "5",
+      "source_rows_with_person": 86,
+      "unique_people": 43
+    },
+    {
+      "ANO_ELEICAO": "2022",
+      "CD_CARGO": "6",
+      "source_rows_with_person": 10722,
+      "unique_people": 5341
+    },
+    {
+      "ANO_ELEICAO": "2022",
+      "CD_CARGO": "7",
+      "source_rows_with_person": 23986,
+      "unique_people": 11964
+    },
+    {
+      "ANO_ELEICAO": "2022",
+      "CD_CARGO": "8",
+      "source_rows_with_person": 672,
+      "unique_people": 336
+    },
+    {
+      "ANO_ELEICAO": "2022",
+      "CD_CARGO": "9",
+      "source_rows_with_person": 140,
+      "unique_people": 70
+    }
+  ],
+  "organs": [
+    {
+      "id": "cd",
+      "nome": "Câmara dos Deputados"
+    },
+    {
+      "id": "gov",
+      "nome": "Governo Federal"
+    },
+    {
+      "id": "sf",
+      "nome": "Senado Federal"
+    }
+  ],
+  "bloom_rewrites": [
+    {
+      "file": "parquet_dumps/.organ-regeneration/public_people.parquet",
+      "rows": 423593,
+      "row_groups": 4,
+      "columns": [
+        "id",
+        "nome_completo",
+        "nome",
+        "genero",
+        "data_nascimento",
+        "uf_nascimento"
+      ],
+      "unsupported_columns": [],
+      "bytes_before": 14038036,
+      "status": "rewritten",
+      "bytes_after": 15443168,
+      "seconds": 0.169,
+      "bloom_filter_chunks": 24,
+      "ndv": 122880,
+      "false_positive_probability": 0.05,
+      "audit": "exact logical values in order, schema, metadata, row groups, Bloom coverage"
+    },
+    {
+      "file": "parquet_dumps/.organ-regeneration/identifiers.parquet",
+      "rows": 848269,
+      "row_groups": 7,
+      "columns": [
+        "pessoa_publica_id",
+        "identificador",
+        "tipo_identificador",
+        "fonte"
+      ],
+      "unsupported_columns": [],
+      "bytes_before": 13992052,
+      "status": "rewritten",
+      "bytes_after": 15245710,
+      "seconds": 0.207,
+      "bloom_filter_chunks": 28,
+      "ndv": 122880,
+      "false_positive_probability": 0.05,
+      "audit": "exact logical values in order, schema, metadata, row groups, Bloom coverage"
+    },
+    {
+      "file": "/home/victor/Desktop/projects/avoar/avoar/parquet_dumps/opendata/opendata_organ/static.parquet",
+      "rows": 3,
+      "row_groups": 1,
+      "columns": [
+        "id",
+        "nome"
+      ],
+      "unsupported_columns": [],
+      "bytes_before": 915,
+      "status": "rewritten",
+      "bytes_after": 897,
+      "seconds": 0.003,
+      "bloom_filter_chunks": 2,
+      "ndv": 3,
+      "false_positive_probability": 0.05,
+      "audit": "exact logical values in order, schema, metadata, row groups, Bloom coverage"
+    }
+  ],
+  "venato_public_people_documents": 423593,
+  "dependents_regeneration": [
+    {
+      "file": "/home/victor/Desktop/projects/avoar/avoar/parquet_dumps/opendata/opendata_mandate/camaradosdeputados.parquet",
+      "rows_before": 1812,
+      "rows_after": 1815,
+      "key": "id",
+      "distinct_keys_removed": 0,
+      "distinct_keys_added": 3,
+      "bloom": {
+        "file": "parquet_dumps/.organ-dependents/mandates.parquet",
+        "rows": 1815,
+        "row_groups": 1,
+        "columns": [
+          "id",
+          "pessoa_publica_id",
+          "legislatura_id",
+          "orgao_id",
+          "candidatura_id"
+        ],
+        "unsupported_columns": [],
+        "bytes_before": 38731,
+        "status": "rewritten",
+        "bytes_after": 43690,
+        "seconds": 0.004,
+        "bloom_filter_chunks": 5,
+        "ndv": 1815,
+        "false_positive_probability": 0.05,
+        "audit": "exact logical values in order, schema, metadata, row groups, Bloom coverage"
+      }
+    },
+    {
+      "file": "/home/victor/Desktop/projects/avoar/avoar/parquet_dumps/opendata/opendata_mandate_events/camaradosdeputados.parquet",
+      "rows_before": 9293,
+      "rows_after": 9314,
+      "key": "id",
+      "distinct_keys_removed": 0,
+      "distinct_keys_added": 21,
+      "bloom": {
+        "file": "parquet_dumps/.organ-dependents/mandate_events.parquet",
+        "rows": 9314,
+        "row_groups": 1,
+        "columns": [
+          "id",
+          "mandato_id",
+          "tipo_evento",
+          "contexto",
+          "subcontexto",
+          "descricao",
+          "data_relacionada"
+        ],
+        "unsupported_columns": [],
+        "bytes_before": 171697,
+        "status": "rewritten",
+        "bytes_after": 186450,
+        "seconds": 0.008,
+        "bloom_filter_chunks": 7,
+        "ndv": 9314,
+        "false_positive_probability": 0.05,
+        "audit": "exact logical values in order, schema, metadata, row groups, Bloom coverage"
+      }
+    },
+    {
+      "file": "/home/victor/Desktop/projects/avoar/avoar/parquet_dumps/opendata/opendata_mandate_office/camaradosdeputados.parquet",
+      "rows_before": 1812,
+      "rows_after": 1815,
+      "key": "mandato_id",
+      "distinct_keys_removed": 0,
+      "distinct_keys_added": 3,
+      "bloom": {
+        "file": "parquet_dumps/.organ-dependents/mandate_office.parquet",
+        "rows": 1815,
+        "row_groups": 1,
+        "columns": [
+          "telefones.list.element",
+          "numero_gabinete",
+          "anexo_gabinete",
+          "email",
+          "mandato_id"
+        ],
+        "unsupported_columns": [],
+        "bytes_before": 38393,
+        "status": "rewritten",
+        "bytes_after": 42093,
+        "seconds": 0.003,
+        "bloom_filter_chunks": 5,
+        "ndv": 1815,
+        "false_positive_probability": 0.05,
+        "audit": "exact logical values in order, schema, metadata, row groups, Bloom coverage"
+      }
+    },
+    {
+      "file": "/home/victor/Desktop/projects/avoar/avoar/parquet_dumps/opendata/opendata_ceap_reimbursements/camaradosdeputados.parquet",
+      "rows_before": 2882987,
+      "rows_after": 2890786,
+      "key": "id",
+      "distinct_keys_removed": 0,
+      "distinct_keys_added": 7799,
+      "bloom": {
+        "file": "parquet_dumps/.organ-dependents/ceap_reimbursements.parquet",
+        "rows": 2890786,
+        "row_groups": 24,
+        "columns": [
+          "id",
+          "mandato_id",
+          "categoria",
+          "subcategoria",
+          "descricao_especificacao",
+          "fornecedor_id",
+          "tipo_documento_fornecedor",
+          "valor_glosa",
+          "valor_documento",
+          "valor_liquido",
+          "data_emissao"
+        ],
+        "unsupported_columns": [],
+        "bytes_before": 57478542,
+        "status": "rewritten",
+        "bytes_after": 65681515,
+        "seconds": 0.741,
+        "bloom_filter_chunks": 264,
+        "ndv": 122880,
+        "false_positive_probability": 0.05,
+        "audit": "exact logical values in order, schema, metadata, row groups, Bloom coverage"
+      }
+    },
+    {
+      "file": "/home/victor/Desktop/projects/avoar/avoar/parquet_dumps/opendata/opendata_ceap_reimbursements_proof/camaradosdeputados.parquet",
+      "rows_before": 1619878,
+      "rows_after": 1625729,
+      "key": "id",
+      "distinct_keys_removed": 48820,
+      "distinct_keys_added": 54671,
+      "bloom": {
+        "file": "parquet_dumps/.organ-dependents/proof.parquet",
+        "rows": 1625729,
+        "row_groups": 14,
+        "columns": [
+          "id",
+          "fonte",
+          "descricao_adicional",
+          "ceap_id"
+        ],
+        "unsupported_columns": [],
+        "bytes_before": 51824191,
+        "status": "rewritten",
+        "bytes_after": 56871408,
+        "seconds": 0.476,
+        "bloom_filter_chunks": 56,
+        "ndv": 122880,
+        "false_positive_probability": 0.05,
+        "audit": "exact logical values in order, schema, metadata, row groups, Bloom coverage"
+      }
+    },
+    {
+      "file": "/home/victor/Desktop/projects/avoar/avoar/parquet_dumps/opendata/opendata_amendment_authorship/gov.parquet",
+      "rows_before": 76580,
+      "rows_after": 76580,
+      "key": "mandato_id",
+      "distinct_keys_removed": 0,
+      "distinct_keys_added": 3,
+      "bloom": {
+        "file": "parquet_dumps/opendata/opendata_amendment_authorship/.organ-authorship.parquet",
+        "rows": 76580,
+        "row_groups": 1,
+        "columns": [
+          "emenda_id",
+          "tipo_autoria",
+          "mandato_id",
+          "nome_autor"
+        ],
+        "unsupported_columns": [],
+        "bytes_before": 704346,
+        "status": "rewritten",
+        "bytes_after": 837828,
+        "seconds": 0.032,
+        "bloom_filter_chunks": 4,
+        "ndv": 76580,
+        "false_positive_probability": 0.05,
+        "audit": "exact logical values in order, schema, metadata, row groups, Bloom coverage"
+      }
+    }
+  ],
+  "mandate_people_corrected": [
+    {
+      "id": 18277237785333858767,
+      "pessoa_publica_id": 14774364669693652731,
+      "pessoa_publica_id_new": 5661464036817965484
+    }
+  ],
+  "authorship_reconciliation": {
+    "existing_rows_preserved": 76522,
+    "existing_known_links_preserved": 52252,
+    "links_added_for_new_mandates": 58,
+    "reason": "Existing producer deduplicates multiple possible authors without deterministic ordering; preserve prior assignments and enrich only the new mandates."
+  },
+  "proofs_logical_rows_lost": 0,
+  "real_api_smoke": [
+    {
+      "path": "/opendata/organ/",
+      "status": 200,
+      "bytes": 118
+    },
+    {
+      "path": "/opendata/organ/gov",
+      "status": 200,
+      "bytes": 39
+    },
+    {
+      "path": "/opendata/organ/gov/legislatures",
+      "status": 200,
+      "bytes": 2
+    },
+    {
+      "path": "/opendata/public_people/1252032428258504762",
+      "status": 200,
+      "bytes": 426
+    },
+    {
+      "path": "/opendata/mandates/18277237785333858767",
+      "status": 200,
+      "bytes": 13915
+    },
+    {
+      "path": "/opendata/public_people/search?input=lula&orgao_id=cd&legislature_id=57&include_ghosts=1&pull_by=id&order=asc&limit=5",
+      "status": 200,
+      "bytes": 859
+    }
+  ],
+  "final_integrity": {
+    "old_final_columns": [],
+    "migration_rerun_no_changes": true,
+    "regenerated_references_missing": {
+      "opendata_mandate_events_missing_mandates": 0,
+      "opendata_mandate_office_missing_mandates": 0,
+      "opendata_ceap_reimbursements_missing_mandates": 0,
+      "opendata_amendment_authorship_missing_mandates": 0
+    },
+    "proofs_without_ceap": 0,
+    "mandates_without_people": 0
+  },
+  "validation": {
+    "turi_tests": 36,
+    "api_tests": 70,
+    "rostra_test_files": 15,
+    "rostra_check": "0 errors, 0 warnings",
+    "rostra_build": "passed",
+    "api_test_runner": "asyncio heartbeat wrapper, as documented for this local Python/AnyIO environment"
+  },
+  "ceap_existing_full_row_fingerprints_preserved": 2882987
+}

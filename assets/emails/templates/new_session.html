@@ -1,0 +1,26 @@
+{{ define "new_session_subject" }}
+Novo login na sua conta Avoar
+{{ end }}
+
+{{ define "new_session" }}
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
+    <body style="padding: 24px; background-color: #E8E8E8; min-height: 100%; font-family: Helvetica, Arial, sans-serif">
+        <img 
+            src="cid:avoarlogo"
+            width="120"
+            height="84"
+            style="display: block; object-fit: contain; margin: 2rem auto 2rem auto;"
+        />
+        <div>
+        <h2 style="margin: auto; width: 100%; max-width: 437px; color: #6A6A6A; font-size: 0.9em; font-weight: normal;">Novo login detectado para {{ .Email }}</h2>
+        <p style="margin: 1rem auto; width: 100%; max-width: 437px; color: #6A6A6A; font-size: 0.8em; font-weight: normal;">
+            Esse é um email automático do sistema. Caso não reconheça o novo login, mude sua senha imediatamente.
+        </p>
+        </div>
+    </body>
+</html>
+{{ end }}

@@ -1,0 +1,46 @@
+{
+  "person_id": "208334798948282",
+  "candidature_id": "15479000625372337551",
+  "election_year": 2020,
+  "catalogue_size": 1,
+  "rounds": [
+    {
+      "numero_turno": 1,
+      "votos_recebidos": 84,
+      "states": 1,
+      "municipalities": 1,
+      "votos_sem_local_votacao": 0
+    }
+  ],
+  "location_rows": 17,
+  "location_rows_with_historical_names": 17,
+  "has_more_locations": false,
+  "timings": {
+    "catalogue_seconds": 0.023,
+    "geography_seconds": 1.01,
+    "locations_seconds": 0.182
+  },
+  "memory_limit": "512MiB",
+  "target_partitions": 2,
+  "validation": {
+    "api_focused_tests": 18,
+    "frontend_test_files": 17,
+    "svelte_check": true,
+    "production_build": true,
+    "chromium_fixture_smoke": {
+      "person_without_mandates_default_candidatures": true,
+      "national_candidature": true,
+      "state_municipality_and_location_views": true,
+      "location_pagination_and_filters": true,
+      "switch_candidature_and_round_without_stale_data": true,
+      "zero_distinct_from_absence": true,
+      "empty_candidature_catalogue": true,
+      "metadata_and_votes_loaded_on_demand": true,
+      "mobile_width": 390,
+      "horizontal_overflow": false,
+      "javascript_errors": []
+    }
+  },
+  "data_regenerated": false,
+  "measurement_scope": "Uma pessoa sem mandatos, casos de uso sobre Parquets/índice locais, sem HTTP; não é teste de carga."
+}

@@ -1,0 +1,30 @@
+{
+    "id": "centroide_municipios_brasileiros",
+    "name": "Centróide dos municípios do Brasil",
+    "script": "src/infra/scripts/centroide_municipios_brasileiros.py",
+    "inputs": [
+        {
+            "download": {
+                "url": "https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_municipais/municipio_2024/Brasil/BR_Municipios_2024.zip",
+                "output": "temp-downloads/malha-municipios-brasileiros/download.zip",
+                "extractFrom": "from zip",
+                "expires": "1y"
+            }
+        },
+        {
+            "process": {
+                "path": "temp-downloads/malha-municipios-brasileiros/BR_Municipios_2024.shp"
+            }
+        }
+    ],
+    "output": {
+        "path": {
+            "csv": "public/datasets/centroides-municipios-brasileiros/centroides.csv",
+            "json": "public/datasets/centroides-municipios-brasileiros/centroides.json",
+            "xml": "public/datasets/centroides-municipios-brasileiros/centroides.xml"
+        }
+    },
+    "updates": {
+        "cron_expr": "0 * * 1 *"
+    }
+}

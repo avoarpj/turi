@@ -1,0 +1,1720 @@
+{
+  "auditado_em": "2026-10-26T03:17:30.716043-03:00",
+  "anos": [
+    2018,
+    2020,
+    2022
+  ],
+  "linhas_brutas_por_ano": [
+    {
+      "AA_ELEICAO": "2018",
+      "linhas_brutas": 963726,
+      "linhas_exterior": 3940
+    },
+    {
+      "AA_ELEICAO": "2020",
+      "linhas_brutas": 597429,
+      "linhas_exterior": 0
+    },
+    {
+      "AA_ELEICAO": "2022",
+      "linhas_brutas": 993712,
+      "linhas_exterior": 4394
+    }
+  ],
+  "locais_catalogo": 100799,
+  "observacoes_historicas": 481339,
+  "sem_municipio_ibge": 0,
+  "sem_coordenadas_tse": 63691,
+  "com_endereco_cluster": 82745,
+  "observacoes_com_divergencias": 1262,
+  "divergencias_por_campo": {
+    "nome": 4,
+    "endereco": 4,
+    "bairro": 2,
+    "cep": 0,
+    "latitude_tse": 4,
+    "longitude_tse": 4,
+    "codigo_situacao": 1258
+  },
+  "conflitos_de_coordenadas": [
+    {
+      "id": 4945851518123573763,
+      "data_eleicao": "2022-10-02",
+      "numero_turno": 1,
+      "uf": "MA",
+      "codigo_municipio_tse": "7277",
+      "zona_eleitoral": "22",
+      "numero": "1155",
+      "ano_referencia": 2022,
+      "nome": null,
+      "endereco": null,
+      "bairro": "CENTRO - ZONA URBANA",
+      "cep": "65800000",
+      "latitude_tse": null,
+      "longitude_tse": null,
+      "codigo_situacao": 1,
+      "campos_divergentes": [
+        "nome",
+        "endereco",
+        "latitude_tse",
+        "longitude_tse"
+      ],
+      "data_geracao": "2024-09-30 02:00:32",
+      "codigo_municipio_ibge": "2101400",
+      "endereco_cluster_id": null
+    },
+    {
+      "id": 2421397836637825184,
+      "data_eleicao": "2022-10-02",
+      "numero_turno": 1,
+      "uf": "MT",
+      "codigo_municipio_tse": "90255",
+      "zona_eleitoral": "17",
+      "numero": "1023",
+      "ano_referencia": 2022,
+      "nome": null,
+      "endereco": null,
+      "bairro": null,
+      "cep": "78420000",
+      "latitude_tse": null,
+      "longitude_tse": null,
+      "codigo_situacao": 1,
+      "campos_divergentes": [
+        "nome",
+        "endereco",
+        "bairro",
+        "latitude_tse",
+        "longitude_tse"
+      ],
+      "data_geracao": "2024-09-30 02:00:32",
+      "codigo_municipio_ibge": "5101308",
+      "endereco_cluster_id": null
+    },
+    {
+      "id": 4945851518123573763,
+      "data_eleicao": "2022-10-30",
+      "numero_turno": 2,
+      "uf": "MA",
+      "codigo_municipio_tse": "7277",
+      "zona_eleitoral": "22",
+      "numero": "1155",
+      "ano_referencia": 2022,
+      "nome": null,
+      "endereco": null,
+      "bairro": "CENTRO - ZONA URBANA",
+      "cep": "65800000",
+      "latitude_tse": null,
+      "longitude_tse": null,
+      "codigo_situacao": 1,
+      "campos_divergentes": [
+        "nome",
+        "endereco",
+        "latitude_tse",
+        "longitude_tse"
+      ],
+      "data_geracao": "2024-09-30 02:00:32",
+      "codigo_municipio_ibge": "2101400",
+      "endereco_cluster_id": null
+    },
+    {
+      "id": 2421397836637825184,
+      "data_eleicao": "2022-10-30",
+      "numero_turno": 2,
+      "uf": "MT",
+      "codigo_municipio_tse": "90255",
+      "zona_eleitoral": "17",
+      "numero": "1023",
+      "ano_referencia": 2022,
+      "nome": null,
+      "endereco": null,
+      "bairro": null,
+      "cep": "78420000",
+      "latitude_tse": null,
+      "longitude_tse": null,
+      "codigo_situacao": 1,
+      "campos_divergentes": [
+        "nome",
+        "endereco",
+        "bairro",
+        "latitude_tse",
+        "longitude_tse"
+      ],
+      "data_geracao": "2024-09-30 02:00:32",
+      "codigo_municipio_ibge": "5101308",
+      "endereco_cluster_id": null
+    }
+  ],
+  "por_ano_turno": [
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 1,
+      "locais": 94800,
+      "com_coordenadas_tse": 75203,
+      "com_endereco_cluster": 15383
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 2,
+      "locais": 94837,
+      "com_coordenadas_tse": 75233,
+      "com_endereco_cluster": 15417
+    },
+    {
+      "ano_referencia": 2020,
+      "numero_turno": 1,
+      "locais": 94279,
+      "com_coordenadas_tse": 83581,
+      "com_endereco_cluster": 16024
+    },
+    {
+      "ano_referencia": 2020,
+      "numero_turno": 2,
+      "locais": 12991,
+      "com_coordenadas_tse": 12316,
+      "com_endereco_cluster": 3284
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 1,
+      "locais": 92178,
+      "com_coordenadas_tse": 85625,
+      "com_endereco_cluster": 16316
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 2,
+      "locais": 92254,
+      "com_coordenadas_tse": 85690,
+      "com_endereco_cluster": 16321
+    }
+  ],
+  "por_ano_turno_uf": [
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 1,
+      "uf": "AC",
+      "locais": 727,
+      "com_coordenadas_tse": 692,
+      "com_endereco_cluster": 61,
+      "com_divergencias": 1
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 1,
+      "uf": "AL",
+      "locais": 989,
+      "com_coordenadas_tse": 971,
+      "com_endereco_cluster": 49,
+      "com_divergencias": 4
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 1,
+      "uf": "AM",
+      "locais": 1498,
+      "com_coordenadas_tse": 1475,
+      "com_endereco_cluster": 66,
+      "com_divergencias": 17
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 1,
+      "uf": "AP",
+      "locais": 350,
+      "com_coordenadas_tse": 301,
+      "com_endereco_cluster": 42,
+      "com_divergencias": 0
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 1,
+      "uf": "BA",
+      "locais": 10095,
+      "com_coordenadas_tse": 6470,
+      "com_endereco_cluster": 6,
+      "com_divergencias": 3
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 1,
+      "uf": "CE",
+      "locais": 6933,
+      "com_coordenadas_tse": 6799,
+      "com_endereco_cluster": 460,
+      "com_divergencias": 5
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 1,
+      "uf": "DF",
+      "locais": 612,
+      "com_coordenadas_tse": 611,
+      "com_endereco_cluster": 1,
+      "com_divergencias": 0
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 1,
+      "uf": "ES",
+      "locais": 1678,
+      "com_coordenadas_tse": 49,
+      "com_endereco_cluster": 213,
+      "com_divergencias": 5
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 1,
+      "uf": "GO",
+      "locais": 2434,
+      "com_coordenadas_tse": 2394,
+      "com_endereco_cluster": 180,
+      "com_divergencias": 1
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 1,
+      "uf": "MA",
+      "locais": 5729,
+      "com_coordenadas_tse": 5493,
+      "com_endereco_cluster": 127,
+      "com_divergencias": 1
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 1,
+      "uf": "MG",
+      "locais": 10229,
+      "com_coordenadas_tse": 77,
+      "com_endereco_cluster": 3074,
+      "com_divergencias": 4
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 1,
+      "uf": "MS",
+      "locais": 1051,
+      "com_coordenadas_tse": 1042,
+      "com_endereco_cluster": 357,
+      "com_divergencias": 1
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 1,
+      "uf": "MT",
+      "locais": 1484,
+      "com_coordenadas_tse": 1160,
+      "com_endereco_cluster": 193,
+      "com_divergencias": 4
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 1,
+      "uf": "PA",
+      "locais": 5251,
+      "com_coordenadas_tse": 4501,
+      "com_endereco_cluster": 151,
+      "com_divergencias": 4
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 1,
+      "uf": "PB",
+      "locais": 1785,
+      "com_coordenadas_tse": 1682,
+      "com_endereco_cluster": 191,
+      "com_divergencias": 5
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 1,
+      "uf": "PE",
+      "locais": 3271,
+      "com_coordenadas_tse": 3101,
+      "com_endereco_cluster": 375,
+      "com_divergencias": 2
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 1,
+      "uf": "PI",
+      "locais": 3607,
+      "com_coordenadas_tse": 3293,
+      "com_endereco_cluster": 102,
+      "com_divergencias": 6
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 1,
+      "uf": "PR",
+      "locais": 4839,
+      "com_coordenadas_tse": 4513,
+      "com_endereco_cluster": 1188,
+      "com_divergencias": 8
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 1,
+      "uf": "RJ",
+      "locais": 4896,
+      "com_coordenadas_tse": 4895,
+      "com_endereco_cluster": 603,
+      "com_divergencias": 4
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 1,
+      "uf": "RN",
+      "locais": 1552,
+      "com_coordenadas_tse": 1540,
+      "com_endereco_cluster": 336,
+      "com_divergencias": 2
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 1,
+      "uf": "RO",
+      "locais": 648,
+      "com_coordenadas_tse": 628,
+      "com_endereco_cluster": 113,
+      "com_divergencias": 2
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 1,
+      "uf": "RR",
+      "locais": 346,
+      "com_coordenadas_tse": 333,
+      "com_endereco_cluster": 27,
+      "com_divergencias": 0
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 1,
+      "uf": "RS",
+      "locais": 8439,
+      "com_coordenadas_tse": 8427,
+      "com_endereco_cluster": 1936,
+      "com_divergencias": 1
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 1,
+      "uf": "SC",
+      "locais": 3726,
+      "com_coordenadas_tse": 3603,
+      "com_endereco_cluster": 800,
+      "com_divergencias": 1
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 1,
+      "uf": "SE",
+      "locais": 1124,
+      "com_coordenadas_tse": 657,
+      "com_endereco_cluster": 89,
+      "com_divergencias": 10
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 1,
+      "uf": "SP",
+      "locais": 10641,
+      "com_coordenadas_tse": 9655,
+      "com_endereco_cluster": 4553,
+      "com_divergencias": 6
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 1,
+      "uf": "TO",
+      "locais": 866,
+      "com_coordenadas_tse": 841,
+      "com_endereco_cluster": 90,
+      "com_divergencias": 2
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 2,
+      "uf": "AC",
+      "locais": 727,
+      "com_coordenadas_tse": 693,
+      "com_endereco_cluster": 61,
+      "com_divergencias": 1
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 2,
+      "uf": "AL",
+      "locais": 989,
+      "com_coordenadas_tse": 973,
+      "com_endereco_cluster": 47,
+      "com_divergencias": 4
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 2,
+      "uf": "AM",
+      "locais": 1512,
+      "com_coordenadas_tse": 1488,
+      "com_endereco_cluster": 68,
+      "com_divergencias": 0
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 2,
+      "uf": "AP",
+      "locais": 350,
+      "com_coordenadas_tse": 301,
+      "com_endereco_cluster": 43,
+      "com_divergencias": 0
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 2,
+      "uf": "BA",
+      "locais": 10095,
+      "com_coordenadas_tse": 6467,
+      "com_endereco_cluster": 6,
+      "com_divergencias": 3
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 2,
+      "uf": "CE",
+      "locais": 6933,
+      "com_coordenadas_tse": 6799,
+      "com_endereco_cluster": 460,
+      "com_divergencias": 5
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 2,
+      "uf": "DF",
+      "locais": 612,
+      "com_coordenadas_tse": 611,
+      "com_endereco_cluster": 1,
+      "com_divergencias": 0
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 2,
+      "uf": "ES",
+      "locais": 1678,
+      "com_coordenadas_tse": 49,
+      "com_endereco_cluster": 215,
+      "com_divergencias": 5
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 2,
+      "uf": "GO",
+      "locais": 2438,
+      "com_coordenadas_tse": 2398,
+      "com_endereco_cluster": 182,
+      "com_divergencias": 1
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 2,
+      "uf": "MA",
+      "locais": 5736,
+      "com_coordenadas_tse": 5495,
+      "com_endereco_cluster": 129,
+      "com_divergencias": 0
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 2,
+      "uf": "MG",
+      "locais": 10230,
+      "com_coordenadas_tse": 77,
+      "com_endereco_cluster": 3074,
+      "com_divergencias": 4
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 2,
+      "uf": "MS",
+      "locais": 1049,
+      "com_coordenadas_tse": 1040,
+      "com_endereco_cluster": 357,
+      "com_divergencias": 2
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 2,
+      "uf": "MT",
+      "locais": 1484,
+      "com_coordenadas_tse": 1161,
+      "com_endereco_cluster": 193,
+      "com_divergencias": 4
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 2,
+      "uf": "PA",
+      "locais": 5251,
+      "com_coordenadas_tse": 4501,
+      "com_endereco_cluster": 153,
+      "com_divergencias": 5
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 2,
+      "uf": "PB",
+      "locais": 1790,
+      "com_coordenadas_tse": 1687,
+      "com_endereco_cluster": 190,
+      "com_divergencias": 5
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 2,
+      "uf": "PE",
+      "locais": 3275,
+      "com_coordenadas_tse": 3105,
+      "com_endereco_cluster": 376,
+      "com_divergencias": 1
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 2,
+      "uf": "PI",
+      "locais": 3603,
+      "com_coordenadas_tse": 3292,
+      "com_endereco_cluster": 103,
+      "com_divergencias": 6
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 2,
+      "uf": "PR",
+      "locais": 4839,
+      "com_coordenadas_tse": 4513,
+      "com_endereco_cluster": 1188,
+      "com_divergencias": 8
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 2,
+      "uf": "RJ",
+      "locais": 4896,
+      "com_coordenadas_tse": 4895,
+      "com_endereco_cluster": 603,
+      "com_divergencias": 4
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 2,
+      "uf": "RN",
+      "locais": 1554,
+      "com_coordenadas_tse": 1539,
+      "com_endereco_cluster": 339,
+      "com_divergencias": 2
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 2,
+      "uf": "RO",
+      "locais": 648,
+      "com_coordenadas_tse": 628,
+      "com_endereco_cluster": 111,
+      "com_divergencias": 1
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 2,
+      "uf": "RR",
+      "locais": 346,
+      "com_coordenadas_tse": 333,
+      "com_endereco_cluster": 27,
+      "com_divergencias": 0
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 2,
+      "uf": "RS",
+      "locais": 8439,
+      "com_coordenadas_tse": 8427,
+      "com_endereco_cluster": 1936,
+      "com_divergencias": 1
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 2,
+      "uf": "SC",
+      "locais": 3726,
+      "com_coordenadas_tse": 3603,
+      "com_endereco_cluster": 800,
+      "com_divergencias": 1
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 2,
+      "uf": "SE",
+      "locais": 1124,
+      "com_coordenadas_tse": 657,
+      "com_endereco_cluster": 90,
+      "com_divergencias": 11
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 2,
+      "uf": "SP",
+      "locais": 10641,
+      "com_coordenadas_tse": 9655,
+      "com_endereco_cluster": 4575,
+      "com_divergencias": 7
+    },
+    {
+      "ano_referencia": 2018,
+      "numero_turno": 2,
+      "uf": "TO",
+      "locais": 872,
+      "com_coordenadas_tse": 846,
+      "com_endereco_cluster": 90,
+      "com_divergencias": 0
+    },
+    {
+      "ano_referencia": 2020,
+      "numero_turno": 1,
+      "uf": "AC",
+      "locais": 733,
+      "com_coordenadas_tse": 702,
+      "com_endereco_cluster": 61,
+      "com_divergencias": 5
+    },
+    {
+      "ano_referencia": 2020,
+      "numero_turno": 1,
+      "uf": "AL",
+      "locais": 1038,
+      "com_coordenadas_tse": 1015,
+      "com_endereco_cluster": 59,
+      "com_divergencias": 6
+    },
+    {
+      "ano_referencia": 2020,
+      "numero_turno": 1,
+      "uf": "AM",
+      "locais": 1545,
+      "com_coordenadas_tse": 1532,
+      "com_endereco_cluster": 71,
+      "com_divergencias": 5
+    },
+    {
+      "ano_referencia": 2020,
+      "numero_turno": 1,
+      "uf": "AP",
+      "locais": 365,
+      "com_coordenadas_tse": 315,
+      "com_endereco_cluster": 43,
+      "com_divergencias": 0
+    },
+    {
+      "ano_referencia": 2020,
+      "numero_turno": 1,
+      "uf": "BA",
+      "locais": 9780,
+      "com_coordenadas_tse": 6628,
+      "com_endereco_cluster": 6,
+      "com_divergencias": 2
+    },
+    {
+      "ano_referencia": 2020,
+      "numero_turno": 1,
+      "uf": "CE",
+      "locais": 6844,
+      "com_coordenadas_tse": 6760,
+      "com_endereco_cluster": 498,
+      "com_divergencias": 11
+    },
+    {
+      "ano_referencia": 2020,
+      "numero_turno": 1,
+      "uf": "ES",
+      "locais": 1726,
+      "com_coordenadas_tse": 960,
+      "com_endereco_cluster": 239,
+      "com_divergencias": 2
+    },
+    {
+      "ano_referencia": 2020,
+      "numero_turno": 1,
+      "uf": "GO",
+      "locais": 2456,
+      "com_coordenadas_tse": 2435,
+      "com_endereco_cluster": 189,
+      "com_divergencias": 9
+    },
+    {
+      "ano_referencia": 2020,
+      "numero_turno": 1,
+      "uf": "MA",
+      "locais": 5856,
+      "com_coordenadas_tse": 5637,
+      "com_endereco_cluster": 131,
+      "com_divergencias": 5
+    },
+    {
+      "ano_referencia": 2020,
+      "numero_turno": 1,
+      "uf": "MG",
+      "locais": 10242,
+      "com_coordenadas_tse": 6140,
+      "com_endereco_cluster": 3241,
+      "com_divergencias": 14
+    },
+    {
+      "ano_referencia": 2020,
+      "numero_turno": 1,
+      "uf": "MS",
+      "locais": 1038,
+      "com_coordenadas_tse": 1037,
+      "com_endereco_cluster": 371,
+      "com_divergencias": 4
+    },
+    {
+      "ano_referencia": 2020,
+      "numero_turno": 1,
+      "uf": "MT",
+      "locais": 1475,
+      "com_coordenadas_tse": 1421,
+      "com_endereco_cluster": 194,
+      "com_divergencias": 5
+    },
+    {
+      "ano_referencia": 2020,
+      "numero_turno": 1,
+      "uf": "PA",
+      "locais": 5343,
+      "com_coordenadas_tse": 4866,
+      "com_endereco_cluster": 176,
+      "com_divergencias": 9
+    },
+    {
+      "ano_referencia": 2020,
+      "numero_turno": 1,
+      "uf": "PB",
+      "locais": 1810,
+      "com_coordenadas_tse": 1768,
+      "com_endereco_cluster": 213,
+      "com_divergencias": 17
+    },
+    {
+      "ano_referencia": 2020,
+      "numero_turno": 1,
+      "uf": "PE",
+      "locais": 3284,
+      "com_coordenadas_tse": 3161,
+      "com_endereco_cluster": 383,
+      "com_divergencias": 9
+    },
+    {
+      "ano_referencia": 2020,
+      "numero_turno": 1,
+      "uf": "PI",
+      "locais": 3623,
+      "com_coordenadas_tse": 3405,
+      "com_endereco_cluster": 115,
+      "com_divergencias": 6
+    },
+    {
+      "ano_referencia": 2020,
+      "numero_turno": 1,
+      "uf": "PR",
+      "locais": 4827,
+      "com_coordenadas_tse": 4642,
+      "com_endereco_cluster": 1228,
+      "com_divergencias": 7
+    },
+    {
+      "ano_referencia": 2020,
+      "numero_turno": 1,
+      "uf": "RJ",
+      "locais": 4892,
+      "com_coordenadas_tse": 4890,
+      "com_endereco_cluster": 633,
+      "com_divergencias": 1
+    },
+    {
+      "ano_referencia": 2020,
+      "numero_turno": 1,
+      "uf": "RN",
+      "locais": 1572,
+      "com_coordenadas_tse": 1515,
+      "com_endereco_cluster": 343,
+      "com_divergencias": 1
+    },
+    {
+      "ano_referencia": 2020,
+      "numero_turno": 1,
+      "uf": "RO",
+      "locais": 639,
+      "com_coordenadas_tse": 630,
+      "com_endereco_cluster": 115,
+      "com_divergencias": 0
+    },
+    {
+      "ano_referencia": 2020,
+      "numero_turno": 1,
+      "uf": "RR",
+      "locais": 346,
+      "com_coordenadas_tse": 337,
+      "com_endereco_cluster": 30,
+      "com_divergencias": 0
+    },
+    {
+      "ano_referencia": 2020,
+      "numero_turno": 1,
+      "uf": "RS",
+      "locais": 8299,
+      "com_coordenadas_tse": 8266,
+      "com_endereco_cluster": 1955,
+      "com_divergencias": 5
+    },
+    {
+      "ano_referencia": 2020,
+      "numero_turno": 1,
+      "uf": "SC",
+      "locais": 3615,
+      "com_coordenadas_tse": 3534,
+      "com_endereco_cluster": 827,
+      "com_divergencias": 0
+    },
+    {
+      "ano_referencia": 2020,
+      "numero_turno": 1,
+      "uf": "SE",
+      "locais": 1189,
+      "com_coordenadas_tse": 800,
+      "com_endereco_cluster": 113,
+      "com_divergencias": 5
+    },
+    {
+      "ano_referencia": 2020,
+      "numero_turno": 1,
+      "uf": "SP",
+      "locais": 10868,
+      "com_coordenadas_tse": 10321,
+      "com_endereco_cluster": 4701,
+      "com_divergencias": 16
+    },
+    {
+      "ano_referencia": 2020,
+      "numero_turno": 1,
+      "uf": "TO",
+      "locais": 874,
+      "com_coordenadas_tse": 864,
+      "com_endereco_cluster": 89,
+      "com_divergencias": 2
+    },
+    {
+      "ano_referencia": 2020,
+      "numero_turno": 2,
+      "uf": "AC",
+      "locais": 267,
+      "com_coordenadas_tse": 266,
+      "com_endereco_cluster": 10,
+      "com_divergencias": 0
+    },
+    {
+      "ano_referencia": 2020,
+      "numero_turno": 2,
+      "uf": "AL",
+      "locais": 228,
+      "com_coordenadas_tse": 223,
+      "com_endereco_cluster": 14,
+      "com_divergencias": 4
+    },
+    {
+      "ano_referencia": 2020,
+      "numero_turno": 2,
+      "uf": "AM",
+      "locais": 461,
+      "com_coordenadas_tse": 461,
+      "com_endereco_cluster": 30,
+      "com_divergencias": 3
+    },
+    {
+      "ano_referencia": 2020,
+      "numero_turno": 2,
+      "uf": "AP",
+      "locais": 149,
+      "com_coordenadas_tse": 147,
+      "com_endereco_cluster": 1,
+      "com_divergencias": 0
+    },
+    {
+      "ano_referencia": 2020,
+      "numero_turno": 2,
+      "uf": "BA",
+      "locais": 293,
+      "com_coordenadas_tse": 291,
+      "com_endereco_cluster": 1,
+      "com_divergencias": 0
+    },
+    {
+      "ano_referencia": 2020,
+      "numero_turno": 2,
+      "uf": "CE",
+      "locais": 779,
+      "com_coordenadas_tse": 771,
+      "com_endereco_cluster": 180,
+      "com_divergencias": 6
+    },
+    {
+      "ano_referencia": 2020,
+      "numero_turno": 2,
+      "uf": "ES",
+      "locais": 418,
+      "com_coordenadas_tse": 201,
+      "com_endereco_cluster": 44,
+      "com_divergencias": 0
+    },
+    {
+      "ano_referencia": 2020,
+      "numero_turno": 2,
+      "uf": "GO",
+      "locais": 463,
+      "com_coordenadas_tse": 459,
+      "com_endereco_cluster": 18,
+      "com_divergencias": 0
+    },
+    {
+      "ano_referencia": 2020,
+      "numero_turno": 2,
+      "uf": "MA",
+      "locais": 267,
+      "com_coordenadas_tse": 249,
+      "com_endereco_cluster": 9,
+      "com_divergencias": 1
+    },
+    {
+      "ano_referencia": 2020,
+      "numero_turno": 2,
+      "uf": "MG",
+      "locais": 478,
+      "com_coordenadas_tse": 339,
+      "com_endereco_cluster": 167,
+      "com_divergencias": 1
+    },
+    {
+      "ano_referencia": 2020,
+      "numero_turno": 2,
+      "uf": "MT",
+      "locais": 156,
+      "com_coordenadas_tse": 150,
+      "com_endereco_cluster": 7,
+      "com_divergencias": 0
+    },
+    {
+      "ano_referencia": 2020,
+      "numero_turno": 2,
+      "uf": "PA",
+      "locais": 614,
+      "com_coordenadas_tse": 477,
+      "com_endereco_cluster": 31,
+      "com_divergencias": 4
+    },
+    {
+      "ano_referencia": 2020,
+      "numero_turno": 2,
+      "uf": "PB",
+      "locais": 210,
+      "com_coordenadas_tse": 209,
+      "com_endereco_cluster": 11,
+      "com_divergencias": 1
+    },
+    {
+      "ano_referencia": 2020,
+      "numero_turno": 2,
+      "uf": "PE",
+      "locais": 471,
+      "com_coordenadas_tse": 468,
+      "com_endereco_cluster": 84,
+      "com_divergencias": 2
+    },
+    {
+      "ano_referencia": 2020,
+      "numero_turno": 2,
+      "uf": "PI",
+      "locais": 324,
+      "com_coordenadas_tse": 315,
+      "com_endereco_cluster": 10,
+      "com_divergencias": 2
+    },
+    {
+      "ano_referencia": 2020,
+      "numero_turno": 2,
+      "uf": "PR",
+      "locais": 120,
+      "com_coordenadas_tse": 120,
+      "com_endereco_cluster": 26,
+      "com_divergencias": 0
+    },
+    {
+      "ano_referencia": 2020,
+      "numero_turno": 2,
+      "uf": "RJ",
+      "locais": 2022,
+      "com_coordenadas_tse": 2021,
+      "com_endereco_cluster": 266,
+      "com_divergencias": 0
+    },
+    {
+      "ano_referencia": 2020,
+      "numero_turno": 2,
+      "uf": "RO",
+      "locais": 134,
+      "com_coordenadas_tse": 132,
+      "com_endereco_cluster": 18,
+      "com_divergencias": 0
+    },
+    {
+      "ano_referencia": 2020,
+      "numero_turno": 2,
+      "uf": "RR",
+      "locais": 149,
+      "com_coordenadas_tse": 149,
+      "com_endereco_cluster": 27,
+      "com_divergencias": 0
+    },
+    {
+      "ano_referencia": 2020,
+      "numero_turno": 2,
+      "uf": "RS",
+      "locais": 834,
+      "com_coordenadas_tse": 828,
+      "com_endereco_cluster": 337,
+      "com_divergencias": 2
+    },
+    {
+      "ano_referencia": 2020,
+      "numero_turno": 2,
+      "uf": "SC",
+      "locais": 158,
+      "com_coordenadas_tse": 158,
+      "com_endereco_cluster": 68,
+      "com_divergencias": 0
+    },
+    {
+      "ano_referencia": 2020,
+      "numero_turno": 2,
+      "uf": "SE",
+      "locais": 174,
+      "com_coordenadas_tse": 141,
+      "com_endereco_cluster": 26,
+      "com_divergencias": 4
+    },
+    {
+      "ano_referencia": 2020,
+      "numero_turno": 2,
+      "uf": "SP",
+      "locais": 3822,
+      "com_coordenadas_tse": 3741,
+      "com_endereco_cluster": 1899,
+      "com_divergencias": 6
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 1,
+      "uf": "AC",
+      "locais": 683,
+      "com_coordenadas_tse": 681,
+      "com_endereco_cluster": 63,
+      "com_divergencias": 4
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 1,
+      "uf": "AL",
+      "locais": 1007,
+      "com_coordenadas_tse": 1004,
+      "com_endereco_cluster": 65,
+      "com_divergencias": 6
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 1,
+      "uf": "AM",
+      "locais": 1493,
+      "com_coordenadas_tse": 1491,
+      "com_endereco_cluster": 71,
+      "com_divergencias": 21
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 1,
+      "uf": "AP",
+      "locais": 350,
+      "com_coordenadas_tse": 292,
+      "com_endereco_cluster": 43,
+      "com_divergencias": 4
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 1,
+      "uf": "BA",
+      "locais": 9149,
+      "com_coordenadas_tse": 6407,
+      "com_endereco_cluster": 7,
+      "com_divergencias": 13
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 1,
+      "uf": "CE",
+      "locais": 6676,
+      "com_coordenadas_tse": 6616,
+      "com_endereco_cluster": 547,
+      "com_divergencias": 33
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 1,
+      "uf": "DF",
+      "locais": 617,
+      "com_coordenadas_tse": 611,
+      "com_endereco_cluster": 0,
+      "com_divergencias": 0
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 1,
+      "uf": "ES",
+      "locais": 1706,
+      "com_coordenadas_tse": 1173,
+      "com_endereco_cluster": 243,
+      "com_divergencias": 15
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 1,
+      "uf": "GO",
+      "locais": 2426,
+      "com_coordenadas_tse": 2414,
+      "com_endereco_cluster": 188,
+      "com_divergencias": 4
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 1,
+      "uf": "MA",
+      "locais": 5629,
+      "com_coordenadas_tse": 5535,
+      "com_endereco_cluster": 138,
+      "com_divergencias": 27
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 1,
+      "uf": "MG",
+      "locais": 10015,
+      "com_coordenadas_tse": 8790,
+      "com_endereco_cluster": 3272,
+      "com_divergencias": 60
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 1,
+      "uf": "MS",
+      "locais": 1019,
+      "com_coordenadas_tse": 1009,
+      "com_endereco_cluster": 361,
+      "com_divergencias": 3
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 1,
+      "uf": "MT",
+      "locais": 1449,
+      "com_coordenadas_tse": 1413,
+      "com_endereco_cluster": 196,
+      "com_divergencias": 10
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 1,
+      "uf": "PA",
+      "locais": 5267,
+      "com_coordenadas_tse": 4868,
+      "com_endereco_cluster": 198,
+      "com_divergencias": 60
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 1,
+      "uf": "PB",
+      "locais": 1743,
+      "com_coordenadas_tse": 1697,
+      "com_endereco_cluster": 195,
+      "com_divergencias": 7
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 1,
+      "uf": "PE",
+      "locais": 3273,
+      "com_coordenadas_tse": 3142,
+      "com_endereco_cluster": 383,
+      "com_divergencias": 11
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 1,
+      "uf": "PI",
+      "locais": 3374,
+      "com_coordenadas_tse": 3341,
+      "com_endereco_cluster": 119,
+      "com_divergencias": 14
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 1,
+      "uf": "PR",
+      "locais": 4642,
+      "com_coordenadas_tse": 4516,
+      "com_endereco_cluster": 1246,
+      "com_divergencias": 41
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 1,
+      "uf": "RJ",
+      "locais": 4820,
+      "com_coordenadas_tse": 4820,
+      "com_endereco_cluster": 677,
+      "com_divergencias": 18
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 1,
+      "uf": "RN",
+      "locais": 1505,
+      "com_coordenadas_tse": 1474,
+      "com_endereco_cluster": 347,
+      "com_divergencias": 4
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 1,
+      "uf": "RO",
+      "locais": 630,
+      "com_coordenadas_tse": 616,
+      "com_endereco_cluster": 107,
+      "com_divergencias": 2
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 1,
+      "uf": "RR",
+      "locais": 321,
+      "com_coordenadas_tse": 312,
+      "com_endereco_cluster": 27,
+      "com_divergencias": 7
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 1,
+      "uf": "RS",
+      "locais": 8012,
+      "com_coordenadas_tse": 7962,
+      "com_endereco_cluster": 2000,
+      "com_divergencias": 21
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 1,
+      "uf": "SC",
+      "locais": 3496,
+      "com_coordenadas_tse": 3381,
+      "com_endereco_cluster": 850,
+      "com_divergencias": 18
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 1,
+      "uf": "SE",
+      "locais": 1187,
+      "com_coordenadas_tse": 815,
+      "com_endereco_cluster": 131,
+      "com_divergencias": 7
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 1,
+      "uf": "SP",
+      "locais": 10842,
+      "com_coordenadas_tse": 10399,
+      "com_endereco_cluster": 4761,
+      "com_divergencias": 47
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 1,
+      "uf": "TO",
+      "locais": 847,
+      "com_coordenadas_tse": 846,
+      "com_endereco_cluster": 81,
+      "com_divergencias": 0
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 2,
+      "uf": "AC",
+      "locais": 689,
+      "com_coordenadas_tse": 686,
+      "com_endereco_cluster": 64,
+      "com_divergencias": 4
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 2,
+      "uf": "AL",
+      "locais": 1008,
+      "com_coordenadas_tse": 1004,
+      "com_endereco_cluster": 63,
+      "com_divergencias": 6
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 2,
+      "uf": "AM",
+      "locais": 1496,
+      "com_coordenadas_tse": 1496,
+      "com_endereco_cluster": 72,
+      "com_divergencias": 11
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 2,
+      "uf": "AP",
+      "locais": 351,
+      "com_coordenadas_tse": 294,
+      "com_endereco_cluster": 44,
+      "com_divergencias": 2
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 2,
+      "uf": "BA",
+      "locais": 9150,
+      "com_coordenadas_tse": 6404,
+      "com_endereco_cluster": 7,
+      "com_divergencias": 13
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 2,
+      "uf": "CE",
+      "locais": 6682,
+      "com_coordenadas_tse": 6623,
+      "com_endereco_cluster": 547,
+      "com_divergencias": 33
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 2,
+      "uf": "DF",
+      "locais": 617,
+      "com_coordenadas_tse": 611,
+      "com_endereco_cluster": 0,
+      "com_divergencias": 0
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 2,
+      "uf": "ES",
+      "locais": 1707,
+      "com_coordenadas_tse": 1173,
+      "com_endereco_cluster": 243,
+      "com_divergencias": 15
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 2,
+      "uf": "GO",
+      "locais": 2427,
+      "com_coordenadas_tse": 2415,
+      "com_endereco_cluster": 189,
+      "com_divergencias": 6
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 2,
+      "uf": "MA",
+      "locais": 5646,
+      "com_coordenadas_tse": 5552,
+      "com_endereco_cluster": 137,
+      "com_divergencias": 24
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 2,
+      "uf": "MG",
+      "locais": 10013,
+      "com_coordenadas_tse": 8787,
+      "com_endereco_cluster": 3271,
+      "com_divergencias": 62
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 2,
+      "uf": "MS",
+      "locais": 1020,
+      "com_coordenadas_tse": 1010,
+      "com_endereco_cluster": 362,
+      "com_divergencias": 3
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 2,
+      "uf": "MT",
+      "locais": 1449,
+      "com_coordenadas_tse": 1414,
+      "com_endereco_cluster": 195,
+      "com_divergencias": 10
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 2,
+      "uf": "PA",
+      "locais": 5270,
+      "com_coordenadas_tse": 4859,
+      "com_endereco_cluster": 197,
+      "com_divergencias": 59
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 2,
+      "uf": "PB",
+      "locais": 1753,
+      "com_coordenadas_tse": 1704,
+      "com_endereco_cluster": 196,
+      "com_divergencias": 6
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 2,
+      "uf": "PE",
+      "locais": 3273,
+      "com_coordenadas_tse": 3154,
+      "com_endereco_cluster": 382,
+      "com_divergencias": 11
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 2,
+      "uf": "PI",
+      "locais": 3372,
+      "com_coordenadas_tse": 3337,
+      "com_endereco_cluster": 119,
+      "com_divergencias": 14
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 2,
+      "uf": "PR",
+      "locais": 4649,
+      "com_coordenadas_tse": 4528,
+      "com_endereco_cluster": 1246,
+      "com_divergencias": 39
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 2,
+      "uf": "RJ",
+      "locais": 4823,
+      "com_coordenadas_tse": 4823,
+      "com_endereco_cluster": 678,
+      "com_divergencias": 18
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 2,
+      "uf": "RN",
+      "locais": 1506,
+      "com_coordenadas_tse": 1473,
+      "com_endereco_cluster": 347,
+      "com_divergencias": 5
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 2,
+      "uf": "RO",
+      "locais": 632,
+      "com_coordenadas_tse": 617,
+      "com_endereco_cluster": 106,
+      "com_divergencias": 2
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 2,
+      "uf": "RR",
+      "locais": 334,
+      "com_coordenadas_tse": 325,
+      "com_endereco_cluster": 31,
+      "com_divergencias": 3
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 2,
+      "uf": "RS",
+      "locais": 8012,
+      "com_coordenadas_tse": 7959,
+      "com_endereco_cluster": 2001,
+      "com_divergencias": 21
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 2,
+      "uf": "SC",
+      "locais": 3495,
+      "com_coordenadas_tse": 3380,
+      "com_endereco_cluster": 851,
+      "com_divergencias": 19
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 2,
+      "uf": "SE",
+      "locais": 1188,
+      "com_coordenadas_tse": 815,
+      "com_endereco_cluster": 132,
+      "com_divergencias": 7
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 2,
+      "uf": "SP",
+      "locais": 10843,
+      "com_coordenadas_tse": 10400,
+      "com_endereco_cluster": 4758,
+      "com_divergencias": 50
+    },
+    {
+      "ano_referencia": 2022,
+      "numero_turno": 2,
+      "uf": "TO",
+      "locais": 849,
+      "com_coordenadas_tse": 847,
+      "com_endereco_cluster": 83,
+      "com_divergencias": 0
+    }
+  ],
+  "cobertura_contra_chaves_brutas": {
+    "ausentes": 0,
+    "extras": 0,
+    "chaves_brutas_distintas": 481339
+  },
+  "registros_validados_no_core": 582138,
+  "contagens_datafusion": [
+    100799,
+    481339
+  ],
+  "datas_geracao_fonte": [
+    {
+      "ano_referencia": 2018,
+      "data_geracao": "2024-05-13 19:00:50"
+    },
+    {
+      "ano_referencia": 2020,
+      "data_geracao": "2024-09-21 02:00:29"
+    },
+    {
+      "ano_referencia": 2022,
+      "data_geracao": "2024-09-30 02:00:32"
+    }
+  ],
+  "arquivos": [
+    {
+      "path": "parquet_dumps/opendata/opendata_voting_location/tse.parquet",
+      "bytes": 6176810,
+      "sha256": "5049a7b945b860843d9a52d446770e1a8583a0cac84379ac3ab36b8305ff186c"
+    },
+    {
+      "path": "parquet_dumps/opendata/opendata_voting_location_history/tse.parquet",
+      "bytes": 28815012,
+      "sha256": "1fccedacb2d1940c59e5e3e235402a1fb1f41c8d52ccfae1f053a505a92a1c7a"
+    }
+  ],
+  "bloom_filters": [
+    {
+      "file": "/home/victor/Desktop/projects/avoar/avoar/parquet_dumps/opendata/opendata_voting_location/tse.parquet",
+      "rows": 100799,
+      "row_groups": 1,
+      "columns": [
+        "id",
+        "data_eleicao",
+        "numero_turno",
+        "uf",
+        "codigo_municipio_tse",
+        "zona_eleitoral",
+        "numero",
+        "ano_referencia",
+        "nome",
+        "endereco",
+        "bairro",
+        "cep",
+        "latitude_tse",
+        "longitude_tse",
+        "codigo_situacao",
+        "campos_divergentes.list.element",
+        "data_geracao",
+        "codigo_municipio_ibge",
+        "endereco_cluster_id"
+      ],
+      "unsupported_columns": [],
+      "bytes_before": 5164703,
+      "status": "rewritten",
+      "bytes_after": 6176810,
+      "seconds": 0.125,
+      "bloom_filter_chunks": 19,
+      "ndv": 100799,
+      "false_positive_probability": 0.05,
+      "audit": "exact logical values in order, schema, metadata, row groups, Bloom coverage"
+    },
+    {
+      "file": "/home/victor/Desktop/projects/avoar/avoar/parquet_dumps/opendata/opendata_voting_location_history/tse.parquet",
+      "rows": 481339,
+      "row_groups": 4,
+      "columns": [
+        "id",
+        "data_eleicao",
+        "numero_turno",
+        "uf",
+        "codigo_municipio_tse",
+        "zona_eleitoral",
+        "numero",
+        "ano_referencia",
+        "nome",
+        "endereco",
+        "bairro",
+        "cep",
+        "latitude_tse",
+        "longitude_tse",
+        "codigo_situacao",
+        "campos_divergentes.list.element",
+        "data_geracao",
+        "codigo_municipio_ibge",
+        "endereco_cluster_id"
+      ],
+      "unsupported_columns": [],
+      "bytes_before": 22576523,
+      "status": "rewritten",
+      "bytes_after": 28815012,
+      "seconds": 0.493,
+      "bloom_filter_chunks": 76,
+      "ndv": 122880,
+      "false_positive_probability": 0.05,
+      "audit": "exact logical values in order, schema, metadata, row groups, Bloom coverage"
+    }
+  ],
+  "limitacoes": [
+    "Não há garantia de identidade física permanente entre anos.",
+    "Coordenadas históricas refletem os arquivos do TSE consultados, que foram regenerados em 2024.",
+    "Não foi auditada a cobertura dos votos/itens de BU nesta etapa."
+  ]
+}

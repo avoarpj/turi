@@ -1,0 +1,5 @@
+Este dataset é um "dump" dos dados de histórico de cada deputado federal na Câmara dos Deputados, reunidos em um único arquivo json.
+A API da Câmara (https://dadosabertos.camara.leg.br) já disponibiliza esses mesmos dados em API Rest, mas não um dump direto desses dados, o que dificulta a ingestão em massa.
+O que esse dataset faz é basicamente facilitar isso ao fazer a parte suja de obter o histórico um por um na API e reunir em um arquivo para download, sem fazer nenhuma alteração nos dados originais.
+
+Nota: Este dataset em específico irá baixar TODOS os dados (mais de 7 mil requests). É recomendado utilizar o tarball no github como base e depois rodar a versão normal, que atualiza incrementalmente os deputados da legislatura atual.

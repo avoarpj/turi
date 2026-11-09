@@ -1,0 +1,1 @@
+Este dataset contém o centróide dos municípios brasileiros, extraídos diretamente da malha digital oferecida pelo IBGE.

@@ -1,0 +1,34 @@
+{{ define "account_activated_subject" }}
+Boas vindas ao Avoar!
+{{ end }}
+
+{{ define "account_activated" }}
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
+    <body style="padding: 24px; background-color: #E8E8E8; min-height: 100%; font-family: Helvetica, Arial, sans-serif">
+        <img 
+            src="cid:avoarlogo"
+            width="120"
+            height="84"
+            style="display: block; object-fit: contain; margin: 2rem auto 2rem auto;"
+        />
+        <div>
+        <h2 style="margin: auto; width: 100%; max-width: 437px; color: #6A6A6A; font-size: 0.9em; font-weight: normal;">Obrigado por fazer parte do Avoar!</h2>
+        <p style="margin: 1rem auto; width: 100%; max-width: 437px; color: #6A6A6A; font-size: 0.8em; font-weight: normal;">
+            A partir de agora, você pode desfrutar dos principais recursos do Avoar:
+            <ul style="margin: 1rem auto; width: 100%; max-width: 437px; color: #6A6A6A; font-size: 0.8em; font-weight: normal;">
+                <li>Consulta de dados utilizando SQL</li>
+                <li>Notificações via email:</li>
+                <ul>
+                    <li>Gastos diários de parlamentares</li>
+                    <li>Mudança de status em PLs, PLPs e PECs.</li>
+                </ul>
+            </ul>
+        </p>
+        </div>
+    </body>
+</html>
+{{ end }}

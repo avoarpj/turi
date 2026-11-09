@@ -1,0 +1,150 @@
+{
+  "date": "2026-10-22",
+  "source": "https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_municipais/municipio_2025/Brasil/BR_Municipios_2025.zip",
+  "source_crs": "EPSG:4674",
+  "output_crs": "EPSG:4326",
+  "state_simplification_meters": 1000,
+  "national_bytes": 1082570,
+  "total_bytes": 630177341,
+  "state_features": 27,
+  "municipal_layer_features": 5573,
+  "exact_municipal_geometry_and_metadata_match": true,
+  "valid_national_coverage": true,
+  "files": [
+    {
+      "uf": "AC",
+      "features": 22,
+      "bytes": 4885553
+    },
+    {
+      "uf": "AL",
+      "features": 102,
+      "bytes": 6331675
+    },
+    {
+      "uf": "AM",
+      "features": 62,
+      "bytes": 76019462
+    },
+    {
+      "uf": "AP",
+      "features": 16,
+      "bytes": 2813642
+    },
+    {
+      "uf": "BA",
+      "features": 417,
+      "bytes": 34935704
+    },
+    {
+      "uf": "CE",
+      "features": 184,
+      "bytes": 9390009
+    },
+    {
+      "uf": "DF",
+      "features": 1,
+      "bytes": 302537
+    },
+    {
+      "uf": "ES",
+      "features": 78,
+      "bytes": 8609217
+    },
+    {
+      "uf": "GO",
+      "features": 246,
+      "bytes": 44643888
+    },
+    {
+      "uf": "MA",
+      "features": 217,
+      "bytes": 27718050
+    },
+    {
+      "uf": "MG",
+      "features": 853,
+      "bytes": 83959845
+    },
+    {
+      "uf": "MS",
+      "features": 79,
+      "bytes": 22867661
+    },
+    {
+      "uf": "MT",
+      "features": 142,
+      "bytes": 24206212
+    },
+    {
+      "uf": "PA",
+      "features": 144,
+      "bytes": 6720187
+    },
+    {
+      "uf": "PB",
+      "features": 223,
+      "bytes": 7930643
+    },
+    {
+      "uf": "PE",
+      "features": 185,
+      "bytes": 5282641
+    },
+    {
+      "uf": "PI",
+      "features": 224,
+      "bytes": 5086332
+    },
+    {
+      "uf": "PR",
+      "features": 399,
+      "bytes": 30703068
+    },
+    {
+      "uf": "RJ",
+      "features": 92,
+      "bytes": 12889745
+    },
+    {
+      "uf": "RN",
+      "features": 167,
+      "bytes": 1084709
+    },
+    {
+      "uf": "RO",
+      "features": 52,
+      "bytes": 2251936
+    },
+    {
+      "uf": "RR",
+      "features": 15,
+      "bytes": 2920954
+    },
+    {
+      "uf": "RS",
+      "features": 499,
+      "bytes": 25643767
+    },
+    {
+      "uf": "SC",
+      "features": 295,
+      "bytes": 72939258
+    },
+    {
+      "uf": "SE",
+      "features": 75,
+      "bytes": 3963396
+    },
+    {
+      "uf": "SP",
+      "features": 645,
+      "bytes": 39758077
+    },
+    {
+      "uf": "TO",
+      "features": 139,
+      "bytes": 65236603
+    }
+  ]
+}

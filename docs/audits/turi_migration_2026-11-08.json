@@ -1,0 +1,49 @@
+{
+  "date": "2026-11-08",
+  "code": {
+    "apps/turi/src/scripts": {
+      "source_files": 54,
+      "different": []
+    },
+    "apps/scripts/brazilgeo": {
+      "source_files": 2,
+      "different": []
+    },
+    "avoar/infra/venato": {
+      "source_files": 9,
+      "different": []
+    }
+  },
+  "data": {
+    "assets": {
+      "files": 639162,
+      "bytes": 18104881218,
+      "size_and_mtime_equal": true,
+      "sha256_compared_files": 4586
+    },
+    "parquet_dumps": {
+      "files": 41,
+      "bytes": 22469310186,
+      "size_and_mtime_equal": true
+    }
+  },
+  "sds_cache": {
+    "temp-downloads": {
+      "files": 19947,
+      "bytes": 581671189,
+      "size_and_mtime_equal": true
+    },
+    "public": {
+      "files": 5,
+      "bytes": 81185448,
+      "size_and_mtime_equal": true
+    }
+  },
+  "validation": {
+    "turi_and_sds_tests": 104,
+    "brazilgeo_tests": 3,
+    "core_and_venato_tests": 2,
+    "etl_executed": false,
+    "indexes_rebuilt": false
+  }
+}

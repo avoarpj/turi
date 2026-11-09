@@ -1,0 +1,46 @@
+{
+  "created_at": "2026-10-28T02:41:35.042052+00:00",
+  "status": "passed",
+  "files": 2,
+  "output_rows": 23535235,
+  "output_votes": 180121777,
+  "groups_checked": 31,
+  "output_bytes": 361609539,
+  "raw_partitions": [
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/ec8c8414e6db493b.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "BA",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 4367862,
+          "votes": 44340675
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/27b3f3e00d104dd6.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "SP",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 19167373,
+          "votes": 135781102
+        }
+      ]
+    }
+  ],
+  "checks": [
+    "rows and votes per input file before sorting",
+    "rows and votes after sorting before publication",
+    "raw vs final counts and vote sums by locality, office and vote type",
+    "global sort order, including batch boundaries"
+  ],
+  "peak_rss_mib": 3580.0,
+  "peak_swap_mib": 0.0,
+  "seconds": 25.56
+}

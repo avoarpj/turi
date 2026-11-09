@@ -1,0 +1,16 @@
+{
+    "workbench.editorAssociations": {
+        "*.copilotmd": "vscode.markdown.preview.editor",
+        "file:/**/*.parquet": "jupyter-data-wrangler",
+        "*.parquet": "duckdb.dataFileViewer",
+        "*.csv": "duckdb.dataFileViewer",
+        "*.tsv": "duckdb.dataFileViewer",
+        "*.xlsx": "duckdb.dataFileViewer"
+    },
+    "files.watcherExclude": {
+        "**/assets/candidatures/**": true
+    },
+    "search.exclude": {
+        "**/assets/candidatures": true
+    }
+}

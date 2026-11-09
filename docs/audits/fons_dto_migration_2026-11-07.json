@@ -1,0 +1,60 @@
+{
+  "date": "2026-11-07",
+  "scope": "Fons-owned DTOs, application and API infrastructure; empresa_id correction",
+  "openapi": {
+    "before_sha256": "8aa1d29ffe549e0b714a7c84953df51db37891048ec11ce5f2ee0f8609486304",
+    "after_sha256": "f6c2a4f273d1f0b36aa6d5c2bb0d57c8a6ca485a1205a0b23a40311bb0023233",
+    "equivalent_after_authorized_rename": true,
+    "normalization": [
+      "business_id -> empresa_id in property, path and parameter names",
+      "BusinessId -> EmpresaId in derived operationIds",
+      "required arrays compared independently of ordering"
+    ],
+    "paths": 32,
+    "schemas": 86
+  },
+  "tests": {
+    "api_infra_baseline": 85,
+    "api_infra_after": 94,
+    "turi": 93,
+    "rostra_test_files": 18,
+    "rostra_check_errors": 0,
+    "rostra_check_warnings": 2,
+    "rostra_build": "passed",
+    "uv_lock_check": "passed, offline"
+  },
+  "real_app_smoke": {
+    "organs_status": 200,
+    "organs_count": 3,
+    "establishment_status": 200,
+    "empresa_id_is_string": true,
+    "business_id_absent": true,
+    "company_link_matches": true,
+    "redis_enabled": false
+  },
+  "local_projection_schema_check": {
+    "datasets": [
+      "opendata_public_people",
+      "opendata_mandate",
+      "opendata_legislature",
+      "opendata_mandate_office",
+      "opendata_mandate_events",
+      "opendata_mandate_exercises",
+      "opendata_mandate_exercises_political_party",
+      "opendata_candidature",
+      "opendata_municipality",
+      "opendata_amendment_resource"
+    ],
+    "missing_columns": [],
+    "extra_columns": []
+  },
+  "packaging": {
+    "wheel": "avoarpj-0.1.0-py3-none-any.whl",
+    "fons_python_modules": 88,
+    "source_content_matches": true,
+    "obsolete_application_and_infra_modules": []
+  },
+  "data_regenerated": false,
+  "venato_reindexed": false,
+  "bigquery_load_executed": false
+}

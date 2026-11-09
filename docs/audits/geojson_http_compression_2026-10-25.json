@@ -1,0 +1,122 @@
+{
+  "date": "2026-10-25",
+  "settings": {
+    "backend": "brotli",
+    "brotli_quality": 4,
+    "brotli_mode": "text",
+    "brotli_gzip_fallback": true,
+    "gzip_compress_level": 6,
+    "minimum_size": 500
+  },
+  "asgi": [
+    {
+      "uf": "DF",
+      "accept_encoding": "identity",
+      "content_encoding": null,
+      "vary": "Origin, Accept-Encoding",
+      "content_type": "application/geo+json",
+      "cors": "http://localhost:5173",
+      "original_bytes": 302537,
+      "transferred_bytes": 302537,
+      "seconds": 0.059,
+      "reduction_percent": 0.0,
+      "sha256": "0c1d6c12436aef30f27f72831f078a0ae3f9b0b0d5b8b91eb35eaa376d3494da"
+    },
+    {
+      "uf": "DF",
+      "accept_encoding": "br",
+      "content_encoding": "br",
+      "vary": "Origin, Accept-Encoding",
+      "content_type": "application/geo+json",
+      "cors": "http://localhost:5173",
+      "original_bytes": 302537,
+      "transferred_bytes": 81125,
+      "seconds": 0.056,
+      "reduction_percent": 73.19,
+      "sha256": "0c1d6c12436aef30f27f72831f078a0ae3f9b0b0d5b8b91eb35eaa376d3494da"
+    },
+    {
+      "uf": "DF",
+      "accept_encoding": "gzip",
+      "content_encoding": "gzip",
+      "vary": "Origin, Accept-Encoding",
+      "content_type": "application/geo+json",
+      "cors": "http://localhost:5173",
+      "original_bytes": 302537,
+      "transferred_bytes": 78733,
+      "seconds": 0.06,
+      "reduction_percent": 73.98,
+      "sha256": "0c1d6c12436aef30f27f72831f078a0ae3f9b0b0d5b8b91eb35eaa376d3494da"
+    },
+    {
+      "uf": "SP",
+      "accept_encoding": "identity",
+      "content_encoding": null,
+      "vary": "Origin, Accept-Encoding",
+      "content_type": "application/geo+json",
+      "cors": "http://localhost:5173",
+      "original_bytes": 39758077,
+      "transferred_bytes": 39758077,
+      "seconds": 0.464,
+      "reduction_percent": 0.0,
+      "sha256": "1ca7a9cd93a9b53774c7c9434f0a8532cfeadbd8f5a6ade08b1e13abd0c88bbe"
+    },
+    {
+      "uf": "SP",
+      "accept_encoding": "br",
+      "content_encoding": "br",
+      "vary": "Origin, Accept-Encoding",
+      "content_type": "application/geo+json",
+      "cors": "http://localhost:5173",
+      "original_bytes": 39758077,
+      "transferred_bytes": 11588493,
+      "seconds": 1.185,
+      "reduction_percent": 70.85,
+      "sha256": "1ca7a9cd93a9b53774c7c9434f0a8532cfeadbd8f5a6ade08b1e13abd0c88bbe"
+    },
+    {
+      "uf": "SP",
+      "accept_encoding": "gzip",
+      "content_encoding": "gzip",
+      "vary": "Origin, Accept-Encoding",
+      "content_type": "application/geo+json",
+      "cors": "http://localhost:5173",
+      "original_bytes": 39758077,
+      "transferred_bytes": 10614347,
+      "seconds": 1.347,
+      "reduction_percent": 73.3,
+      "sha256": "1ca7a9cd93a9b53774c7c9434f0a8532cfeadbd8f5a6ade08b1e13abd0c88bbe"
+    }
+  ],
+  "browser_maplibre": [
+    {
+      "uf": "DF",
+      "request_accept_encoding": "gzip, deflate, br, zstd",
+      "response_content_encoding": "br",
+      "vary": "Origin, Accept-Encoding",
+      "original_bytes": 302537,
+      "response_body_bytes": 81125,
+      "response_headers_bytes": 489,
+      "source_ready_seconds": 0.238
+    },
+    {
+      "uf": "SP",
+      "request_accept_encoding": "gzip, deflate, br, zstd",
+      "response_content_encoding": "br",
+      "vary": "Origin, Accept-Encoding",
+      "original_bytes": 39758077,
+      "response_body_bytes": 11588845,
+      "response_headers_bytes": 496,
+      "source_ready_seconds": 1.734
+    }
+  ],
+  "notes": [
+    "ASGI measurements use the real Fons app and raw response bytes, without HTTP content decoding.",
+    "Decoded DF/SP responses were compared byte-for-byte with existing GeoJSONs; sha256 refers to decoded content.",
+    "Chromium loaded real DF/SP files through createCandidatureVoteMap and the unmodified MapLibre worker, using native browser compression negotiation.",
+    "Browser response body sizes can include HTTP chunk framing; ASGI measurements count only compressed payload bytes.",
+    "Source-ready timings include local map initialization, download and worker processing, without bandwidth throttling; these are not controlled before/after benchmarks.",
+    "Compression was already enabled for static assets; the change restores Vary: Accept-Encoding after CORS and makes gzip fallback explicit.",
+    "No geometries, datasets or frontend request headers were modified."
+  ]
+}

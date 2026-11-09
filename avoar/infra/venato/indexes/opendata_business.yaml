@@ -1,0 +1,46 @@
+index_id: opendata_business
+
+columns:
+  - name: id
+    stored: true
+    fast: false
+    type: u64
+
+  - name: base_cnpj
+    stored: false
+    fast: false
+    type: string
+
+  - name: razao_social
+    stored: false
+    fast: false
+    type: string
+
+  - name: natureza_juridica
+    stored: false
+    fast: false
+    type: string
+
+  - name: qualificacao_responsavel
+    stored: false
+    fast: false
+    type: string
+
+  - name: capital_social
+    stored: false
+    fast: false
+    type: string
+
+  - name: porte
+    stored: false
+    fast: false
+    type: string
+
+  - name: ente_federativo
+    stored: false
+    fast: false
+    type: string
+
+sources:
+  - path: "parquet_dumps/opendata/opendata_business/*.parquet"
+    format: "parquet"

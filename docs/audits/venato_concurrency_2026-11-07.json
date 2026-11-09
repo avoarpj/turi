@@ -1,0 +1,801 @@
+{
+  "audit_date": "2026-11-07",
+  "timezone": "America/Sao_Paulo",
+  "git_head": "39326e3435471e2388f0ba2848eb030ba6a09749",
+  "workspace": "pre-existing uncommitted changes; hashes identify analyzed source",
+  "source_sha256": {
+    "avoar/infra/venato/core.py": "05c4752c4a1e9b314ae1577c83fc671e1bceb1ec3c6a2cb66d30bfa54c498655",
+    "avoar/infra/venato/schema.py": "7c3de1cd752a14bd789481a9135addeddd29d541ebc6f4b5a9e6665048ad79cc",
+    "avoar/infra/opendata/public_people/query_service.py": "71b05ec083852d9c7540077fceb53dd5cfd542fabd269c1d1a2d341179c638b4",
+    "avoar/infra/opendata/business/query_service.py": "0845d04ae5eb2372b8ea64153d4c2b3f36b42ea12c9b2609f62207a9e185b6ea",
+    "avoar/infra/datafusion/client.py": "d903043e07e9fd6e5758c75ecaec93173ce6341045a37474836f0f14c1ad4b85",
+    "avoar/infra/cache/response_cache.py": "541c7ca99074d5ff22852f500c4d4f29c2a678aa910d0b75ba76a6c6236da3a9",
+    "apps/fons/main.py": "c093d942648a90c57820390ed36fdefe51f6224c0aa76a873bfa39112c4849c9",
+    "avoar/infra/Core.py": "4b783b7fe16d7ea14262de4297d92c6333f4cbd083c420ecb1dc2f167600a558"
+  },
+  "methodology": {
+    "rounds": 3,
+    "api_search_route": "/opendata/public_people/search?input=*&limit=20&pull_by=relevance",
+    "probe_route": "/opendata/organ/",
+    "baseline_probes_per_process": 25,
+    "probe_sleep_ms": 20,
+    "heartbeat_ms": 10,
+    "heartbeat_reason": "existing Python 3.14/AnyIO test workaround",
+    "max_concurrency": 8,
+    "no_data_mutation": true,
+    "full_business_hit_collection_executed": false,
+    "process_isolation_experiment_executed": false,
+    "rss_definition": "Linux process lifetime high-water mark, including imports, startup, mappings and retained allocations; not incremental query memory",
+    "execution_order": [
+      "api-1",
+      "api-4",
+      "api-gated",
+      "api-8",
+      "census",
+      "stages-all",
+      "stages-silva",
+      "api-silva"
+    ]
+  },
+  "summary": {
+    "api-1": {
+      "search_median_ms": 681.6116330010118,
+      "throughput_median_rps": 1.4342399978456115,
+      "max_organ_ms": 77.45846000034362,
+      "max_loop_lag_ms": 67.14757200097665,
+      "max_rss_mib": 564.328125
+    },
+    "api-4": {
+      "search_median_ms": 3912.6377214925014,
+      "throughput_median_rps": 0.9924322672907252,
+      "max_organ_ms": 89.9315450078575,
+      "max_loop_lag_ms": 291.9657550082775,
+      "max_rss_mib": 1041.9375
+    },
+    "api-8": {
+      "search_median_ms": 8675.078702995961,
+      "throughput_median_rps": 0.9079874022859944,
+      "max_organ_ms": 515.9920690057334,
+      "max_loop_lag_ms": 493.6505079967901,
+      "max_rss_mib": 1715.03125
+    },
+    "api-gated": {
+      "search_median_ms": 1619.6509950095788,
+      "throughput_median_rps": 1.491672810554992,
+      "max_organ_ms": 75.02982000005431,
+      "max_loop_lag_ms": 64.82726299145725,
+      "max_rss_mib": 616.046875
+    },
+    "api-silva": {
+      "search_median_ms": 156.5209934997256,
+      "throughput_median_rps": 23.856830056725293,
+      "max_organ_ms": 16.624702999251895,
+      "max_loop_lag_ms": 5.363896008930169,
+      "max_rss_mib": 950.21484375
+    }
+  },
+  "runs": {
+    "census": {
+      "indexes": [
+        {
+          "index": "opendata_address",
+          "documents": 111102875,
+          "segments": 8,
+          "allocated_mib": 3862.3359375,
+          "queries": [
+            {
+              "query": "*",
+              "matches": 111102875,
+              "top20_and_count_ms": 302.3176679998869
+            }
+          ]
+        },
+        {
+          "index": "opendata_business",
+          "documents": 69523294,
+          "segments": 16,
+          "allocated_mib": 3553.28125,
+          "queries": [
+            {
+              "query": "Petrobras",
+              "matches": 331,
+              "top20_and_count_ms": 61.7507130082231
+            },
+            {
+              "query": "comercio",
+              "matches": 2367259,
+              "top20_and_count_ms": 101.5957640047418
+            },
+            {
+              "query": "*",
+              "matches": 69523294,
+              "top20_and_count_ms": 201.06331899296492
+            }
+          ]
+        },
+        {
+          "index": "opendata_business_establishment",
+          "documents": 72605022,
+          "segments": 14,
+          "allocated_mib": 8405.85546875,
+          "queries": [
+            {
+              "query": "Petrobras",
+              "matches": 781,
+              "top20_and_count_ms": 60.68289600079879
+            },
+            {
+              "query": "comercio",
+              "matches": 395359,
+              "top20_and_count_ms": 129.972941998858
+            },
+            {
+              "query": "*",
+              "matches": 72605022,
+              "top20_and_count_ms": 204.0016969986027
+            }
+          ]
+        },
+        {
+          "index": "opendata_public_people",
+          "documents": 599577,
+          "segments": 5,
+          "allocated_mib": 25.078125,
+          "queries": [
+            {
+              "query": "Silva",
+              "matches": 6738,
+              "top20_and_count_ms": 0.19132600573357195
+            },
+            {
+              "query": "*",
+              "matches": 599577,
+              "top20_and_count_ms": 1.6653899947414175
+            }
+          ]
+        }
+      ],
+      "max_rss_mib": 121.89453125,
+      "environment": {
+        "python": "3.14.9 (main, Oct 25 2026, 14:52:47) [GCC 16.2.1 20260810]",
+        "gil_enabled": true,
+        "logical_cpus": 12,
+        "versions": {
+          "tantivy": "0.26.0",
+          "anyio": "4.12.1",
+          "litestar": "2.24.0",
+          "datafusion": "55.0.0",
+          "httpx": "0.28.1"
+        }
+      }
+    },
+    "stages-all": {
+      "query": "*",
+      "measurements": [
+        {
+          "matches": 599577,
+          "prepare_ms": 1.453915989259258,
+          "native_search_ms": 9.604115999536589,
+          "hits_to_python_ms": 37.59904101025313,
+          "stored_docs_and_ids_ms": 477.6249869901221,
+          "total_ms": 526.2820599891711
+        },
+        {
+          "matches": 599577,
+          "prepare_ms": 0.8956969977589324,
+          "native_search_ms": 5.272323003737256,
+          "hits_to_python_ms": 26.25484600139316,
+          "stored_docs_and_ids_ms": 474.24475599837024,
+          "total_ms": 506.6676220012596
+        },
+        {
+          "matches": 599577,
+          "prepare_ms": 0.9244300017599016,
+          "native_search_ms": 5.4679370077792555,
+          "hits_to_python_ms": 25.80259498790838,
+          "stored_docs_and_ids_ms": 474.1045350092463,
+          "total_ms": 506.29949700669385
+        }
+      ],
+      "max_rss_mib": 238.86328125,
+      "environment": {
+        "python": "3.14.9 (main, Oct 25 2026, 14:52:47) [GCC 16.2.1 20260810]",
+        "gil_enabled": true,
+        "logical_cpus": 12,
+        "versions": {
+          "tantivy": "0.26.0",
+          "anyio": "4.12.1",
+          "litestar": "2.24.0",
+          "datafusion": "55.0.0",
+          "httpx": "0.28.1"
+        }
+      }
+    },
+    "stages-silva": {
+      "query": "Silva",
+      "measurements": [
+        {
+          "matches": 6738,
+          "prepare_ms": 1.1047369916923344,
+          "native_search_ms": 0.64426900644321,
+          "hits_to_python_ms": 0.3718920052051544,
+          "stored_docs_and_ids_ms": 11.304769999696873,
+          "total_ms": 13.425668003037572
+        },
+        {
+          "matches": 6738,
+          "prepare_ms": 0.9850339993136004,
+          "native_search_ms": 0.35478000063449144,
+          "hits_to_python_ms": 0.2307190006831661,
+          "stored_docs_and_ids_ms": 9.833213000092655,
+          "total_ms": 11.403746000723913
+        },
+        {
+          "matches": 6738,
+          "prepare_ms": 0.8975810051197186,
+          "native_search_ms": 0.3140240005450323,
+          "hits_to_python_ms": 0.2380030055064708,
+          "stored_docs_and_ids_ms": 9.603073995094746,
+          "total_ms": 11.052682006265968
+        }
+      ],
+      "max_rss_mib": 100.01953125,
+      "environment": {
+        "python": "3.14.9 (main, Oct 25 2026, 14:52:47) [GCC 16.2.1 20260810]",
+        "gil_enabled": true,
+        "logical_cpus": 12,
+        "versions": {
+          "tantivy": "0.26.0",
+          "anyio": "4.12.1",
+          "litestar": "2.24.0",
+          "datafusion": "55.0.0",
+          "httpx": "0.28.1"
+        }
+      }
+    },
+    "api-1": {
+      "query": "*",
+      "concurrency": 1,
+      "transport": "in-process ASGITransport; real app lifespan and dependencies",
+      "redis": "disabled",
+      "datafusion_memory": "512MiB",
+      "datafusion_partitions": 2,
+      "anyio_tokens": 650,
+      "organ_baseline": {
+        "samples": 25,
+        "median_ms": 10.819999006344005,
+        "max_ms": 11.731455000699498
+      },
+      "rounds": [
+        {
+          "wall_seconds": 0.6972333790035918,
+          "completed_searches_per_second": 1.4342399978456115,
+          "search_ms": [
+            681.6116330010118
+          ],
+          "search_rows": [
+            20
+          ],
+          "organ_during_search": {
+            "samples": 19,
+            "median_ms": 10.79535300959833,
+            "max_ms": 77.45846000034362
+          },
+          "loop_lag": {
+            "samples": 58,
+            "median_ms": 0.40491201070835814,
+            "max_ms": 67.14757200097665
+          }
+        },
+        {
+          "wall_seconds": 0.7169335060025332,
+          "completed_searches_per_second": 1.3948294948241218,
+          "search_ms": [
+            716.5439709933707
+          ],
+          "search_rows": [
+            20
+          ],
+          "organ_during_search": {
+            "samples": 21,
+            "median_ms": 10.940022999420762,
+            "max_ms": 11.583419007365592
+          },
+          "loop_lag": {
+            "samples": 60,
+            "median_ms": 0.5238825106061995,
+            "max_ms": 49.62835300830193
+          }
+        },
+        {
+          "wall_seconds": 0.6698993629979668,
+          "completed_searches_per_second": 1.4927615329036148,
+          "search_ms": [
+            669.3894240015652
+          ],
+          "search_rows": [
+            20
+          ],
+          "organ_during_search": {
+            "samples": 19,
+            "median_ms": 10.912771002040245,
+            "max_ms": 65.69177898927592
+          },
+          "loop_lag": {
+            "samples": 56,
+            "median_ms": 0.48261100164381787,
+            "max_ms": 55.35289799445309
+          }
+        }
+      ],
+      "max_rss_mib": 564.328125,
+      "environment": {
+        "python": "3.14.9 (main, Oct 25 2026, 14:52:47) [GCC 16.2.1 20260810]",
+        "gil_enabled": true,
+        "logical_cpus": 12,
+        "versions": {
+          "tantivy": "0.26.0",
+          "anyio": "4.12.1",
+          "litestar": "2.24.0",
+          "datafusion": "55.0.0",
+          "httpx": "0.28.1"
+        }
+      }
+    },
+    "api-4": {
+      "query": "*",
+      "concurrency": 4,
+      "transport": "in-process ASGITransport; real app lifespan and dependencies",
+      "redis": "disabled",
+      "datafusion_memory": "512MiB",
+      "datafusion_partitions": 2,
+      "anyio_tokens": 650,
+      "organ_baseline": {
+        "samples": 25,
+        "median_ms": 10.740440004155971,
+        "max_ms": 11.119716000393964
+      },
+      "rounds": [
+        {
+          "wall_seconds": 4.108897527999943,
+          "completed_searches_per_second": 0.9734971419321449,
+          "search_ms": [
+            4099.9408880015835,
+            4049.435805005487,
+            3502.6160550041823,
+            4107.386575997225
+          ],
+          "search_rows": [
+            20,
+            20,
+            20,
+            20
+          ],
+          "organ_during_search": {
+            "samples": 118,
+            "median_ms": 10.594859493721742,
+            "max_ms": 89.9315450078575
+          },
+          "loop_lag": {
+            "samples": 355,
+            "median_ms": 0.2748539991443977,
+            "max_ms": 291.9657550082775
+          }
+        },
+        {
+          "wall_seconds": 3.928791893995367,
+          "completed_searches_per_second": 1.0181246825807866,
+          "search_ms": [
+            2993.8063400040846,
+            3156.8804519920377,
+            3917.3011669918196,
+            3928.006080997875
+          ],
+          "search_rows": [
+            20,
+            20,
+            20,
+            20
+          ],
+          "organ_during_search": {
+            "samples": 117,
+            "median_ms": 10.45976800378412,
+            "max_ms": 39.51712200068869
+          },
+          "loop_lag": {
+            "samples": 345,
+            "median_ms": 0.2476130030117929,
+            "max_ms": 217.6625980064273
+          }
+        },
+        {
+          "wall_seconds": 4.030501760003972,
+          "completed_searches_per_second": 0.9924322672907252,
+          "search_ms": [
+            3877.164301011362,
+            4029.8891910060775,
+            3907.9742759931833,
+            3707.4796550004976
+          ],
+          "search_rows": [
+            20,
+            20,
+            20,
+            20
+          ],
+          "organ_during_search": {
+            "samples": 118,
+            "median_ms": 10.574642503343057,
+            "max_ms": 81.83471499069128
+          },
+          "loop_lag": {
+            "samples": 355,
+            "median_ms": 0.28942100470885634,
+            "max_ms": 158.92878899467178
+          }
+        }
+      ],
+      "max_rss_mib": 1041.9375,
+      "environment": {
+        "python": "3.14.9 (main, Oct 25 2026, 14:52:47) [GCC 16.2.1 20260810]",
+        "gil_enabled": true,
+        "logical_cpus": 12,
+        "versions": {
+          "tantivy": "0.26.0",
+          "anyio": "4.12.1",
+          "litestar": "2.24.0",
+          "datafusion": "55.0.0",
+          "httpx": "0.28.1"
+        }
+      }
+    },
+    "api-8": {
+      "query": "*",
+      "concurrency": 8,
+      "transport": "in-process ASGITransport; real app lifespan and dependencies",
+      "redis": "disabled",
+      "datafusion_memory": "512MiB",
+      "datafusion_partitions": 2,
+      "anyio_tokens": 650,
+      "audit_search_slots": "unmodified",
+      "organ_baseline": {
+        "samples": 25,
+        "median_ms": 10.387653994257562,
+        "max_ms": 10.742525002569892
+      },
+      "rounds": [
+        {
+          "wall_seconds": 8.261297189994366,
+          "completed_searches_per_second": 0.9683709248093828,
+          "search_ms": [
+            8261.0561009933,
+            8236.750341995503,
+            8156.077610008651,
+            8145.094387000427,
+            8188.735684991116,
+            7929.022523996537,
+            8246.857915000874,
+            7433.769485010998
+          ],
+          "search_rows": [
+            20,
+            20,
+            20,
+            20,
+            20,
+            20,
+            20,
+            20
+          ],
+          "organ_during_search": {
+            "samples": 236,
+            "median_ms": 10.533460495935287,
+            "max_ms": 299.4495110033313
+          },
+          "loop_lag": {
+            "samples": 703,
+            "median_ms": 0.29454100877046585,
+            "max_ms": 224.67151201271918
+          }
+        },
+        {
+          "wall_seconds": 8.810694927989971,
+          "completed_searches_per_second": 0.9079874022859944,
+          "search_ms": [
+            8796.594824001659,
+            8668.926061000093,
+            8597.595215993351,
+            8643.084242998157,
+            8809.041339991381,
+            8682.297848994494,
+            8771.001097993576,
+            8757.754421996651
+          ],
+          "search_rows": [
+            20,
+            20,
+            20,
+            20,
+            20,
+            20,
+            20,
+            20
+          ],
+          "organ_during_search": {
+            "samples": 247,
+            "median_ms": 10.823075004736893,
+            "max_ms": 515.9920690057334
+          },
+          "loop_lag": {
+            "samples": 749,
+            "median_ms": 0.4282589943613857,
+            "max_ms": 493.6505079967901
+          }
+        },
+        {
+          "wall_seconds": 8.960395319008967,
+          "completed_searches_per_second": 0.892817751358409,
+          "search_ms": [
+            8639.393634992302,
+            8756.477257004008,
+            8959.136946999934,
+            8681.23134499183,
+            8847.656703990651,
+            8778.350919004879,
+            8790.192358006607,
+            8825.089411009685
+          ],
+          "search_rows": [
+            20,
+            20,
+            20,
+            20,
+            20,
+            20,
+            20,
+            20
+          ],
+          "organ_during_search": {
+            "samples": 256,
+            "median_ms": 10.961236504954286,
+            "max_ms": 364.6911510004429
+          },
+          "loop_lag": {
+            "samples": 764,
+            "median_ms": 0.4675375093938783,
+            "max_ms": 343.72142401116434
+          }
+        }
+      ],
+      "max_rss_mib": 1715.03125,
+      "environment": {
+        "python": "3.14.9 (main, Oct 25 2026, 14:52:47) [GCC 16.2.1 20260810]",
+        "gil_enabled": true,
+        "logical_cpus": 12,
+        "versions": {
+          "tantivy": "0.26.0",
+          "anyio": "4.12.1",
+          "litestar": "2.24.0",
+          "datafusion": "55.0.0",
+          "httpx": "0.28.1"
+        }
+      }
+    },
+    "api-gated": {
+      "query": "*",
+      "concurrency": 4,
+      "transport": "in-process ASGITransport; real app lifespan and dependencies",
+      "redis": "disabled",
+      "datafusion_memory": "512MiB",
+      "datafusion_partitions": 2,
+      "anyio_tokens": 650,
+      "audit_search_slots": 1,
+      "organ_baseline": {
+        "samples": 25,
+        "median_ms": 10.770806999062188,
+        "max_ms": 11.344404992996715
+      },
+      "rounds": [
+        {
+          "wall_seconds": 2.6925766190106515,
+          "completed_searches_per_second": 1.485565896902775,
+          "search_ms": [
+            677.2571149922442,
+            1348.9258990011876,
+            2005.5445299949497,
+            2691.2195839977358
+          ],
+          "search_rows": [
+            20,
+            20,
+            20,
+            20
+          ],
+          "organ_during_search": {
+            "samples": 76,
+            "median_ms": 10.8104960017954,
+            "max_ms": 75.02982000005431
+          },
+          "loop_lag": {
+            "samples": 226,
+            "median_ms": 0.40427000931231305,
+            "max_ms": 64.82726299145725
+          }
+        },
+        {
+          "wall_seconds": 2.681553201007773,
+          "completed_searches_per_second": 1.491672810554992,
+          "search_ms": [
+            696.0865119908703,
+            1349.8282580112573,
+            2005.068272992503,
+            2680.729187995894
+          ],
+          "search_rows": [
+            20,
+            20,
+            20,
+            20
+          ],
+          "organ_during_search": {
+            "samples": 75,
+            "median_ms": 10.81309599976521,
+            "max_ms": 59.68903700704686
+          },
+          "loop_lag": {
+            "samples": 226,
+            "median_ms": 0.41673300438560545,
+            "max_ms": 49.451664002845064
+          }
+        },
+        {
+          "wall_seconds": 2.525390563008841,
+          "completed_searches_per_second": 1.5839134186176163,
+          "search_ms": [
+            652.6403369934997,
+            1274.0018160111504,
+            1889.4737320079003,
+            2524.54740399844
+          ],
+          "search_rows": [
+            20,
+            20,
+            20,
+            20
+          ],
+          "organ_during_search": {
+            "samples": 73,
+            "median_ms": 10.701398001401685,
+            "max_ms": 63.96350299473852
+          },
+          "loop_lag": {
+            "samples": 216,
+            "median_ms": 0.3481505045783706,
+            "max_ms": 53.716683003585786
+          }
+        }
+      ],
+      "max_rss_mib": 616.046875,
+      "environment": {
+        "python": "3.14.9 (main, Oct 25 2026, 14:52:47) [GCC 16.2.1 20260810]",
+        "gil_enabled": true,
+        "logical_cpus": 12,
+        "versions": {
+          "tantivy": "0.26.0",
+          "anyio": "4.12.1",
+          "litestar": "2.24.0",
+          "datafusion": "55.0.0",
+          "httpx": "0.28.1"
+        }
+      }
+    },
+    "api-silva": {
+      "query": "Silva",
+      "concurrency": 4,
+      "transport": "in-process ASGITransport; real app lifespan and dependencies",
+      "redis": "disabled",
+      "datafusion_memory": "512MiB",
+      "datafusion_partitions": 2,
+      "anyio_tokens": 650,
+      "audit_search_slots": "unmodified",
+      "organ_baseline": {
+        "samples": 25,
+        "median_ms": 10.880902002099901,
+        "max_ms": 11.706578996381722
+      },
+      "rounds": [
+        {
+          "wall_seconds": 0.1628520769882016,
+          "completed_searches_per_second": 24.56216754478234,
+          "search_ms": [
+            153.13438999874052,
+            153.506513001048,
+            153.65482900233474,
+            152.83443199587055
+          ],
+          "search_rows": [
+            20,
+            20,
+            20,
+            20
+          ],
+          "organ_during_search": {
+            "samples": 5,
+            "median_ms": 11.305001011351123,
+            "max_ms": 13.634357004775666
+          },
+          "loop_lag": {
+            "samples": 15,
+            "median_ms": 0.6113800191087648,
+            "max_ms": 2.77745199855417
+          }
+        },
+        {
+          "wall_seconds": 0.16766686900518835,
+          "completed_searches_per_second": 23.856830056725293,
+          "search_ms": [
+            156.90450700640213,
+            155.96527898742352,
+            156.86646600079257,
+            156.1755209986586
+          ],
+          "search_rows": [
+            20,
+            20,
+            20,
+            20
+          ],
+          "organ_during_search": {
+            "samples": 5,
+            "median_ms": 12.132341013057157,
+            "max_ms": 14.621954993344843
+          },
+          "loop_lag": {
+            "samples": 15,
+            "median_ms": 0.5489040049724281,
+            "max_ms": 3.296929004136473
+          }
+        },
+        {
+          "wall_seconds": 0.16840979200787842,
+          "completed_searches_per_second": 23.751588030064635,
+          "search_ms": [
+            168.00142200372647,
+            166.47509099857416,
+            165.38841799774673,
+            166.916982998373
+          ],
+          "search_rows": [
+            20,
+            20,
+            20,
+            20
+          ],
+          "organ_during_search": {
+            "samples": 5,
+            "median_ms": 11.52832699881401,
+            "max_ms": 16.624702999251895
+          },
+          "loop_lag": {
+            "samples": 15,
+            "median_ms": 0.4904850065940991,
+            "max_ms": 5.363896008930169
+          }
+        }
+      ],
+      "max_rss_mib": 950.21484375,
+      "environment": {
+        "python": "3.14.9 (main, Oct 25 2026, 14:52:47) [GCC 16.2.1 20260810]",
+        "gil_enabled": true,
+        "logical_cpus": 12,
+        "versions": {
+          "tantivy": "0.26.0",
+          "anyio": "4.12.1",
+          "litestar": "2.24.0",
+          "datafusion": "55.0.0",
+          "httpx": "0.28.1"
+        }
+      }
+    }
+  }
+}

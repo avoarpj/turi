@@ -1,0 +1,2884 @@
+{
+  "created_at": "2026-10-28T02:49:55.267613+00:00",
+  "status": "passed",
+  "files": 222,
+  "output_rows": 254345786,
+  "output_votes": 2841719245,
+  "groups_checked": 39370,
+  "output_bytes": 5263748521,
+  "raw_partitions": [
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/02bf32cd32a94f8a.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "RN",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 878328,
+          "votes": 10437492
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/02d520e02135449b.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "TO",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 413493,
+          "votes": 4987669
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/037441fbc11b469c.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "RO",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 17265,
+          "votes": 988489
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/03e3141897484ae4.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "TO",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 431886,
+          "votes": 4449769
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/047d2df4bb52414a.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "PB",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 76363,
+          "votes": 5143321
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/05e7823b3ca148ed.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "PA",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 76003,
+          "votes": 4989573
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/05fe528985894f91.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "PA",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 68696,
+          "votes": 4701740
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/06353a6f7f0742dd.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "AC",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 7925,
+          "votes": 420760
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/068d2674a1f34a69.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "AC",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 258052,
+          "votes": 2928185
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/0841c1bd749546e9.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2020",
+          "SG_UF": "PA",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 1580642,
+          "votes": 9206454
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/08cadb22c2324f3e.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2020",
+          "SG_UF": "PB",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 610447,
+          "votes": 4996738
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/09df6a1e0e1b4308.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "SE",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 661549,
+          "votes": 8622127
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/0c207ef8ac9f479f.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "BA",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 4010285,
+          "votes": 49413397
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/0e110a829a194efe.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2020",
+          "SG_UF": "MG",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 3968726,
+          "votes": 24406618
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/0f1d339a53e44e9f.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "RS",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 217561,
+          "votes": 13552287
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/0f6ae99df79c4803.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "ES",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 73301,
+          "votes": 4640619
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/102acc2c82364205.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "MS",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 54313,
+          "votes": 3097483
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/111ce23075b74428.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "GO",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 2133284,
+          "votes": 23804027
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/1130d94bb3d94a16.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "AL",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 748816,
+          "votes": 9017135
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/141e89a970aa4444.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2020",
+          "SG_UF": "GO",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 1287933,
+          "votes": 7058227
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/15b6165d52984450.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "PA",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 134648,
+          "votes": 8435097
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/15ccd7b8cf904eb9.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "RO",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 32820,
+          "votes": 1852080
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/16a40fb3d94a4b59.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "MS",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 922781,
+          "votes": 7765765
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/16fa62b561ec4981.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "PE",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 78076,
+          "votes": 5377444
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/18306b3686ee49ae.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "PR",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 100947,
+          "votes": 6900420
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/183d7263210f4889.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "MT",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 28361,
+          "votes": 1718877
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/18784f0e4adc48b7.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "SP",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 18551220,
+          "votes": 155537349
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/19c26a2ae1224e71.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "RJ",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 7488285,
+          "votes": 56851785
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/1a68083a4d234c79.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "PI",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 34085,
+          "votes": 2088530
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/1b9bec25490d49d3.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2020",
+          "SG_UF": "ES",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 704564,
+          "votes": 4269722
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/1d2ef74f87ed4fe2.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "PI",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 33989,
+          "votes": 1946971
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/1ec68150d0674d14.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "BA",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 122027,
+          "votes": 8200327
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/23d0c46d31744789.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "MG",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 7216550,
+          "votes": 73270951
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/2462aa3792404b19.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "RS",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 3898820,
+          "votes": 34423380
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/25dc2f7d852f482e.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2020",
+          "SG_UF": "SP",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 146765,
+          "votes": 10059697
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/2644613414754585.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "MT",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 30873,
+          "votes": 2085334
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/26470c2496a44271.parquet",
+      "partitions": []
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/270ece0aec4a4073.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "MG",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 196561,
+          "votes": 12866284
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/2794eef7fc37474f.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "AL",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 685455,
+          "votes": 11617528
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/27b3f3e00d104dd6.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "SP",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 19167373,
+          "votes": 135781102
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/28d68de27acb4cc3.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2020",
+          "SG_UF": "SC",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 6411,
+          "votes": 459402
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/29520cf1075d4efb.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "RR",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 218752,
+          "votes": 1720920
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/2a0c4f7e5ff347ff.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "SE",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 664403,
+          "votes": 7678210
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/2b0d34665d6b4378.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "MA",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 60042,
+          "votes": 3477517
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/2c274ca3e8d142d9.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2020",
+          "SG_UF": "MG",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 14162,
+          "votes": 919913
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/2d09272812904ce4.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "ES",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 1209189,
+          "votes": 11562405
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/2e14a539ebcd414b.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "RR",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 9052,
+          "votes": 540966
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/2e76412a8d1f43e9.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "CE",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 91087,
+          "votes": 6024843
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/2ff723e84b444831.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "TO",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 14559,
+          "votes": 781076
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/3001426a76d14bba.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "RJ",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 270844,
+          "votes": 18838220
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/328b1884d2fe4a76.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "GO",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 55446,
+          "votes": 3491824
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/34d99408ff8f48a1.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "ZZ",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 2950,
+          "votes": 201166
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/35adcc7f83f24d35.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "MA",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 1783740,
+          "votes": 21628128
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/39ec18b1fe9a4e70.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "SC",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 2118318,
+          "votes": 27820909
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/3a6e247514a54e81.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2020",
+          "SG_UF": "PE",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 1594848,
+          "votes": 10970490
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/3a8a4358377144c7.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "RR",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 192871,
+          "votes": 1992567
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/3bf4da9cdb36455f.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2020",
+          "SG_UF": "SP",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 9434000,
+          "votes": 48801224
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/3c756502a74a4230.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "DF",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 53767,
+          "votes": 3378626
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/3ce731e0336344e4.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "RO",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 33098,
+          "votes": 1764055
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/3d464ea245d64712.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "AL",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 52620,
+          "votes": 3567395
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/3fc42fa98f5f4dce.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "SE",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 40804,
+          "votes": 2528819
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/4071a3ecc8164cd0.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2020",
+          "SG_UF": "AC",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 161470,
+          "votes": 857600
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/4175671e2e834c90.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "PR",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 103682,
+          "votes": 6595854
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/41c8dbbe674140d7.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2020",
+          "SG_UF": "RR",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 116987,
+          "votes": 539964
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/43c5cce809f642ba.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "SC",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 124134,
+          "votes": 8431053
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/4586a270efbd4b8c.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "SP",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 410145,
+          "votes": 27364389
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/4601ff7187834285.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "MS",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 749206,
+          "votes": 9236265
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/467ef6dec647462c.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2020",
+          "SG_UF": "ES",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 11607,
+          "votes": 817320
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/46b240f8d7ff43ac.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "AL",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 758367,
+          "votes": 10157878
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/4740d77481b14875.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2020",
+          "SG_UF": "AM",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 13477,
+          "votes": 1032901
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/475c436873c44e60.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "CE",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 2577896,
+          "votes": 31462162
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/47fde4aed4474a18.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2020",
+          "SG_UF": "AP",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 56676,
+          "votes": 349630
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/485e33e3ec0b492b.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "CE",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 83995,
+          "votes": 5158343
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/4909a5231e3c4951.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2020",
+          "SG_UF": "PR",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 1991712,
+          "votes": 12516934
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/4e19ddd3fbd042b1.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "MG",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 6339455,
+          "votes": 75773109
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/4f79e33fb385431f.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2020",
+          "SG_UF": "AP",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 2784,
+          "votes": 193210
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/51e6ccf783aa4a90.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "PB",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 41416,
+          "votes": 2743560
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/5234888d539c4c4b.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "PR",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 3640079,
+          "votes": 40989532
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/5264742d3bbc420d.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "AC",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 279230,
+          "votes": 2660779
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/52ed8c76868a4656.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "RN",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 29904,
+          "votes": 2108799
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/53444cd9b459434e.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2020",
+          "SG_UF": "AP",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 99778,
+          "votes": 434322
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/53e038d926744c38.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "DF",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 26792,
+          "votes": 1838492
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/53e377dc01a2495b.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "ZZ",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 8364,
+          "votes": 202766
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/548722ba2c774729.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "PB",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 1096771,
+          "votes": 12764983
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/568696a1c3d8437e.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2020",
+          "SG_UF": "PB",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 4904,
+          "votes": 400352
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/56faaab61f5a40ca.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "SC",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 128410,
+          "votes": 9070598
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/5708d8e6bef442f7.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "ZZ",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 3968,
+          "votes": 310148
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/58016c8b30e64b69.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2020",
+          "SG_UF": "RO",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 315762,
+          "votes": 1718802
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/58502f0ab9514748.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "PI",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 922913,
+          "votes": 13437813
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/58c1356bcce044e2.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "RN",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 58568,
+          "votes": 3885527
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/5a28134cc16744cd.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "MA",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 61586,
+          "votes": 3854804
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/5b1ddeec0845482f.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2020",
+          "SG_UF": "RR",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 2623,
+          "votes": 149223
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/5b3005923f9d4d79.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "RO",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 566317,
+          "votes": 5477910
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/5bad80206af8406e.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "MT",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 29019,
+          "votes": 1913231
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/5c17c0ebf8aa4a3e.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "PR",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 3808308,
+          "votes": 39704970
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/5c3aa04b5cf147e0.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2020",
+          "SG_UF": "PI",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 496137,
+          "votes": 4154856
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/5dc79f311ec44194.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2020",
+          "SG_UF": "TO",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 256447,
+          "votes": 1715030
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/5f4017d9ff65494c.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "PE",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 2663778,
+          "votes": 32353351
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/5fd032a24d244304.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "RS",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 215875,
+          "votes": 13855455
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/601334a1ca8644af.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "RO",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 537631,
+          "votes": 5942645
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/60a8b9f7a5b6409a.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "RJ",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 134923,
+          "votes": 9973822
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/61950a309b034bf5.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "PE",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 163314,
+          "votes": 11596094
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/6218f7c3959a4385.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "DF",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 55307,
+          "votes": 3722603
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/634eaf1f782c4b84.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "RS",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 4167374,
+          "votes": 41017878
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/65de7081f25c455b.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "MT",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 950130,
+          "votes": 10544778
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/66b205545e6d404b.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "ES",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 78082,
+          "votes": 4814868
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/672c087f38d841ec.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "PB",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 1114078,
+          "votes": 14614259
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/68668eff37e94607.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "TO",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 14944,
+          "votes": 871238
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/6ac196edd7424e4d.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "DF",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 1496254,
+          "votes": 10152684
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/6debe80ce91d44dd.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "AP",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 318468,
+          "votes": 2558530
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/6e3c6528afe34f75.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2020",
+          "SG_UF": "AC",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 2803,
+          "votes": 174249
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/6fc27026cbb4408c.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "RJ",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 147600,
+          "votes": 10077449
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/71044241e3104603.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "AM",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 62590,
+          "votes": 4381919
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/7250ff9c77a94d58.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2020",
+          "SG_UF": "MT",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 4428,
+          "votes": 284352
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/7495a2aedbfd4c89.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "GO",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 61031,
+          "votes": 4047280
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/750b9ccab39d4f23.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "AM",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 54139,
+          "votes": 3817209
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/75fce0158d624de6.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2020",
+          "SG_UF": "MA",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 1041437,
+          "votes": 7747164
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/767fc6d56cd5454c.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "MG",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 203235,
+          "votes": 13044203
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/7697dc0dd26149ee.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2020",
+          "SG_UF": "PA",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 13079,
+          "votes": 964214
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/7706174a31524e75.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "GO",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 57159,
+          "votes": 3860351
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/778390a758f2458e.parquet",
+      "partitions": []
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/788fa3c2d3d44e9a.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "ES",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 1265012,
+          "votes": 13340294
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/79013d4387b64dbc.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2020",
+          "SG_UF": "BA",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 5628,
+          "votes": 514327
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/7a29a5d38bcd4206.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2020",
+          "SG_UF": "MS",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 585257,
+          "votes": 2893788
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/7b421f4378f1449a.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "AP",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 267474,
+          "votes": 2856657
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/7b683c504a8741f0.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2020",
+          "SG_UF": "RN",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 503846,
+          "votes": 4036386
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/7b72bd5f95714c5d.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "PE",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 2826468,
+          "votes": 28669826
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/7e2d6330e9064b6b.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "MG",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 383700,
+          "votes": 24131785
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/7e30d93d45ec4811.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "PI",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 37819,
+          "votes": 2239830
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/808ed0daac53402d.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "AC",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 292376,
+          "votes": 2277655
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/80941212095f4cfd.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2020",
+          "SG_UF": "RJ",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 63653,
+          "votes": 4234351
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/81efe4f289854485.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "MT",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 891997,
+          "votes": 12300723
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/834395ee79364db9.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "MA",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 1799781,
+          "votes": 19593283
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/83520f20e056404d.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "GO",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 2025635,
+          "votes": 21323464
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/83a709d9710444c7.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "MS",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 26734,
+          "votes": 1594460
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/862987f85c6c46c6.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "AP",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 6557,
+          "votes": 400683
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/8a877b53a8d74850.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "AL",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 27419,
+          "votes": 1951632
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/8beb2a13bc764322.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2020",
+          "SG_UF": "BA",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 2264787,
+          "votes": 17305988
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/8bf1021feaaa49a4.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2020",
+          "SG_UF": "AL",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 5669,
+          "votes": 427649
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/8dd76edb17ed45c3.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "DF",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 1292258,
+          "votes": 9049836
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/8e5fcece78f84049.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "SE",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 22732,
+          "votes": 1466659
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/8e6b67842b804ac4.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "SP",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 17891697,
+          "votes": 158403272
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/8e7b3e0249674a3d.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "MA",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 1924028,
+          "votes": 24952318
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/8e8597daba26476c.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "MG",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 6667163,
+          "votes": 63229992
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/920c4e86fce446b1.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "AM",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 57813,
+          "votes": 4132954
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/99036c52b6c74ccd.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2020",
+          "SG_UF": "PI",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 5994,
+          "votes": 420177
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/999faf8da8324996.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "SC",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 2241557,
+          "votes": 22373950
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/99cdee7852654642.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "RN",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 747317,
+          "votes": 13009583
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/9b7590a644cb44bf.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2020",
+          "SG_UF": "CE",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 20641,
+          "votes": 1587186
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/9ca7eb52fafa439e.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "BA",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 137040,
+          "votes": 9422047
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/9dd75902f10f480c.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "ES",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 34705,
+          "votes": 2178495
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/9e2dba3fc68a4d61.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "TO",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 33900,
+          "votes": 1908148
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/9f07c00979be49b2.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "PA",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 2285995,
+          "votes": 23930399
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/a32c7b9b512a4ef0.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "RS",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 3649489,
+          "votes": 40190023
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/a362d15b0ebd4efb.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2020",
+          "SG_UF": "AL",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 421788,
+          "votes": 3479992
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/a53c2289192d4a4b.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "ES",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 1179742,
+          "votes": 14095342
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/a7191e68458b4f31.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2020",
+          "SG_UF": "PR",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 2439,
+          "votes": 179956
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/a7fba0f3461344df.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "AM",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 1098492,
+          "votes": 11745968
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/a8366144c5c04ed0.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2020",
+          "SG_UF": "PE",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 13636,
+          "votes": 1081046
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/a877546bbee74a88.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "AM",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 1073532,
+          "votes": 13395904
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/a8aa8cc78e804561.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "RR",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 4593,
+          "votes": 286269
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/ab64460a92234e81.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "GO",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 2192253,
+          "votes": 19041361
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/ac45822aff454cfb.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "AL",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 25172,
+          "votes": 1644459
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/ad8d9d5d68f443a0.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "AC",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 7451,
+          "votes": 399129
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/aea3b7588dd8433f.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "PI",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 946362,
+          "votes": 11985867
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/b1077a7671634a56.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "PA",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 2255439,
+          "votes": 26404853
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/b2209da677f54e59.parquet",
+      "partitions": []
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/b7c5be51779c43fd.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "CE",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 2664589,
+          "votes": 28122410
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/b8f9c201d7644322.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "RJ",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 7107294,
+          "votes": 49484095
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/b9f21e1086e141ed.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "AM",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 1064295,
+          "votes": 10557271
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/b9fe040fc496404b.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "RO",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 524431,
+          "votes": 4629879
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/ba0e95156c6c4156.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2020",
+          "SG_UF": "RJ",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 3522109,
+          "votes": 17915648
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/ba6c73f5290146a8.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "CE",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 88629,
+          "votes": 5649398
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/bc7ff2a0ef64436b.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "AP",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 302976,
+          "votes": 2211246
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/bed362d039bc4664.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "SP",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 769640,
+          "votes": 51683605
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/bf02873dc5ae4a5c.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "CE",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 2751489,
+          "votes": 35438081
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/c20b3f1280eb494c.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "SP",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 806908,
+          "votes": 54722307
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/c23c667ca442435a.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "PA",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 2385016,
+          "votes": 30380254
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/c249855830044e62.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2020",
+          "SG_UF": "MA",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 7294,
+          "votes": 519050
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/c5c9c5e249544d59.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "PB",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 1075721,
+          "votes": 16073508
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/c620ebf531b14ab2.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "AP",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 6973,
+          "votes": 429975
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/c7c247609ebb4b2f.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "DF",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 1188269,
+          "votes": 10921001
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/c8c7f845802b40e1.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2020",
+          "SG_UF": "AM",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 848941,
+          "votes": 4055271
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/c9fa23c94cf748d0.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "PB",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 39271,
+          "votes": 2407269
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/cbcc4f8395e54b41.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "PI",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 824036,
+          "votes": 10571669
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/ccd2b87c62a340ad.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "ZZ",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 8695,
+          "votes": 304032
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/ce1620ab3877479b.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "SE",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 43617,
+          "votes": 2709005
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/cf0dd92550d84f6b.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "RR",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 206494,
+          "votes": 1522680
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/d03bac3dcf594caa.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "SE",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 663644,
+          "votes": 6815140
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/d0aa02eabce04a18.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "RS",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 106789,
+          "votes": 6889638
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/d1045233795749a4.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2020",
+          "SG_UF": "SE",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 4164,
+          "votes": 292304
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/d1735237864648b0.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "PE",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 83243,
+          "votes": 6126467
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/d57fc6cf7c9d45b6.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2020",
+          "SG_UF": "RS",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 21281,
+          "votes": 1458823
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/d9df2bd4dfee4f8c.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "MT",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 850001,
+          "votes": 9448228
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/e193187822684d23.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "PR",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 105761,
+          "votes": 7059339
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/e1aeead4e1484c6c.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "MA",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 66190,
+          "votes": 4127771
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/e29f020dbee04e3d.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "SC",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 67266,
+          "votes": 4762303
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/e7766325687a4d8f.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "SC",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 2202478,
+          "votes": 25454613
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/e7a38277943f480e.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "AC",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 17622,
+          "votes": 906988
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/ea1668f20d4d4900.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2020",
+          "SG_UF": "GO",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 13633,
+          "votes": 795105
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/ec8c8414e6db493b.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "BA",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 4367862,
+          "votes": 44340675
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/ecfa62c7e92d4874.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "BA",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 4225183,
+          "votes": 54284496
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/ef27140990ce4432.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "PE",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 2808375,
+          "votes": 35439687
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/ef8c07e28296475f.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "BA",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 269589,
+          "votes": 17935972
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/efa155336c824f5e.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "RN",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 63676,
+          "votes": 4462333
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/efe09536cbd1401b.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "RJ",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 7122339,
+          "votes": 59089137
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/f0a2890044474a46.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "RR",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 5332,
+          "votes": 308597
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/f40bae908dce47c2.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "ZZ",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 4977,
+          "votes": 381443
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/f5608f474b5342df.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2020",
+          "SG_UF": "SC",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 1137013,
+          "votes": 8072488
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/f578a5a6417b43d3.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2020",
+          "SG_UF": "RO",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 3354,
+          "votes": 219205
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/f5db6c02dbaf4a6e.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2022",
+          "SG_UF": "PR",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 3594460,
+          "votes": 34091297
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/f600d12722a54f6c.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "ZZ",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 12035,
+          "votes": 341766
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/f996f4a6de4d4da3.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "AP",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 12731,
+          "votes": 789642
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/fac84a2862474613.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2020",
+          "SG_UF": "RS",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 1999796,
+          "votes": 12858636
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/fb7c065874ac4fdf.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2020",
+          "SG_UF": "SE",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 373760,
+          "votes": 2622342
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/fb87368a70af48c1.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2020",
+          "SG_UF": "CE",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 1442718,
+          "votes": 10911098
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/fb9b83acf8714c99.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2020",
+          "SG_UF": "MT",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 588335,
+          "votes": 3455240
+        },
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "MT",
+          "tipo_eleicao_normalizado": "1",
+          "NR_TURNO": "1",
+          "rows": 81274,
+          "votes": 1727620
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/fbbc04f67e8248e4.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "MS",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "2",
+          "rows": 51762,
+          "votes": 2899351
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/fc6eb558c21a445f.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "MS",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 849170,
+          "votes": 8872518
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/fd329f9a9bde4348.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2026",
+          "SG_UF": "TO",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 426458,
+          "votes": 5784246
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/fe0ca616c4d64ff1.parquet",
+      "partitions": [
+        {
+          "ANO_ELEICAO": "2018",
+          "SG_UF": "RN",
+          "tipo_eleicao_normalizado": "0",
+          "NR_TURNO": "1",
+          "rows": 947209,
+          "votes": 11799985
+        }
+      ]
+    },
+    {
+      "source": "/home/victor/Desktop/projects/avoar/avoar/downloads/tse/evm_bulletin/fe22054fb833495c.parquet",
+      "partitions": []
+    }
+  ],
+  "checks": [
+    "rows and votes per input file before sorting",
+    "rows and votes after sorting before publication",
+    "raw vs final counts and vote sums by locality, office and vote type",
+    "global sort order, including batch boundaries"
+  ],
+  "peak_rss_mib": 3931.7,
+  "peak_swap_mib": 0.0,
+  "seconds": 334.836,
+  "published_dump_preserved": {
+    "rows": 184398705,
+    "bytes": 2452296702,
+    "mtime": "2026-10-15T12:47:43.493177"
+  },
+  "tests_passed": 80
+}

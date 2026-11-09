@@ -1,0 +1,18 @@
+index_id: opendata_address
+
+producer_script: "avoar.infra.venato.scripts.address_line"
+
+columns:
+  - name: id
+    stored: true
+    fast: true
+    type: u64
+
+  - name: endereco_completo
+    type: text
+    stored: false
+    fast: false
+
+sources:
+  - path: "parquet_dumps/opendata/opendata_address/*.parquet"
+    format: "parquet"

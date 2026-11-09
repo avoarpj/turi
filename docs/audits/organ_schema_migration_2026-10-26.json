@@ -1,0 +1,47 @@
+[
+  {
+    "file": "/home/victor/Desktop/projects/avoar/avoar/parquet_dumps/opendata/opendata_election/opendata_election.parquet",
+    "rows": 5713,
+    "renamed": {
+      "casa_legislativa_id": "orgao_id"
+    },
+    "all_values_and_order_preserved": true,
+    "bloom_filter_chunks": 8
+  },
+  {
+    "file": "/home/victor/Desktop/projects/avoar/avoar/parquet_dumps/opendata/opendata_legislature/camaradosdeputados_legislatures.parquet",
+    "rows": 58,
+    "renamed": {
+      "casa_legislativa_id": "orgao_id"
+    },
+    "all_values_and_order_preserved": true,
+    "bloom_filter_chunks": 4
+  },
+  {
+    "file": "/home/victor/Desktop/projects/avoar/avoar/parquet_dumps/opendata/opendata_mandate/camaradosdeputados.parquet",
+    "rows": 1812,
+    "renamed": {
+      "casa_legislativa_id": "orgao_id"
+    },
+    "all_values_and_order_preserved": true,
+    "bloom_filter_chunks": 5
+  },
+  {
+    "file": "/home/victor/Desktop/projects/avoar/avoar/parquet_dumps/opendata/opendata_services_supplier_names/camaradosdeputados.parquet",
+    "rows": 3646,
+    "renamed": {
+      "coletado_de_casa_legislativa_id": "coletado_de_orgao_id"
+    },
+    "all_values_and_order_preserved": true,
+    "bloom_filter_chunks": 5
+  },
+  {
+    "file": "/home/victor/Desktop/projects/avoar/avoar/parquet_dumps/opendata/opendata_services_supplier_names/gov_amendments.parquet",
+    "rows": 57478,
+    "renamed": {
+      "coletado_de_casa_legislativa_id": "coletado_de_orgao_id"
+    },
+    "all_values_and_order_preserved": true,
+    "bloom_filter_chunks": 5
+  }
+]

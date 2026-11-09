@@ -1,0 +1,2048 @@
+{
+  "date": "2026-10-28",
+  "operation": "Download incremental de locais TSE de 2026 e regeneração isolada de ambos os cadastros",
+  "source": "https://cdn.tse.jus.br/estatistica/sead/odsele/eleitorado_locais_votacao/eleitorado_local_votacao_2026.zip",
+  "download": {
+    "files": 32,
+    "new_files": 29,
+    "successful": true,
+    "failed_sources": [],
+    "prior_raw_files_preserved": 3
+  },
+  "before": {
+    "locations": 100799,
+    "observations": 481339
+  },
+  "after": {
+    "locations": 108184,
+    "observations": 671539,
+    "missing_ibge": 0,
+    "missing_tse_coordinates": 65330,
+    "with_cluster": 117777
+  },
+  "coverage_by_year_round_uf": [
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-07",
+      "numero_turno": 1,
+      "uf": "AC",
+      "len": 727
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-07",
+      "numero_turno": 1,
+      "uf": "AL",
+      "len": 989
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-07",
+      "numero_turno": 1,
+      "uf": "AM",
+      "len": 1498
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-07",
+      "numero_turno": 1,
+      "uf": "AP",
+      "len": 350
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-07",
+      "numero_turno": 1,
+      "uf": "BA",
+      "len": 10095
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-07",
+      "numero_turno": 1,
+      "uf": "CE",
+      "len": 6933
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-07",
+      "numero_turno": 1,
+      "uf": "DF",
+      "len": 612
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-07",
+      "numero_turno": 1,
+      "uf": "ES",
+      "len": 1678
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-07",
+      "numero_turno": 1,
+      "uf": "GO",
+      "len": 2434
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-07",
+      "numero_turno": 1,
+      "uf": "MA",
+      "len": 5729
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-07",
+      "numero_turno": 1,
+      "uf": "MG",
+      "len": 10229
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-07",
+      "numero_turno": 1,
+      "uf": "MS",
+      "len": 1051
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-07",
+      "numero_turno": 1,
+      "uf": "MT",
+      "len": 1484
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-07",
+      "numero_turno": 1,
+      "uf": "PA",
+      "len": 5251
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-07",
+      "numero_turno": 1,
+      "uf": "PB",
+      "len": 1785
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-07",
+      "numero_turno": 1,
+      "uf": "PE",
+      "len": 3271
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-07",
+      "numero_turno": 1,
+      "uf": "PI",
+      "len": 3607
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-07",
+      "numero_turno": 1,
+      "uf": "PR",
+      "len": 4839
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-07",
+      "numero_turno": 1,
+      "uf": "RJ",
+      "len": 4896
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-07",
+      "numero_turno": 1,
+      "uf": "RN",
+      "len": 1552
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-07",
+      "numero_turno": 1,
+      "uf": "RO",
+      "len": 648
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-07",
+      "numero_turno": 1,
+      "uf": "RR",
+      "len": 346
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-07",
+      "numero_turno": 1,
+      "uf": "RS",
+      "len": 8439
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-07",
+      "numero_turno": 1,
+      "uf": "SC",
+      "len": 3726
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-07",
+      "numero_turno": 1,
+      "uf": "SE",
+      "len": 1124
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-07",
+      "numero_turno": 1,
+      "uf": "SP",
+      "len": 10641
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-07",
+      "numero_turno": 1,
+      "uf": "TO",
+      "len": 866
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-28",
+      "numero_turno": 2,
+      "uf": "AC",
+      "len": 727
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-28",
+      "numero_turno": 2,
+      "uf": "AL",
+      "len": 989
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-28",
+      "numero_turno": 2,
+      "uf": "AM",
+      "len": 1512
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-28",
+      "numero_turno": 2,
+      "uf": "AP",
+      "len": 350
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-28",
+      "numero_turno": 2,
+      "uf": "BA",
+      "len": 10095
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-28",
+      "numero_turno": 2,
+      "uf": "CE",
+      "len": 6933
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-28",
+      "numero_turno": 2,
+      "uf": "DF",
+      "len": 612
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-28",
+      "numero_turno": 2,
+      "uf": "ES",
+      "len": 1678
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-28",
+      "numero_turno": 2,
+      "uf": "GO",
+      "len": 2438
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-28",
+      "numero_turno": 2,
+      "uf": "MA",
+      "len": 5736
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-28",
+      "numero_turno": 2,
+      "uf": "MG",
+      "len": 10230
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-28",
+      "numero_turno": 2,
+      "uf": "MS",
+      "len": 1049
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-28",
+      "numero_turno": 2,
+      "uf": "MT",
+      "len": 1484
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-28",
+      "numero_turno": 2,
+      "uf": "PA",
+      "len": 5251
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-28",
+      "numero_turno": 2,
+      "uf": "PB",
+      "len": 1790
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-28",
+      "numero_turno": 2,
+      "uf": "PE",
+      "len": 3275
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-28",
+      "numero_turno": 2,
+      "uf": "PI",
+      "len": 3603
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-28",
+      "numero_turno": 2,
+      "uf": "PR",
+      "len": 4839
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-28",
+      "numero_turno": 2,
+      "uf": "RJ",
+      "len": 4896
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-28",
+      "numero_turno": 2,
+      "uf": "RN",
+      "len": 1554
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-28",
+      "numero_turno": 2,
+      "uf": "RO",
+      "len": 648
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-28",
+      "numero_turno": 2,
+      "uf": "RR",
+      "len": 346
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-28",
+      "numero_turno": 2,
+      "uf": "RS",
+      "len": 8439
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-28",
+      "numero_turno": 2,
+      "uf": "SC",
+      "len": 3726
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-28",
+      "numero_turno": 2,
+      "uf": "SE",
+      "len": 1124
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-28",
+      "numero_turno": 2,
+      "uf": "SP",
+      "len": 10641
+    },
+    {
+      "ano_referencia": 2018,
+      "data_eleicao": "2018-10-28",
+      "numero_turno": 2,
+      "uf": "TO",
+      "len": 872
+    },
+    {
+      "ano_referencia": 2020,
+      "data_eleicao": "2020-11-15",
+      "numero_turno": 1,
+      "uf": "AC",
+      "len": 733
+    },
+    {
+      "ano_referencia": 2020,
+      "data_eleicao": "2020-11-15",
+      "numero_turno": 1,
+      "uf": "AL",
+      "len": 1038
+    },
+    {
+      "ano_referencia": 2020,
+      "data_eleicao": "2020-11-15",
+      "numero_turno": 1,
+      "uf": "AM",
+      "len": 1545
+    },
+    {
+      "ano_referencia": 2020,
+      "data_eleicao": "2020-11-15",
+      "numero_turno": 1,
+      "uf": "AP",
+      "len": 216
+    },
+    {
+      "ano_referencia": 2020,
+      "data_eleicao": "2020-12-06",
+      "numero_turno": 1,
+      "uf": "AP",
+      "len": 149
+    },
+    {
+      "ano_referencia": 2020,
+      "data_eleicao": "2020-11-15",
+      "numero_turno": 1,
+      "uf": "BA",
+      "len": 9780
+    },
+    {
+      "ano_referencia": 2020,
+      "data_eleicao": "2020-11-15",
+      "numero_turno": 1,
+      "uf": "CE",
+      "len": 6844
+    },
+    {
+      "ano_referencia": 2020,
+      "data_eleicao": "2020-11-15",
+      "numero_turno": 1,
+      "uf": "ES",
+      "len": 1726
+    },
+    {
+      "ano_referencia": 2020,
+      "data_eleicao": "2020-11-15",
+      "numero_turno": 1,
+      "uf": "GO",
+      "len": 2456
+    },
+    {
+      "ano_referencia": 2020,
+      "data_eleicao": "2020-11-15",
+      "numero_turno": 1,
+      "uf": "MA",
+      "len": 5856
+    },
+    {
+      "ano_referencia": 2020,
+      "data_eleicao": "2020-11-15",
+      "numero_turno": 1,
+      "uf": "MG",
+      "len": 10242
+    },
+    {
+      "ano_referencia": 2020,
+      "data_eleicao": "2020-11-15",
+      "numero_turno": 1,
+      "uf": "MS",
+      "len": 1038
+    },
+    {
+      "ano_referencia": 2020,
+      "data_eleicao": "2020-11-15",
+      "numero_turno": 1,
+      "uf": "MT",
+      "len": 1475
+    },
+    {
+      "ano_referencia": 2020,
+      "data_eleicao": "2020-11-15",
+      "numero_turno": 1,
+      "uf": "PA",
+      "len": 5343
+    },
+    {
+      "ano_referencia": 2020,
+      "data_eleicao": "2020-11-15",
+      "numero_turno": 1,
+      "uf": "PB",
+      "len": 1810
+    },
+    {
+      "ano_referencia": 2020,
+      "data_eleicao": "2020-11-15",
+      "numero_turno": 1,
+      "uf": "PE",
+      "len": 3284
+    },
+    {
+      "ano_referencia": 2020,
+      "data_eleicao": "2020-11-15",
+      "numero_turno": 1,
+      "uf": "PI",
+      "len": 3623
+    },
+    {
+      "ano_referencia": 2020,
+      "data_eleicao": "2020-11-15",
+      "numero_turno": 1,
+      "uf": "PR",
+      "len": 4827
+    },
+    {
+      "ano_referencia": 2020,
+      "data_eleicao": "2020-11-15",
+      "numero_turno": 1,
+      "uf": "RJ",
+      "len": 4892
+    },
+    {
+      "ano_referencia": 2020,
+      "data_eleicao": "2020-11-15",
+      "numero_turno": 1,
+      "uf": "RN",
+      "len": 1572
+    },
+    {
+      "ano_referencia": 2020,
+      "data_eleicao": "2020-11-15",
+      "numero_turno": 1,
+      "uf": "RO",
+      "len": 639
+    },
+    {
+      "ano_referencia": 2020,
+      "data_eleicao": "2020-11-15",
+      "numero_turno": 1,
+      "uf": "RR",
+      "len": 346
+    },
+    {
+      "ano_referencia": 2020,
+      "data_eleicao": "2020-11-15",
+      "numero_turno": 1,
+      "uf": "RS",
+      "len": 8299
+    },
+    {
+      "ano_referencia": 2020,
+      "data_eleicao": "2020-11-15",
+      "numero_turno": 1,
+      "uf": "SC",
+      "len": 3615
+    },
+    {
+      "ano_referencia": 2020,
+      "data_eleicao": "2020-11-15",
+      "numero_turno": 1,
+      "uf": "SE",
+      "len": 1189
+    },
+    {
+      "ano_referencia": 2020,
+      "data_eleicao": "2020-11-15",
+      "numero_turno": 1,
+      "uf": "SP",
+      "len": 10868
+    },
+    {
+      "ano_referencia": 2020,
+      "data_eleicao": "2020-11-15",
+      "numero_turno": 1,
+      "uf": "TO",
+      "len": 874
+    },
+    {
+      "ano_referencia": 2020,
+      "data_eleicao": "2020-11-29",
+      "numero_turno": 2,
+      "uf": "AC",
+      "len": 267
+    },
+    {
+      "ano_referencia": 2020,
+      "data_eleicao": "2020-11-29",
+      "numero_turno": 2,
+      "uf": "AL",
+      "len": 228
+    },
+    {
+      "ano_referencia": 2020,
+      "data_eleicao": "2020-11-29",
+      "numero_turno": 2,
+      "uf": "AM",
+      "len": 461
+    },
+    {
+      "ano_referencia": 2020,
+      "data_eleicao": "2020-12-20",
+      "numero_turno": 2,
+      "uf": "AP",
+      "len": 149
+    },
+    {
+      "ano_referencia": 2020,
+      "data_eleicao": "2020-11-29",
+      "numero_turno": 2,
+      "uf": "BA",
+      "len": 293
+    },
+    {
+      "ano_referencia": 2020,
+      "data_eleicao": "2020-11-29",
+      "numero_turno": 2,
+      "uf": "CE",
+      "len": 779
+    },
+    {
+      "ano_referencia": 2020,
+      "data_eleicao": "2020-11-29",
+      "numero_turno": 2,
+      "uf": "ES",
+      "len": 418
+    },
+    {
+      "ano_referencia": 2020,
+      "data_eleicao": "2020-11-29",
+      "numero_turno": 2,
+      "uf": "GO",
+      "len": 463
+    },
+    {
+      "ano_referencia": 2020,
+      "data_eleicao": "2020-11-29",
+      "numero_turno": 2,
+      "uf": "MA",
+      "len": 267
+    },
+    {
+      "ano_referencia": 2020,
+      "data_eleicao": "2020-11-29",
+      "numero_turno": 2,
+      "uf": "MG",
+      "len": 478
+    },
+    {
+      "ano_referencia": 2020,
+      "data_eleicao": "2020-11-29",
+      "numero_turno": 2,
+      "uf": "MT",
+      "len": 156
+    },
+    {
+      "ano_referencia": 2020,
+      "data_eleicao": "2020-11-29",
+      "numero_turno": 2,
+      "uf": "PA",
+      "len": 614
+    },
+    {
+      "ano_referencia": 2020,
+      "data_eleicao": "2020-11-29",
+      "numero_turno": 2,
+      "uf": "PB",
+      "len": 210
+    },
+    {
+      "ano_referencia": 2020,
+      "data_eleicao": "2020-11-29",
+      "numero_turno": 2,
+      "uf": "PE",
+      "len": 471
+    },
+    {
+      "ano_referencia": 2020,
+      "data_eleicao": "2020-11-29",
+      "numero_turno": 2,
+      "uf": "PI",
+      "len": 324
+    },
+    {
+      "ano_referencia": 2020,
+      "data_eleicao": "2020-11-29",
+      "numero_turno": 2,
+      "uf": "PR",
+      "len": 120
+    },
+    {
+      "ano_referencia": 2020,
+      "data_eleicao": "2020-11-29",
+      "numero_turno": 2,
+      "uf": "RJ",
+      "len": 2022
+    },
+    {
+      "ano_referencia": 2020,
+      "data_eleicao": "2020-11-29",
+      "numero_turno": 2,
+      "uf": "RO",
+      "len": 134
+    },
+    {
+      "ano_referencia": 2020,
+      "data_eleicao": "2020-11-29",
+      "numero_turno": 2,
+      "uf": "RR",
+      "len": 149
+    },
+    {
+      "ano_referencia": 2020,
+      "data_eleicao": "2020-11-29",
+      "numero_turno": 2,
+      "uf": "RS",
+      "len": 834
+    },
+    {
+      "ano_referencia": 2020,
+      "data_eleicao": "2020-11-29",
+      "numero_turno": 2,
+      "uf": "SC",
+      "len": 158
+    },
+    {
+      "ano_referencia": 2020,
+      "data_eleicao": "2020-11-29",
+      "numero_turno": 2,
+      "uf": "SE",
+      "len": 174
+    },
+    {
+      "ano_referencia": 2020,
+      "data_eleicao": "2020-11-29",
+      "numero_turno": 2,
+      "uf": "SP",
+      "len": 3822
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-02",
+      "numero_turno": 1,
+      "uf": "AC",
+      "len": 683
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-02",
+      "numero_turno": 1,
+      "uf": "AL",
+      "len": 1007
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-02",
+      "numero_turno": 1,
+      "uf": "AM",
+      "len": 1493
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-02",
+      "numero_turno": 1,
+      "uf": "AP",
+      "len": 350
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-02",
+      "numero_turno": 1,
+      "uf": "BA",
+      "len": 9149
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-02",
+      "numero_turno": 1,
+      "uf": "CE",
+      "len": 6676
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-02",
+      "numero_turno": 1,
+      "uf": "DF",
+      "len": 617
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-02",
+      "numero_turno": 1,
+      "uf": "ES",
+      "len": 1706
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-02",
+      "numero_turno": 1,
+      "uf": "GO",
+      "len": 2426
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-02",
+      "numero_turno": 1,
+      "uf": "MA",
+      "len": 5629
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-02",
+      "numero_turno": 1,
+      "uf": "MG",
+      "len": 10015
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-02",
+      "numero_turno": 1,
+      "uf": "MS",
+      "len": 1019
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-02",
+      "numero_turno": 1,
+      "uf": "MT",
+      "len": 1449
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-02",
+      "numero_turno": 1,
+      "uf": "PA",
+      "len": 5267
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-02",
+      "numero_turno": 1,
+      "uf": "PB",
+      "len": 1743
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-02",
+      "numero_turno": 1,
+      "uf": "PE",
+      "len": 3273
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-02",
+      "numero_turno": 1,
+      "uf": "PI",
+      "len": 3374
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-02",
+      "numero_turno": 1,
+      "uf": "PR",
+      "len": 4642
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-02",
+      "numero_turno": 1,
+      "uf": "RJ",
+      "len": 4820
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-02",
+      "numero_turno": 1,
+      "uf": "RN",
+      "len": 1505
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-02",
+      "numero_turno": 1,
+      "uf": "RO",
+      "len": 630
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-02",
+      "numero_turno": 1,
+      "uf": "RR",
+      "len": 321
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-02",
+      "numero_turno": 1,
+      "uf": "RS",
+      "len": 8012
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-02",
+      "numero_turno": 1,
+      "uf": "SC",
+      "len": 3496
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-02",
+      "numero_turno": 1,
+      "uf": "SE",
+      "len": 1187
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-02",
+      "numero_turno": 1,
+      "uf": "SP",
+      "len": 10842
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-02",
+      "numero_turno": 1,
+      "uf": "TO",
+      "len": 847
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-30",
+      "numero_turno": 2,
+      "uf": "AC",
+      "len": 689
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-30",
+      "numero_turno": 2,
+      "uf": "AL",
+      "len": 1008
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-30",
+      "numero_turno": 2,
+      "uf": "AM",
+      "len": 1496
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-30",
+      "numero_turno": 2,
+      "uf": "AP",
+      "len": 351
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-30",
+      "numero_turno": 2,
+      "uf": "BA",
+      "len": 9150
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-30",
+      "numero_turno": 2,
+      "uf": "CE",
+      "len": 6682
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-30",
+      "numero_turno": 2,
+      "uf": "DF",
+      "len": 617
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-30",
+      "numero_turno": 2,
+      "uf": "ES",
+      "len": 1707
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-30",
+      "numero_turno": 2,
+      "uf": "GO",
+      "len": 2427
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-30",
+      "numero_turno": 2,
+      "uf": "MA",
+      "len": 5646
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-30",
+      "numero_turno": 2,
+      "uf": "MG",
+      "len": 10013
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-30",
+      "numero_turno": 2,
+      "uf": "MS",
+      "len": 1020
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-30",
+      "numero_turno": 2,
+      "uf": "MT",
+      "len": 1449
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-30",
+      "numero_turno": 2,
+      "uf": "PA",
+      "len": 5270
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-30",
+      "numero_turno": 2,
+      "uf": "PB",
+      "len": 1753
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-30",
+      "numero_turno": 2,
+      "uf": "PE",
+      "len": 3273
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-30",
+      "numero_turno": 2,
+      "uf": "PI",
+      "len": 3372
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-30",
+      "numero_turno": 2,
+      "uf": "PR",
+      "len": 4649
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-30",
+      "numero_turno": 2,
+      "uf": "RJ",
+      "len": 4823
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-30",
+      "numero_turno": 2,
+      "uf": "RN",
+      "len": 1506
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-30",
+      "numero_turno": 2,
+      "uf": "RO",
+      "len": 632
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-30",
+      "numero_turno": 2,
+      "uf": "RR",
+      "len": 334
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-30",
+      "numero_turno": 2,
+      "uf": "RS",
+      "len": 8012
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-30",
+      "numero_turno": 2,
+      "uf": "SC",
+      "len": 3495
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-30",
+      "numero_turno": 2,
+      "uf": "SE",
+      "len": 1188
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-30",
+      "numero_turno": 2,
+      "uf": "SP",
+      "len": 10843
+    },
+    {
+      "ano_referencia": 2022,
+      "data_eleicao": "2022-10-30",
+      "numero_turno": 2,
+      "uf": "TO",
+      "len": 849
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-04",
+      "numero_turno": 1,
+      "uf": "AC",
+      "len": 672
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-04",
+      "numero_turno": 1,
+      "uf": "AL",
+      "len": 1087
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-04",
+      "numero_turno": 1,
+      "uf": "AM",
+      "len": 1645
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-04",
+      "numero_turno": 1,
+      "uf": "AP",
+      "len": 378
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-04",
+      "numero_turno": 1,
+      "uf": "BA",
+      "len": 9301
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-04",
+      "numero_turno": 1,
+      "uf": "CE",
+      "len": 6782
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-04",
+      "numero_turno": 1,
+      "uf": "DF",
+      "len": 622
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-04",
+      "numero_turno": 1,
+      "uf": "ES",
+      "len": 1781
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-04",
+      "numero_turno": 1,
+      "uf": "GO",
+      "len": 2486
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-04",
+      "numero_turno": 1,
+      "uf": "MA",
+      "len": 5880
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-04",
+      "numero_turno": 1,
+      "uf": "MG",
+      "len": 10260
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-04",
+      "numero_turno": 1,
+      "uf": "MS",
+      "len": 1029
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-04",
+      "numero_turno": 1,
+      "uf": "MT",
+      "len": 1520
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-04",
+      "numero_turno": 1,
+      "uf": "PA",
+      "len": 5895
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-04",
+      "numero_turno": 1,
+      "uf": "PB",
+      "len": 1853
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-04",
+      "numero_turno": 1,
+      "uf": "PE",
+      "len": 3405
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-04",
+      "numero_turno": 1,
+      "uf": "PI",
+      "len": 3472
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-04",
+      "numero_turno": 1,
+      "uf": "PR",
+      "len": 4822
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-04",
+      "numero_turno": 1,
+      "uf": "RJ",
+      "len": 5061
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-04",
+      "numero_turno": 1,
+      "uf": "RN",
+      "len": 1585
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-04",
+      "numero_turno": 1,
+      "uf": "RO",
+      "len": 679
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-04",
+      "numero_turno": 1,
+      "uf": "RR",
+      "len": 378
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-04",
+      "numero_turno": 1,
+      "uf": "RS",
+      "len": 7819
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-04",
+      "numero_turno": 1,
+      "uf": "SC",
+      "len": 3465
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-04",
+      "numero_turno": 1,
+      "uf": "SE",
+      "len": 1213
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-04",
+      "numero_turno": 1,
+      "uf": "SP",
+      "len": 11078
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-04",
+      "numero_turno": 1,
+      "uf": "TO",
+      "len": 932
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-25",
+      "numero_turno": 2,
+      "uf": "AC",
+      "len": 672
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-25",
+      "numero_turno": 2,
+      "uf": "AL",
+      "len": 1087
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-25",
+      "numero_turno": 2,
+      "uf": "AM",
+      "len": 1644
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-25",
+      "numero_turno": 2,
+      "uf": "AP",
+      "len": 378
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-25",
+      "numero_turno": 2,
+      "uf": "BA",
+      "len": 9300
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-25",
+      "numero_turno": 2,
+      "uf": "CE",
+      "len": 6784
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-25",
+      "numero_turno": 2,
+      "uf": "DF",
+      "len": 622
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-25",
+      "numero_turno": 2,
+      "uf": "ES",
+      "len": 1782
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-25",
+      "numero_turno": 2,
+      "uf": "GO",
+      "len": 2485
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-25",
+      "numero_turno": 2,
+      "uf": "MA",
+      "len": 5881
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-25",
+      "numero_turno": 2,
+      "uf": "MG",
+      "len": 10256
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-25",
+      "numero_turno": 2,
+      "uf": "MS",
+      "len": 1029
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-25",
+      "numero_turno": 2,
+      "uf": "MT",
+      "len": 1519
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-25",
+      "numero_turno": 2,
+      "uf": "PA",
+      "len": 5899
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-25",
+      "numero_turno": 2,
+      "uf": "PB",
+      "len": 1852
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-25",
+      "numero_turno": 2,
+      "uf": "PE",
+      "len": 3405
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-25",
+      "numero_turno": 2,
+      "uf": "PI",
+      "len": 3474
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-25",
+      "numero_turno": 2,
+      "uf": "PR",
+      "len": 4821
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-25",
+      "numero_turno": 2,
+      "uf": "RJ",
+      "len": 5060
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-25",
+      "numero_turno": 2,
+      "uf": "RN",
+      "len": 1586
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-25",
+      "numero_turno": 2,
+      "uf": "RO",
+      "len": 678
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-25",
+      "numero_turno": 2,
+      "uf": "RR",
+      "len": 378
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-25",
+      "numero_turno": 2,
+      "uf": "RS",
+      "len": 7820
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-25",
+      "numero_turno": 2,
+      "uf": "SC",
+      "len": 3465
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-25",
+      "numero_turno": 2,
+      "uf": "SE",
+      "len": 1214
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-25",
+      "numero_turno": 2,
+      "uf": "SP",
+      "len": 11077
+    },
+    {
+      "ano_referencia": 2026,
+      "data_eleicao": "2026-10-25",
+      "numero_turno": 2,
+      "uf": "TO",
+      "len": 932
+    }
+  ],
+  "coverage_by_year": [
+    {
+      "ano_referencia": 2018,
+      "len": 189637
+    },
+    {
+      "ano_referencia": 2020,
+      "len": 107270
+    },
+    {
+      "ano_referencia": 2022,
+      "len": 184432
+    },
+    {
+      "ano_referencia": 2026,
+      "len": 190200
+    }
+  ],
+  "audit": {
+    "raw_observations_missing": 0,
+    "extra_observations": 0,
+    "prior_history_values_unchanged": true,
+    "prior_location_ids_preserved": true,
+    "validated_core_rows": 779723
+  },
+  "raw_files": [
+    {
+      "file": "downloads/tse/voting_locations/0cb7ebe65c834052.parquet",
+      "rows": 44182,
+      "years": [
+        "2026"
+      ],
+      "ufs": [
+        "PE"
+      ]
+    },
+    {
+      "file": "downloads/tse/voting_locations/12af24987a194149.parquet",
+      "rows": 963726,
+      "years": [
+        "2018"
+      ],
+      "ufs": [
+        "AC",
+        "AL",
+        "AM",
+        "AP",
+        "BA",
+        "CE",
+        "DF",
+        "ES",
+        "GO",
+        "MA",
+        "MG",
+        "MS",
+        "MT",
+        "PA",
+        "PB",
+        "PE",
+        "PI",
+        "PR",
+        "RJ",
+        "RN",
+        "RO",
+        "RR",
+        "RS",
+        "SC",
+        "SE",
+        "SP",
+        "TO",
+        "ZZ"
+      ]
+    },
+    {
+      "file": "downloads/tse/voting_locations/174dc0be22044c39.parquet",
+      "rows": 21690,
+      "years": [
+        "2026"
+      ],
+      "ufs": [
+        "PB"
+      ]
+    },
+    {
+      "file": "downloads/tse/voting_locations/27d6d1f712b647fb.parquet",
+      "rows": 16672,
+      "years": [
+        "2026"
+      ],
+      "ufs": [
+        "RN"
+      ]
+    },
+    {
+      "file": "downloads/tse/voting_locations/35db246c4c244700.parquet",
+      "rows": 17154,
+      "years": [
+        "2026"
+      ],
+      "ufs": [
+        "AM"
+      ]
+    },
+    {
+      "file": "downloads/tse/voting_locations/48c182b6be1b4178.parquet",
+      "rows": 22522,
+      "years": [
+        "2026"
+      ],
+      "ufs": [
+        "PI"
+      ]
+    },
+    {
+      "file": "downloads/tse/voting_locations/5ae43c1174a24673.parquet",
+      "rows": 75900,
+      "years": [
+        "2026"
+      ],
+      "ufs": [
+        "BA"
+      ]
+    },
+    {
+      "file": "downloads/tse/voting_locations/5d41c3c90f6f40c4.parquet",
+      "rows": 17950,
+      "years": [
+        "2026"
+      ],
+      "ufs": [
+        "MT"
+      ]
+    },
+    {
+      "file": "downloads/tse/voting_locations/5df2080f3f8443aa.parquet",
+      "rows": 39588,
+      "years": [
+        "2026"
+      ],
+      "ufs": [
+        "MA"
+      ]
+    },
+    {
+      "file": "downloads/tse/voting_locations/694181c4cbe24ad9.parquet",
+      "rows": 108386,
+      "years": [
+        "2026"
+      ],
+      "ufs": [
+        "MG"
+      ]
+    },
+    {
+      "file": "downloads/tse/voting_locations/74fd51168be34694.parquet",
+      "rows": 12134,
+      "years": [
+        "2026"
+      ],
+      "ufs": [
+        "SE"
+      ]
+    },
+    {
+      "file": "downloads/tse/voting_locations/774244d9fea84aa2.parquet",
+      "rows": 14100,
+      "years": [
+        "2026"
+      ],
+      "ufs": [
+        "DF"
+      ]
+    },
+    {
+      "file": "downloads/tse/voting_locations/7fc18ef5251d4978.parquet",
+      "rows": 9882,
+      "years": [
+        "2026"
+      ],
+      "ufs": [
+        "RO"
+      ]
+    },
+    {
+      "file": "downloads/tse/voting_locations/86721e84c11e4c80.parquet",
+      "rows": 20246,
+      "years": [
+        "2026"
+      ],
+      "ufs": [
+        "ES"
+      ]
+    },
+    {
+      "file": "downloads/tse/voting_locations/88aecb75862d43cb.parquet",
+      "rows": 55476,
+      "years": [
+        "2026"
+      ],
+      "ufs": [
+        "RS"
+      ]
+    },
+    {
+      "file": "downloads/tse/voting_locations/9296920fa41a4d4d.parquet",
+      "rows": 51300,
+      "years": [
+        "2026"
+      ],
+      "ufs": [
+        "CE"
+      ]
+    },
+    {
+      "file": "downloads/tse/voting_locations/97a9e811ee6148ba.parquet",
+      "rows": 3942,
+      "years": [
+        "2026"
+      ],
+      "ufs": [
+        "AP"
+      ]
+    },
+    {
+      "file": "downloads/tse/voting_locations/99cc8a32525945fa.parquet",
+      "rows": 597429,
+      "years": [
+        "2020"
+      ],
+      "ufs": [
+        "AC",
+        "AL",
+        "AM",
+        "AP",
+        "BA",
+        "CE",
+        "ES",
+        "GO",
+        "MA",
+        "MG",
+        "MS",
+        "MT",
+        "PA",
+        "PB",
+        "PE",
+        "PI",
+        "PR",
+        "RJ",
+        "RN",
+        "RO",
+        "RR",
+        "RS",
+        "SC",
+        "SE",
+        "SP",
+        "TO"
+      ]
+    },
+    {
+      "file": "downloads/tse/voting_locations/9ad94e874cec4c39.parquet",
+      "rows": 77476,
+      "years": [
+        "2026"
+      ],
+      "ufs": [
+        "RJ"
+      ]
+    },
+    {
+      "file": "downloads/tse/voting_locations/a2270bcb49124187.parquet",
+      "rows": 1034358,
+      "years": [
+        "2026"
+      ],
+      "ufs": [
+        "AC",
+        "AL",
+        "AM",
+        "AP",
+        "BA",
+        "CE",
+        "DF",
+        "ES",
+        "GO",
+        "MA",
+        "MG",
+        "MS",
+        "MT",
+        "PA",
+        "PB",
+        "PE",
+        "PI",
+        "PR",
+        "RJ",
+        "RN",
+        "RO",
+        "RR",
+        "RS",
+        "SC",
+        "SE",
+        "SP",
+        "TO",
+        "ZZ"
+      ]
+    },
+    {
+      "file": "downloads/tse/voting_locations/b335082776494bd0.parquet",
+      "rows": 5430,
+      "years": [
+        "2026"
+      ],
+      "ufs": [
+        "ZZ"
+      ]
+    },
+    {
+      "file": "downloads/tse/voting_locations/b75dd413e4ee4552.parquet",
+      "rows": 4822,
+      "years": [
+        "2026"
+      ],
+      "ufs": [
+        "AC"
+      ]
+    },
+    {
+      "file": "downloads/tse/voting_locations/bb4848ce5b0444de.parquet",
+      "rows": 32452,
+      "years": [
+        "2026"
+      ],
+      "ufs": [
+        "GO"
+      ]
+    },
+    {
+      "file": "downloads/tse/voting_locations/bbd6780a167a4720.parquet",
+      "rows": 35116,
+      "years": [
+        "2026"
+      ],
+      "ufs": [
+        "SC"
+      ]
+    },
+    {
+      "file": "downloads/tse/voting_locations/bd0cdc51f6944438.parquet",
+      "rows": 8980,
+      "years": [
+        "2026"
+      ],
+      "ufs": [
+        "TO"
+      ]
+    },
+    {
+      "file": "downloads/tse/voting_locations/cec83f457bc44ced.parquet",
+      "rows": 54672,
+      "years": [
+        "2026"
+      ],
+      "ufs": [
+        "PR"
+      ]
+    },
+    {
+      "file": "downloads/tse/voting_locations/d3a247a0aaab4b5e.parquet",
+      "rows": 993712,
+      "years": [
+        "2022"
+      ],
+      "ufs": [
+        "AC",
+        "AL",
+        "AM",
+        "AP",
+        "BA",
+        "CE",
+        "DF",
+        "ES",
+        "GO",
+        "MA",
+        "MG",
+        "MS",
+        "MT",
+        "PA",
+        "PB",
+        "PE",
+        "PI",
+        "PR",
+        "RJ",
+        "RN",
+        "RO",
+        "RR",
+        "RS",
+        "SC",
+        "SE",
+        "SP",
+        "TO",
+        "ZZ"
+      ]
+    },
+    {
+      "file": "downloads/tse/voting_locations/daeeb97252854588.parquet",
+      "rows": 44164,
+      "years": [
+        "2026"
+      ],
+      "ufs": [
+        "PA"
+      ]
+    },
+    {
+      "file": "downloads/tse/voting_locations/e043de6955764285.parquet",
+      "rows": 14492,
+      "years": [
+        "2026"
+      ],
+      "ufs": [
+        "AL"
+      ]
+    },
+    {
+      "file": "downloads/tse/voting_locations/e39924618a774613.parquet",
+      "rows": 3254,
+      "years": [
+        "2026"
+      ],
+      "ufs": [
+        "RR"
+      ]
+    },
+    {
+      "file": "downloads/tse/voting_locations/e47b4984b2474a35.parquet",
+      "rows": 207808,
+      "years": [
+        "2026"
+      ],
+      "ufs": [
+        "SP"
+      ]
+    },
+    {
+      "file": "downloads/tse/voting_locations/f2525a009d3f4230.parquet",
+      "rows": 14568,
+      "years": [
+        "2026"
+      ],
+      "ufs": [
+        "MS"
+      ]
+    }
+  ],
+  "bloom_filters": [
+    {
+      "file": "parquet_dumps/opendata/opendata_voting_location/tse.parquet",
+      "rows": 108184,
+      "row_groups": 1,
+      "columns": [
+        "id",
+        "data_eleicao",
+        "numero_turno",
+        "uf",
+        "codigo_municipio_tse",
+        "zona_eleitoral",
+        "numero",
+        "ano_referencia",
+        "nome",
+        "endereco",
+        "bairro",
+        "cep",
+        "latitude_tse",
+        "longitude_tse",
+        "codigo_situacao",
+        "campos_divergentes.list.element",
+        "data_geracao",
+        "codigo_municipio_ibge",
+        "endereco_cluster_id"
+      ],
+      "unsupported_columns": [],
+      "bytes_before": 5638029,
+      "status": "rewritten",
+      "bytes_after": 6697406,
+      "seconds": 0.142,
+      "bloom_filter_chunks": 19,
+      "ndv": 108184,
+      "false_positive_probability": 0.05,
+      "audit": "exact logical values in order, schema, metadata, row groups, Bloom coverage"
+    },
+    {
+      "file": "parquet_dumps/opendata/opendata_voting_location_history/tse.parquet",
+      "rows": 671539,
+      "row_groups": 6,
+      "columns": [
+        "id",
+        "data_eleicao",
+        "numero_turno",
+        "uf",
+        "codigo_municipio_tse",
+        "zona_eleitoral",
+        "numero",
+        "ano_referencia",
+        "nome",
+        "endereco",
+        "bairro",
+        "cep",
+        "latitude_tse",
+        "longitude_tse",
+        "codigo_situacao",
+        "campos_divergentes.list.element",
+        "data_geracao",
+        "codigo_municipio_ibge",
+        "endereco_cluster_id"
+      ],
+      "unsupported_columns": [],
+      "bytes_before": 31971501,
+      "status": "rewritten",
+      "bytes_after": 40917095,
+      "seconds": 0.691,
+      "bloom_filter_chunks": 114,
+      "ndv": 122880,
+      "false_positive_probability": 0.05,
+      "audit": "exact logical values in order, schema, metadata, row groups, Bloom coverage"
+    }
+  ],
+  "vote_shift_2022_to_2026_first_round": {
+    "locais_comparaveis": 85808,
+    "locais_no_mapa": 85674,
+    "locais_sem_referencia": 7247,
+    "locais_sem_cadastro": 1329,
+    "votos_comparados_sem_cadastro": 1571210,
+    "locais_apenas_referencia": 5313,
+    "locais": 93227,
+    "municipios": 5571,
+    "votos_nominais": 119306034,
+    "elapsed_seconds": 6.488,
+    "validated_core_model": true,
+    "local_votes_plus_unmatched_equal_total": true
+  }
+}

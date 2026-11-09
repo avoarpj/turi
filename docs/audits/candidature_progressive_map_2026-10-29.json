@@ -1,0 +1,50 @@
+{
+  "frontend_test_files": 18,
+  "svelte_check_errors": 0,
+  "svelte_check_warnings": 0,
+  "production_build": true,
+  "state_anchors_checked_on_real_br": 27,
+  "geometry": {
+    "country": "assets/brazilgeo/BR.geojson real",
+    "municipalities": "small SP/AC fixtures"
+  },
+  "votes": "fixtures; no new electoral aggregation for this visual change",
+  "detail_zoom": 5.5,
+  "default_detail_limit": 2,
+  "configurable_detail_limit": [
+    1,
+    27
+  ],
+  "browser_detail_limit": 1,
+  "chromium": {
+    "country_ready_before_votes": true,
+    "municipal_downloads_before_zoom": 0,
+    "municipal_downloads_for_sp": 1,
+    "round_switch_reuses_geometry": true,
+    "municipal_labels_checked": [
+      "5.2K",
+      "30",
+      "6K",
+      "0",
+      "—"
+    ],
+    "state_labels_checked": [
+      "5.2K",
+      "2",
+      "—"
+    ],
+    "return_to_country": true,
+    "mobile_width": 390,
+    "horizontal_overflow": false,
+    "javascript_errors": []
+  },
+  "unit_regressions": [
+    "one interior anchor on largest polygon, holes and concavities",
+    "vote updates without new geometry requests",
+    "viewport selection and resident-state limits",
+    "failed source retry and cancellation while panning",
+    "shared geometry loader preserves party-strength behavior"
+  ],
+  "api_changed": false,
+  "data_regenerated": false
+}

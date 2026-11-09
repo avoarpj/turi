@@ -1,0 +1,30 @@
+{
+    "id": "historico_deputados_federais",
+    "name": "Histórico dos dados de deputados federais na Câmara dos Deputados",
+    "script": "src/infra/scripts/historico_deputados_federais_incremental.py",
+    "inputs": [
+        {
+            "download": {
+                "url": "https://dadosabertos.camara.leg.br/arquivos/deputados/json/deputados.json",
+                "output": "temp-downloads/historico-deputados-federais/deputados.json",
+                "extractFrom": "no extract",
+                "expires": "1d"
+            }
+        },
+        {
+            "process": {
+                "path": "temp-downloads/historico-deputados-federais/deputados.json"
+            }
+        }
+    ],
+    "output": {
+        "path": {
+            "csv": "",
+            "json": "public/datasets/historico_deputados_federais/historico.json",
+            "xml": ""
+        }
+    },
+    "updates": {
+        "cron_expr": "0 * * 1 *"
+    }
+}

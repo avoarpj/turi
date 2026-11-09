@@ -1,0 +1,14 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API Rest | Avoar",
+        "version": "1.0.0",
+        "description": "Bem-vindo a documentação da API do Avoar.<br>Ficamos felizes que você queira conhecer nossos sistemas.<br><br>A maioria dos endpoints está com o CORS liberado para qualquer origem/método.<br>Alguns endpoints podem exigir autenticação pela conta Avoar e terão restrições de CORS.<br><br>Permitimos uso dos dados públicos, sob o prefixo <i>/open_data/*</i> para qualquer finalidade lícita, de acordo com os [termos de uso do Avoar OpenData]<br>Usos ilícitos ou tentativa de acesso aos dados fora do escopo do <i>OpenData</i> resultarão na tomada de medidas legais cabíveis."
+    },
+    "servers": [
+        {
+            "url": "https://api.avoar.net.br",
+            "description": "Servidor de API oficial do Avoar."
+        }
+    ]
+}

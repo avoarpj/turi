@@ -1,0 +1,326 @@
+{
+  "started_at": "2026-10-14T06:30:55.626972+00:00",
+  "files": [
+    {
+      "file": "/home/victor/Desktop/projects/avoar/avoar/parquet_dumps/opendata/opendata_legislative_house/static.parquet",
+      "keys": [
+        "id"
+      ],
+      "rows": 2,
+      "bytes_before": 884,
+      "status": "sorted",
+      "bytes_after": 771,
+      "seconds": 0.104,
+      "content_fingerprint": [
+        "2",
+        "16481668368297291946",
+        "11142193415072304768"
+      ],
+      "audit": "schema, rows, row hashes, null counts, numeric totals, global ordering"
+    },
+    {
+      "file": "/home/victor/Desktop/projects/avoar/avoar/parquet_dumps/opendata/opendata_amendment_item/gov.parquet",
+      "keys": [
+        "type",
+        "id"
+      ],
+      "rows": 1139,
+      "bytes_before": 43463,
+      "status": "sorted",
+      "bytes_after": 43560,
+      "seconds": 0.011,
+      "content_fingerprint": [
+        "1139",
+        "10249131732259852189977",
+        "10386116155552020703"
+      ],
+      "audit": "schema, rows, row hashes, null counts, numeric totals, global ordering"
+    },
+    {
+      "file": "/home/victor/Desktop/projects/avoar/avoar/parquet_dumps/opendata/opendata_services_supplier/camaradosdeputados.parquet",
+      "keys": [
+        "tipo_documento",
+        "documento"
+      ],
+      "rows": 2634,
+      "bytes_before": 47432,
+      "status": "already_sorted",
+      "bytes_after": 47432
+    },
+    {
+      "file": "/home/victor/Desktop/projects/avoar/avoar/parquet_dumps/opendata/opendata_election_round/opendata_election_round.parquet",
+      "keys": [
+        "eleicao_id",
+        "numero_turno",
+        "id"
+      ],
+      "rows": 5713,
+      "bytes_before": 94656,
+      "status": "sorted",
+      "bytes_after": 113170,
+      "seconds": 0.01,
+      "content_fingerprint": [
+        "5713",
+        "51625206652581683861353",
+        "1361302822779547475"
+      ],
+      "audit": "schema, rows, row hashes, null counts, numeric totals, global ordering"
+    },
+    {
+      "file": "/home/victor/Desktop/projects/avoar/avoar/parquet_dumps/opendata/opendata_services_supplier_names/camaradosdeputados.parquet",
+      "keys": [
+        "fornecedor_id",
+        "nome"
+      ],
+      "rows": 3646,
+      "bytes_before": 113016,
+      "status": "already_sorted",
+      "bytes_after": 113016
+    },
+    {
+      "file": "/home/victor/Desktop/projects/avoar/avoar/parquet_dumps/opendata/opendata_services_supplier/gov_amendments.parquet",
+      "keys": [
+        "tipo_documento",
+        "documento"
+      ],
+      "rows": 55544,
+      "bytes_before": 817656,
+      "status": "sorted",
+      "bytes_after": 956558,
+      "seconds": 0.033,
+      "content_fingerprint": [
+        "55544",
+        "511843555482081084875441",
+        "2250320467164872543"
+      ],
+      "audit": "schema, rows, row hashes, null counts, numeric totals, global ordering"
+    },
+    {
+      "file": "/home/victor/Desktop/projects/avoar/avoar/parquet_dumps/opendata/opendata_amendment_authorship/gov.parquet",
+      "keys": [
+        "mandato_id",
+        "emenda_id",
+        "tipo_autoria"
+      ],
+      "rows": 76580,
+      "bytes_before": 846540,
+      "status": "sorted",
+      "bytes_after": 855515,
+      "seconds": 0.032,
+      "content_fingerprint": [
+        "76580",
+        "706914627743841862775504",
+        "10514700972722524132"
+      ],
+      "audit": "schema, rows, row hashes, null counts, numeric totals, global ordering"
+    },
+    {
+      "file": "/home/victor/Desktop/projects/avoar/avoar/parquet_dumps/opendata/opendata_amendment_to_agreement/gov.parquet",
+      "keys": [
+        "emenda_id",
+        "convenio_id"
+      ],
+      "rows": 75867,
+      "bytes_before": 928725,
+      "status": "sorted",
+      "bytes_after": 1015592,
+      "seconds": 0.022,
+      "content_fingerprint": [
+        "75867",
+        "699916105773491642149602",
+        "420403511527430498"
+      ],
+      "audit": "schema, rows, row hashes, null counts, numeric totals, global ordering"
+    },
+    {
+      "file": "/home/victor/Desktop/projects/avoar/avoar/parquet_dumps/opendata/opendata_services_supplier_names/gov_amendments.parquet",
+      "keys": [
+        "fornecedor_id",
+        "nome"
+      ],
+      "rows": 57478,
+      "bytes_before": 1494882,
+      "status": "sorted",
+      "bytes_after": 1813506,
+      "seconds": 0.045,
+      "content_fingerprint": [
+        "57478",
+        "529317760994697447017751",
+        "11074273933395291527"
+      ],
+      "audit": "schema, rows, row hashes, null counts, numeric totals, global ordering"
+    },
+    {
+      "file": "/home/victor/Desktop/projects/avoar/avoar/parquet_dumps/opendata/opendata_amendment_resource/gov.parquet",
+      "keys": [
+        "emenda_id",
+        "codigo_local",
+        "codigo_funcao",
+        "codigo_subfuncao",
+        "codigo_programa",
+        "codigo_acao",
+        "codigo_plano_orcamentario"
+      ],
+      "rows": 76638,
+      "bytes_before": 2397559,
+      "status": "sorted",
+      "bytes_after": 2880715,
+      "seconds": 0.098,
+      "content_fingerprint": [
+        "76638",
+        "706846826056128503206135",
+        "17405876174703080751"
+      ],
+      "audit": "schema, rows, row hashes, null counts, numeric totals, global ordering"
+    },
+    {
+      "file": "/home/victor/Desktop/projects/avoar/avoar/parquet_dumps/opendata/opendata_amendment_agreement/gov.parquet",
+      "keys": [
+        "id"
+      ],
+      "rows": 81362,
+      "bytes_before": 5341294,
+      "status": "sorted",
+      "bytes_after": 6000501,
+      "seconds": 0.096,
+      "content_fingerprint": [
+        "81362",
+        "750636676059489084579908",
+        "6047604270837180852"
+      ],
+      "audit": "schema, rows, row hashes, null counts, numeric totals, global ordering"
+    },
+    {
+      "file": "/home/victor/Desktop/projects/avoar/avoar/parquet_dumps/opendata/opendata_amendment_supplier/gov.parquet",
+      "keys": [
+        "emenda_id",
+        "fornecedor_id",
+        "tipo_documento"
+      ],
+      "rows": 753543,
+      "bytes_before": 8137131,
+      "status": "sorted",
+      "bytes_after": 7563415,
+      "seconds": 0.15,
+      "content_fingerprint": [
+        "753543",
+        "6949952660657947444559978",
+        "15113317500187224232"
+      ],
+      "audit": "schema, rows, row hashes, null counts, numeric totals, global ordering"
+    },
+    {
+      "file": "/home/victor/Desktop/projects/avoar/avoar/parquet_dumps/opendata/opendata_address_complement/opendata_address_complement.parquet",
+      "keys": [
+        "endereco_id",
+        "nome",
+        "valor"
+      ],
+      "rows": 45671427,
+      "bytes_before": 453994028,
+      "status": "sorted",
+      "bytes_after": 484387831,
+      "seconds": 12.934,
+      "content_fingerprint": [
+        "45671427",
+        "421242656158450431413369071",
+        "6473911893644173523"
+      ],
+      "audit": "schema, rows, row hashes, null counts, numeric totals, global ordering"
+    },
+    {
+      "file": "/home/victor/Desktop/projects/avoar/avoar/parquet_dumps/opendata/opendata_partnerhip/opendata_partnerhip.parquet",
+      "keys": [
+        "empresa_id",
+        "tipo_socio",
+        "socio_id",
+        "data_entrada"
+      ],
+      "rows": 28140566,
+      "bytes_before": 547912233,
+      "status": "sorted",
+      "bytes_after": 566991073,
+      "seconds": 11.289,
+      "content_fingerprint": [
+        "28140566",
+        "259570025547505624883084865",
+        "2533506385641051815"
+      ],
+      "audit": "schema, rows, row hashes, null counts, numeric totals, global ordering"
+    },
+    {
+      "file": "/home/victor/Desktop/projects/avoar/avoar/parquet_dumps/opendata/opendata_partner/opendata_partner.parquet",
+      "keys": [
+        "id"
+      ],
+      "rows": 18108985,
+      "bytes_before": 566458280,
+      "status": "sorted",
+      "bytes_after": 633863948,
+      "seconds": 8.067,
+      "content_fingerprint": [
+        "18108985",
+        "167032682546228508648594751",
+        "1902780629404259555"
+      ],
+      "audit": "schema, rows, row hashes, null counts, numeric totals, global ordering"
+    },
+    {
+      "file": "/home/victor/Desktop/projects/avoar/avoar/parquet_dumps/opendata/opendata_business/opendata_business.parquet",
+      "keys": [
+        "id"
+      ],
+      "rows": 69523294,
+      "bytes_before": 1706438229,
+      "status": "sorted",
+      "bytes_after": 2403501911,
+      "seconds": 94.74,
+      "content_fingerprint": [
+        "69523294",
+        "641213329807878659480125573",
+        "228509860201552057"
+      ],
+      "audit": "schema, rows, row hashes, null counts, numeric totals, global ordering"
+    },
+    {
+      "file": "/home/victor/Desktop/projects/avoar/avoar/parquet_dumps/opendata/opendata_address/opendata_address.parquet",
+      "keys": [
+        "municipio",
+        "cep",
+        "numero_logradouro",
+        "cluster_id",
+        "id"
+      ],
+      "rows": 111102875,
+      "bytes_before": 5002224658,
+      "status": "sorted",
+      "bytes_after": 3767217614,
+      "seconds": 319.841,
+      "content_fingerprint": [
+        "111102875",
+        "1024733965049898994765520498",
+        "13718564763292051398"
+      ],
+      "audit": "schema, rows, row hashes, null counts, numeric totals, global ordering"
+    },
+    {
+      "file": "/home/victor/Desktop/projects/avoar/avoar/parquet_dumps/opendata/opendata_business_establishment/opendata_business_establishment.parquet",
+      "keys": [
+        "empresa_id",
+        "id"
+      ],
+      "rows": 72605022,
+      "bytes_before": 7287961182,
+      "status": "sorted",
+      "bytes_after": 7838414983,
+      "seconds": 382.498,
+      "content_fingerprint": [
+        "72605022",
+        "669602366622955799914725562",
+        "4517019250367144758"
+      ],
+      "audit": "schema, rows, row hashes, null counts, numeric totals, global ordering"
+    }
+  ],
+  "finished_at": "2026-10-14T06:44:45.745719+00:00"
+}
