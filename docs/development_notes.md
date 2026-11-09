@@ -1,5 +1,29 @@
 # Memória técnica do Turi independente
 
+## Assets locais e exclusões do VS Code (2026-11-09)
+
+`/assets/brazilgeo/` e `/assets/candidatures/` são ignorados pelo Git. Os 55
+arquivos gerados do BrazilGEO foram retirados somente do índice com
+`git rm --cached`; os 601,36 MiB continuam no disco. O gerador e sua documentação
+em `apps/scripts/brazilgeo` permanecem versionados.
+
+`.vscode/settings.json` exclui as duas pastas das buscas e do monitoramento de
+arquivos. `files.exclude` explicitamente falso para essas pastas e
+`explorer.excludeGitIgnore: false` mantêm ambas visíveis no explorador.
+As exclusões do editor não removem arquivos já presentes no histórico do Git.
+
+Por autorização do usuário, a limpeza do histórico da `main` remove somente
+`assets/brazilgeo/` do commit de importação, preservando sua autoria, datas,
+mensagem e demais arquivos. O histórico anterior foi copiado para o repositório
+bare irmão `../turi-before-brazilgeo-2026-11-09-153fce8.git`, fora do workspace.
+A publicação usa `--force-with-lease` com o hash remoto anterior explícito.
+
+Validação sem rede: JSON válido, regras de `git check-ignore --no-index`
+incluindo subpastas e caminhos de controle, nenhum asset BrazilGEO no índice e
+comparação dos metadados dos 55 arquivos locais. O diff do commit reescrito
+contém somente as 55 remoções; o commit seguinte altera apenas ignore,
+configuração do editor e esta memória. Nenhum ETL ou gerador foi executado.
+
 ## Cookie CKAN do TSE configurável (2026-11-08)
 
 O downloader TSE lê `TSE_CKAN_COOKIE` do ambiente após carregar as configurações

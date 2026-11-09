@@ -213,7 +213,8 @@ __marimo__/
 downloads/
 parquet_dumps/
 venato_data/
-assets/candidatures/*
+/assets/brazilgeo/
+/assets/candidatures/
 __metadata__/
 .turi_unique_tmp/
 .parquet_sort_tmp/

@@ -7,10 +7,17 @@
         "*.tsv": "duckdb.dataFileViewer",
         "*.xlsx": "duckdb.dataFileViewer"
     },
+    "explorer.excludeGitIgnore": false,
+    "files.exclude": {
+        "**/assets/brazilgeo": false,
+        "**/assets/candidatures": false
+    },
     "files.watcherExclude": {
+        "**/assets/brazilgeo/**": true,
         "**/assets/candidatures/**": true
     },
     "search.exclude": {
+        "**/assets/brazilgeo": true,
         "**/assets/candidatures": true
     }
 }
