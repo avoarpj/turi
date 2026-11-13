@@ -41,6 +41,48 @@ e pode melhorar compressão dentro dos grupos. Isso não garante redução de di
 ordenar hashes de identidade pode reduzir repetição nas outras colunas. O relatório
 registra bytes antes/depois; não houve benchmark comparativo de endpoints.
 
+## Ordenação de estabelecimentos na produção
+
+O produtor de estabelecimentos usa `sink_sorted_parquet_parts` com 64 faixas de
+`empresa_id` e batches DataFusion de 8.192 linhas. Cada fonte é transformada uma
+vez e gravada diretamente nas faixas por divisão inteira do `UInt64` em intervalos
+iguais. Isso reduz o número de runs que precisam ser mesclados simultaneamente
+no HDD. A chave auxiliar é descartada antes da gravação dos intermediários.
+
+Cada faixa é ordenada por `(empresa_id, id)` no mesmo worker e as faixas são
+gravadas em ordem crescente em um único Parquet. Não há merge global entre
+faixas: os intervalos não se sobrepõem. Nulos compartilham a primeira faixa com
+zero e o sort local os coloca primeiro. O maior `UInt64`, limites dos intervalos,
+linhas repetidas e multiplicidades do join municipal são preservados.
+
+Os intermediários usam Zstd e row groups de 16.384 linhas para reduzir os buffers
+dos writers das partições. O destino mantém Snappy, row groups de 65.536 linhas,
+schema e metadados de ordenação. O agrupamento final atravessa fronteiras de
+faixas, evitando um row group pequeno por faixa. Contagem, totais opcionais e
+publicação atômica continuam no mesmo writer.
+
+O pool padrão continua em 256 MiB e `TURI_SORT_MEMORY_LIMIT` mantém precedência;
+não é um teto de RSS nem dos buffers Polars/Arrow. Faixas desbalanceadas ainda
+podem usar spill DataFusion. `TURI_UNIQUE_TEMP_DIRECTORY` escolhe o scratch,
+inclusive o TMPDIR exclusivo do worker. Nenhum segundo `SET` de runtime foi
+adicionado: isso descartaria a quota de disco no DataFusion 55.0 instalado.
+
+Essa estratégia é opcional: `range_partition_count` aceita potências de dois
+entre 2 e 256, exige chave principal `UInt64` e recusa deduplicação combinada.
+Os demais produtores e a manutenção dos dumps existentes continuam usando o
+sort global. A divisão tem custo de arquivos e redistribuição e pode ser mais
+lenta em fixtures pequenas; seu objetivo é reduzir o merge de datasets grandes.
+
+Na fixture de oito milhões de linhas largas no HDD, com pool de 256 MiB, o helper
+passou de 112,50 para 77,43 s. São medições únicas com cache do SO; a fixture de
+um milhão de linhas regrediu com esse pool. Método, auditorias e limites estão no
+[relatório de faixas](audits/parquet_sort_ranges_2026-11-13.json). A base real não
+foi reprocessada para validar essa mudança.
+
+`write_sorted_parquets(range_sources=...)` é o mecanismo usado pelo helper para
+ordenar e concatenar essas fontes. O chamador deve fornecer intervalos disjuntos
+da primeira chave em ordem crescente, com nulos somente no primeiro intervalo.
+
 ## Reordenar dados existentes
 
 A ferramenta abaixo lê somente os dumps finais, sem adaptadores, downloads,

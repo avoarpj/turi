@@ -1,0 +1,3743 @@
+{
+  "date": "2026-11-12",
+  "updated_at": "2026-11-12T10:40:53.022700+00:00",
+  "complete": true,
+  "catalog_size": 32,
+  "pending": [],
+  "machine": {
+    "ram_bytes": 15915044864,
+    "swap_bytes": 74088177664,
+    "logical_cpus": 12
+  },
+  "versions": {
+    "polars": "1.38.1",
+    "pyarrow": "25.0.1",
+    "datafusion": "55.0.0",
+    "psutil": "7.2.2"
+  },
+  "original_outputs_and_checkpoints_unchanged": true,
+  "method": "One process_data worker at a time; local inputs and published dependencies; no publication; photo moves simulated.",
+  "limitations": [
+    "Interrupted measurements are lower bounds, not complete producer peaks.",
+    "Separate RSS/swap peaks are not necessarily simultaneous.",
+    "RSS includes reclaimable allocator pages, mapped files and shared libraries; it is not active working memory.",
+    "disk_final and disk_ssd_final samples sum worker and live descendants; shared pages can be counted twice in aggregate RSS.",
+    "address_final additionally samples PSS and LazyFree; PSS apportions shared pages but still includes reclaimable pages and is not active working memory. Separate metric peaks need not coincide.",
+    "Earlier DataFusion sorts silently lost the chosen spill directory after SQL runtime changes and used /tmp (tmpfs); their RSS excludes that tmpfs consumption. disk_final fixes this with a child-only TMPDIR.",
+    "Fresh workers do not reproduce allocator retention across producers in the normal single-process runner.",
+    "No controlled cold/warm cache or latency comparison; scratch disks vary between runs.",
+    "SDS inputs were staged from local cached JSON using the Downloader conversion; zero-byte CEAP input remains untouched.",
+    "Published output/checkpoint preservation is checked by size and mtime, not a full byte hash.",
+    "Complete before/after footer counts and schemas are compared; complete real row values are not compared against interrupted baselines."
+  ],
+  "allocator_observation": {
+    "rss_kib": 5088540,
+    "anonymous_kib": 5009452,
+    "lazy_free_kib": 4039244,
+    "private_dirty_kib": 969624,
+    "scope": "one establishments sort sample; not an active-memory peak"
+  },
+  "tests": {
+    "count": 118,
+    "scope": "Turi fixtures and offline smoke tests"
+  },
+  "runs": {
+    "baseline": {
+      "started_at": "2026-11-12T03:51:11.640933+00:00",
+      "sample_seconds": 0.1,
+      "polars_max_threads": null,
+      "scope": "process_data only; existing published dependencies; no checkpoint, bloom, Venato or photo publication",
+      "original_outputs_and_checkpoints_unchanged": true,
+      "path": "downloads/temp/memory-profile-2026-11-12-baseline/report.json"
+    },
+    "ssd": {
+      "started_at": "2026-11-12T04:17:48.800924+00:00",
+      "sample_seconds": 0.1,
+      "polars_max_threads": null,
+      "input_root": null,
+      "unique_root": "/var/tmp/turi-memory-profile-2026-11-12",
+      "scope": "process_data only; existing published dependencies; no checkpoint, bloom, Venato or photo publication",
+      "original_outputs_and_checkpoints_unchanged": true,
+      "finished_at": "2026-11-12T04:39:48.519301+00:00",
+      "path": "downloads/temp/memory-profile-2026-11-12-ssd/report.json"
+    },
+    "evm_intermediate": {
+      "started_at": "2026-11-12T04:40:06.924731+00:00",
+      "sample_seconds": 0.1,
+      "polars_max_threads": null,
+      "input_root": null,
+      "unique_root": "/var/tmp/turi-memory-profile-2026-11-12",
+      "scope": "process_data only; existing published dependencies; no checkpoint, bloom, Venato or photo publication",
+      "original_outputs_and_checkpoints_unchanged": true,
+      "finished_at": "2026-11-12T04:43:04.701226+00:00",
+      "path": "downloads/temp/memory-profile-2026-11-12-evm-optimized/report.json"
+    },
+    "rest": {
+      "started_at": "2026-11-12T04:43:54.288477+00:00",
+      "sample_seconds": 0.1,
+      "polars_max_threads": null,
+      "input_root": "/run/media/victor/HDD Avoar/turi/downloads/temp/memory-profile-inputs",
+      "unique_root": "/var/tmp/turi-memory-profile-2026-11-12",
+      "scope": "process_data only; existing published dependencies; no checkpoint, bloom, Venato or photo publication",
+      "original_outputs_and_checkpoints_unchanged": true,
+      "finished_at": "2026-11-12T05:24:39.694084+00:00",
+      "path": "downloads/temp/memory-profile-2026-11-12-rest/report.json"
+    },
+    "final": {
+      "started_at": "2026-11-12T05:27:44.275797+00:00",
+      "sample_seconds": 0.1,
+      "polars_max_threads": null,
+      "input_root": "/run/media/victor/HDD Avoar/turi/downloads/temp/memory-profile-inputs",
+      "unique_root": "/var/tmp/turi-memory-profile-2026-11-12",
+      "scope": "process_data only; existing published dependencies; no checkpoint, bloom or Venato; photo moves simulated",
+      "original_outputs_and_checkpoints_unchanged": true,
+      "finished_at": "2026-11-12T06:04:29.991338+00:00",
+      "path": "downloads/temp/memory-profile-2026-11-12-final/report.json"
+    },
+    "bounded": {
+      "started_at": "2026-11-12T06:39:00.914621+00:00",
+      "sample_seconds": 0.1,
+      "polars_max_threads": null,
+      "input_root": null,
+      "unique_root": "/run/media/victor/HDD Avoar/turi/downloads/temp/memory-profile-2026-11-12-scratch",
+      "scope": "process_data only; existing published dependencies; no checkpoint, bloom or Venato; photo moves simulated",
+      "original_outputs_and_checkpoints_unchanged": true,
+      "finished_at": "2026-11-12T07:18:02.952528+00:00",
+      "path": "downloads/temp/memory-profile-2026-11-12-bounded/report.json"
+    },
+    "establishments_retry": {
+      "started_at": "2026-11-12T07:18:28.434528+00:00",
+      "sample_seconds": 0.1,
+      "polars_max_threads": null,
+      "input_root": null,
+      "unique_root": "/run/media/victor/HDD Avoar/turi/downloads/temp/memory-profile-2026-11-12-scratch",
+      "scope": "process_data only; existing published dependencies; no checkpoint, bloom or Venato; photo moves simulated",
+      "original_outputs_and_checkpoints_unchanged": true,
+      "finished_at": "2026-11-12T07:38:44.298945+00:00",
+      "path": "downloads/temp/memory-profile-2026-11-12-establishments-retry/report.json"
+    },
+    "disk_final": {
+      "started_at": "2026-11-12T07:40:54.395501+00:00",
+      "sample_seconds": 0.1,
+      "polars_max_threads": null,
+      "input_root": null,
+      "unique_root": "/run/media/victor/HDD Avoar/turi/downloads/temp/memory-profile-2026-11-12-scratch",
+      "scope": "process_data only; existing published dependencies; no checkpoint, bloom or Venato; photo moves simulated",
+      "memory_scope": "worker plus live descendant processes; RSS sums may include shared pages",
+      "original_outputs_and_checkpoints_unchanged": true,
+      "path": "downloads/temp/memory-profile-2026-11-12-disk-final/report.json"
+    },
+    "disk_ssd_final": {
+      "started_at": "2026-11-12T08:04:26.844646+00:00",
+      "sample_seconds": 0.1,
+      "polars_max_threads": null,
+      "input_root": null,
+      "unique_root": "/var/tmp/turi-memory-profile-2026-11-12",
+      "scope": "process_data only; existing published dependencies; no checkpoint, bloom or Venato; photo moves simulated",
+      "memory_scope": "worker plus live descendant processes; RSS sums may include shared pages",
+      "original_outputs_and_checkpoints_unchanged": true,
+      "finished_at": "2026-11-12T08:33:42.647416+00:00",
+      "path": "downloads/temp/memory-profile-2026-11-12-disk-ssd-final/report.json"
+    },
+    "address_final": {
+      "started_at": "2026-11-12T10:22:53.151526+00:00",
+      "sample_seconds": 0.1,
+      "polars_max_threads": null,
+      "input_root": null,
+      "unique_root": "/var/tmp/turi-memory-profile-2026-11-12",
+      "scope": "process_data only; existing published dependencies; no checkpoint, bloom or Venato; photo moves simulated",
+      "memory_scope": "worker plus live descendant processes; RSS sums may include shared pages",
+      "original_outputs_and_checkpoints_unchanged": true,
+      "finished_at": "2026-11-12T10:39:52.106901+00:00",
+      "path": "downloads/temp/memory-profile-2026-11-12-address-final/report.json"
+    }
+  },
+  "results": [
+    {
+      "script_id": "camaradosdeputados_legislatures",
+      "producer": "apps/turi/src/scripts/operations/legislatures/camaradosdeputados.py",
+      "current_producer_sha256": "09b21227e89cb5d9e0752166ec07555af4654a9acd465b0a61c36f5235dc8df4",
+      "before": null,
+      "after": {
+        "status": "ok",
+        "outputs": [
+          {
+            "path": "parquet_dumps/opendata/opendata_legislature/camaradosdeputados_legislatures.parquet",
+            "rows": 58,
+            "bytes": 2191,
+            "schema": "id: int32\ndata_inicio: date32[day]\ndata_fim: date32[day]\norgao_id: large_string"
+          }
+        ],
+        "process_seconds": 1.7665880400018068,
+        "peak_rss_kernel_bytes": 346927104,
+        "script_id": "camaradosdeputados_legislatures",
+        "peak_rss_bytes": 348327936,
+        "peak_swap_bytes": 0,
+        "peak_rss_plus_swap_bytes": 348327936,
+        "wall_seconds": 2.3096623180026654,
+        "returncode": 0,
+        "interrupted_by_operator": false,
+        "run": "baseline",
+        "error": "",
+        "minimum_system_available_bytes": 4403183616,
+        "artifacts": "downloads/temp/memory-profile-2026-11-12-baseline/camaradosdeputados_legislatures"
+      },
+      "complete_before_after_rows_and_schemas_match": null,
+      "attempts": [
+        {
+          "status": "ok",
+          "outputs": [
+            {
+              "path": "parquet_dumps/opendata/opendata_legislature/camaradosdeputados_legislatures.parquet",
+              "rows": 58,
+              "bytes": 2191,
+              "schema": "id: int32\ndata_inicio: date32[day]\ndata_fim: date32[day]\norgao_id: large_string"
+            }
+          ],
+          "process_seconds": 1.7665880400018068,
+          "peak_rss_kernel_bytes": 346927104,
+          "script_id": "camaradosdeputados_legislatures",
+          "peak_rss_bytes": 348327936,
+          "peak_swap_bytes": 0,
+          "peak_rss_plus_swap_bytes": 348327936,
+          "wall_seconds": 2.3096623180026654,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "baseline",
+          "error": "",
+          "minimum_system_available_bytes": 4403183616,
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-baseline/camaradosdeputados_legislatures"
+        }
+      ],
+      "published_reference": [
+        {
+          "path": "parquet_dumps/opendata/opendata_legislature/camaradosdeputados_legislatures.parquet",
+          "rows": 58,
+          "schema": "id: int32\ndata_inicio: date32[day]\ndata_fim: date32[day]\norgao_id: large_string"
+        }
+      ],
+      "rows_and_schemas_match_published_reference": true
+    },
+    {
+      "script_id": "elections",
+      "producer": "apps/turi/src/scripts/operations/election/elections.py",
+      "current_producer_sha256": "4f04a5852001f70f6465e2ba64097a1d189f99247c2976dce128817153eafb9c",
+      "before": {
+        "process_seconds": 51.31913387299937,
+        "peak_rss_kernel_bytes": 9295704064,
+        "script_id": "elections",
+        "peak_rss_bytes": 9295704064,
+        "peak_swap_bytes": 7055757312,
+        "peak_rss_plus_swap_bytes": 15477592064,
+        "wall_seconds": 52.69560984599957,
+        "returncode": -9,
+        "interrupted_by_operator": true,
+        "run": "baseline",
+        "status": "interrupted",
+        "error": "",
+        "minimum_system_available_bytes": 2173120512,
+        "artifacts": "downloads/temp/memory-profile-2026-11-12-baseline/elections"
+      },
+      "after": {
+        "input_overrides": {},
+        "producer_sha256": "4f04a5852001f70f6465e2ba64097a1d189f99247c2976dce128817153eafb9c",
+        "status": "ok",
+        "outputs": [
+          {
+            "path": "parquet_dumps/opendata/opendata_election/opendata_election.parquet",
+            "rows": 5749,
+            "bytes": 77759,
+            "schema": "id: uint64\npleito_id: uint64\nano: int32\ncodigo_local: large_string\norgao_id: large_string\nlegislatura_id: int32\ntipo: int32\ncargo: int32"
+          },
+          {
+            "path": "parquet_dumps/opendata/opendata_election_round/opendata_election_round.parquet",
+            "rows": 5749,
+            "bytes": 95655,
+            "schema": "id: uint64\neleicao_id: uint64\nnumero_turno: int32\ndata_turno: date32[day]\ncodigo_tse: int32"
+          },
+          {
+            "path": "parquet_dumps/opendata/opendata_pleito/opendata_pleito.parquet",
+            "rows": 6,
+            "bytes": 1451,
+            "schema": "id: uint64\nano: int32\ntipo: int32\ndata_inicio: date32[day]"
+          }
+        ],
+        "process_seconds": 110.83559054700163,
+        "peak_rss_kernel_bytes": 1776062464,
+        "script_id": "elections",
+        "peak_rss_bytes": 1776836608,
+        "peak_swap_bytes": 0,
+        "peak_rss_plus_swap_bytes": 1776836608,
+        "initial_system_available_bytes": 9792118784,
+        "minimum_system_available_bytes": 8450961408,
+        "wall_seconds": 111.38767610800278,
+        "returncode": 0,
+        "interrupted_by_operator": false,
+        "run": "final",
+        "error": "",
+        "artifacts": "downloads/temp/memory-profile-2026-11-12-final/elections"
+      },
+      "complete_before_after_rows_and_schemas_match": null,
+      "attempts": [
+        {
+          "process_seconds": 51.31913387299937,
+          "peak_rss_kernel_bytes": 9295704064,
+          "script_id": "elections",
+          "peak_rss_bytes": 9295704064,
+          "peak_swap_bytes": 7055757312,
+          "peak_rss_plus_swap_bytes": 15477592064,
+          "wall_seconds": 52.69560984599957,
+          "returncode": -9,
+          "interrupted_by_operator": true,
+          "run": "baseline",
+          "status": "interrupted",
+          "error": "",
+          "minimum_system_available_bytes": 2173120512,
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-baseline/elections"
+        },
+        {
+          "input_overrides": {},
+          "producer_sha256": "bb4f6f43668d6aa0763c43ce84deaa3b9de20aefb0cb897507f9a71ca11f2f3d",
+          "status": "ok",
+          "outputs": [
+            {
+              "path": "parquet_dumps/opendata/opendata_election/opendata_election.parquet",
+              "rows": 5749,
+              "bytes": 77764,
+              "schema": "id: uint64\npleito_id: uint64\nano: int32\ncodigo_local: large_string\norgao_id: large_string\nlegislatura_id: int32\ntipo: int32\ncargo: int32"
+            },
+            {
+              "path": "parquet_dumps/opendata/opendata_election_round/opendata_election_round.parquet",
+              "rows": 5749,
+              "bytes": 95655,
+              "schema": "id: uint64\neleicao_id: uint64\nnumero_turno: int32\ndata_turno: date32[day]\ncodigo_tse: int32"
+            },
+            {
+              "path": "parquet_dumps/opendata/opendata_pleito/opendata_pleito.parquet",
+              "rows": 6,
+              "bytes": 1451,
+              "schema": "id: uint64\nano: int32\ntipo: int32\ndata_inicio: date32[day]"
+            }
+          ],
+          "process_seconds": 72.22441544200046,
+          "peak_rss_kernel_bytes": 4133937152,
+          "script_id": "elections",
+          "peak_rss_bytes": 4135571456,
+          "peak_swap_bytes": 0,
+          "peak_rss_plus_swap_bytes": 4135571456,
+          "initial_system_available_bytes": 11509723136,
+          "minimum_system_available_bytes": 10530766848,
+          "wall_seconds": 78.05762453900024,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "rest",
+          "error": "",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/elections"
+        },
+        {
+          "input_overrides": {},
+          "producer_sha256": "4f04a5852001f70f6465e2ba64097a1d189f99247c2976dce128817153eafb9c",
+          "status": "ok",
+          "outputs": [
+            {
+              "path": "parquet_dumps/opendata/opendata_election/opendata_election.parquet",
+              "rows": 5749,
+              "bytes": 77759,
+              "schema": "id: uint64\npleito_id: uint64\nano: int32\ncodigo_local: large_string\norgao_id: large_string\nlegislatura_id: int32\ntipo: int32\ncargo: int32"
+            },
+            {
+              "path": "parquet_dumps/opendata/opendata_election_round/opendata_election_round.parquet",
+              "rows": 5749,
+              "bytes": 95655,
+              "schema": "id: uint64\neleicao_id: uint64\nnumero_turno: int32\ndata_turno: date32[day]\ncodigo_tse: int32"
+            },
+            {
+              "path": "parquet_dumps/opendata/opendata_pleito/opendata_pleito.parquet",
+              "rows": 6,
+              "bytes": 1451,
+              "schema": "id: uint64\nano: int32\ntipo: int32\ndata_inicio: date32[day]"
+            }
+          ],
+          "process_seconds": 110.83559054700163,
+          "peak_rss_kernel_bytes": 1776062464,
+          "script_id": "elections",
+          "peak_rss_bytes": 1776836608,
+          "peak_swap_bytes": 0,
+          "peak_rss_plus_swap_bytes": 1776836608,
+          "initial_system_available_bytes": 9792118784,
+          "minimum_system_available_bytes": 8450961408,
+          "wall_seconds": 111.38767610800278,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "final",
+          "error": "",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-final/elections"
+        }
+      ],
+      "published_reference": [
+        {
+          "path": "parquet_dumps/opendata/opendata_election/opendata_election.parquet",
+          "rows": 5749,
+          "schema": "id: uint64\npleito_id: uint64\nano: int32\ncodigo_local: large_string\norgao_id: large_string\nlegislatura_id: int32\ntipo: int32\ncargo: int32"
+        },
+        {
+          "path": "parquet_dumps/opendata/opendata_election_round/opendata_election_round.parquet",
+          "rows": 5749,
+          "schema": "id: uint64\neleicao_id: uint64\nnumero_turno: int32\ndata_turno: date32[day]\ncodigo_tse: int32"
+        },
+        {
+          "path": "parquet_dumps/opendata/opendata_pleito/opendata_pleito.parquet",
+          "rows": 6,
+          "schema": "id: uint64\nano: int32\ntipo: int32\ndata_inicio: date32[day]"
+        }
+      ],
+      "rows_and_schemas_match_published_reference": true
+    },
+    {
+      "script_id": "candidatures",
+      "producer": "apps/turi/src/scripts/operations/candidatures/candidatures.py",
+      "current_producer_sha256": "815489acf5a7fe4f8fa632041507e4d1252e2b45687599fc1c4d30b0293e1cf7",
+      "before": null,
+      "after": {
+        "input_overrides": {},
+        "producer_sha256": "815489acf5a7fe4f8fa632041507e4d1252e2b45687599fc1c4d30b0293e1cf7",
+        "status": "ok",
+        "outputs": [
+          {
+            "path": "parquet_dumps/opendata/opendata_candidature/opendata_candidature.parquet",
+            "rows": 636610,
+            "bytes": 12093090,
+            "schema": "id: uint64\neleicao_id: uint64\npessoa_publica_id: uint64\nnumero_candidato: int32\ncodigo_local: large_string\ncodigo_cargo_tse: int32\nsigla_partido: large_string\nnumero_partido: int32"
+          }
+        ],
+        "process_seconds": 22.411936959997547,
+        "peak_rss_kernel_bytes": 2218500096,
+        "script_id": "candidatures",
+        "peak_rss_bytes": 2218500096,
+        "peak_swap_bytes": 0,
+        "peak_rss_plus_swap_bytes": 2193563648,
+        "initial_system_available_bytes": 8454901760,
+        "minimum_system_available_bytes": 6859538432,
+        "wall_seconds": 31.932245181000326,
+        "returncode": 0,
+        "interrupted_by_operator": false,
+        "run": "final",
+        "error": "",
+        "artifacts": "downloads/temp/memory-profile-2026-11-12-final/candidatures"
+      },
+      "complete_before_after_rows_and_schemas_match": null,
+      "attempts": [
+        {
+          "status": "ok",
+          "outputs": [
+            {
+              "path": "parquet_dumps/opendata/opendata_candidature/opendata_candidature.parquet",
+              "rows": 636610,
+              "bytes": 12092978,
+              "schema": "id: uint64\neleicao_id: uint64\npessoa_publica_id: uint64\nnumero_candidato: int32\ncodigo_local: large_string\ncodigo_cargo_tse: int32\nsigla_partido: large_string\nnumero_partido: int32"
+            }
+          ],
+          "process_seconds": 21.011864752999827,
+          "peak_rss_kernel_bytes": 2360483840,
+          "script_id": "candidatures",
+          "peak_rss_bytes": 2360483840,
+          "peak_swap_bytes": 0,
+          "peak_rss_plus_swap_bytes": 2321506304,
+          "wall_seconds": 22.803019303999463,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "baseline",
+          "error": "",
+          "minimum_system_available_bytes": 9389363200,
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-baseline/candidatures"
+        },
+        {
+          "input_overrides": {},
+          "producer_sha256": "815489acf5a7fe4f8fa632041507e4d1252e2b45687599fc1c4d30b0293e1cf7",
+          "status": "ok",
+          "outputs": [
+            {
+              "path": "parquet_dumps/opendata/opendata_candidature/opendata_candidature.parquet",
+              "rows": 636610,
+              "bytes": 12093090,
+              "schema": "id: uint64\neleicao_id: uint64\npessoa_publica_id: uint64\nnumero_candidato: int32\ncodigo_local: large_string\ncodigo_cargo_tse: int32\nsigla_partido: large_string\nnumero_partido: int32"
+            }
+          ],
+          "process_seconds": 22.411936959997547,
+          "peak_rss_kernel_bytes": 2218500096,
+          "script_id": "candidatures",
+          "peak_rss_bytes": 2218500096,
+          "peak_swap_bytes": 0,
+          "peak_rss_plus_swap_bytes": 2193563648,
+          "initial_system_available_bytes": 8454901760,
+          "minimum_system_available_bytes": 6859538432,
+          "wall_seconds": 31.932245181000326,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "final",
+          "error": "",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-final/candidatures"
+        }
+      ],
+      "published_reference": [
+        {
+          "path": "parquet_dumps/opendata/opendata_candidature/opendata_candidature.parquet",
+          "rows": 636610,
+          "schema": "id: uint64\neleicao_id: uint64\npessoa_publica_id: uint64\nnumero_candidato: int32\ncodigo_local: large_string\ncodigo_cargo_tse: int32\nsigla_partido: large_string\nnumero_partido: int32"
+        }
+      ],
+      "rows_and_schemas_match_published_reference": true
+    },
+    {
+      "script_id": "public_people",
+      "producer": "apps/turi/src/scripts/operations/public_people/camaradosdeputados.py",
+      "current_producer_sha256": "b95de8c7394fc997a5d57393492af3535714d38311f9bfa9381913fb9aa6ec99",
+      "before": {
+        "input_overrides": {
+          "CD_DEPUTIES_HISTORY_RAW_PARQUETS": "/run/media/victor/HDD Avoar/turi/downloads/temp/memory-profile-inputs/sds/federal_deputies_history/*.parquet"
+        },
+        "producer_sha256": "ef7d2cebced05f913771378e2e0475d7129a70c7e3e9ca39ac2381855eb2fa7e",
+        "status": "ok",
+        "outputs": [
+          {
+            "path": "parquet_dumps/opendata/opendata_public_people/public_people.parquet",
+            "rows": 599577,
+            "bytes": 19633270,
+            "schema": "id: uint64\nnome_completo: large_string\nnome: large_string\ngenero: large_string\ndata_nascimento: date32[day]\nuf_nascimento: large_string"
+          },
+          {
+            "path": "parquet_dumps/opendata/opendata_public_people_identificators/camaradosdeputados.parquet",
+            "rows": 1200295,
+            "bytes": 19874939,
+            "schema": "pessoa_publica_id: uint64\nidentificador: large_string\ntipo_identificador: large_string\nfonte: large_string"
+          }
+        ],
+        "process_seconds": 16.627460995998263,
+        "peak_rss_kernel_bytes": 3956822016,
+        "script_id": "public_people",
+        "peak_rss_bytes": 3957166080,
+        "peak_swap_bytes": 0,
+        "peak_rss_plus_swap_bytes": 3957166080,
+        "initial_system_available_bytes": 11472244736,
+        "minimum_system_available_bytes": 7930740736,
+        "wall_seconds": 44.26367178200235,
+        "returncode": 0,
+        "interrupted_by_operator": false,
+        "run": "rest",
+        "error": "",
+        "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/public_people"
+      },
+      "after": {
+        "input_overrides": {
+          "CD_DEPUTIES_HISTORY_RAW_PARQUETS": "/run/media/victor/HDD Avoar/turi/downloads/temp/memory-profile-inputs/sds/federal_deputies_history/*.parquet"
+        },
+        "producer_sha256": "b95de8c7394fc997a5d57393492af3535714d38311f9bfa9381913fb9aa6ec99",
+        "status": "ok",
+        "outputs": [
+          {
+            "path": "parquet_dumps/opendata/opendata_public_people/public_people.parquet",
+            "rows": 599577,
+            "bytes": 19633270,
+            "schema": "id: uint64\nnome_completo: large_string\nnome: large_string\ngenero: large_string\ndata_nascimento: date32[day]\nuf_nascimento: large_string"
+          },
+          {
+            "path": "parquet_dumps/opendata/opendata_public_people_identificators/camaradosdeputados.parquet",
+            "rows": 1200295,
+            "bytes": 19873304,
+            "schema": "pessoa_publica_id: uint64\nidentificador: large_string\ntipo_identificador: large_string\nfonte: large_string"
+          }
+        ],
+        "process_seconds": 10.716263390000677,
+        "peak_rss_kernel_bytes": 1772371968,
+        "script_id": "public_people",
+        "peak_rss_bytes": 1772789760,
+        "peak_swap_bytes": 0,
+        "peak_rss_plus_swap_bytes": 1772789760,
+        "initial_system_available_bytes": 8855515136,
+        "minimum_system_available_bytes": 7448895488,
+        "wall_seconds": 11.27207750299931,
+        "returncode": 0,
+        "interrupted_by_operator": false,
+        "run": "final",
+        "error": "",
+        "artifacts": "downloads/temp/memory-profile-2026-11-12-final/public_people"
+      },
+      "complete_before_after_rows_and_schemas_match": true,
+      "attempts": [
+        {
+          "status": "error",
+          "error": "ComputeError: failed to retrieve first file schema (parquet): expanded paths were empty (path expansion input: 'paths: [PlRefPath { inner: \"/run/media/victor/HDD Avoar/turi/downloads/sds/federal_deputies_history/*.parquet\" }]', glob: true). Hint: passing a schema can allow this scan to succeed with an empty DataFrame.",
+          "process_seconds": 2.574360186001286,
+          "peak_rss_kernel_bytes": 4741308416,
+          "script_id": "public_people",
+          "peak_rss_bytes": 4742381568,
+          "peak_swap_bytes": 0,
+          "peak_rss_plus_swap_bytes": 4742381568,
+          "wall_seconds": 5.04004662999796,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "baseline",
+          "minimum_system_available_bytes": 7042830336,
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-baseline/public_people"
+        },
+        {
+          "input_overrides": {
+            "CD_DEPUTIES_HISTORY_RAW_PARQUETS": "/run/media/victor/HDD Avoar/turi/downloads/temp/memory-profile-inputs/sds/federal_deputies_history/*.parquet"
+          },
+          "producer_sha256": "ef7d2cebced05f913771378e2e0475d7129a70c7e3e9ca39ac2381855eb2fa7e",
+          "status": "ok",
+          "outputs": [
+            {
+              "path": "parquet_dumps/opendata/opendata_public_people/public_people.parquet",
+              "rows": 599577,
+              "bytes": 19633270,
+              "schema": "id: uint64\nnome_completo: large_string\nnome: large_string\ngenero: large_string\ndata_nascimento: date32[day]\nuf_nascimento: large_string"
+            },
+            {
+              "path": "parquet_dumps/opendata/opendata_public_people_identificators/camaradosdeputados.parquet",
+              "rows": 1200295,
+              "bytes": 19874939,
+              "schema": "pessoa_publica_id: uint64\nidentificador: large_string\ntipo_identificador: large_string\nfonte: large_string"
+            }
+          ],
+          "process_seconds": 16.627460995998263,
+          "peak_rss_kernel_bytes": 3956822016,
+          "script_id": "public_people",
+          "peak_rss_bytes": 3957166080,
+          "peak_swap_bytes": 0,
+          "peak_rss_plus_swap_bytes": 3957166080,
+          "initial_system_available_bytes": 11472244736,
+          "minimum_system_available_bytes": 7930740736,
+          "wall_seconds": 44.26367178200235,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "rest",
+          "error": "",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/public_people"
+        },
+        {
+          "input_overrides": {
+            "CD_DEPUTIES_HISTORY_RAW_PARQUETS": "/run/media/victor/HDD Avoar/turi/downloads/temp/memory-profile-inputs/sds/federal_deputies_history/*.parquet"
+          },
+          "producer_sha256": "b95de8c7394fc997a5d57393492af3535714d38311f9bfa9381913fb9aa6ec99",
+          "status": "ok",
+          "outputs": [
+            {
+              "path": "parquet_dumps/opendata/opendata_public_people/public_people.parquet",
+              "rows": 599577,
+              "bytes": 19633270,
+              "schema": "id: uint64\nnome_completo: large_string\nnome: large_string\ngenero: large_string\ndata_nascimento: date32[day]\nuf_nascimento: large_string"
+            },
+            {
+              "path": "parquet_dumps/opendata/opendata_public_people_identificators/camaradosdeputados.parquet",
+              "rows": 1200295,
+              "bytes": 19873304,
+              "schema": "pessoa_publica_id: uint64\nidentificador: large_string\ntipo_identificador: large_string\nfonte: large_string"
+            }
+          ],
+          "process_seconds": 10.716263390000677,
+          "peak_rss_kernel_bytes": 1772371968,
+          "script_id": "public_people",
+          "peak_rss_bytes": 1772789760,
+          "peak_swap_bytes": 0,
+          "peak_rss_plus_swap_bytes": 1772789760,
+          "initial_system_available_bytes": 8855515136,
+          "minimum_system_available_bytes": 7448895488,
+          "wall_seconds": 11.27207750299931,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "final",
+          "error": "",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-final/public_people"
+        }
+      ],
+      "published_reference": [
+        {
+          "path": "parquet_dumps/opendata/opendata_public_people/public_people.parquet",
+          "rows": 599577,
+          "schema": "id: uint64\nnome_completo: large_string\nnome: large_string\ngenero: large_string\ndata_nascimento: date32[day]\nuf_nascimento: large_string"
+        },
+        {
+          "path": "parquet_dumps/opendata/opendata_public_people_identificators/camaradosdeputados.parquet",
+          "rows": 1200295,
+          "schema": "pessoa_publica_id: uint64\nidentificador: large_string\ntipo_identificador: large_string\nfonte: large_string"
+        }
+      ],
+      "rows_and_schemas_match_published_reference": true
+    },
+    {
+      "script_id": "camaradosdeputados_mandate",
+      "producer": "apps/turi/src/scripts/operations/mandates/camaradosdeputados.py",
+      "current_producer_sha256": "4870c05139684c7cb39ebb25f54c427edb6477aaaf6c26680cf788b3538ad638",
+      "before": null,
+      "after": {
+        "input_overrides": {
+          "CD_MANDATES_RAW_PARQUETS": "/run/media/victor/HDD Avoar/turi/downloads/temp/memory-profile-inputs/sds/federal_deputies_history/*.parquet"
+        },
+        "producer_sha256": "4870c05139684c7cb39ebb25f54c427edb6477aaaf6c26680cf788b3538ad638",
+        "status": "ok",
+        "outputs": [
+          {
+            "path": "parquet_dumps/opendata/opendata_mandate/camaradosdeputados.parquet",
+            "rows": 2089,
+            "bytes": 42008,
+            "schema": "id: uint64\npessoa_publica_id: uint64\nlegislatura_id: int32\norgao_id: large_string\ncandidatura_id: uint64"
+          }
+        ],
+        "process_seconds": 1.9352597550023347,
+        "peak_rss_kernel_bytes": 479948800,
+        "script_id": "camaradosdeputados_mandate",
+        "peak_rss_bytes": 481083392,
+        "peak_swap_bytes": 0,
+        "peak_rss_plus_swap_bytes": 481083392,
+        "initial_system_available_bytes": 11485339648,
+        "minimum_system_available_bytes": 11182018560,
+        "wall_seconds": 7.931298954998056,
+        "returncode": 0,
+        "interrupted_by_operator": false,
+        "run": "rest",
+        "error": "",
+        "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/camaradosdeputados_mandate"
+      },
+      "complete_before_after_rows_and_schemas_match": null,
+      "attempts": [
+        {
+          "status": "error",
+          "error": "ComputeError: failed to retrieve first file schema (parquet): expanded paths were empty (path expansion input: 'paths: [PlRefPath { inner: \"/run/media/victor/HDD Avoar/turi/downloads/sds/federal_deputies_history/*.parquet\" }]', glob: true). Hint: passing a schema can allow this scan to succeed with an empty DataFrame.",
+          "process_seconds": 0.09359854300055304,
+          "peak_rss_kernel_bytes": 274251776,
+          "script_id": "camaradosdeputados_mandate",
+          "peak_rss_bytes": 274706432,
+          "peak_swap_bytes": 0,
+          "peak_rss_plus_swap_bytes": 274706432,
+          "wall_seconds": 2.7099396090015944,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "baseline",
+          "minimum_system_available_bytes": 10244648960,
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-baseline/camaradosdeputados_mandate"
+        },
+        {
+          "input_overrides": {
+            "CD_MANDATES_RAW_PARQUETS": "/run/media/victor/HDD Avoar/turi/downloads/temp/memory-profile-inputs/sds/federal_deputies_history/*.parquet"
+          },
+          "producer_sha256": "4870c05139684c7cb39ebb25f54c427edb6477aaaf6c26680cf788b3538ad638",
+          "status": "ok",
+          "outputs": [
+            {
+              "path": "parquet_dumps/opendata/opendata_mandate/camaradosdeputados.parquet",
+              "rows": 2089,
+              "bytes": 42008,
+              "schema": "id: uint64\npessoa_publica_id: uint64\nlegislatura_id: int32\norgao_id: large_string\ncandidatura_id: uint64"
+            }
+          ],
+          "process_seconds": 1.9352597550023347,
+          "peak_rss_kernel_bytes": 479948800,
+          "script_id": "camaradosdeputados_mandate",
+          "peak_rss_bytes": 481083392,
+          "peak_swap_bytes": 0,
+          "peak_rss_plus_swap_bytes": 481083392,
+          "initial_system_available_bytes": 11485339648,
+          "minimum_system_available_bytes": 11182018560,
+          "wall_seconds": 7.931298954998056,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "rest",
+          "error": "",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/camaradosdeputados_mandate"
+        }
+      ],
+      "published_reference": [
+        {
+          "path": "parquet_dumps/opendata/opendata_mandate/camaradosdeputados.parquet",
+          "rows": 2089,
+          "schema": "id: uint64\npessoa_publica_id: uint64\nlegislatura_id: int32\norgao_id: large_string\ncandidatura_id: uint64"
+        }
+      ],
+      "rows_and_schemas_match_published_reference": true
+    },
+    {
+      "script_id": "camaradosdeputados_ceaps",
+      "producer": "apps/turi/src/scripts/operations/ceap_reimbursements/camaradosdeputados.py",
+      "current_producer_sha256": "e4ad6ced166f1e1acb56b4db07318848cb31376cf3965368bbc724fb5557cf91",
+      "before": {
+        "status": "ok",
+        "outputs": [
+          {
+            "path": "parquet_dumps/opendata/opendata_ceap_reimbursements/camaradosdeputados.parquet",
+            "rows": 3303287,
+            "bytes": 65950599,
+            "schema": "id: uint64\nmandato_id: uint64\ncategoria: int32\nsubcategoria: int32\ndescricao_especificacao: large_string\nfornecedor_id: uint64\ntipo_documento_fornecedor: int32\nvalor_glosa: decimal128(18, 2)\nvalor_documento: decimal128(18, 2)\nvalor_liquido: decimal128(18, 2)\ndata_emissao: timestamp[us]"
+          },
+          {
+            "path": "parquet_dumps/opendata/opendata_ceap_reimbursements_proof/camaradosdeputados.parquet",
+            "rows": 1675760,
+            "bytes": 53453403,
+            "schema": "id: uint64\nfonte: large_string\ndescricao_adicional: large_string\nceap_id: uint64"
+          }
+        ],
+        "process_seconds": 30.395278414998756,
+        "peak_rss_kernel_bytes": 7884947456,
+        "script_id": "camaradosdeputados_ceaps",
+        "peak_rss_bytes": 7969370112,
+        "peak_swap_bytes": 434794496,
+        "peak_rss_plus_swap_bytes": 7987744768,
+        "wall_seconds": 33.33180078299847,
+        "returncode": 0,
+        "interrupted_by_operator": false,
+        "run": "baseline",
+        "error": "",
+        "minimum_system_available_bytes": 8027631616,
+        "artifacts": "downloads/temp/memory-profile-2026-11-12-baseline/camaradosdeputados_ceaps"
+      },
+      "after": {
+        "input_overrides": {},
+        "producer_sha256": "e4ad6ced166f1e1acb56b4db07318848cb31376cf3965368bbc724fb5557cf91",
+        "status": "ok",
+        "outputs": [
+          {
+            "path": "parquet_dumps/opendata/opendata_ceap_reimbursements/camaradosdeputados.parquet",
+            "rows": 3303287,
+            "bytes": 65962020,
+            "schema": "id: uint64\nmandato_id: uint64\ncategoria: int32\nsubcategoria: int32\ndescricao_especificacao: large_string\nfornecedor_id: uint64\ntipo_documento_fornecedor: int32\nvalor_glosa: decimal128(18, 2)\nvalor_documento: decimal128(18, 2)\nvalor_liquido: decimal128(18, 2)\ndata_emissao: timestamp[us]"
+          },
+          {
+            "path": "parquet_dumps/opendata/opendata_ceap_reimbursements_proof/camaradosdeputados.parquet",
+            "rows": 1675760,
+            "bytes": 53453403,
+            "schema": "id: uint64\nfonte: large_string\ndescricao_adicional: large_string\nceap_id: uint64"
+          }
+        ],
+        "process_seconds": 44.68401787900075,
+        "peak_rss_kernel_bytes": 3793338368,
+        "script_id": "camaradosdeputados_ceaps",
+        "peak_rss_bytes": 3794575360,
+        "peak_swap_bytes": 0,
+        "peak_rss_plus_swap_bytes": 3794575360,
+        "initial_system_available_bytes": 8695615488,
+        "minimum_system_available_bytes": 6804201472,
+        "wall_seconds": 45.324814816998696,
+        "returncode": 0,
+        "interrupted_by_operator": false,
+        "run": "final",
+        "error": "",
+        "artifacts": "downloads/temp/memory-profile-2026-11-12-final/camaradosdeputados_ceaps"
+      },
+      "complete_before_after_rows_and_schemas_match": true,
+      "attempts": [
+        {
+          "status": "ok",
+          "outputs": [
+            {
+              "path": "parquet_dumps/opendata/opendata_ceap_reimbursements/camaradosdeputados.parquet",
+              "rows": 3303287,
+              "bytes": 65950599,
+              "schema": "id: uint64\nmandato_id: uint64\ncategoria: int32\nsubcategoria: int32\ndescricao_especificacao: large_string\nfornecedor_id: uint64\ntipo_documento_fornecedor: int32\nvalor_glosa: decimal128(18, 2)\nvalor_documento: decimal128(18, 2)\nvalor_liquido: decimal128(18, 2)\ndata_emissao: timestamp[us]"
+            },
+            {
+              "path": "parquet_dumps/opendata/opendata_ceap_reimbursements_proof/camaradosdeputados.parquet",
+              "rows": 1675760,
+              "bytes": 53453403,
+              "schema": "id: uint64\nfonte: large_string\ndescricao_adicional: large_string\nceap_id: uint64"
+            }
+          ],
+          "process_seconds": 30.395278414998756,
+          "peak_rss_kernel_bytes": 7884947456,
+          "script_id": "camaradosdeputados_ceaps",
+          "peak_rss_bytes": 7969370112,
+          "peak_swap_bytes": 434794496,
+          "peak_rss_plus_swap_bytes": 7987744768,
+          "wall_seconds": 33.33180078299847,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "baseline",
+          "error": "",
+          "minimum_system_available_bytes": 8027631616,
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-baseline/camaradosdeputados_ceaps"
+        },
+        {
+          "input_overrides": {},
+          "producer_sha256": "e4ad6ced166f1e1acb56b4db07318848cb31376cf3965368bbc724fb5557cf91",
+          "status": "ok",
+          "outputs": [
+            {
+              "path": "parquet_dumps/opendata/opendata_ceap_reimbursements/camaradosdeputados.parquet",
+              "rows": 3303287,
+              "bytes": 65952165,
+              "schema": "id: uint64\nmandato_id: uint64\ncategoria: int32\nsubcategoria: int32\ndescricao_especificacao: large_string\nfornecedor_id: uint64\ntipo_documento_fornecedor: int32\nvalor_glosa: decimal128(18, 2)\nvalor_documento: decimal128(18, 2)\nvalor_liquido: decimal128(18, 2)\ndata_emissao: timestamp[us]"
+            },
+            {
+              "path": "parquet_dumps/opendata/opendata_ceap_reimbursements_proof/camaradosdeputados.parquet",
+              "rows": 1675760,
+              "bytes": 53453403,
+              "schema": "id: uint64\nfonte: large_string\ndescricao_adicional: large_string\nceap_id: uint64"
+            }
+          ],
+          "process_seconds": 44.73279208399981,
+          "peak_rss_kernel_bytes": 3752263680,
+          "script_id": "camaradosdeputados_ceaps",
+          "peak_rss_bytes": 3752546304,
+          "peak_swap_bytes": 0,
+          "peak_rss_plus_swap_bytes": 3752546304,
+          "initial_system_available_bytes": 11525382144,
+          "minimum_system_available_bytes": 9755152384,
+          "wall_seconds": 45.441497771000286,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "rest",
+          "error": "",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/camaradosdeputados_ceaps"
+        },
+        {
+          "input_overrides": {},
+          "producer_sha256": "e4ad6ced166f1e1acb56b4db07318848cb31376cf3965368bbc724fb5557cf91",
+          "status": "ok",
+          "outputs": [
+            {
+              "path": "parquet_dumps/opendata/opendata_ceap_reimbursements/camaradosdeputados.parquet",
+              "rows": 3303287,
+              "bytes": 65962020,
+              "schema": "id: uint64\nmandato_id: uint64\ncategoria: int32\nsubcategoria: int32\ndescricao_especificacao: large_string\nfornecedor_id: uint64\ntipo_documento_fornecedor: int32\nvalor_glosa: decimal128(18, 2)\nvalor_documento: decimal128(18, 2)\nvalor_liquido: decimal128(18, 2)\ndata_emissao: timestamp[us]"
+            },
+            {
+              "path": "parquet_dumps/opendata/opendata_ceap_reimbursements_proof/camaradosdeputados.parquet",
+              "rows": 1675760,
+              "bytes": 53453403,
+              "schema": "id: uint64\nfonte: large_string\ndescricao_adicional: large_string\nceap_id: uint64"
+            }
+          ],
+          "process_seconds": 44.68401787900075,
+          "peak_rss_kernel_bytes": 3793338368,
+          "script_id": "camaradosdeputados_ceaps",
+          "peak_rss_bytes": 3794575360,
+          "peak_swap_bytes": 0,
+          "peak_rss_plus_swap_bytes": 3794575360,
+          "initial_system_available_bytes": 8695615488,
+          "minimum_system_available_bytes": 6804201472,
+          "wall_seconds": 45.324814816998696,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "final",
+          "error": "",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-final/camaradosdeputados_ceaps"
+        }
+      ],
+      "published_reference": [
+        {
+          "path": "parquet_dumps/opendata/opendata_ceap_reimbursements/camaradosdeputados.parquet",
+          "rows": 3303287,
+          "schema": "id: uint64\nmandato_id: uint64\ncategoria: int32\nsubcategoria: int32\ndescricao_especificacao: large_string\nfornecedor_id: uint64\ntipo_documento_fornecedor: int32\nvalor_glosa: decimal128(18, 2)\nvalor_documento: decimal128(18, 2)\nvalor_liquido: decimal128(18, 2)\ndata_emissao: timestamp[us]"
+        },
+        {
+          "path": "parquet_dumps/opendata/opendata_ceap_reimbursements_proof/camaradosdeputados.parquet",
+          "rows": 1675760,
+          "schema": "id: uint64\nfonte: large_string\ndescricao_adicional: large_string\nceap_id: uint64"
+        }
+      ],
+      "rows_and_schemas_match_published_reference": true
+    },
+    {
+      "script_id": "camaradosdeputados_mandate_events",
+      "producer": "apps/turi/src/scripts/operations/mandate_events/camaradosdeputados.py",
+      "current_producer_sha256": "9910f7d527b1e99a0bee0c06232175a36de3003715ad2b46c005f851ecb15a15",
+      "before": null,
+      "after": {
+        "input_overrides": {
+          "CD_MANDATE_EVENTS_RAW_PARQUETS": "/run/media/victor/HDD Avoar/turi/downloads/temp/memory-profile-inputs/sds/federal_deputies_history/*.parquet"
+        },
+        "producer_sha256": "9910f7d527b1e99a0bee0c06232175a36de3003715ad2b46c005f851ecb15a15",
+        "status": "ok",
+        "outputs": [
+          {
+            "path": "parquet_dumps/opendata/opendata_mandate_events/camaradosdeputados.parquet",
+            "rows": 10783,
+            "bytes": 187591,
+            "schema": "id: uint64\nmandato_id: uint64\ntipo_evento: int32\ncontexto: int32\nsubcontexto: int32\ndescricao: large_string\ndata_relacionada: timestamp[us]"
+          }
+        ],
+        "process_seconds": 0.1622821679993649,
+        "peak_rss_kernel_bytes": 412782592,
+        "script_id": "camaradosdeputados_mandate_events",
+        "peak_rss_bytes": 413728768,
+        "peak_swap_bytes": 0,
+        "peak_rss_plus_swap_bytes": 413728768,
+        "initial_system_available_bytes": 11416875008,
+        "minimum_system_available_bytes": 11159142400,
+        "wall_seconds": 6.424729056998331,
+        "returncode": 0,
+        "interrupted_by_operator": false,
+        "run": "rest",
+        "error": "",
+        "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/camaradosdeputados_mandate_events"
+      },
+      "complete_before_after_rows_and_schemas_match": null,
+      "attempts": [
+        {
+          "status": "error",
+          "error": "ComputeError: failed to retrieve first file schema (parquet): expanded paths were empty (path expansion input: 'paths: [PlRefPath { inner: \"/run/media/victor/HDD Avoar/turi/downloads/sds/federal_deputies_history/*.parquet\" }]', glob: true). Hint: passing a schema can allow this scan to succeed with an empty DataFrame.",
+          "process_seconds": 0.13858732999869972,
+          "peak_rss_kernel_bytes": 267702272,
+          "script_id": "camaradosdeputados_mandate_events",
+          "peak_rss_bytes": 268365824,
+          "peak_swap_bytes": 0,
+          "peak_rss_plus_swap_bytes": 268365824,
+          "wall_seconds": 7.740467927000282,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "baseline",
+          "minimum_system_available_bytes": 11446751232,
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-baseline/camaradosdeputados_mandate_events"
+        },
+        {
+          "input_overrides": {
+            "CD_MANDATE_EVENTS_RAW_PARQUETS": "/run/media/victor/HDD Avoar/turi/downloads/temp/memory-profile-inputs/sds/federal_deputies_history/*.parquet"
+          },
+          "producer_sha256": "9910f7d527b1e99a0bee0c06232175a36de3003715ad2b46c005f851ecb15a15",
+          "status": "ok",
+          "outputs": [
+            {
+              "path": "parquet_dumps/opendata/opendata_mandate_events/camaradosdeputados.parquet",
+              "rows": 10783,
+              "bytes": 187591,
+              "schema": "id: uint64\nmandato_id: uint64\ntipo_evento: int32\ncontexto: int32\nsubcontexto: int32\ndescricao: large_string\ndata_relacionada: timestamp[us]"
+            }
+          ],
+          "process_seconds": 0.1622821679993649,
+          "peak_rss_kernel_bytes": 412782592,
+          "script_id": "camaradosdeputados_mandate_events",
+          "peak_rss_bytes": 413728768,
+          "peak_swap_bytes": 0,
+          "peak_rss_plus_swap_bytes": 413728768,
+          "initial_system_available_bytes": 11416875008,
+          "minimum_system_available_bytes": 11159142400,
+          "wall_seconds": 6.424729056998331,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "rest",
+          "error": "",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/camaradosdeputados_mandate_events"
+        }
+      ],
+      "published_reference": [
+        {
+          "path": "parquet_dumps/opendata/opendata_mandate_events/camaradosdeputados.parquet",
+          "rows": 10783,
+          "schema": "id: uint64\nmandato_id: uint64\ntipo_evento: int32\ncontexto: int32\nsubcontexto: int32\ndescricao: large_string\ndata_relacionada: timestamp[us]"
+        }
+      ],
+      "rows_and_schemas_match_published_reference": true
+    },
+    {
+      "script_id": "camaradosdeputados_mandate_exercises",
+      "producer": "apps/turi/src/scripts/operations/mandates_exercises/camaradosdeputados.py",
+      "current_producer_sha256": "6182d2b1f8c37edce9e2fbf3ce7b26910ed65b3e9130e4e4a544ec5aa88ef1ef",
+      "before": null,
+      "after": {
+        "input_overrides": {
+          "CD_MANDATE_EXERCISES_RAW_PARQUETS": "/run/media/victor/HDD Avoar/turi/downloads/temp/memory-profile-inputs/sds/federal_deputies_history/*.parquet"
+        },
+        "producer_sha256": "6182d2b1f8c37edce9e2fbf3ce7b26910ed65b3e9130e4e4a544ec5aa88ef1ef",
+        "status": "ok",
+        "outputs": [
+          {
+            "path": "parquet_dumps/opendata/opendata_mandate_exercises/camaradosdeputados.parquet",
+            "rows": 4207,
+            "bytes": 100357,
+            "schema": "id: uint64\nmandato_id: uint64\ndata_inicio: timestamp[us]\ndata_fim: timestamp[us]"
+          }
+        ],
+        "process_seconds": 1.2665695719988435,
+        "peak_rss_kernel_bytes": 377405440,
+        "script_id": "camaradosdeputados_mandate_exercises",
+        "peak_rss_bytes": 378032128,
+        "peak_swap_bytes": 0,
+        "peak_rss_plus_swap_bytes": 378032128,
+        "initial_system_available_bytes": 11468820480,
+        "minimum_system_available_bytes": 11175813120,
+        "wall_seconds": 1.8072900179977296,
+        "returncode": 0,
+        "interrupted_by_operator": false,
+        "run": "rest",
+        "error": "",
+        "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/camaradosdeputados_mandate_exercises"
+      },
+      "complete_before_after_rows_and_schemas_match": null,
+      "attempts": [
+        {
+          "status": "error",
+          "error": "ComputeError: failed to retrieve first file schema (parquet): expanded paths were empty (path expansion input: 'paths: [PlRefPath { inner: \"/run/media/victor/HDD Avoar/turi/downloads/sds/federal_deputies_history/*.parquet\" }]', glob: true). Hint: passing a schema can allow this scan to succeed with an empty DataFrame.",
+          "process_seconds": 0.1574237400018319,
+          "peak_rss_kernel_bytes": 269225984,
+          "script_id": "camaradosdeputados_mandate_exercises",
+          "peak_rss_bytes": 269590528,
+          "peak_swap_bytes": 0,
+          "peak_rss_plus_swap_bytes": 269590528,
+          "wall_seconds": 0.7125708170024154,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "baseline",
+          "minimum_system_available_bytes": 11430481920,
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-baseline/camaradosdeputados_mandate_exercises"
+        },
+        {
+          "input_overrides": {
+            "CD_MANDATE_EXERCISES_RAW_PARQUETS": "/run/media/victor/HDD Avoar/turi/downloads/temp/memory-profile-inputs/sds/federal_deputies_history/*.parquet"
+          },
+          "producer_sha256": "6182d2b1f8c37edce9e2fbf3ce7b26910ed65b3e9130e4e4a544ec5aa88ef1ef",
+          "status": "ok",
+          "outputs": [
+            {
+              "path": "parquet_dumps/opendata/opendata_mandate_exercises/camaradosdeputados.parquet",
+              "rows": 4207,
+              "bytes": 100357,
+              "schema": "id: uint64\nmandato_id: uint64\ndata_inicio: timestamp[us]\ndata_fim: timestamp[us]"
+            }
+          ],
+          "process_seconds": 1.2665695719988435,
+          "peak_rss_kernel_bytes": 377405440,
+          "script_id": "camaradosdeputados_mandate_exercises",
+          "peak_rss_bytes": 378032128,
+          "peak_swap_bytes": 0,
+          "peak_rss_plus_swap_bytes": 378032128,
+          "initial_system_available_bytes": 11468820480,
+          "minimum_system_available_bytes": 11175813120,
+          "wall_seconds": 1.8072900179977296,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "rest",
+          "error": "",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/camaradosdeputados_mandate_exercises"
+        }
+      ],
+      "published_reference": [
+        {
+          "path": "parquet_dumps/opendata/opendata_mandate_exercises/camaradosdeputados.parquet",
+          "rows": 4207,
+          "schema": "id: uint64\nmandato_id: uint64\ndata_inicio: timestamp[us]\ndata_fim: timestamp[us]"
+        }
+      ],
+      "rows_and_schemas_match_published_reference": true
+    },
+    {
+      "script_id": "camaradosdeputados_mandate_exercises_political_party",
+      "producer": "apps/turi/src/scripts/operations/mandate_exercises_political_party/camaradosdeputados.py",
+      "current_producer_sha256": "3e6a186389de232d1adf0b370a39333b5c56f22ed8836b2c7406faa31747d0e2",
+      "before": null,
+      "after": {
+        "input_overrides": {
+          "CD_MANDATES_EXERCISES_POLITICAL_PARTY_RAW_PARQUETS": "/run/media/victor/HDD Avoar/turi/downloads/temp/memory-profile-inputs/sds/federal_deputies_history/*.parquet"
+        },
+        "producer_sha256": "3e6a186389de232d1adf0b370a39333b5c56f22ed8836b2c7406faa31747d0e2",
+        "status": "ok",
+        "outputs": [
+          {
+            "path": "parquet_dumps/opendata/opendata_mandate_exercises_political_party/camaradosdeputados.parquet",
+            "rows": 5440,
+            "bytes": 112553,
+            "schema": "id: uint64\nsigla_partido: large_string\nexercicio_id: uint64\ndata_associacao: timestamp[us]\ndata_desassociacao: timestamp[us]"
+          }
+        ],
+        "process_seconds": 0.6330619770014891,
+        "peak_rss_kernel_bytes": 382738432,
+        "script_id": "camaradosdeputados_mandate_exercises_political_party",
+        "peak_rss_bytes": 384389120,
+        "peak_swap_bytes": 0,
+        "peak_rss_plus_swap_bytes": 384389120,
+        "initial_system_available_bytes": 11432050688,
+        "minimum_system_available_bytes": 11161411584,
+        "wall_seconds": 1.2045299290002731,
+        "returncode": 0,
+        "interrupted_by_operator": false,
+        "run": "rest",
+        "error": "",
+        "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/camaradosdeputados_mandate_exercises_political_party"
+      },
+      "complete_before_after_rows_and_schemas_match": null,
+      "attempts": [
+        {
+          "status": "error",
+          "error": "ComputeError: failed to retrieve first file schema (parquet): expanded paths were empty (path expansion input: 'paths: [PlRefPath { inner: \"/run/media/victor/HDD Avoar/turi/downloads/sds/federal_deputies_history/*.parquet\" }]', glob: true). Hint: passing a schema can allow this scan to succeed with an empty DataFrame.",
+          "process_seconds": 0.024358619000850013,
+          "peak_rss_kernel_bytes": 262270976,
+          "script_id": "camaradosdeputados_mandate_exercises_political_party",
+          "peak_rss_bytes": 262676480,
+          "peak_swap_bytes": 0,
+          "peak_rss_plus_swap_bytes": 262676480,
+          "wall_seconds": 0.5021466379985213,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "baseline",
+          "minimum_system_available_bytes": 11420721152,
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-baseline/camaradosdeputados_mandate_exercises_political_party"
+        },
+        {
+          "input_overrides": {
+            "CD_MANDATES_EXERCISES_POLITICAL_PARTY_RAW_PARQUETS": "/run/media/victor/HDD Avoar/turi/downloads/temp/memory-profile-inputs/sds/federal_deputies_history/*.parquet"
+          },
+          "producer_sha256": "3e6a186389de232d1adf0b370a39333b5c56f22ed8836b2c7406faa31747d0e2",
+          "status": "ok",
+          "outputs": [
+            {
+              "path": "parquet_dumps/opendata/opendata_mandate_exercises_political_party/camaradosdeputados.parquet",
+              "rows": 5440,
+              "bytes": 112553,
+              "schema": "id: uint64\nsigla_partido: large_string\nexercicio_id: uint64\ndata_associacao: timestamp[us]\ndata_desassociacao: timestamp[us]"
+            }
+          ],
+          "process_seconds": 0.6330619770014891,
+          "peak_rss_kernel_bytes": 382738432,
+          "script_id": "camaradosdeputados_mandate_exercises_political_party",
+          "peak_rss_bytes": 384389120,
+          "peak_swap_bytes": 0,
+          "peak_rss_plus_swap_bytes": 384389120,
+          "initial_system_available_bytes": 11432050688,
+          "minimum_system_available_bytes": 11161411584,
+          "wall_seconds": 1.2045299290002731,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "rest",
+          "error": "",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/camaradosdeputados_mandate_exercises_political_party"
+        }
+      ],
+      "published_reference": [
+        {
+          "path": "parquet_dumps/opendata/opendata_mandate_exercises_political_party/camaradosdeputados.parquet",
+          "rows": 5440,
+          "schema": "id: uint64\nsigla_partido: large_string\nexercicio_id: uint64\ndata_associacao: timestamp[us]\ndata_desassociacao: timestamp[us]"
+        }
+      ],
+      "rows_and_schemas_match_published_reference": true
+    },
+    {
+      "script_id": "camaradosdeputados_mandate_office",
+      "producer": "apps/turi/src/scripts/operations/mandate_office/camaradosdeputados.py",
+      "current_producer_sha256": "8e619c7e92259fb15d929c6ed34cb260ece091777b067918ce3fc6fe109a1225",
+      "before": null,
+      "after": {
+        "input_overrides": {
+          "CD_MANDATE_OFFICE_RAW_PARQUETS": "/run/media/victor/HDD Avoar/turi/downloads/temp/memory-profile-inputs/sds/federal_deputies_detailed/*.parquet"
+        },
+        "producer_sha256": "8e619c7e92259fb15d929c6ed34cb260ece091777b067918ce3fc6fe109a1225",
+        "status": "ok",
+        "outputs": [
+          {
+            "path": "parquet_dumps/opendata/opendata_mandate_office/camaradosdeputados.parquet",
+            "rows": 2089,
+            "bytes": 41855,
+            "schema": "telefones: large_list<element: large_string>\n  child 0, element: large_string\nnumero_gabinete: large_string\nanexo_gabinete: large_string\nemail: large_string\nmandato_id: uint64"
+          }
+        ],
+        "process_seconds": 2.4633747699990636,
+        "peak_rss_kernel_bytes": 511385600,
+        "script_id": "camaradosdeputados_mandate_office",
+        "peak_rss_bytes": 512274432,
+        "peak_swap_bytes": 0,
+        "peak_rss_plus_swap_bytes": 512274432,
+        "initial_system_available_bytes": 11433099264,
+        "minimum_system_available_bytes": 10938134528,
+        "wall_seconds": 3.112560300000041,
+        "returncode": 0,
+        "interrupted_by_operator": false,
+        "run": "rest",
+        "error": "",
+        "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/camaradosdeputados_mandate_office"
+      },
+      "complete_before_after_rows_and_schemas_match": null,
+      "attempts": [
+        {
+          "status": "error",
+          "error": "ComputeError: failed to retrieve first file schema (parquet): empty input: paths: []. Hint: passing a schema can allow this scan to succeed with an empty DataFrame.",
+          "process_seconds": 0.4921427079971181,
+          "peak_rss_kernel_bytes": 462876672,
+          "script_id": "camaradosdeputados_mandate_office",
+          "peak_rss_bytes": 462876672,
+          "peak_swap_bytes": 0,
+          "peak_rss_plus_swap_bytes": 451125248,
+          "wall_seconds": 1.104687377999653,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "baseline",
+          "minimum_system_available_bytes": 11060699136,
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-baseline/camaradosdeputados_mandate_office"
+        },
+        {
+          "input_overrides": {
+            "CD_MANDATE_OFFICE_RAW_PARQUETS": "/run/media/victor/HDD Avoar/turi/downloads/temp/memory-profile-inputs/sds/federal_deputies_detailed/*.parquet"
+          },
+          "producer_sha256": "8e619c7e92259fb15d929c6ed34cb260ece091777b067918ce3fc6fe109a1225",
+          "status": "ok",
+          "outputs": [
+            {
+              "path": "parquet_dumps/opendata/opendata_mandate_office/camaradosdeputados.parquet",
+              "rows": 2089,
+              "bytes": 41855,
+              "schema": "telefones: large_list<element: large_string>\n  child 0, element: large_string\nnumero_gabinete: large_string\nanexo_gabinete: large_string\nemail: large_string\nmandato_id: uint64"
+            }
+          ],
+          "process_seconds": 2.4633747699990636,
+          "peak_rss_kernel_bytes": 511385600,
+          "script_id": "camaradosdeputados_mandate_office",
+          "peak_rss_bytes": 512274432,
+          "peak_swap_bytes": 0,
+          "peak_rss_plus_swap_bytes": 512274432,
+          "initial_system_available_bytes": 11433099264,
+          "minimum_system_available_bytes": 10938134528,
+          "wall_seconds": 3.112560300000041,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "rest",
+          "error": "",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/camaradosdeputados_mandate_office"
+        }
+      ],
+      "published_reference": [
+        {
+          "path": "parquet_dumps/opendata/opendata_mandate_office/camaradosdeputados.parquet",
+          "rows": 2089,
+          "schema": "telefones: large_list<element: large_string>\n  child 0, element: large_string\nnumero_gabinete: large_string\nanexo_gabinete: large_string\nemail: large_string\nmandato_id: uint64"
+        }
+      ],
+      "rows_and_schemas_match_published_reference": true
+    },
+    {
+      "script_id": "camaradosdeputados_services_supplier",
+      "producer": "apps/turi/src/scripts/operations/services_supplier/camaradosdeputados.py",
+      "current_producer_sha256": "d48a2455970e4e44120db75c4d4e4508f56b19e291f2015330f43adc5b3f22f3",
+      "before": {
+        "status": "ok",
+        "outputs": [
+          {
+            "path": "parquet_dumps/opendata/opendata_services_supplier/camaradosdeputados.parquet",
+            "rows": 2632,
+            "bytes": 47443,
+            "schema": "id: uint64\ndocumento: large_string\ntipo_documento: int32"
+          },
+          {
+            "path": "parquet_dumps/opendata/opendata_services_supplier_names/camaradosdeputados.parquet",
+            "rows": 3644,
+            "bytes": 113067,
+            "schema": "id: uint64\nnome: large_string\nfornecedor_id: uint64\ncoletado_de_orgao_id: large_string\ncoletado_de_fonte_bruta: large_string"
+          }
+        ],
+        "process_seconds": 12.67800909899961,
+        "peak_rss_kernel_bytes": 7543332864,
+        "script_id": "camaradosdeputados_services_supplier",
+        "peak_rss_bytes": 7543332864,
+        "peak_swap_bytes": 0,
+        "peak_rss_plus_swap_bytes": 7519293440,
+        "wall_seconds": 13.28796585300006,
+        "returncode": 0,
+        "interrupted_by_operator": false,
+        "run": "baseline",
+        "error": "",
+        "minimum_system_available_bytes": 7647436800,
+        "artifacts": "downloads/temp/memory-profile-2026-11-12-baseline/camaradosdeputados_services_supplier"
+      },
+      "after": {
+        "input_overrides": {},
+        "producer_sha256": "d48a2455970e4e44120db75c4d4e4508f56b19e291f2015330f43adc5b3f22f3",
+        "status": "ok",
+        "outputs": [
+          {
+            "path": "parquet_dumps/opendata/opendata_services_supplier/camaradosdeputados.parquet",
+            "rows": 2632,
+            "bytes": 47443,
+            "schema": "id: uint64\ndocumento: large_string\ntipo_documento: int32"
+          },
+          {
+            "path": "parquet_dumps/opendata/opendata_services_supplier_names/camaradosdeputados.parquet",
+            "rows": 3644,
+            "bytes": 112926,
+            "schema": "id: uint64\nnome: large_string\nfornecedor_id: uint64\ncoletado_de_orgao_id: large_string\ncoletado_de_fonte_bruta: large_string"
+          }
+        ],
+        "process_seconds": 6.973688922000292,
+        "peak_rss_kernel_bytes": 692121600,
+        "script_id": "camaradosdeputados_services_supplier",
+        "peak_rss_bytes": 692121600,
+        "peak_swap_bytes": 0,
+        "peak_rss_plus_swap_bytes": 688529408,
+        "initial_system_available_bytes": 8760000512,
+        "minimum_system_available_bytes": 8375533568,
+        "wall_seconds": 13.451385230000596,
+        "returncode": 0,
+        "interrupted_by_operator": false,
+        "run": "final",
+        "error": "",
+        "artifacts": "downloads/temp/memory-profile-2026-11-12-final/camaradosdeputados_services_supplier"
+      },
+      "complete_before_after_rows_and_schemas_match": true,
+      "attempts": [
+        {
+          "status": "ok",
+          "outputs": [
+            {
+              "path": "parquet_dumps/opendata/opendata_services_supplier/camaradosdeputados.parquet",
+              "rows": 2632,
+              "bytes": 47443,
+              "schema": "id: uint64\ndocumento: large_string\ntipo_documento: int32"
+            },
+            {
+              "path": "parquet_dumps/opendata/opendata_services_supplier_names/camaradosdeputados.parquet",
+              "rows": 3644,
+              "bytes": 113067,
+              "schema": "id: uint64\nnome: large_string\nfornecedor_id: uint64\ncoletado_de_orgao_id: large_string\ncoletado_de_fonte_bruta: large_string"
+            }
+          ],
+          "process_seconds": 12.67800909899961,
+          "peak_rss_kernel_bytes": 7543332864,
+          "script_id": "camaradosdeputados_services_supplier",
+          "peak_rss_bytes": 7543332864,
+          "peak_swap_bytes": 0,
+          "peak_rss_plus_swap_bytes": 7519293440,
+          "wall_seconds": 13.28796585300006,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "baseline",
+          "error": "",
+          "minimum_system_available_bytes": 7647436800,
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-baseline/camaradosdeputados_services_supplier"
+        },
+        {
+          "input_overrides": {},
+          "producer_sha256": "d48a2455970e4e44120db75c4d4e4508f56b19e291f2015330f43adc5b3f22f3",
+          "status": "ok",
+          "outputs": [
+            {
+              "path": "parquet_dumps/opendata/opendata_services_supplier/camaradosdeputados.parquet",
+              "rows": 2632,
+              "bytes": 47443,
+              "schema": "id: uint64\ndocumento: large_string\ntipo_documento: int32"
+            },
+            {
+              "path": "parquet_dumps/opendata/opendata_services_supplier_names/camaradosdeputados.parquet",
+              "rows": 3644,
+              "bytes": 113038,
+              "schema": "id: uint64\nnome: large_string\nfornecedor_id: uint64\ncoletado_de_orgao_id: large_string\ncoletado_de_fonte_bruta: large_string"
+            }
+          ],
+          "process_seconds": 18.903760334000253,
+          "peak_rss_kernel_bytes": 2847023104,
+          "script_id": "camaradosdeputados_services_supplier",
+          "peak_rss_bytes": 2847023104,
+          "peak_swap_bytes": 0,
+          "peak_rss_plus_swap_bytes": 2846449664,
+          "initial_system_available_bytes": 11288711168,
+          "minimum_system_available_bytes": 10741555200,
+          "wall_seconds": 19.496065117997205,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "rest",
+          "error": "",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/camaradosdeputados_services_supplier"
+        },
+        {
+          "input_overrides": {},
+          "producer_sha256": "d48a2455970e4e44120db75c4d4e4508f56b19e291f2015330f43adc5b3f22f3",
+          "status": "ok",
+          "outputs": [
+            {
+              "path": "parquet_dumps/opendata/opendata_services_supplier/camaradosdeputados.parquet",
+              "rows": 2632,
+              "bytes": 47443,
+              "schema": "id: uint64\ndocumento: large_string\ntipo_documento: int32"
+            },
+            {
+              "path": "parquet_dumps/opendata/opendata_services_supplier_names/camaradosdeputados.parquet",
+              "rows": 3644,
+              "bytes": 112926,
+              "schema": "id: uint64\nnome: large_string\nfornecedor_id: uint64\ncoletado_de_orgao_id: large_string\ncoletado_de_fonte_bruta: large_string"
+            }
+          ],
+          "process_seconds": 6.973688922000292,
+          "peak_rss_kernel_bytes": 692121600,
+          "script_id": "camaradosdeputados_services_supplier",
+          "peak_rss_bytes": 692121600,
+          "peak_swap_bytes": 0,
+          "peak_rss_plus_swap_bytes": 688529408,
+          "initial_system_available_bytes": 8760000512,
+          "minimum_system_available_bytes": 8375533568,
+          "wall_seconds": 13.451385230000596,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "final",
+          "error": "",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-final/camaradosdeputados_services_supplier"
+        }
+      ],
+      "published_reference": [
+        {
+          "path": "parquet_dumps/opendata/opendata_services_supplier/camaradosdeputados.parquet",
+          "rows": 2632,
+          "schema": "id: uint64\ndocumento: large_string\ntipo_documento: int32"
+        },
+        {
+          "path": "parquet_dumps/opendata/opendata_services_supplier_names/camaradosdeputados.parquet",
+          "rows": 3644,
+          "schema": "id: uint64\nnome: large_string\nfornecedor_id: uint64\ncoletado_de_orgao_id: large_string\ncoletado_de_fonte_bruta: large_string"
+        }
+      ],
+      "rows_and_schemas_match_published_reference": true
+    },
+    {
+      "script_id": "evm",
+      "producer": "apps/turi/src/scripts/operations/evm/evm.py",
+      "current_producer_sha256": "efb2eff5c067e231f2a1a860201ef90943cf082693c841c74f5f5fd7b4d8fcfe",
+      "before": null,
+      "after": {
+        "input_overrides": {},
+        "producer_sha256": "efb2eff5c067e231f2a1a860201ef90943cf082693c841c74f5f5fd7b4d8fcfe",
+        "status": "ok",
+        "outputs": [
+          {
+            "path": "parquet_dumps/opendata/opendata_evm/opendata_evm.parquet",
+            "rows": 939817,
+            "bytes": 10859146,
+            "schema": "id: uint64\nnumero_serie_urna: large_string"
+          }
+        ],
+        "process_seconds": 168.57522841199898,
+        "peak_rss_kernel_bytes": 1392697344,
+        "script_id": "evm",
+        "peak_rss_bytes": 1392697344,
+        "peak_swap_bytes": 0,
+        "peak_rss_plus_swap_bytes": 1389776896,
+        "initial_system_available_bytes": 8774914048,
+        "minimum_system_available_bytes": 7804428288,
+        "wall_seconds": 169.14844249200178,
+        "returncode": 0,
+        "interrupted_by_operator": false,
+        "run": "final",
+        "error": "",
+        "artifacts": "downloads/temp/memory-profile-2026-11-12-final/evm"
+      },
+      "complete_before_after_rows_and_schemas_match": null,
+      "attempts": [
+        {
+          "status": "interrupted",
+          "script_id": "evm",
+          "peak_rss_bytes": 926273536,
+          "peak_swap_bytes": 0,
+          "peak_rss_plus_swap_bytes": 926273536,
+          "wall_seconds": 1341.5309738390024,
+          "returncode": -9,
+          "interrupted_by_operator": true,
+          "run": "baseline",
+          "error": "",
+          "minimum_system_available_bytes": 5827342336,
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-baseline/evm"
+        },
+        {
+          "status": "interrupted",
+          "script_id": "evm",
+          "peak_rss_bytes": 755646464,
+          "peak_swap_bytes": 310476800,
+          "peak_rss_plus_swap_bytes": 764387328,
+          "wall_seconds": 788.0710321779989,
+          "returncode": -9,
+          "interrupted_by_operator": true,
+          "run": "ssd",
+          "error": "",
+          "minimum_system_available_bytes": 5337690112,
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-ssd/evm"
+        },
+        {
+          "input_overrides": {},
+          "producer_sha256": "39a9405edf1ab6f4b9b169b797e2a72ced84b2231330b96ca843635e53e67f36",
+          "status": "ok",
+          "outputs": [
+            {
+              "path": "parquet_dumps/opendata/opendata_evm/opendata_evm.parquet",
+              "rows": 939817,
+              "bytes": 10859146,
+              "schema": "id: uint64\nnumero_serie_urna: large_string"
+            }
+          ],
+          "process_seconds": 175.49225106000085,
+          "peak_rss_kernel_bytes": 2820411392,
+          "script_id": "evm",
+          "peak_rss_bytes": 2821799936,
+          "peak_swap_bytes": 317485056,
+          "peak_rss_plus_swap_bytes": 3043401728,
+          "initial_system_available_bytes": 10928631808,
+          "minimum_system_available_bytes": 10096058368,
+          "wall_seconds": 177.73262535600225,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "evm_intermediate",
+          "error": "",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-evm-optimized/evm"
+        },
+        {
+          "input_overrides": {},
+          "producer_sha256": "ea585b5c8eb7a992aad91e3bd73609d21a50ea0a8d926b8052a53f7cd6cb6ade",
+          "status": "ok",
+          "outputs": [
+            {
+              "path": "parquet_dumps/opendata/opendata_evm/opendata_evm.parquet",
+              "rows": 939817,
+              "bytes": 10859146,
+              "schema": "id: uint64\nnumero_serie_urna: large_string"
+            }
+          ],
+          "process_seconds": 159.41610707899963,
+          "peak_rss_kernel_bytes": 1384869888,
+          "script_id": "evm",
+          "peak_rss_bytes": 1384869888,
+          "peak_swap_bytes": 0,
+          "peak_rss_plus_swap_bytes": 1382342656,
+          "initial_system_available_bytes": 11493310464,
+          "minimum_system_available_bytes": 10446843904,
+          "wall_seconds": 165.70983155299837,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "rest",
+          "error": "",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/evm"
+        },
+        {
+          "input_overrides": {},
+          "producer_sha256": "efb2eff5c067e231f2a1a860201ef90943cf082693c841c74f5f5fd7b4d8fcfe",
+          "status": "ok",
+          "outputs": [
+            {
+              "path": "parquet_dumps/opendata/opendata_evm/opendata_evm.parquet",
+              "rows": 939817,
+              "bytes": 10859146,
+              "schema": "id: uint64\nnumero_serie_urna: large_string"
+            }
+          ],
+          "process_seconds": 168.57522841199898,
+          "peak_rss_kernel_bytes": 1392697344,
+          "script_id": "evm",
+          "peak_rss_bytes": 1392697344,
+          "peak_swap_bytes": 0,
+          "peak_rss_plus_swap_bytes": 1389776896,
+          "initial_system_available_bytes": 8774914048,
+          "minimum_system_available_bytes": 7804428288,
+          "wall_seconds": 169.14844249200178,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "final",
+          "error": "",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-final/evm"
+        }
+      ],
+      "published_reference": [
+        {
+          "path": "parquet_dumps/opendata/opendata_evm/opendata_evm.parquet",
+          "rows": 939817,
+          "schema": "id: uint64\nnumero_serie_urna: large_string"
+        }
+      ],
+      "rows_and_schemas_match_published_reference": true
+    },
+    {
+      "script_id": "evm_bulletin",
+      "producer": "apps/turi/src/scripts/operations/evm/evm_bulletin.py",
+      "current_producer_sha256": "d4ba209a8d2a71808849c86196d7caa3e7dd0799fe8574d2c76c83baf778e8fa",
+      "before": null,
+      "after": {
+        "input_overrides": {},
+        "producer_sha256": "d4ba209a8d2a71808849c86196d7caa3e7dd0799fe8574d2c76c83baf778e8fa",
+        "status": "ok",
+        "outputs": [
+          {
+            "path": "parquet_dumps/opendata/opendata_evm_bulletin/opendata_evm_bulletin.parquet",
+            "rows": 1860036,
+            "bytes": 77807105,
+            "schema": "id: uint64\nurna_id: uint64\ndata_abertura: timestamp[us]\ndata_encerramento: timestamp[us]\ndata_emissao: timestamp[us]\ndata_recebimento: timestamp[us]\nzona_eleitoral: large_string\nsecao_eleitoral: large_string\nlocal_votacao: large_string\nqtd_eleitores_aptos: int32\nqtd_comparecimento: int32\nqtd_abstencoes: int32\nhash_flashcard: large_string\nhash_dados_carga_1: large_string\nhash_dados_carga_2: large_string\ncodigo_municipio_ibge: large_string"
+          }
+        ],
+        "process_seconds": 513.753314294001,
+        "peak_rss_kernel_bytes": 5698359296,
+        "script_id": "evm_bulletin",
+        "peak_rss_bytes": 5698359296,
+        "peak_swap_bytes": 0,
+        "peak_rss_plus_swap_bytes": 5661118464,
+        "wall_seconds": 530.6674003410008,
+        "returncode": 0,
+        "interrupted_by_operator": false,
+        "run": "ssd",
+        "error": "",
+        "minimum_system_available_bytes": 7961608192,
+        "artifacts": "downloads/temp/memory-profile-2026-11-12-ssd/evm_bulletin"
+      },
+      "complete_before_after_rows_and_schemas_match": null,
+      "attempts": [
+        {
+          "input_overrides": {},
+          "producer_sha256": "d4ba209a8d2a71808849c86196d7caa3e7dd0799fe8574d2c76c83baf778e8fa",
+          "status": "ok",
+          "outputs": [
+            {
+              "path": "parquet_dumps/opendata/opendata_evm_bulletin/opendata_evm_bulletin.parquet",
+              "rows": 1860036,
+              "bytes": 77807105,
+              "schema": "id: uint64\nurna_id: uint64\ndata_abertura: timestamp[us]\ndata_encerramento: timestamp[us]\ndata_emissao: timestamp[us]\ndata_recebimento: timestamp[us]\nzona_eleitoral: large_string\nsecao_eleitoral: large_string\nlocal_votacao: large_string\nqtd_eleitores_aptos: int32\nqtd_comparecimento: int32\nqtd_abstencoes: int32\nhash_flashcard: large_string\nhash_dados_carga_1: large_string\nhash_dados_carga_2: large_string\ncodigo_municipio_ibge: large_string"
+            }
+          ],
+          "process_seconds": 513.753314294001,
+          "peak_rss_kernel_bytes": 5698359296,
+          "script_id": "evm_bulletin",
+          "peak_rss_bytes": 5698359296,
+          "peak_swap_bytes": 0,
+          "peak_rss_plus_swap_bytes": 5661118464,
+          "wall_seconds": 530.6674003410008,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "ssd",
+          "error": "",
+          "minimum_system_available_bytes": 7961608192,
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-ssd/evm_bulletin"
+        }
+      ],
+      "published_reference": [
+        {
+          "path": "parquet_dumps/opendata/opendata_evm_bulletin/opendata_evm_bulletin.parquet",
+          "rows": 1860036,
+          "schema": "id: uint64\nurna_id: uint64\ndata_abertura: timestamp[us]\ndata_encerramento: timestamp[us]\ndata_emissao: timestamp[us]\ndata_recebimento: timestamp[us]\nzona_eleitoral: large_string\nsecao_eleitoral: large_string\nlocal_votacao: large_string\nqtd_eleitores_aptos: int32\nqtd_comparecimento: int32\nqtd_abstencoes: int32\nhash_flashcard: large_string\nhash_dados_carga_1: large_string\nhash_dados_carga_2: large_string\ncodigo_municipio_ibge: large_string"
+        }
+      ],
+      "rows_and_schemas_match_published_reference": true
+    },
+    {
+      "script_id": "evm_bulletin_items",
+      "producer": "apps/turi/src/scripts/operations/evm/evm_bulletin_item.py",
+      "current_producer_sha256": "d66b3285dbd400dcd9c372e0fc5beee55536ff4660f4b71b8da3839afc5b35c5",
+      "before": null,
+      "after": {
+        "input_overrides": {},
+        "producer_sha256": "d66b3285dbd400dcd9c372e0fc5beee55536ff4660f4b71b8da3839afc5b35c5",
+        "status": "ok",
+        "outputs": [
+          {
+            "path": "parquet_dumps/opendata/opendata_evm_bulletin_item/opendata_evm_bulletin_item.parquet",
+            "rows": 254345786,
+            "bytes": 5268272129,
+            "schema": "id: uint64\nboletim_id: uint64\ntipo: int32\nvalor: large_string\nquantidade: int32\neleicao_id: uint64\nturno_eleicao_id: uint64\ncodigo_local: large_string\ncodigo_cargo_tse: int32\ncandidatura_id: uint64"
+          }
+        ],
+        "process_seconds": 447.3398714950017,
+        "peak_rss_kernel_bytes": 6795689984,
+        "script_id": "evm_bulletin_items",
+        "peak_rss_bytes": 6795689984,
+        "peak_swap_bytes": 567242752,
+        "peak_rss_plus_swap_bytes": 6759280640,
+        "peak_rss_anon_bytes": 6075035648,
+        "peak_rss_file_bytes": 733458432,
+        "peak_pss_bytes": 6720266240,
+        "peak_lazy_free_bytes": 5748105216,
+        "initial_system_available_bytes": 9518424064,
+        "minimum_system_available_bytes": 8584200192,
+        "wall_seconds": 452.7026013970026,
+        "returncode": 0,
+        "interrupted_by_operator": false,
+        "run": "address_final",
+        "error": "",
+        "artifacts": "downloads/temp/memory-profile-2026-11-12-address-final/evm_bulletin_items"
+      },
+      "complete_before_after_rows_and_schemas_match": null,
+      "attempts": [
+        {
+          "input_overrides": {},
+          "producer_sha256": "d66b3285dbd400dcd9c372e0fc5beee55536ff4660f4b71b8da3839afc5b35c5",
+          "status": "ok",
+          "outputs": [
+            {
+              "path": "parquet_dumps/opendata/opendata_evm_bulletin_item/opendata_evm_bulletin_item.parquet",
+              "rows": 254345786,
+              "bytes": 5268141263,
+              "schema": "id: uint64\nboletim_id: uint64\ntipo: int32\nvalor: large_string\nquantidade: int32\neleicao_id: uint64\nturno_eleicao_id: uint64\ncodigo_local: large_string\ncodigo_cargo_tse: int32\ncandidatura_id: uint64"
+            }
+          ],
+          "process_seconds": 826.0199019389984,
+          "peak_rss_kernel_bytes": 5878026240,
+          "script_id": "evm_bulletin_items",
+          "peak_rss_bytes": 5878026240,
+          "peak_swap_bytes": 524992512,
+          "peak_rss_plus_swap_bytes": 5982076928,
+          "initial_system_available_bytes": 10887446528,
+          "minimum_system_available_bytes": 4636803072,
+          "wall_seconds": 857.3550303419979,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "rest",
+          "error": "",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/evm_bulletin_items"
+        },
+        {
+          "input_overrides": {},
+          "producer_sha256": "d66b3285dbd400dcd9c372e0fc5beee55536ff4660f4b71b8da3839afc5b35c5",
+          "status": "ok",
+          "outputs": [
+            {
+              "path": "parquet_dumps/opendata/opendata_evm_bulletin_item/opendata_evm_bulletin_item.parquet",
+              "rows": 254345786,
+              "bytes": 5268338766,
+              "schema": "id: uint64\nboletim_id: uint64\ntipo: int32\nvalor: large_string\nquantidade: int32\neleicao_id: uint64\nturno_eleicao_id: uint64\ncodigo_local: large_string\ncodigo_cargo_tse: int32\ncandidatura_id: uint64"
+            }
+          ],
+          "process_seconds": 422.8522922310003,
+          "peak_rss_kernel_bytes": 6525751296,
+          "script_id": "evm_bulletin_items",
+          "peak_rss_bytes": 12101140480,
+          "peak_swap_bytes": 567369728,
+          "peak_rss_plus_swap_bytes": 12101140480,
+          "peak_rss_anon_bytes": 11891261440,
+          "peak_rss_file_bytes": 688824320,
+          "initial_system_available_bytes": 11558428672,
+          "minimum_system_available_bytes": 9223520256,
+          "wall_seconds": 427.3849913729937,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "disk_ssd_final",
+          "error": "",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-disk-ssd-final/evm_bulletin_items"
+        },
+        {
+          "input_overrides": {},
+          "producer_sha256": "d66b3285dbd400dcd9c372e0fc5beee55536ff4660f4b71b8da3839afc5b35c5",
+          "status": "ok",
+          "outputs": [
+            {
+              "path": "parquet_dumps/opendata/opendata_evm_bulletin_item/opendata_evm_bulletin_item.parquet",
+              "rows": 254345786,
+              "bytes": 5268272129,
+              "schema": "id: uint64\nboletim_id: uint64\ntipo: int32\nvalor: large_string\nquantidade: int32\neleicao_id: uint64\nturno_eleicao_id: uint64\ncodigo_local: large_string\ncodigo_cargo_tse: int32\ncandidatura_id: uint64"
+            }
+          ],
+          "process_seconds": 447.3398714950017,
+          "peak_rss_kernel_bytes": 6795689984,
+          "script_id": "evm_bulletin_items",
+          "peak_rss_bytes": 6795689984,
+          "peak_swap_bytes": 567242752,
+          "peak_rss_plus_swap_bytes": 6759280640,
+          "peak_rss_anon_bytes": 6075035648,
+          "peak_rss_file_bytes": 733458432,
+          "peak_pss_bytes": 6720266240,
+          "peak_lazy_free_bytes": 5748105216,
+          "initial_system_available_bytes": 9518424064,
+          "minimum_system_available_bytes": 8584200192,
+          "wall_seconds": 452.7026013970026,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "address_final",
+          "error": "",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-address-final/evm_bulletin_items"
+        }
+      ],
+      "published_reference": [
+        {
+          "path": "parquet_dumps/opendata/opendata_evm_bulletin_item/opendata_evm_bulletin_item.parquet",
+          "rows": 254345786,
+          "schema": "id: uint64\nboletim_id: uint64\ntipo: int32\nvalor: large_string\nquantidade: int32\neleicao_id: uint64\nturno_eleicao_id: uint64\ncodigo_local: large_string\ncodigo_cargo_tse: int32\ncandidatura_id: uint64"
+        }
+      ],
+      "rows_and_schemas_match_published_reference": true
+    },
+    {
+      "script_id": "gov_amendments",
+      "producer": "apps/turi/src/scripts/operations/amendments/amendments.py",
+      "current_producer_sha256": "edd35c59476c2327c8c4e0a18266b2a2de4f2cd916d5bc6c501a7b2e62ab6f4b",
+      "before": null,
+      "after": {
+        "input_overrides": {},
+        "producer_sha256": "edd35c59476c2327c8c4e0a18266b2a2de4f2cd916d5bc6c501a7b2e62ab6f4b",
+        "status": "ok",
+        "outputs": [
+          {
+            "path": "parquet_dumps/opendata/opendata_amendment/gov.parquet",
+            "rows": 76879,
+            "bytes": 1003888,
+            "schema": "id: uint64\ncodigo: large_string\nnumero: large_string\nano: int32"
+          }
+        ],
+        "process_seconds": 3.590720018000866,
+        "peak_rss_kernel_bytes": 371855360,
+        "script_id": "gov_amendments",
+        "peak_rss_bytes": 371855360,
+        "peak_swap_bytes": 0,
+        "peak_rss_plus_swap_bytes": 369610752,
+        "initial_system_available_bytes": 10058772480,
+        "minimum_system_available_bytes": 9778409472,
+        "wall_seconds": 46.76485097600016,
+        "returncode": 0,
+        "interrupted_by_operator": false,
+        "run": "rest",
+        "error": "",
+        "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/gov_amendments"
+      },
+      "complete_before_after_rows_and_schemas_match": null,
+      "attempts": [
+        {
+          "input_overrides": {},
+          "producer_sha256": "edd35c59476c2327c8c4e0a18266b2a2de4f2cd916d5bc6c501a7b2e62ab6f4b",
+          "status": "ok",
+          "outputs": [
+            {
+              "path": "parquet_dumps/opendata/opendata_amendment/gov.parquet",
+              "rows": 76879,
+              "bytes": 1003888,
+              "schema": "id: uint64\ncodigo: large_string\nnumero: large_string\nano: int32"
+            }
+          ],
+          "process_seconds": 3.590720018000866,
+          "peak_rss_kernel_bytes": 371855360,
+          "script_id": "gov_amendments",
+          "peak_rss_bytes": 371855360,
+          "peak_swap_bytes": 0,
+          "peak_rss_plus_swap_bytes": 369610752,
+          "initial_system_available_bytes": 10058772480,
+          "minimum_system_available_bytes": 9778409472,
+          "wall_seconds": 46.76485097600016,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "rest",
+          "error": "",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/gov_amendments"
+        }
+      ],
+      "published_reference": [
+        {
+          "path": "parquet_dumps/opendata/opendata_amendment/gov.parquet",
+          "rows": 76879,
+          "schema": "id: uint64\ncodigo: large_string\nnumero: large_string\nano: int32"
+        }
+      ],
+      "rows_and_schemas_match_published_reference": true
+    },
+    {
+      "script_id": "gov_amendments_agreements",
+      "producer": "apps/turi/src/scripts/operations/amendments/agreements.py",
+      "current_producer_sha256": "3190e5cc9744c3f7a2d1c845a9d1e9ab1cefe7f11476f9d3677c9d23e450463e",
+      "before": null,
+      "after": {
+        "input_overrides": {},
+        "producer_sha256": "3190e5cc9744c3f7a2d1c845a9d1e9ab1cefe7f11476f9d3677c9d23e450463e",
+        "status": "ok",
+        "outputs": [
+          {
+            "path": "parquet_dumps/opendata/opendata_amendment_agreement/gov.parquet",
+            "rows": 81687,
+            "bytes": 5526042,
+            "schema": "id: uint64\nnumero: large_string\ncodigo_funcao: large_string\ncodigo_subfuncao: large_string\ndata_publicacao: date32[day]\nconvenente: large_string\nobjeto: large_string\nvalor: decimal128(18, 2)"
+          }
+        ],
+        "process_seconds": 0.7912330830004066,
+        "peak_rss_kernel_bytes": 473292800,
+        "script_id": "gov_amendments_agreements",
+        "peak_rss_bytes": 473292800,
+        "peak_swap_bytes": 0,
+        "peak_rss_plus_swap_bytes": 464646144,
+        "initial_system_available_bytes": 10046017536,
+        "minimum_system_available_bytes": 9696174080,
+        "wall_seconds": 1.305996363000304,
+        "returncode": 0,
+        "interrupted_by_operator": false,
+        "run": "rest",
+        "error": "",
+        "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/gov_amendments_agreements"
+      },
+      "complete_before_after_rows_and_schemas_match": null,
+      "attempts": [
+        {
+          "input_overrides": {},
+          "producer_sha256": "3190e5cc9744c3f7a2d1c845a9d1e9ab1cefe7f11476f9d3677c9d23e450463e",
+          "status": "ok",
+          "outputs": [
+            {
+              "path": "parquet_dumps/opendata/opendata_amendment_agreement/gov.parquet",
+              "rows": 81687,
+              "bytes": 5526042,
+              "schema": "id: uint64\nnumero: large_string\ncodigo_funcao: large_string\ncodigo_subfuncao: large_string\ndata_publicacao: date32[day]\nconvenente: large_string\nobjeto: large_string\nvalor: decimal128(18, 2)"
+            }
+          ],
+          "process_seconds": 0.7912330830004066,
+          "peak_rss_kernel_bytes": 473292800,
+          "script_id": "gov_amendments_agreements",
+          "peak_rss_bytes": 473292800,
+          "peak_swap_bytes": 0,
+          "peak_rss_plus_swap_bytes": 464646144,
+          "initial_system_available_bytes": 10046017536,
+          "minimum_system_available_bytes": 9696174080,
+          "wall_seconds": 1.305996363000304,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "rest",
+          "error": "",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/gov_amendments_agreements"
+        }
+      ],
+      "published_reference": [
+        {
+          "path": "parquet_dumps/opendata/opendata_amendment_agreement/gov.parquet",
+          "rows": 81687,
+          "schema": "id: uint64\nnumero: large_string\ncodigo_funcao: large_string\ncodigo_subfuncao: large_string\ndata_publicacao: date32[day]\nconvenente: large_string\nobjeto: large_string\nvalor: decimal128(18, 2)"
+        }
+      ],
+      "rows_and_schemas_match_published_reference": true
+    },
+    {
+      "script_id": "gov_amendments_authorship",
+      "producer": "apps/turi/src/scripts/operations/amendments/authorship/federal_deputies.py",
+      "current_producer_sha256": "8eefa8d6427fd937d4ecccd2c3c2756b990ad362c18e774bb580b6ad54a36989",
+      "before": null,
+      "after": {
+        "input_overrides": {
+          "CD_DEPUTIES_HISTORY_RAW_PARQUETS": "/run/media/victor/HDD Avoar/turi/downloads/temp/memory-profile-inputs/sds/federal_deputies_history/*.parquet"
+        },
+        "producer_sha256": "8eefa8d6427fd937d4ecccd2c3c2756b990ad362c18e774bb580b6ad54a36989",
+        "status": "ok",
+        "outputs": [
+          {
+            "path": "parquet_dumps/opendata/opendata_amendment_authorship/gov.parquet",
+            "rows": 76879,
+            "bytes": 720607,
+            "schema": "emenda_id: uint64\ntipo_autoria: int32\nmandato_id: uint64\nnome_autor: large_string"
+          }
+        ],
+        "process_seconds": 0.6227935970018734,
+        "peak_rss_kernel_bytes": 478294016,
+        "script_id": "gov_amendments_authorship",
+        "peak_rss_bytes": 478294016,
+        "peak_swap_bytes": 0,
+        "peak_rss_plus_swap_bytes": 478007296,
+        "initial_system_available_bytes": 10024423424,
+        "minimum_system_available_bytes": 9674993664,
+        "wall_seconds": 1.2057826010022836,
+        "returncode": 0,
+        "interrupted_by_operator": false,
+        "run": "rest",
+        "error": "",
+        "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/gov_amendments_authorship"
+      },
+      "complete_before_after_rows_and_schemas_match": null,
+      "attempts": [
+        {
+          "input_overrides": {
+            "CD_DEPUTIES_HISTORY_RAW_PARQUETS": "/run/media/victor/HDD Avoar/turi/downloads/temp/memory-profile-inputs/sds/federal_deputies_history/*.parquet"
+          },
+          "producer_sha256": "8eefa8d6427fd937d4ecccd2c3c2756b990ad362c18e774bb580b6ad54a36989",
+          "status": "ok",
+          "outputs": [
+            {
+              "path": "parquet_dumps/opendata/opendata_amendment_authorship/gov.parquet",
+              "rows": 76879,
+              "bytes": 720607,
+              "schema": "emenda_id: uint64\ntipo_autoria: int32\nmandato_id: uint64\nnome_autor: large_string"
+            }
+          ],
+          "process_seconds": 0.6227935970018734,
+          "peak_rss_kernel_bytes": 478294016,
+          "script_id": "gov_amendments_authorship",
+          "peak_rss_bytes": 478294016,
+          "peak_swap_bytes": 0,
+          "peak_rss_plus_swap_bytes": 478007296,
+          "initial_system_available_bytes": 10024423424,
+          "minimum_system_available_bytes": 9674993664,
+          "wall_seconds": 1.2057826010022836,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "rest",
+          "error": "",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/gov_amendments_authorship"
+        }
+      ],
+      "published_reference": [
+        {
+          "path": "parquet_dumps/opendata/opendata_amendment_authorship/gov.parquet",
+          "rows": 76879,
+          "schema": "emenda_id: uint64\ntipo_autoria: int32\nmandato_id: uint64\nnome_autor: large_string"
+        }
+      ],
+      "rows_and_schemas_match_published_reference": true
+    },
+    {
+      "script_id": "gov_amendments_items",
+      "producer": "apps/turi/src/scripts/operations/amendments/amendment_items.py",
+      "current_producer_sha256": "ccfca94d501838a88dc4b5e132fe0a390d2ba2651e5a95ccb98c04afecd722b1",
+      "before": null,
+      "after": {
+        "input_overrides": {},
+        "producer_sha256": "ccfca94d501838a88dc4b5e132fe0a390d2ba2651e5a95ccb98c04afecd722b1",
+        "status": "ok",
+        "outputs": [
+          {
+            "path": "parquet_dumps/opendata/opendata_amendment_item/gov.parquet",
+            "rows": 1138,
+            "bytes": 41384,
+            "schema": "id: large_string\nvalue: large_string\ntype: int32"
+          }
+        ],
+        "process_seconds": 0.10584937699968577,
+        "peak_rss_kernel_bytes": 370286592,
+        "script_id": "gov_amendments_items",
+        "peak_rss_bytes": 371654656,
+        "peak_swap_bytes": 0,
+        "peak_rss_plus_swap_bytes": 371654656,
+        "initial_system_available_bytes": 10034855936,
+        "minimum_system_available_bytes": 9759117312,
+        "wall_seconds": 0.6028927829975146,
+        "returncode": 0,
+        "interrupted_by_operator": false,
+        "run": "rest",
+        "error": "",
+        "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/gov_amendments_items"
+      },
+      "complete_before_after_rows_and_schemas_match": null,
+      "attempts": [
+        {
+          "input_overrides": {},
+          "producer_sha256": "ccfca94d501838a88dc4b5e132fe0a390d2ba2651e5a95ccb98c04afecd722b1",
+          "status": "ok",
+          "outputs": [
+            {
+              "path": "parquet_dumps/opendata/opendata_amendment_item/gov.parquet",
+              "rows": 1138,
+              "bytes": 41384,
+              "schema": "id: large_string\nvalue: large_string\ntype: int32"
+            }
+          ],
+          "process_seconds": 0.10584937699968577,
+          "peak_rss_kernel_bytes": 370286592,
+          "script_id": "gov_amendments_items",
+          "peak_rss_bytes": 371654656,
+          "peak_swap_bytes": 0,
+          "peak_rss_plus_swap_bytes": 371654656,
+          "initial_system_available_bytes": 10034855936,
+          "minimum_system_available_bytes": 9759117312,
+          "wall_seconds": 0.6028927829975146,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "rest",
+          "error": "",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/gov_amendments_items"
+        }
+      ],
+      "published_reference": [
+        {
+          "path": "parquet_dumps/opendata/opendata_amendment_item/gov.parquet",
+          "rows": 1138,
+          "schema": "id: large_string\nvalue: large_string\ntype: int32"
+        }
+      ],
+      "rows_and_schemas_match_published_reference": true
+    },
+    {
+      "script_id": "gov_amendments_resource",
+      "producer": "apps/turi/src/scripts/operations/amendments/resources.py",
+      "current_producer_sha256": "808c69c74eda18fc41197cca707224c33fb838b0414d0ad8c10a5af6c5f2a496",
+      "before": null,
+      "after": {
+        "input_overrides": {},
+        "producer_sha256": "808c69c74eda18fc41197cca707224c33fb838b0414d0ad8c10a5af6c5f2a496",
+        "status": "ok",
+        "outputs": [
+          {
+            "path": "parquet_dumps/opendata/opendata_amendment_resource/gov.parquet",
+            "rows": 76937,
+            "bytes": 2590562,
+            "schema": "emenda_id: uint64\ncodigo_local: large_string\ncodigo_funcao: large_string\ncodigo_subfuncao: large_string\ncodigo_programa: large_string\ncodigo_acao: large_string\ncodigo_plano_orcamentario: large_string\nnome_plano_orcamentario: large_string\nvalor_empenhado: decimal128(18, 2)\nvalor_liquidado: decimal128(18, 2)\nvalor_pago: decimal128(18, 2)\nrap_registrado: decimal128(18, 2)\nrap_cancelado: decimal128(18, 2)\nrap_pago: decimal128(18, 2)"
+          }
+        ],
+        "process_seconds": 0.3126455089986848,
+        "peak_rss_kernel_bytes": 433459200,
+        "script_id": "gov_amendments_resource",
+        "peak_rss_bytes": 434741248,
+        "peak_swap_bytes": 0,
+        "peak_rss_plus_swap_bytes": 434741248,
+        "initial_system_available_bytes": 9968177152,
+        "minimum_system_available_bytes": 9704615936,
+        "wall_seconds": 0.8034146200006944,
+        "returncode": 0,
+        "interrupted_by_operator": false,
+        "run": "rest",
+        "error": "",
+        "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/gov_amendments_resource"
+      },
+      "complete_before_after_rows_and_schemas_match": null,
+      "attempts": [
+        {
+          "input_overrides": {},
+          "producer_sha256": "808c69c74eda18fc41197cca707224c33fb838b0414d0ad8c10a5af6c5f2a496",
+          "status": "ok",
+          "outputs": [
+            {
+              "path": "parquet_dumps/opendata/opendata_amendment_resource/gov.parquet",
+              "rows": 76937,
+              "bytes": 2590562,
+              "schema": "emenda_id: uint64\ncodigo_local: large_string\ncodigo_funcao: large_string\ncodigo_subfuncao: large_string\ncodigo_programa: large_string\ncodigo_acao: large_string\ncodigo_plano_orcamentario: large_string\nnome_plano_orcamentario: large_string\nvalor_empenhado: decimal128(18, 2)\nvalor_liquidado: decimal128(18, 2)\nvalor_pago: decimal128(18, 2)\nrap_registrado: decimal128(18, 2)\nrap_cancelado: decimal128(18, 2)\nrap_pago: decimal128(18, 2)"
+            }
+          ],
+          "process_seconds": 0.3126455089986848,
+          "peak_rss_kernel_bytes": 433459200,
+          "script_id": "gov_amendments_resource",
+          "peak_rss_bytes": 434741248,
+          "peak_swap_bytes": 0,
+          "peak_rss_plus_swap_bytes": 434741248,
+          "initial_system_available_bytes": 9968177152,
+          "minimum_system_available_bytes": 9704615936,
+          "wall_seconds": 0.8034146200006944,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "rest",
+          "error": "",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/gov_amendments_resource"
+        }
+      ],
+      "published_reference": [
+        {
+          "path": "parquet_dumps/opendata/opendata_amendment_resource/gov.parquet",
+          "rows": 76937,
+          "schema": "emenda_id: uint64\ncodigo_local: large_string\ncodigo_funcao: large_string\ncodigo_subfuncao: large_string\ncodigo_programa: large_string\ncodigo_acao: large_string\ncodigo_plano_orcamentario: large_string\nnome_plano_orcamentario: large_string\nvalor_empenhado: decimal128(18, 2)\nvalor_liquidado: decimal128(18, 2)\nvalor_pago: decimal128(18, 2)\nrap_registrado: decimal128(18, 2)\nrap_cancelado: decimal128(18, 2)\nrap_pago: decimal128(18, 2)"
+        }
+      ],
+      "rows_and_schemas_match_published_reference": true
+    },
+    {
+      "script_id": "gov_amendments_services_supplier",
+      "producer": "apps/turi/src/scripts/operations/services_supplier/amendments.py",
+      "current_producer_sha256": "9c730641a5fb9d315a2966711effc3c46c1aa8df3f63745fb85e27512b44309f",
+      "before": null,
+      "after": {
+        "input_overrides": {},
+        "producer_sha256": "9c730641a5fb9d315a2966711effc3c46c1aa8df3f63745fb85e27512b44309f",
+        "status": "ok",
+        "outputs": [
+          {
+            "path": "parquet_dumps/opendata/opendata_services_supplier/gov_amendments.parquet",
+            "rows": 55871,
+            "bytes": 748241,
+            "schema": "id: uint64\ndocumento: large_string\ntipo_documento: int32"
+          },
+          {
+            "path": "parquet_dumps/opendata/opendata_services_supplier_names/gov_amendments.parquet",
+            "rows": 57832,
+            "bytes": 1485766,
+            "schema": "id: uint64\nfornecedor_id: uint64\nnome: large_string\ncoletado_de_fonte_bruta: large_string\ncoletado_de_orgao_id: large_string"
+          }
+        ],
+        "process_seconds": 1.0009658839990152,
+        "peak_rss_kernel_bytes": 529711104,
+        "script_id": "gov_amendments_services_supplier",
+        "peak_rss_bytes": 529711104,
+        "peak_swap_bytes": 0,
+        "peak_rss_plus_swap_bytes": 529051648,
+        "initial_system_available_bytes": 10029572096,
+        "minimum_system_available_bytes": 9628688384,
+        "wall_seconds": 1.5082607030017243,
+        "returncode": 0,
+        "interrupted_by_operator": false,
+        "run": "rest",
+        "error": "",
+        "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/gov_amendments_services_supplier"
+      },
+      "complete_before_after_rows_and_schemas_match": null,
+      "attempts": [
+        {
+          "input_overrides": {},
+          "producer_sha256": "9c730641a5fb9d315a2966711effc3c46c1aa8df3f63745fb85e27512b44309f",
+          "status": "ok",
+          "outputs": [
+            {
+              "path": "parquet_dumps/opendata/opendata_services_supplier/gov_amendments.parquet",
+              "rows": 55871,
+              "bytes": 748241,
+              "schema": "id: uint64\ndocumento: large_string\ntipo_documento: int32"
+            },
+            {
+              "path": "parquet_dumps/opendata/opendata_services_supplier_names/gov_amendments.parquet",
+              "rows": 57832,
+              "bytes": 1485766,
+              "schema": "id: uint64\nfornecedor_id: uint64\nnome: large_string\ncoletado_de_fonte_bruta: large_string\ncoletado_de_orgao_id: large_string"
+            }
+          ],
+          "process_seconds": 1.0009658839990152,
+          "peak_rss_kernel_bytes": 529711104,
+          "script_id": "gov_amendments_services_supplier",
+          "peak_rss_bytes": 529711104,
+          "peak_swap_bytes": 0,
+          "peak_rss_plus_swap_bytes": 529051648,
+          "initial_system_available_bytes": 10029572096,
+          "minimum_system_available_bytes": 9628688384,
+          "wall_seconds": 1.5082607030017243,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "rest",
+          "error": "",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/gov_amendments_services_supplier"
+        }
+      ],
+      "published_reference": [
+        {
+          "path": "parquet_dumps/opendata/opendata_services_supplier/gov_amendments.parquet",
+          "rows": 55871,
+          "schema": "id: uint64\ndocumento: large_string\ntipo_documento: int32"
+        },
+        {
+          "path": "parquet_dumps/opendata/opendata_services_supplier_names/gov_amendments.parquet",
+          "rows": 57832,
+          "schema": "id: uint64\nfornecedor_id: uint64\nnome: large_string\ncoletado_de_fonte_bruta: large_string\ncoletado_de_orgao_id: large_string"
+        }
+      ],
+      "rows_and_schemas_match_published_reference": true
+    },
+    {
+      "script_id": "gov_amendments_to_agreements",
+      "producer": "apps/turi/src/scripts/operations/amendments/amendment_to_agreement.py",
+      "current_producer_sha256": "fbba3fd7b7bdc97c0f0fd423b793f9d54fc7040c6ad3978c5ae8f024307180f1",
+      "before": null,
+      "after": {
+        "input_overrides": {},
+        "producer_sha256": "fbba3fd7b7bdc97c0f0fd423b793f9d54fc7040c6ad3978c5ae8f024307180f1",
+        "status": "ok",
+        "outputs": [
+          {
+            "path": "parquet_dumps/opendata/opendata_amendment_to_agreement/gov.parquet",
+            "rows": 76212,
+            "bytes": 905469,
+            "schema": "emenda_id: uint64\nconvenio_id: uint64"
+          }
+        ],
+        "process_seconds": 0.14410795000003418,
+        "peak_rss_kernel_bytes": 360345600,
+        "script_id": "gov_amendments_to_agreements",
+        "peak_rss_bytes": 361304064,
+        "peak_swap_bytes": 0,
+        "peak_rss_plus_swap_bytes": 361304064,
+        "initial_system_available_bytes": 10016575488,
+        "minimum_system_available_bytes": 9758117888,
+        "wall_seconds": 0.7028997779998463,
+        "returncode": 0,
+        "interrupted_by_operator": false,
+        "run": "rest",
+        "error": "",
+        "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/gov_amendments_to_agreements"
+      },
+      "complete_before_after_rows_and_schemas_match": null,
+      "attempts": [
+        {
+          "input_overrides": {},
+          "producer_sha256": "fbba3fd7b7bdc97c0f0fd423b793f9d54fc7040c6ad3978c5ae8f024307180f1",
+          "status": "ok",
+          "outputs": [
+            {
+              "path": "parquet_dumps/opendata/opendata_amendment_to_agreement/gov.parquet",
+              "rows": 76212,
+              "bytes": 905469,
+              "schema": "emenda_id: uint64\nconvenio_id: uint64"
+            }
+          ],
+          "process_seconds": 0.14410795000003418,
+          "peak_rss_kernel_bytes": 360345600,
+          "script_id": "gov_amendments_to_agreements",
+          "peak_rss_bytes": 361304064,
+          "peak_swap_bytes": 0,
+          "peak_rss_plus_swap_bytes": 361304064,
+          "initial_system_available_bytes": 10016575488,
+          "minimum_system_available_bytes": 9758117888,
+          "wall_seconds": 0.7028997779998463,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "rest",
+          "error": "",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/gov_amendments_to_agreements"
+        }
+      ],
+      "published_reference": [
+        {
+          "path": "parquet_dumps/opendata/opendata_amendment_to_agreement/gov.parquet",
+          "rows": 76212,
+          "schema": "emenda_id: uint64\nconvenio_id: uint64"
+        }
+      ],
+      "rows_and_schemas_match_published_reference": true
+    },
+    {
+      "script_id": "gov_amendments_to_services_supplier",
+      "producer": "apps/turi/src/scripts/operations/amendments/suppliers.py",
+      "current_producer_sha256": "c797ca180ea74339d67fda13104157ab0dc6f1bf26397ccc81c2551a71664e50",
+      "before": null,
+      "after": {
+        "input_overrides": {},
+        "producer_sha256": "c797ca180ea74339d67fda13104157ab0dc6f1bf26397ccc81c2551a71664e50",
+        "status": "ok",
+        "outputs": [
+          {
+            "path": "parquet_dumps/opendata/opendata_amendment_supplier/gov.parquet",
+            "rows": 761431,
+            "bytes": 7075014,
+            "schema": "emenda_id: uint64\ntipo_documento: int32\nfornecedor_id: uint64\nvalor: decimal128(18, 2)"
+          }
+        ],
+        "process_seconds": 0.8080081539992534,
+        "peak_rss_kernel_bytes": 600338432,
+        "script_id": "gov_amendments_to_services_supplier",
+        "peak_rss_bytes": 600338432,
+        "peak_swap_bytes": 0,
+        "peak_rss_plus_swap_bytes": 599916544,
+        "initial_system_available_bytes": 10017501184,
+        "minimum_system_available_bytes": 9524813824,
+        "wall_seconds": 1.3058721279994643,
+        "returncode": 0,
+        "interrupted_by_operator": false,
+        "run": "rest",
+        "error": "",
+        "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/gov_amendments_to_services_supplier"
+      },
+      "complete_before_after_rows_and_schemas_match": null,
+      "attempts": [
+        {
+          "input_overrides": {},
+          "producer_sha256": "c797ca180ea74339d67fda13104157ab0dc6f1bf26397ccc81c2551a71664e50",
+          "status": "ok",
+          "outputs": [
+            {
+              "path": "parquet_dumps/opendata/opendata_amendment_supplier/gov.parquet",
+              "rows": 761431,
+              "bytes": 7075014,
+              "schema": "emenda_id: uint64\ntipo_documento: int32\nfornecedor_id: uint64\nvalor: decimal128(18, 2)"
+            }
+          ],
+          "process_seconds": 0.8080081539992534,
+          "peak_rss_kernel_bytes": 600338432,
+          "script_id": "gov_amendments_to_services_supplier",
+          "peak_rss_bytes": 600338432,
+          "peak_swap_bytes": 0,
+          "peak_rss_plus_swap_bytes": 599916544,
+          "initial_system_available_bytes": 10017501184,
+          "minimum_system_available_bytes": 9524813824,
+          "wall_seconds": 1.3058721279994643,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "rest",
+          "error": "",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/gov_amendments_to_services_supplier"
+        }
+      ],
+      "published_reference": [
+        {
+          "path": "parquet_dumps/opendata/opendata_amendment_supplier/gov.parquet",
+          "rows": 761431,
+          "schema": "emenda_id: uint64\ntipo_documento: int32\nfornecedor_id: uint64\nvalor: decimal128(18, 2)"
+        }
+      ],
+      "rows_and_schemas_match_published_reference": true
+    },
+    {
+      "script_id": "sds_municipalities",
+      "producer": "apps/turi/src/scripts/operations/municipalities/municipalities.py",
+      "current_producer_sha256": "1aa08430c0ef4a4dfe00bfb59238a2f8de5bcabc75cc026c3e55cc19daffeadc",
+      "before": null,
+      "after": {
+        "input_overrides": {
+          "SDS_MUNICIPALITIES_RAW_PARQUETS": "/run/media/victor/HDD Avoar/turi/downloads/temp/memory-profile-inputs/sds/municipalities_centroid"
+        },
+        "producer_sha256": "1aa08430c0ef4a4dfe00bfb59238a2f8de5bcabc75cc026c3e55cc19daffeadc",
+        "status": "ok",
+        "outputs": [
+          {
+            "path": "parquet_dumps/opendata/opendata_municipality/municipalities_centroid.parquet",
+            "rows": 5573,
+            "bytes": 176479,
+            "schema": "codigo_ibge: large_string\nnome: large_string\nnome_normalizado: large_string\nuf: large_string\nlatitude: decimal128(9, 6)\nlongitude: decimal128(9, 6)"
+          }
+        ],
+        "process_seconds": 0.14974957700178493,
+        "peak_rss_kernel_bytes": 341762048,
+        "script_id": "sds_municipalities",
+        "peak_rss_bytes": 342994944,
+        "peak_swap_bytes": 0,
+        "peak_rss_plus_swap_bytes": 342994944,
+        "initial_system_available_bytes": 9938161664,
+        "minimum_system_available_bytes": 9708036096,
+        "wall_seconds": 0.70297431599829,
+        "returncode": 0,
+        "interrupted_by_operator": false,
+        "run": "rest",
+        "error": "",
+        "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/sds_municipalities"
+      },
+      "complete_before_after_rows_and_schemas_match": null,
+      "attempts": [
+        {
+          "input_overrides": {
+            "SDS_MUNICIPALITIES_RAW_PARQUETS": "/run/media/victor/HDD Avoar/turi/downloads/temp/memory-profile-inputs/sds/municipalities_centroid"
+          },
+          "producer_sha256": "1aa08430c0ef4a4dfe00bfb59238a2f8de5bcabc75cc026c3e55cc19daffeadc",
+          "status": "ok",
+          "outputs": [
+            {
+              "path": "parquet_dumps/opendata/opendata_municipality/municipalities_centroid.parquet",
+              "rows": 5573,
+              "bytes": 176479,
+              "schema": "codigo_ibge: large_string\nnome: large_string\nnome_normalizado: large_string\nuf: large_string\nlatitude: decimal128(9, 6)\nlongitude: decimal128(9, 6)"
+            }
+          ],
+          "process_seconds": 0.14974957700178493,
+          "peak_rss_kernel_bytes": 341762048,
+          "script_id": "sds_municipalities",
+          "peak_rss_bytes": 342994944,
+          "peak_swap_bytes": 0,
+          "peak_rss_plus_swap_bytes": 342994944,
+          "initial_system_available_bytes": 9938161664,
+          "minimum_system_available_bytes": 9708036096,
+          "wall_seconds": 0.70297431599829,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "rest",
+          "error": "",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/sds_municipalities"
+        }
+      ],
+      "published_reference": [
+        {
+          "path": "parquet_dumps/opendata/opendata_municipality/municipalities_centroid.parquet",
+          "rows": 5573,
+          "schema": "codigo_ibge: large_string\nnome: large_string\nnome_normalizado: large_string\nuf: large_string\nlatitude: decimal128(9, 6)\nlongitude: decimal128(9, 6)"
+        }
+      ],
+      "rows_and_schemas_match_published_reference": true
+    },
+    {
+      "script_id": "ibge_addresses",
+      "producer": "apps/turi/src/scripts/operations/address/address.py",
+      "current_producer_sha256": "37e8c4818f1b4abfb567b78dbd7646b9e0ff20616c00aa26572c2d0b1b52f3a2",
+      "before": {
+        "status": "interrupted",
+        "script_id": "ibge_addresses",
+        "peak_rss_bytes": 11196211200,
+        "peak_swap_bytes": 10559918080,
+        "peak_rss_plus_swap_bytes": 21523025920,
+        "initial_system_available_bytes": 9951924224,
+        "minimum_system_available_bytes": 2944831488,
+        "wall_seconds": 206.15323118000015,
+        "returncode": -9,
+        "interrupted_by_operator": true,
+        "run": "rest",
+        "error": "",
+        "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/ibge_addresses"
+      },
+      "after": {
+        "input_overrides": {},
+        "producer_sha256": "37e8c4818f1b4abfb567b78dbd7646b9e0ff20616c00aa26572c2d0b1b52f3a2",
+        "status": "ok",
+        "outputs": [
+          {
+            "path": "parquet_dumps/opendata/opendata_address/opendata_address.parquet",
+            "rows": 111102875,
+            "bytes": 3782638002,
+            "schema": "id: uint64\ncluster_id: uint64\nmunicipio: large_string\ndistrito: large_string\nsubdistrito: large_string\nsetor: large_string\nquadra: large_string\nface: large_string\ncep: large_string\ndescricao_localidade: large_string\ntipo_logradouro: large_string\ntitulo_logradouro: large_string\nnome_logradouro: large_string\nnumero_logradouro: large_string\ndescricao_modificador: large_string\nlatitude: double\nlongitude: double\nnivel_geocodificacao: int32\nespecie: int32\nidentificacao_estabelecimento: large_string\nindicador_quantitativo: int32\nsubindicador_quantitativo: int32\nindicador_quantitativo_construcao: int32\nsubindicador_quantitativo_construcao: int32\nfinalidade_construcao: int32\nespecie_domicilio: int32"
+          },
+          {
+            "path": "parquet_dumps/opendata/opendata_address_complement/opendata_address_complement.parquet",
+            "rows": 45671427,
+            "bytes": 480932097,
+            "schema": "endereco_id: uint64\nnome: large_string\nvalor: large_string"
+          }
+        ],
+        "process_seconds": 564.7715064660006,
+        "peak_rss_kernel_bytes": 5552996352,
+        "script_id": "ibge_addresses",
+        "peak_rss_bytes": 6057672704,
+        "peak_swap_bytes": 0,
+        "peak_rss_plus_swap_bytes": 6057672704,
+        "peak_rss_anon_bytes": 5833764864,
+        "peak_rss_file_bytes": 1044246528,
+        "peak_pss_bytes": 5954343936,
+        "peak_lazy_free_bytes": 4808982528,
+        "initial_system_available_bytes": 10133401600,
+        "minimum_system_available_bytes": 7446286336,
+        "wall_seconds": 565.7614221870026,
+        "returncode": 0,
+        "interrupted_by_operator": false,
+        "run": "address_final",
+        "error": "",
+        "artifacts": "downloads/temp/memory-profile-2026-11-12-address-final/ibge_addresses"
+      },
+      "complete_before_after_rows_and_schemas_match": null,
+      "attempts": [
+        {
+          "status": "interrupted",
+          "script_id": "ibge_addresses",
+          "peak_rss_bytes": 11196211200,
+          "peak_swap_bytes": 10559918080,
+          "peak_rss_plus_swap_bytes": 21523025920,
+          "initial_system_available_bytes": 9951924224,
+          "minimum_system_available_bytes": 2944831488,
+          "wall_seconds": 206.15323118000015,
+          "returncode": -9,
+          "interrupted_by_operator": true,
+          "run": "rest",
+          "error": "",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/ibge_addresses"
+        },
+        {
+          "input_overrides": {},
+          "producer_sha256": "1b435238534384d455ba104231b56f6dd1d20d7473d1ad4b316f1bb0d44f2f2e",
+          "status": "ok",
+          "outputs": [
+            {
+              "path": "parquet_dumps/opendata/opendata_address/opendata_address.parquet",
+              "rows": 111102875,
+              "bytes": 3782631787,
+              "schema": "id: uint64\ncluster_id: uint64\nmunicipio: large_string\ndistrito: large_string\nsubdistrito: large_string\nsetor: large_string\nquadra: large_string\nface: large_string\ncep: large_string\ndescricao_localidade: large_string\ntipo_logradouro: large_string\ntitulo_logradouro: large_string\nnome_logradouro: large_string\nnumero_logradouro: large_string\ndescricao_modificador: large_string\nlatitude: double\nlongitude: double\nnivel_geocodificacao: int32\nespecie: int32\nidentificacao_estabelecimento: large_string\nindicador_quantitativo: int32\nsubindicador_quantitativo: int32\nindicador_quantitativo_construcao: int32\nsubindicador_quantitativo_construcao: int32\nfinalidade_construcao: int32\nespecie_domicilio: int32"
+            },
+            {
+              "path": "parquet_dumps/opendata/opendata_address_complement/opendata_address_complement.parquet",
+              "rows": 45671427,
+              "bytes": 480932097,
+              "schema": "endereco_id: uint64\nnome: large_string\nvalor: large_string"
+            }
+          ],
+          "process_seconds": 837.5067603200005,
+          "peak_rss_kernel_bytes": 9735458816,
+          "script_id": "ibge_addresses",
+          "peak_rss_bytes": 9735458816,
+          "peak_swap_bytes": 604102656,
+          "peak_rss_plus_swap_bytes": 9852964864,
+          "initial_system_available_bytes": 8483270656,
+          "minimum_system_available_bytes": 2177937408,
+          "wall_seconds": 970.3159429100015,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "final",
+          "error": "",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-final/ibge_addresses"
+        },
+        {
+          "input_overrides": {},
+          "producer_sha256": "6f02d4a93aa7dbd11c70b3849a186b4cbdf33300f9dad56f8a627e0be0c8ec9c",
+          "status": "error",
+          "error": "Exception: DataFusion error: Resources exhausted: Failed to allocate additional 520.2 KB for ExternalSorterMerge[0] with 114.9 MB already allocated for this reservation - 505.9 KB remain available for the total memory pool: fair(pool_size: 256.0 MB)",
+          "process_seconds": 1088.3210537459963,
+          "peak_rss_kernel_bytes": 5299871744,
+          "script_id": "ibge_addresses",
+          "peak_rss_bytes": 5299871744,
+          "peak_swap_bytes": 451010560,
+          "peak_rss_plus_swap_bytes": 5527822336,
+          "peak_rss_anon_bytes": 5116583936,
+          "peak_rss_file_bytes": 1064640512,
+          "initial_system_available_bytes": 11159142400,
+          "minimum_system_available_bytes": 2326454272,
+          "wall_seconds": 1136.1024032450005,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "bounded",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-bounded/ibge_addresses"
+        },
+        {
+          "input_overrides": {},
+          "producer_sha256": "6f02d4a93aa7dbd11c70b3849a186b4cbdf33300f9dad56f8a627e0be0c8ec9c",
+          "status": "interrupted",
+          "error": "KeyboardInterrupt: ",
+          "process_seconds": 452.35199926500354,
+          "peak_rss_kernel_bytes": 4904964096,
+          "script_id": "ibge_addresses",
+          "peak_rss_bytes": 4906291200,
+          "peak_swap_bytes": 0,
+          "peak_rss_plus_swap_bytes": 4906291200,
+          "peak_rss_anon_bytes": 4242579456,
+          "peak_rss_file_bytes": 1051594752,
+          "initial_system_available_bytes": 11384303616,
+          "minimum_system_available_bytes": 4361830400,
+          "wall_seconds": 463.40417010300007,
+          "returncode": 0,
+          "interrupted_by_operator": true,
+          "run": "establishments_retry",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-establishments-retry/ibge_addresses"
+        },
+        {
+          "input_overrides": {},
+          "producer_sha256": "6f02d4a93aa7dbd11c70b3849a186b4cbdf33300f9dad56f8a627e0be0c8ec9c",
+          "status": "error",
+          "error": "RuntimeError: DataFusion error: Resources exhausted: Failed to allocate additional 40.3 KB for ExternalSorterMerge[0] with 0.0 B already allocated for this reservation - 5.2 KB remain available for the total memory pool: fair(pool_size: 256.0 MB)",
+          "process_seconds": 530.7924711570013,
+          "peak_rss_kernel_bytes": 6149197824,
+          "script_id": "ibge_addresses",
+          "peak_rss_bytes": 6594658304,
+          "peak_swap_bytes": 0,
+          "peak_rss_plus_swap_bytes": 6594658304,
+          "peak_rss_anon_bytes": 6375079936,
+          "peak_rss_file_bytes": 1050406912,
+          "initial_system_available_bytes": 10942578688,
+          "minimum_system_available_bytes": 9260486656,
+          "wall_seconds": 535.7367713219937,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "disk_ssd_final",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-disk-ssd-final/ibge_addresses"
+        },
+        {
+          "input_overrides": {},
+          "producer_sha256": "37e8c4818f1b4abfb567b78dbd7646b9e0ff20616c00aa26572c2d0b1b52f3a2",
+          "status": "ok",
+          "outputs": [
+            {
+              "path": "parquet_dumps/opendata/opendata_address/opendata_address.parquet",
+              "rows": 111102875,
+              "bytes": 3782638002,
+              "schema": "id: uint64\ncluster_id: uint64\nmunicipio: large_string\ndistrito: large_string\nsubdistrito: large_string\nsetor: large_string\nquadra: large_string\nface: large_string\ncep: large_string\ndescricao_localidade: large_string\ntipo_logradouro: large_string\ntitulo_logradouro: large_string\nnome_logradouro: large_string\nnumero_logradouro: large_string\ndescricao_modificador: large_string\nlatitude: double\nlongitude: double\nnivel_geocodificacao: int32\nespecie: int32\nidentificacao_estabelecimento: large_string\nindicador_quantitativo: int32\nsubindicador_quantitativo: int32\nindicador_quantitativo_construcao: int32\nsubindicador_quantitativo_construcao: int32\nfinalidade_construcao: int32\nespecie_domicilio: int32"
+            },
+            {
+              "path": "parquet_dumps/opendata/opendata_address_complement/opendata_address_complement.parquet",
+              "rows": 45671427,
+              "bytes": 480932097,
+              "schema": "endereco_id: uint64\nnome: large_string\nvalor: large_string"
+            }
+          ],
+          "process_seconds": 564.7715064660006,
+          "peak_rss_kernel_bytes": 5552996352,
+          "script_id": "ibge_addresses",
+          "peak_rss_bytes": 6057672704,
+          "peak_swap_bytes": 0,
+          "peak_rss_plus_swap_bytes": 6057672704,
+          "peak_rss_anon_bytes": 5833764864,
+          "peak_rss_file_bytes": 1044246528,
+          "peak_pss_bytes": 5954343936,
+          "peak_lazy_free_bytes": 4808982528,
+          "initial_system_available_bytes": 10133401600,
+          "minimum_system_available_bytes": 7446286336,
+          "wall_seconds": 565.7614221870026,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "address_final",
+          "error": "",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-address-final/ibge_addresses"
+        }
+      ],
+      "published_reference": [
+        {
+          "path": "parquet_dumps/opendata/opendata_address/opendata_address.parquet",
+          "rows": 111102875,
+          "schema": "id: uint64\ncluster_id: uint64\nmunicipio: large_string\ndistrito: large_string\nsubdistrito: large_string\nsetor: large_string\nquadra: large_string\nface: large_string\ncep: large_string\ndescricao_localidade: large_string\ntipo_logradouro: large_string\ntitulo_logradouro: large_string\nnome_logradouro: large_string\nnumero_logradouro: large_string\ndescricao_modificador: large_string\nlatitude: double\nlongitude: double\nnivel_geocodificacao: int32\nespecie: int32\nidentificacao_estabelecimento: large_string\nindicador_quantitativo: int32\nsubindicador_quantitativo: int32\nindicador_quantitativo_construcao: int32\nsubindicador_quantitativo_construcao: int32\nfinalidade_construcao: int32\nespecie_domicilio: int32"
+        },
+        {
+          "path": "parquet_dumps/opendata/opendata_address_complement/opendata_address_complement.parquet",
+          "rows": 45671427,
+          "schema": "endereco_id: uint64\nnome: large_string\nvalor: large_string"
+        }
+      ],
+      "rows_and_schemas_match_published_reference": true
+    },
+    {
+      "script_id": "organs",
+      "producer": "apps/turi/src/scripts/operations/organs/organs.py",
+      "current_producer_sha256": "85f463e3b314c92ae4c202c3299c9cc01e2eedd732fd0c170e923657b6f62b59",
+      "before": null,
+      "after": {
+        "input_overrides": {},
+        "producer_sha256": "85f463e3b314c92ae4c202c3299c9cc01e2eedd732fd0c170e923657b6f62b59",
+        "status": "ok",
+        "outputs": [
+          {
+            "path": "parquet_dumps/opendata/opendata_organ/static.parquet",
+            "rows": 3,
+            "bytes": 915,
+            "schema": "id: large_string\nnome: large_string"
+          }
+        ],
+        "process_seconds": 4.852028045999759,
+        "peak_rss_kernel_bytes": 329547776,
+        "script_id": "organs",
+        "peak_rss_bytes": 330420224,
+        "peak_swap_bytes": 0,
+        "peak_rss_plus_swap_bytes": 330420224,
+        "initial_system_available_bytes": 11671859200,
+        "minimum_system_available_bytes": 11256225792,
+        "wall_seconds": 47.08270365499993,
+        "returncode": 0,
+        "interrupted_by_operator": false,
+        "run": "rest",
+        "error": "",
+        "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/organs"
+      },
+      "complete_before_after_rows_and_schemas_match": null,
+      "attempts": [
+        {
+          "input_overrides": {},
+          "producer_sha256": "85f463e3b314c92ae4c202c3299c9cc01e2eedd732fd0c170e923657b6f62b59",
+          "status": "ok",
+          "outputs": [
+            {
+              "path": "parquet_dumps/opendata/opendata_organ/static.parquet",
+              "rows": 3,
+              "bytes": 915,
+              "schema": "id: large_string\nnome: large_string"
+            }
+          ],
+          "process_seconds": 4.852028045999759,
+          "peak_rss_kernel_bytes": 329547776,
+          "script_id": "organs",
+          "peak_rss_bytes": 330420224,
+          "peak_swap_bytes": 0,
+          "peak_rss_plus_swap_bytes": 330420224,
+          "initial_system_available_bytes": 11671859200,
+          "minimum_system_available_bytes": 11256225792,
+          "wall_seconds": 47.08270365499993,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "rest",
+          "error": "",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/organs"
+        }
+      ],
+      "published_reference": [
+        {
+          "path": "parquet_dumps/opendata/opendata_organ/static.parquet",
+          "rows": 3,
+          "schema": "id: large_string\nnome: large_string"
+        }
+      ],
+      "rows_and_schemas_match_published_reference": true
+    },
+    {
+      "script_id": "policial_parties",
+      "producer": "apps/turi/src/scripts/operations/political_parties/parties.py",
+      "current_producer_sha256": "c6855a2edc75bfe3a63c9b21e2777507a4bdf5c51b357b546fb854da0c80ef37",
+      "before": null,
+      "after": {
+        "input_overrides": {},
+        "producer_sha256": "c6855a2edc75bfe3a63c9b21e2777507a4bdf5c51b357b546fb854da0c80ef37",
+        "status": "ok",
+        "outputs": [
+          {
+            "path": "parquet_dumps/opendata/opendata_political_party/tse.parquet",
+            "rows": 39,
+            "bytes": 2564,
+            "schema": "nome: large_string\nsigla: large_string\nnotas: large_list<element: large_string>\n  child 0, element: large_string"
+          }
+        ],
+        "process_seconds": 4.2690533450004295,
+        "peak_rss_kernel_bytes": 1093939200,
+        "script_id": "policial_parties",
+        "peak_rss_bytes": 1093939200,
+        "peak_swap_bytes": 0,
+        "peak_rss_plus_swap_bytes": 1086922752,
+        "initial_system_available_bytes": 11489849344,
+        "minimum_system_available_bytes": 10443493376,
+        "wall_seconds": 4.824367399000039,
+        "returncode": 0,
+        "interrupted_by_operator": false,
+        "run": "rest",
+        "error": "",
+        "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/policial_parties"
+      },
+      "complete_before_after_rows_and_schemas_match": null,
+      "attempts": [
+        {
+          "input_overrides": {},
+          "producer_sha256": "c6855a2edc75bfe3a63c9b21e2777507a4bdf5c51b357b546fb854da0c80ef37",
+          "status": "ok",
+          "outputs": [
+            {
+              "path": "parquet_dumps/opendata/opendata_political_party/tse.parquet",
+              "rows": 39,
+              "bytes": 2564,
+              "schema": "nome: large_string\nsigla: large_string\nnotas: large_list<element: large_string>\n  child 0, element: large_string"
+            }
+          ],
+          "process_seconds": 4.2690533450004295,
+          "peak_rss_kernel_bytes": 1093939200,
+          "script_id": "policial_parties",
+          "peak_rss_bytes": 1093939200,
+          "peak_swap_bytes": 0,
+          "peak_rss_plus_swap_bytes": 1086922752,
+          "initial_system_available_bytes": 11489849344,
+          "minimum_system_available_bytes": 10443493376,
+          "wall_seconds": 4.824367399000039,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "rest",
+          "error": "",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/policial_parties"
+        }
+      ],
+      "published_reference": [
+        {
+          "path": "parquet_dumps/opendata/opendata_political_party/tse.parquet",
+          "rows": 39,
+          "schema": "nome: large_string\nsigla: large_string\nnotas: large_list<element: large_string>\n  child 0, element: large_string"
+        }
+      ],
+      "rows_and_schemas_match_published_reference": true
+    },
+    {
+      "script_id": "political_parties_directories",
+      "producer": "apps/turi/src/scripts/operations/political_parties/parties_directories.py",
+      "current_producer_sha256": "ef134f341d463b87807e422cdc5293db669499736094c7dacb6784d192fdd03c",
+      "before": null,
+      "after": {
+        "input_overrides": {},
+        "producer_sha256": "ef134f341d463b87807e422cdc5293db669499736094c7dacb6784d192fdd03c",
+        "status": "ok",
+        "outputs": [
+          {
+            "path": "parquet_dumps/opendata/opendata_political_party_directory/tse.parquet",
+            "rows": 130421,
+            "bytes": 6051570,
+            "schema": "id: uint64\nsigla_partido: large_string\ninicio_vigencia: date32[day]\nfim_vigencia: date32[day]\nabrangencia: int32\nuf: large_string\nmunicipio: large_string\ncodigo_ibge_municipio: large_string\nendereco: large_string\ncep: large_string\nzona_eleitoral: large_string\ntipo_diretorio: int32\nsequencial_tse: int32"
+          }
+        ],
+        "process_seconds": 9.590583591001632,
+        "peak_rss_kernel_bytes": 1028009984,
+        "script_id": "political_parties_directories",
+        "peak_rss_bytes": 1028657152,
+        "peak_swap_bytes": 0,
+        "peak_rss_plus_swap_bytes": 1028657152,
+        "initial_system_available_bytes": 11385073664,
+        "minimum_system_available_bytes": 10823643136,
+        "wall_seconds": 10.140456589000678,
+        "returncode": 0,
+        "interrupted_by_operator": false,
+        "run": "rest",
+        "error": "",
+        "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/political_parties_directories"
+      },
+      "complete_before_after_rows_and_schemas_match": null,
+      "attempts": [
+        {
+          "input_overrides": {},
+          "producer_sha256": "ef134f341d463b87807e422cdc5293db669499736094c7dacb6784d192fdd03c",
+          "status": "ok",
+          "outputs": [
+            {
+              "path": "parquet_dumps/opendata/opendata_political_party_directory/tse.parquet",
+              "rows": 130421,
+              "bytes": 6051570,
+              "schema": "id: uint64\nsigla_partido: large_string\ninicio_vigencia: date32[day]\nfim_vigencia: date32[day]\nabrangencia: int32\nuf: large_string\nmunicipio: large_string\ncodigo_ibge_municipio: large_string\nendereco: large_string\ncep: large_string\nzona_eleitoral: large_string\ntipo_diretorio: int32\nsequencial_tse: int32"
+            }
+          ],
+          "process_seconds": 9.590583591001632,
+          "peak_rss_kernel_bytes": 1028009984,
+          "script_id": "political_parties_directories",
+          "peak_rss_bytes": 1028657152,
+          "peak_swap_bytes": 0,
+          "peak_rss_plus_swap_bytes": 1028657152,
+          "initial_system_available_bytes": 11385073664,
+          "minimum_system_available_bytes": 10823643136,
+          "wall_seconds": 10.140456589000678,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "rest",
+          "error": "",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/political_parties_directories"
+        }
+      ],
+      "published_reference": [
+        {
+          "path": "parquet_dumps/opendata/opendata_political_party_directory/tse.parquet",
+          "rows": 130421,
+          "schema": "id: uint64\nsigla_partido: large_string\ninicio_vigencia: date32[day]\nfim_vigencia: date32[day]\nabrangencia: int32\nuf: large_string\nmunicipio: large_string\ncodigo_ibge_municipio: large_string\nendereco: large_string\ncep: large_string\nzona_eleitoral: large_string\ntipo_diretorio: int32\nsequencial_tse: int32"
+        }
+      ],
+      "rows_and_schemas_match_published_reference": true
+    },
+    {
+      "script_id": "receitafederal_business",
+      "producer": "apps/turi/src/scripts/operations/business/business.py",
+      "current_producer_sha256": "268466c6cecbc0771c416edf0d807c1f6ae0cb14a1272d70e521562ab1425d1f",
+      "before": {
+        "status": "interrupted",
+        "script_id": "receitafederal_business",
+        "peak_rss_bytes": 11004370944,
+        "peak_swap_bytes": 12129939456,
+        "peak_rss_plus_swap_bytes": 16576176128,
+        "initial_system_available_bytes": 11406848000,
+        "minimum_system_available_bytes": 335581184,
+        "wall_seconds": 262.21221825999964,
+        "returncode": -9,
+        "interrupted_by_operator": true,
+        "run": "rest",
+        "error": "",
+        "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/receitafederal_business"
+      },
+      "after": {
+        "input_overrides": {},
+        "producer_sha256": "268466c6cecbc0771c416edf0d807c1f6ae0cb14a1272d70e521562ab1425d1f",
+        "status": "ok",
+        "outputs": [
+          {
+            "path": "parquet_dumps/opendata/opendata_business/opendata_business.parquet",
+            "rows": 69523294,
+            "bytes": 2458079432,
+            "schema": "id: uint64\nbase_cnpj: large_string\nrazao_social: large_string\nnatureza_juridica: large_string\nqualificacao_responsavel: large_string\ncapital_social: decimal128(18, 2)\nporte: large_string\nente_federativo: large_string"
+          }
+        ],
+        "process_seconds": 135.76981371400325,
+        "peak_rss_kernel_bytes": 2907557888,
+        "script_id": "receitafederal_business",
+        "peak_rss_bytes": 2907557888,
+        "peak_swap_bytes": 0,
+        "peak_rss_plus_swap_bytes": 2905329664,
+        "peak_rss_anon_bytes": 2402947072,
+        "peak_rss_file_bytes": 998895616,
+        "initial_system_available_bytes": 11560927232,
+        "minimum_system_available_bytes": 10362843136,
+        "wall_seconds": 138.15492007500143,
+        "returncode": 0,
+        "interrupted_by_operator": false,
+        "run": "disk_ssd_final",
+        "error": "",
+        "artifacts": "downloads/temp/memory-profile-2026-11-12-disk-ssd-final/receitafederal_business"
+      },
+      "complete_before_after_rows_and_schemas_match": null,
+      "attempts": [
+        {
+          "status": "interrupted",
+          "script_id": "receitafederal_business",
+          "peak_rss_bytes": 11004370944,
+          "peak_swap_bytes": 12129939456,
+          "peak_rss_plus_swap_bytes": 16576176128,
+          "initial_system_available_bytes": 11406848000,
+          "minimum_system_available_bytes": 335581184,
+          "wall_seconds": 262.21221825999964,
+          "returncode": -9,
+          "interrupted_by_operator": true,
+          "run": "rest",
+          "error": "",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/receitafederal_business"
+        },
+        {
+          "input_overrides": {},
+          "producer_sha256": "da6e13729146697688859adcca1e8220b09620c674345d578f3c9936a920d376",
+          "status": "interrupted",
+          "error": "KeyboardInterrupt: ",
+          "process_seconds": 214.52508476799994,
+          "peak_rss_kernel_bytes": 11533127680,
+          "script_id": "receitafederal_business",
+          "peak_rss_bytes": 11533127680,
+          "peak_swap_bytes": 1809182720,
+          "peak_rss_plus_swap_bytes": 12504211456,
+          "initial_system_available_bytes": 9201061888,
+          "minimum_system_available_bytes": 578904064,
+          "wall_seconds": 226.11832564900033,
+          "returncode": 0,
+          "interrupted_by_operator": true,
+          "run": "final",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-final/receitafederal_business"
+        },
+        {
+          "input_overrides": {},
+          "producer_sha256": "268466c6cecbc0771c416edf0d807c1f6ae0cb14a1272d70e521562ab1425d1f",
+          "status": "ok",
+          "outputs": [
+            {
+              "path": "parquet_dumps/opendata/opendata_business/opendata_business.parquet",
+              "rows": 69523294,
+              "bytes": 2457143589,
+              "schema": "id: uint64\nbase_cnpj: large_string\nrazao_social: large_string\nnatureza_juridica: large_string\nqualificacao_responsavel: large_string\ncapital_social: decimal128(18, 2)\nporte: large_string\nente_federativo: large_string"
+            }
+          ],
+          "process_seconds": 289.5027813839988,
+          "peak_rss_kernel_bytes": 5540618240,
+          "script_id": "receitafederal_business",
+          "peak_rss_bytes": 5541150720,
+          "peak_swap_bytes": 1150672896,
+          "peak_rss_plus_swap_bytes": 5647065088,
+          "peak_rss_anon_bytes": 4631347200,
+          "peak_rss_file_bytes": 918495232,
+          "initial_system_available_bytes": 9943859200,
+          "minimum_system_available_bytes": 5865385984,
+          "wall_seconds": 301.24743232999754,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "bounded",
+          "error": "",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-bounded/receitafederal_business"
+        },
+        {
+          "input_overrides": {},
+          "producer_sha256": "268466c6cecbc0771c416edf0d807c1f6ae0cb14a1272d70e521562ab1425d1f",
+          "status": "interrupted",
+          "error": "KeyboardInterrupt: ",
+          "process_seconds": 26.861997641004564,
+          "peak_rss_kernel_bytes": 1776721920,
+          "script_id": "receitafederal_business",
+          "peak_rss_bytes": 1776721920,
+          "peak_swap_bytes": 0,
+          "peak_rss_plus_swap_bytes": 1771868160,
+          "peak_rss_anon_bytes": 1589297152,
+          "peak_rss_file_bytes": 260931584,
+          "initial_system_available_bytes": 10944851968,
+          "minimum_system_available_bytes": 9880776704,
+          "wall_seconds": 52.24543953599641,
+          "returncode": 0,
+          "interrupted_by_operator": true,
+          "run": "establishments_retry",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-establishments-retry/receitafederal_business"
+        },
+        {
+          "input_overrides": {},
+          "producer_sha256": "268466c6cecbc0771c416edf0d807c1f6ae0cb14a1272d70e521562ab1425d1f",
+          "status": "ok",
+          "outputs": [
+            {
+              "path": "parquet_dumps/opendata/opendata_business/opendata_business.parquet",
+              "rows": 69523294,
+              "bytes": 2458079432,
+              "schema": "id: uint64\nbase_cnpj: large_string\nrazao_social: large_string\nnatureza_juridica: large_string\nqualificacao_responsavel: large_string\ncapital_social: decimal128(18, 2)\nporte: large_string\nente_federativo: large_string"
+            }
+          ],
+          "process_seconds": 135.76981371400325,
+          "peak_rss_kernel_bytes": 2907557888,
+          "script_id": "receitafederal_business",
+          "peak_rss_bytes": 2907557888,
+          "peak_swap_bytes": 0,
+          "peak_rss_plus_swap_bytes": 2905329664,
+          "peak_rss_anon_bytes": 2402947072,
+          "peak_rss_file_bytes": 998895616,
+          "initial_system_available_bytes": 11560927232,
+          "minimum_system_available_bytes": 10362843136,
+          "wall_seconds": 138.15492007500143,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "disk_ssd_final",
+          "error": "",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-disk-ssd-final/receitafederal_business"
+        }
+      ],
+      "published_reference": [
+        {
+          "path": "parquet_dumps/opendata/opendata_business/opendata_business.parquet",
+          "rows": 69523294,
+          "schema": "id: uint64\nbase_cnpj: large_string\nrazao_social: large_string\nnatureza_juridica: large_string\nqualificacao_responsavel: large_string\ncapital_social: decimal128(18, 2)\nporte: large_string\nente_federativo: large_string"
+        }
+      ],
+      "rows_and_schemas_match_published_reference": true
+    },
+    {
+      "script_id": "receitafederal_business_establishments",
+      "producer": "apps/turi/src/scripts/operations/business/establishments.py",
+      "current_producer_sha256": "93fad84d92da270081359866255c4eb12684e21dcbdb9cea7b23126f46ca683f",
+      "before": {
+        "status": "interrupted",
+        "script_id": "receitafederal_business_establishments",
+        "peak_rss_bytes": 11532701696,
+        "peak_swap_bytes": 7265185792,
+        "peak_rss_plus_swap_bytes": 18220560384,
+        "initial_system_available_bytes": 10089730048,
+        "minimum_system_available_bytes": 2370625536,
+        "wall_seconds": 207.64171669499774,
+        "returncode": -9,
+        "interrupted_by_operator": true,
+        "run": "rest",
+        "error": "",
+        "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/receitafederal_business_establishments"
+      },
+      "after": {
+        "input_overrides": {},
+        "producer_sha256": "93fad84d92da270081359866255c4eb12684e21dcbdb9cea7b23126f46ca683f",
+        "status": "ok",
+        "outputs": [
+          {
+            "path": "parquet_dumps/opendata/opendata_business_establishment/opendata_business_establishment.parquet",
+            "rows": 72605022,
+            "bytes": 8034578220,
+            "schema": "id: uint64\nempresa_id: uint64\ncnpj: large_string\ntipo: large_string\nnome_fantasia: large_string\nsituacao_cadastral: int32\ndata_situacao_cadastral: date32[day]\nmotivo_situacao_cadastral: large_string\ncidade_exterior: large_string\ncodigo_pais: large_string\ndata_inicio_atividade: date32[day]\ncnaes: large_list<element: large_string>\n  child 0, element: large_string\nendereco_tipo_logradouro: large_string\nendereco_logradouro: large_string\nendereco_numero: large_string\nendereco_complemento: large_string\nendereco_bairro: large_string\nendereco_cep: large_string\nendereco_uf: large_string\nendereco_municipio: large_string\nendereco_cluster_id: uint64\ntelefones: large_list<element: large_string>\n  child 0, element: large_string\nfax: large_string\nemail: large_string\nsituacao_especial: large_string\ndata_situacao_especial: date32[day]"
+          }
+        ],
+        "process_seconds": 547.5353955870014,
+        "peak_rss_kernel_bytes": 7836602368,
+        "script_id": "receitafederal_business_establishments",
+        "peak_rss_bytes": 7836602368,
+        "peak_swap_bytes": 364896256,
+        "peak_rss_plus_swap_bytes": 7973470208,
+        "peak_rss_anon_bytes": 7267192832,
+        "peak_rss_file_bytes": 1234739200,
+        "initial_system_available_bytes": 9913774080,
+        "minimum_system_available_bytes": 7670812672,
+        "wall_seconds": 549.6966820540038,
+        "returncode": 0,
+        "interrupted_by_operator": false,
+        "run": "disk_ssd_final",
+        "error": "",
+        "artifacts": "downloads/temp/memory-profile-2026-11-12-disk-ssd-final/receitafederal_business_establishments"
+      },
+      "complete_before_after_rows_and_schemas_match": null,
+      "attempts": [
+        {
+          "status": "interrupted",
+          "script_id": "receitafederal_business_establishments",
+          "peak_rss_bytes": 11532701696,
+          "peak_swap_bytes": 7265185792,
+          "peak_rss_plus_swap_bytes": 18220560384,
+          "initial_system_available_bytes": 10089730048,
+          "minimum_system_available_bytes": 2370625536,
+          "wall_seconds": 207.64171669499774,
+          "returncode": -9,
+          "interrupted_by_operator": true,
+          "run": "rest",
+          "error": "",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/receitafederal_business_establishments"
+        },
+        {
+          "input_overrides": {},
+          "producer_sha256": "93fad84d92da270081359866255c4eb12684e21dcbdb9cea7b23126f46ca683f",
+          "status": "error",
+          "error": "Exception: DataFusion error: Arrow error: Io error: IO error: Disk quota exceeded (os error 122)",
+          "process_seconds": 337.6731412409972,
+          "peak_rss_kernel_bytes": 8073121792,
+          "script_id": "receitafederal_business_establishments",
+          "peak_rss_bytes": 8073928704,
+          "peak_swap_bytes": 146386944,
+          "peak_rss_plus_swap_bytes": 8181805056,
+          "initial_system_available_bytes": 11305480192,
+          "minimum_system_available_bytes": 3929714688,
+          "wall_seconds": 351.642388035998,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "final",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-final/receitafederal_business_establishments"
+        },
+        {
+          "input_overrides": {},
+          "producer_sha256": "93fad84d92da270081359866255c4eb12684e21dcbdb9cea7b23126f46ca683f",
+          "status": "error",
+          "error": "Exception: DataFusion error: Arrow error: Io error: IO error: Disk quota exceeded (os error 122)",
+          "process_seconds": 734.8802874590037,
+          "peak_rss_kernel_bytes": 8300408832,
+          "script_id": "receitafederal_business_establishments",
+          "peak_rss_bytes": 8300408832,
+          "peak_swap_bytes": 137658368,
+          "peak_rss_plus_swap_bytes": 8419758080,
+          "peak_rss_anon_bytes": 6685822976,
+          "peak_rss_file_bytes": 1880698880,
+          "initial_system_available_bytes": 6531895296,
+          "minimum_system_available_bytes": 3701305344,
+          "wall_seconds": 749.1686855519947,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "bounded",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-bounded/receitafederal_business_establishments"
+        },
+        {
+          "input_overrides": {},
+          "producer_sha256": "93fad84d92da270081359866255c4eb12684e21dcbdb9cea7b23126f46ca683f",
+          "status": "error",
+          "error": "Exception: DataFusion error: Arrow error: Io error: IO error: Disk quota exceeded (os error 122)",
+          "process_seconds": 695.0360744509962,
+          "peak_rss_kernel_bytes": 6924677120,
+          "script_id": "receitafederal_business_establishments",
+          "peak_rss_bytes": 6924677120,
+          "peak_swap_bytes": 565198848,
+          "peak_rss_plus_swap_bytes": 7065276416,
+          "peak_rss_anon_bytes": 6370975744,
+          "peak_rss_file_bytes": 788746240,
+          "initial_system_available_bytes": 10049007616,
+          "minimum_system_available_bytes": 3953651712,
+          "wall_seconds": 700.0427624399963,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "establishments_retry",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-establishments-retry/receitafederal_business_establishments"
+        },
+        {
+          "input_overrides": {},
+          "producer_sha256": "93fad84d92da270081359866255c4eb12684e21dcbdb9cea7b23126f46ca683f",
+          "status": "interrupted",
+          "error": "KeyboardInterrupt: ",
+          "process_seconds": 1359.246342739003,
+          "peak_rss_kernel_bytes": 7657316352,
+          "script_id": "receitafederal_business_establishments",
+          "peak_rss_bytes": 7657316352,
+          "peak_swap_bytes": 149389312,
+          "peak_rss_plus_swap_bytes": 7794130944,
+          "peak_rss_anon_bytes": 6564134912,
+          "peak_rss_file_bytes": 1213657088,
+          "initial_system_available_bytes": 10798166016,
+          "minimum_system_available_bytes": 7827701760,
+          "wall_seconds": 1360.3364506959988,
+          "returncode": 0,
+          "interrupted_by_operator": true,
+          "run": "disk_final",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-disk-final/receitafederal_business_establishments"
+        },
+        {
+          "input_overrides": {},
+          "producer_sha256": "93fad84d92da270081359866255c4eb12684e21dcbdb9cea7b23126f46ca683f",
+          "status": "ok",
+          "outputs": [
+            {
+              "path": "parquet_dumps/opendata/opendata_business_establishment/opendata_business_establishment.parquet",
+              "rows": 72605022,
+              "bytes": 8034578220,
+              "schema": "id: uint64\nempresa_id: uint64\ncnpj: large_string\ntipo: large_string\nnome_fantasia: large_string\nsituacao_cadastral: int32\ndata_situacao_cadastral: date32[day]\nmotivo_situacao_cadastral: large_string\ncidade_exterior: large_string\ncodigo_pais: large_string\ndata_inicio_atividade: date32[day]\ncnaes: large_list<element: large_string>\n  child 0, element: large_string\nendereco_tipo_logradouro: large_string\nendereco_logradouro: large_string\nendereco_numero: large_string\nendereco_complemento: large_string\nendereco_bairro: large_string\nendereco_cep: large_string\nendereco_uf: large_string\nendereco_municipio: large_string\nendereco_cluster_id: uint64\ntelefones: large_list<element: large_string>\n  child 0, element: large_string\nfax: large_string\nemail: large_string\nsituacao_especial: large_string\ndata_situacao_especial: date32[day]"
+            }
+          ],
+          "process_seconds": 547.5353955870014,
+          "peak_rss_kernel_bytes": 7836602368,
+          "script_id": "receitafederal_business_establishments",
+          "peak_rss_bytes": 7836602368,
+          "peak_swap_bytes": 364896256,
+          "peak_rss_plus_swap_bytes": 7973470208,
+          "peak_rss_anon_bytes": 7267192832,
+          "peak_rss_file_bytes": 1234739200,
+          "initial_system_available_bytes": 9913774080,
+          "minimum_system_available_bytes": 7670812672,
+          "wall_seconds": 549.6966820540038,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "disk_ssd_final",
+          "error": "",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-disk-ssd-final/receitafederal_business_establishments"
+        }
+      ],
+      "published_reference": [
+        {
+          "path": "parquet_dumps/opendata/opendata_business_establishment/opendata_business_establishment.parquet",
+          "rows": 72605022,
+          "schema": "id: uint64\nempresa_id: uint64\ncnpj: large_string\ntipo: large_string\nnome_fantasia: large_string\nsituacao_cadastral: int32\ndata_situacao_cadastral: date32[day]\nmotivo_situacao_cadastral: large_string\ncidade_exterior: large_string\ncodigo_pais: large_string\ndata_inicio_atividade: date32[day]\ncnaes: large_list<element: large_string>\n  child 0, element: large_string\nendereco_tipo_logradouro: large_string\nendereco_logradouro: large_string\nendereco_numero: large_string\nendereco_complemento: large_string\nendereco_bairro: large_string\nendereco_cep: large_string\nendereco_uf: large_string\nendereco_municipio: large_string\nendereco_cluster_id: uint64\ntelefones: large_list<element: large_string>\n  child 0, element: large_string\nfax: large_string\nemail: large_string\nsituacao_especial: large_string\ndata_situacao_especial: date32[day]"
+        }
+      ],
+      "rows_and_schemas_match_published_reference": true
+    },
+    {
+      "script_id": "receitafederal_partners",
+      "producer": "apps/turi/src/scripts/operations/business/partners.py",
+      "current_producer_sha256": "700012270ec72438fe990eb6655539facbb955960b71ce5ee3c2776b7c60e48d",
+      "before": {
+        "input_overrides": {},
+        "producer_sha256": "d34aa211715f102fe4b6324b37549da041b44465e70339faf0b62c5da268573a",
+        "status": "ok",
+        "outputs": [
+          {
+            "path": "parquet_dumps/opendata/opendata_partner/opendata_partner.parquet",
+            "rows": 18108985,
+            "bytes": 566849686,
+            "schema": "id: uint64\nnome: large_string\ndocumento: large_string\nfaixa_etaria: int32"
+          }
+        ],
+        "process_seconds": 89.99292321300163,
+        "peak_rss_kernel_bytes": 7340789760,
+        "script_id": "receitafederal_partners",
+        "peak_rss_bytes": 7340789760,
+        "peak_swap_bytes": 0,
+        "peak_rss_plus_swap_bytes": 7331418112,
+        "initial_system_available_bytes": 12056002560,
+        "minimum_system_available_bytes": 8684843008,
+        "wall_seconds": 149.80223597099757,
+        "returncode": 0,
+        "interrupted_by_operator": false,
+        "run": "rest",
+        "error": "",
+        "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/receitafederal_partners"
+      },
+      "after": {
+        "input_overrides": {},
+        "producer_sha256": "700012270ec72438fe990eb6655539facbb955960b71ce5ee3c2776b7c60e48d",
+        "status": "ok",
+        "outputs": [
+          {
+            "path": "parquet_dumps/opendata/opendata_partner/opendata_partner.parquet",
+            "rows": 18108985,
+            "bytes": 645572445,
+            "schema": "id: uint64\nnome: large_string\ndocumento: large_string\nfaixa_etaria: int32"
+          }
+        ],
+        "process_seconds": 47.919388560003426,
+        "peak_rss_kernel_bytes": 3993239552,
+        "script_id": "receitafederal_partners",
+        "peak_rss_bytes": 4335804416,
+        "peak_swap_bytes": 0,
+        "peak_rss_plus_swap_bytes": 4335804416,
+        "peak_rss_anon_bytes": 4110532608,
+        "peak_rss_file_bytes": 335585280,
+        "initial_system_available_bytes": 11565174784,
+        "minimum_system_available_bytes": 9361457152,
+        "wall_seconds": 50.21244105000369,
+        "returncode": 0,
+        "interrupted_by_operator": false,
+        "run": "disk_ssd_final",
+        "error": "",
+        "artifacts": "downloads/temp/memory-profile-2026-11-12-disk-ssd-final/receitafederal_partners"
+      },
+      "complete_before_after_rows_and_schemas_match": true,
+      "attempts": [
+        {
+          "input_overrides": {},
+          "producer_sha256": "d34aa211715f102fe4b6324b37549da041b44465e70339faf0b62c5da268573a",
+          "status": "ok",
+          "outputs": [
+            {
+              "path": "parquet_dumps/opendata/opendata_partner/opendata_partner.parquet",
+              "rows": 18108985,
+              "bytes": 566849686,
+              "schema": "id: uint64\nnome: large_string\ndocumento: large_string\nfaixa_etaria: int32"
+            }
+          ],
+          "process_seconds": 89.99292321300163,
+          "peak_rss_kernel_bytes": 7340789760,
+          "script_id": "receitafederal_partners",
+          "peak_rss_bytes": 7340789760,
+          "peak_swap_bytes": 0,
+          "peak_rss_plus_swap_bytes": 7331418112,
+          "initial_system_available_bytes": 12056002560,
+          "minimum_system_available_bytes": 8684843008,
+          "wall_seconds": 149.80223597099757,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "rest",
+          "error": "",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/receitafederal_partners"
+        },
+        {
+          "input_overrides": {},
+          "producer_sha256": "700012270ec72438fe990eb6655539facbb955960b71ce5ee3c2776b7c60e48d",
+          "status": "ok",
+          "outputs": [
+            {
+              "path": "parquet_dumps/opendata/opendata_partner/opendata_partner.parquet",
+              "rows": 18108985,
+              "bytes": 645572445,
+              "schema": "id: uint64\nnome: large_string\ndocumento: large_string\nfaixa_etaria: int32"
+            }
+          ],
+          "process_seconds": 73.00775490399974,
+          "peak_rss_kernel_bytes": 6266449920,
+          "script_id": "receitafederal_partners",
+          "peak_rss_bytes": 6266449920,
+          "peak_swap_bytes": 106496,
+          "peak_rss_plus_swap_bytes": 6260387840,
+          "initial_system_available_bytes": 11420770304,
+          "minimum_system_available_bytes": 8088256512,
+          "wall_seconds": 111.87937542800137,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "final",
+          "error": "",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-final/receitafederal_partners"
+        },
+        {
+          "input_overrides": {},
+          "producer_sha256": "700012270ec72438fe990eb6655539facbb955960b71ce5ee3c2776b7c60e48d",
+          "status": "ok",
+          "outputs": [
+            {
+              "path": "parquet_dumps/opendata/opendata_partner/opendata_partner.parquet",
+              "rows": 18108985,
+              "bytes": 645572445,
+              "schema": "id: uint64\nnome: large_string\ndocumento: large_string\nfaixa_etaria: int32"
+            }
+          ],
+          "process_seconds": 72.48992605300009,
+          "peak_rss_kernel_bytes": 4037087232,
+          "script_id": "receitafederal_partners",
+          "peak_rss_bytes": 4037730304,
+          "peak_swap_bytes": 0,
+          "peak_rss_plus_swap_bytes": 4037730304,
+          "peak_rss_anon_bytes": 3888037888,
+          "peak_rss_file_bytes": 347033600,
+          "initial_system_available_bytes": 10390016000,
+          "minimum_system_available_bytes": 8412266496,
+          "wall_seconds": 73.33885228000145,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "bounded",
+          "error": "",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-bounded/receitafederal_partners"
+        },
+        {
+          "input_overrides": {},
+          "producer_sha256": "700012270ec72438fe990eb6655539facbb955960b71ce5ee3c2776b7c60e48d",
+          "status": "ok",
+          "outputs": [
+            {
+              "path": "parquet_dumps/opendata/opendata_partner/opendata_partner.parquet",
+              "rows": 18108985,
+              "bytes": 645572445,
+              "schema": "id: uint64\nnome: large_string\ndocumento: large_string\nfaixa_etaria: int32"
+            }
+          ],
+          "process_seconds": 47.919388560003426,
+          "peak_rss_kernel_bytes": 3993239552,
+          "script_id": "receitafederal_partners",
+          "peak_rss_bytes": 4335804416,
+          "peak_swap_bytes": 0,
+          "peak_rss_plus_swap_bytes": 4335804416,
+          "peak_rss_anon_bytes": 4110532608,
+          "peak_rss_file_bytes": 335585280,
+          "initial_system_available_bytes": 11565174784,
+          "minimum_system_available_bytes": 9361457152,
+          "wall_seconds": 50.21244105000369,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "disk_ssd_final",
+          "error": "",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-disk-ssd-final/receitafederal_partners"
+        }
+      ],
+      "published_reference": [
+        {
+          "path": "parquet_dumps/opendata/opendata_partner/opendata_partner.parquet",
+          "rows": 18108985,
+          "schema": "id: uint64\nnome: large_string\ndocumento: large_string\nfaixa_etaria: int32"
+        }
+      ],
+      "rows_and_schemas_match_published_reference": true
+    },
+    {
+      "script_id": "receitafederal_partnership",
+      "producer": "apps/turi/src/scripts/operations/business/partnerships.py",
+      "current_producer_sha256": "34b11852c4f069945d45de79ee1741b7ca9d8f36de03ac322099765fd2c54d0f",
+      "before": {
+        "input_overrides": {},
+        "producer_sha256": "413be6e335c34ed7b29bfaed452ee39e99393543d9779a76df3b04464e445afa",
+        "status": "interrupted",
+        "error": "KeyboardInterrupt: ",
+        "process_seconds": 103.94013884699962,
+        "peak_rss_kernel_bytes": 9044070400,
+        "script_id": "receitafederal_partnership",
+        "peak_rss_bytes": 9044070400,
+        "peak_swap_bytes": 2824323072,
+        "peak_rss_plus_swap_bytes": 10625458176,
+        "initial_system_available_bytes": 11943264256,
+        "minimum_system_available_bytes": 5769707520,
+        "wall_seconds": 123.29958831299882,
+        "returncode": -9,
+        "interrupted_by_operator": true,
+        "run": "rest",
+        "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/receitafederal_partnership"
+      },
+      "after": {
+        "input_overrides": {},
+        "producer_sha256": "34b11852c4f069945d45de79ee1741b7ca9d8f36de03ac322099765fd2c54d0f",
+        "status": "ok",
+        "outputs": [
+          {
+            "path": "parquet_dumps/opendata/opendata_partnerhip/opendata_partnerhip.parquet",
+            "rows": 28140566,
+            "bytes": 568678976,
+            "schema": "empresa_id: uint64\nsocio_id: uint64\ntipo_socio: int32\nqualificacao: large_string\ndata_entrada: date32[day]\nnome_socio: large_string\ndocumento_socio: large_string\nnome_representante_legal: large_string\ndocumento_representante_legal: large_string\nqualificacao_representante_legal: large_string"
+          }
+        ],
+        "process_seconds": 50.26043259200378,
+        "peak_rss_kernel_bytes": 1731186688,
+        "script_id": "receitafederal_partnership",
+        "peak_rss_bytes": 2804015104,
+        "peak_swap_bytes": 0,
+        "peak_rss_plus_swap_bytes": 2804015104,
+        "peak_rss_anon_bytes": 2576822272,
+        "peak_rss_file_bytes": 391446528,
+        "initial_system_available_bytes": 11562934272,
+        "minimum_system_available_bytes": 9539944448,
+        "wall_seconds": 52.525066538997635,
+        "returncode": 0,
+        "interrupted_by_operator": false,
+        "run": "disk_ssd_final",
+        "error": "",
+        "artifacts": "downloads/temp/memory-profile-2026-11-12-disk-ssd-final/receitafederal_partnership"
+      },
+      "complete_before_after_rows_and_schemas_match": null,
+      "attempts": [
+        {
+          "input_overrides": {},
+          "producer_sha256": "413be6e335c34ed7b29bfaed452ee39e99393543d9779a76df3b04464e445afa",
+          "status": "interrupted",
+          "error": "KeyboardInterrupt: ",
+          "process_seconds": 103.94013884699962,
+          "peak_rss_kernel_bytes": 9044070400,
+          "script_id": "receitafederal_partnership",
+          "peak_rss_bytes": 9044070400,
+          "peak_swap_bytes": 2824323072,
+          "peak_rss_plus_swap_bytes": 10625458176,
+          "initial_system_available_bytes": 11943264256,
+          "minimum_system_available_bytes": 5769707520,
+          "wall_seconds": 123.29958831299882,
+          "returncode": -9,
+          "interrupted_by_operator": true,
+          "run": "rest",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/receitafederal_partnership"
+        },
+        {
+          "input_overrides": {},
+          "producer_sha256": "035eac4e0aa5a05d4bbfcf71a3ac12f5cf2a3dca9b82ea5792964543a59f3e85",
+          "status": "ok",
+          "outputs": [
+            {
+              "path": "parquet_dumps/opendata/opendata_partnerhip/opendata_partnerhip.parquet",
+              "rows": 28140566,
+              "bytes": 568678976,
+              "schema": "empresa_id: uint64\nsocio_id: uint64\ntipo_socio: int32\nqualificacao: large_string\ndata_entrada: date32[day]\nnome_socio: large_string\ndocumento_socio: large_string\nnome_representante_legal: large_string\ndocumento_representante_legal: large_string\nqualificacao_representante_legal: large_string"
+            }
+          ],
+          "process_seconds": 106.386232664001,
+          "peak_rss_kernel_bytes": 7984402432,
+          "script_id": "receitafederal_partnership",
+          "peak_rss_bytes": 7984402432,
+          "peak_swap_bytes": 0,
+          "peak_rss_plus_swap_bytes": 7973154816,
+          "initial_system_available_bytes": 11522453504,
+          "minimum_system_available_bytes": 7607709696,
+          "wall_seconds": 160.8407800549976,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "final",
+          "error": "",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-final/receitafederal_partnership"
+        },
+        {
+          "input_overrides": {},
+          "producer_sha256": "34b11852c4f069945d45de79ee1741b7ca9d8f36de03ac322099765fd2c54d0f",
+          "status": "ok",
+          "outputs": [
+            {
+              "path": "parquet_dumps/opendata/opendata_partnerhip/opendata_partnerhip.parquet",
+              "rows": 28140566,
+              "bytes": 568678976,
+              "schema": "empresa_id: uint64\nsocio_id: uint64\ntipo_socio: int32\nqualificacao: large_string\ndata_entrada: date32[day]\nnome_socio: large_string\ndocumento_socio: large_string\nnome_representante_legal: large_string\ndocumento_representante_legal: large_string\nqualificacao_representante_legal: large_string"
+            }
+          ],
+          "process_seconds": 77.15499190500122,
+          "peak_rss_kernel_bytes": 2105692160,
+          "script_id": "receitafederal_partnership",
+          "peak_rss_bytes": 2105692160,
+          "peak_swap_bytes": 0,
+          "peak_rss_plus_swap_bytes": 2090086400,
+          "peak_rss_anon_bytes": 1937301504,
+          "peak_rss_file_bytes": 433074176,
+          "initial_system_available_bytes": 10411778048,
+          "minimum_system_available_bytes": 7733706752,
+          "wall_seconds": 80.60127383600047,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "bounded",
+          "error": "",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-bounded/receitafederal_partnership"
+        },
+        {
+          "input_overrides": {},
+          "producer_sha256": "34b11852c4f069945d45de79ee1741b7ca9d8f36de03ac322099765fd2c54d0f",
+          "status": "ok",
+          "outputs": [
+            {
+              "path": "parquet_dumps/opendata/opendata_partnerhip/opendata_partnerhip.parquet",
+              "rows": 28140566,
+              "bytes": 568678976,
+              "schema": "empresa_id: uint64\nsocio_id: uint64\ntipo_socio: int32\nqualificacao: large_string\ndata_entrada: date32[day]\nnome_socio: large_string\ndocumento_socio: large_string\nnome_representante_legal: large_string\ndocumento_representante_legal: large_string\nqualificacao_representante_legal: large_string"
+            }
+          ],
+          "process_seconds": 50.26043259200378,
+          "peak_rss_kernel_bytes": 1731186688,
+          "script_id": "receitafederal_partnership",
+          "peak_rss_bytes": 2804015104,
+          "peak_swap_bytes": 0,
+          "peak_rss_plus_swap_bytes": 2804015104,
+          "peak_rss_anon_bytes": 2576822272,
+          "peak_rss_file_bytes": 391446528,
+          "initial_system_available_bytes": 11562934272,
+          "minimum_system_available_bytes": 9539944448,
+          "wall_seconds": 52.525066538997635,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "disk_ssd_final",
+          "error": "",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-disk-ssd-final/receitafederal_partnership"
+        }
+      ],
+      "published_reference": [
+        {
+          "path": "parquet_dumps/opendata/opendata_partnerhip/opendata_partnerhip.parquet",
+          "rows": 28140566,
+          "schema": "empresa_id: uint64\nsocio_id: uint64\ntipo_socio: int32\nqualificacao: large_string\ndata_entrada: date32[day]\nnome_socio: large_string\ndocumento_socio: large_string\nnome_representante_legal: large_string\ndocumento_representante_legal: large_string\nqualificacao_representante_legal: large_string"
+        }
+      ],
+      "rows_and_schemas_match_published_reference": true
+    },
+    {
+      "script_id": "tse_voting_locations",
+      "producer": "apps/turi/src/scripts/operations/voting_locations/locations.py",
+      "current_producer_sha256": "be8320d16c958cd5efe6337914866fc5a7c3bbc9d16bda7cf6bbb262a1cba7a0",
+      "before": null,
+      "after": {
+        "input_overrides": {},
+        "producer_sha256": "be8320d16c958cd5efe6337914866fc5a7c3bbc9d16bda7cf6bbb262a1cba7a0",
+        "status": "ok",
+        "outputs": [
+          {
+            "path": "parquet_dumps/opendata/opendata_voting_location_history/tse.parquet",
+            "rows": 671539,
+            "bytes": 31971501,
+            "schema": "id: uint64\ndata_eleicao: date32[day]\nnumero_turno: int16\nuf: large_string\ncodigo_municipio_tse: large_string\nzona_eleitoral: large_string\nnumero: large_string\nano_referencia: int32\nnome: large_string\nendereco: large_string\nbairro: large_string\ncep: large_string\nlatitude_tse: double\nlongitude_tse: double\ncodigo_situacao: int16\ncampos_divergentes: large_list<element: large_string>\n  child 0, element: large_string\ndata_geracao: timestamp[us]\ncodigo_municipio_ibge: large_string\nendereco_cluster_id: uint64"
+          },
+          {
+            "path": "parquet_dumps/opendata/opendata_voting_location/tse.parquet",
+            "rows": 108184,
+            "bytes": 5638029,
+            "schema": "id: uint64\ndata_eleicao: date32[day]\nnumero_turno: int16\nuf: large_string\ncodigo_municipio_tse: large_string\nzona_eleitoral: large_string\nnumero: large_string\nano_referencia: int32\nnome: large_string\nendereco: large_string\nbairro: large_string\ncep: large_string\nlatitude_tse: double\nlongitude_tse: double\ncodigo_situacao: int16\ncampos_divergentes: large_list<element: large_string>\n  child 0, element: large_string\ndata_geracao: timestamp[us]\ncodigo_municipio_ibge: large_string\nendereco_cluster_id: uint64"
+          }
+        ],
+        "process_seconds": 84.6672495870007,
+        "peak_rss_kernel_bytes": 2824470528,
+        "script_id": "tse_voting_locations",
+        "peak_rss_bytes": 2824560640,
+        "peak_swap_bytes": 0,
+        "peak_rss_plus_swap_bytes": 2824560640,
+        "initial_system_available_bytes": 11845627904,
+        "minimum_system_available_bytes": 10565402624,
+        "wall_seconds": 144.47458541399828,
+        "returncode": 0,
+        "interrupted_by_operator": false,
+        "run": "rest",
+        "error": "",
+        "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/tse_voting_locations"
+      },
+      "complete_before_after_rows_and_schemas_match": null,
+      "attempts": [
+        {
+          "input_overrides": {},
+          "producer_sha256": "be8320d16c958cd5efe6337914866fc5a7c3bbc9d16bda7cf6bbb262a1cba7a0",
+          "status": "ok",
+          "outputs": [
+            {
+              "path": "parquet_dumps/opendata/opendata_voting_location_history/tse.parquet",
+              "rows": 671539,
+              "bytes": 31971501,
+              "schema": "id: uint64\ndata_eleicao: date32[day]\nnumero_turno: int16\nuf: large_string\ncodigo_municipio_tse: large_string\nzona_eleitoral: large_string\nnumero: large_string\nano_referencia: int32\nnome: large_string\nendereco: large_string\nbairro: large_string\ncep: large_string\nlatitude_tse: double\nlongitude_tse: double\ncodigo_situacao: int16\ncampos_divergentes: large_list<element: large_string>\n  child 0, element: large_string\ndata_geracao: timestamp[us]\ncodigo_municipio_ibge: large_string\nendereco_cluster_id: uint64"
+            },
+            {
+              "path": "parquet_dumps/opendata/opendata_voting_location/tse.parquet",
+              "rows": 108184,
+              "bytes": 5638029,
+              "schema": "id: uint64\ndata_eleicao: date32[day]\nnumero_turno: int16\nuf: large_string\ncodigo_municipio_tse: large_string\nzona_eleitoral: large_string\nnumero: large_string\nano_referencia: int32\nnome: large_string\nendereco: large_string\nbairro: large_string\ncep: large_string\nlatitude_tse: double\nlongitude_tse: double\ncodigo_situacao: int16\ncampos_divergentes: large_list<element: large_string>\n  child 0, element: large_string\ndata_geracao: timestamp[us]\ncodigo_municipio_ibge: large_string\nendereco_cluster_id: uint64"
+            }
+          ],
+          "process_seconds": 84.6672495870007,
+          "peak_rss_kernel_bytes": 2824470528,
+          "script_id": "tse_voting_locations",
+          "peak_rss_bytes": 2824560640,
+          "peak_swap_bytes": 0,
+          "peak_rss_plus_swap_bytes": 2824560640,
+          "initial_system_available_bytes": 11845627904,
+          "minimum_system_available_bytes": 10565402624,
+          "wall_seconds": 144.47458541399828,
+          "returncode": 0,
+          "interrupted_by_operator": false,
+          "run": "rest",
+          "error": "",
+          "artifacts": "downloads/temp/memory-profile-2026-11-12-rest/tse_voting_locations"
+        }
+      ],
+      "published_reference": [
+        {
+          "path": "parquet_dumps/opendata/opendata_voting_location_history/tse.parquet",
+          "rows": 671539,
+          "schema": "id: uint64\ndata_eleicao: date32[day]\nnumero_turno: int16\nuf: large_string\ncodigo_municipio_tse: large_string\nzona_eleitoral: large_string\nnumero: large_string\nano_referencia: int32\nnome: large_string\nendereco: large_string\nbairro: large_string\ncep: large_string\nlatitude_tse: double\nlongitude_tse: double\ncodigo_situacao: int16\ncampos_divergentes: large_list<element: large_string>\n  child 0, element: large_string\ndata_geracao: timestamp[us]\ncodigo_municipio_ibge: large_string\nendereco_cluster_id: uint64"
+        },
+        {
+          "path": "parquet_dumps/opendata/opendata_voting_location/tse.parquet",
+          "rows": 108184,
+          "schema": "id: uint64\ndata_eleicao: date32[day]\nnumero_turno: int16\nuf: large_string\ncodigo_municipio_tse: large_string\nzona_eleitoral: large_string\nnumero: large_string\nano_referencia: int32\nnome: large_string\nendereco: large_string\nbairro: large_string\ncep: large_string\nlatitude_tse: double\nlongitude_tse: double\ncodigo_situacao: int16\ncampos_divergentes: large_list<element: large_string>\n  child 0, element: large_string\ndata_geracao: timestamp[us]\ncodigo_municipio_ibge: large_string\nendereco_cluster_id: uint64"
+        }
+      ],
+      "rows_and_schemas_match_published_reference": true
+    }
+  ],
+  "diagnostic_cleanup": {
+    "complete": true,
+    "checked_at": "2026-11-12T10:47:12.978860+00:00",
+    "preserved": "logs, CSVs, reports and staged SDS inputs; published inputs and outputs untouched"
+  }
+}

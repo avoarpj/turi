@@ -1,7 +1,6 @@
 from logging import Logger
 
 import polars as pl
-import polars.selectors as cs
 
 from config.projectsettings.settings import (
     NUMERIC_HASH_SEED,
@@ -9,7 +8,9 @@ from config.projectsettings.settings import (
     DUMPS_OUTPUT_DIR,
 )
 from infra.datascript.DataScript import VENATO_INCLUDED, DataScript
+from infra.parquet_sort import sink_sorted_parquet_parts
 from scripts.bricks.parquet_order import FINAL_PARQUET_SORT_KEYS
+from scripts.bricks.nullish import nullify_strings
 
 
 RECEITAFEDERAL_BUSINESS_RAW_PARQUETS = (
@@ -61,7 +62,7 @@ class BusinessDatascript(DataScript):
                 "ente_federativo_responsavel": "ente_federativo"
             })
             .with_columns(
-                cs.string().replace(nullish, None)
+                nullify_strings(nullish)
             )
             .with_columns(
                 pl.col("capital_social").str
@@ -81,12 +82,14 @@ class BusinessDatascript(DataScript):
             ])
         )
 
-        business = business.sort(
-            by=FINAL_PARQUET_SORT_KEYS["opendata_business"]
+        sink_sorted_parquet_parts(
+            [business],
+            RECEITAFEDERAL_BUSINESS_OUTPUT_PARQUETS,
+            FINAL_PARQUET_SORT_KEYS["opendata_business"],
+            compression="zstd",
+            batch_size=8_192,
+            range_partition_count=64,
         )
-
-        RECEITAFEDERAL_BUSINESS_OUTPUT_PARQUETS.parent.mkdir(exist_ok=True)
-        business.sink_parquet(RECEITAFEDERAL_BUSINESS_OUTPUT_PARQUETS, compression="zstd")
 
 
 script_instance = BusinessDatascript()

@@ -5,6 +5,7 @@ import unittest
 from unittest.mock import patch
 
 import polars as pl
+from polars.testing import assert_frame_equal
 
 from scripts.operations.ceap_reimbursements import camaradosdeputados as operation
 
@@ -55,6 +56,23 @@ class CeapProofsTest(unittest.TestCase):
                 dict(zip(linked['descricao_especificacao'], linked['fonte'])),
                 {'0': urls[0], '1': urls[1]},
             )
+
+            # Compare every expense/proof field, including hashes of all joined
+            # columns, with the direct nested reader used before staging.
+            direct_reimbursements = root / 'direct_reimbursements.parquet'
+            direct_proofs = root / 'direct_proofs.parquet'
+            with patch.multiple(operation,
+                CD_CEAPS_RAW_PARQUETS=raw,
+                PUBLIC_PEOPLE_IDENTIFICATORS_OUTPUT_PARQUETS=identifiers,
+                CD_MANDATES_OUTPUT_PARQUETS=mandates,
+                CD_CEAPS_OUTPUT_PARQUETS=direct_reimbursements,
+                CD_CEAPS_PROOF_OUTPUT_PARQUETS=direct_proofs,
+            ):
+                direct = pl.scan_parquet(raw).select(pl.col('dados').list.explode()).unnest('dados')
+                operation.script_instance._process_data(direct, logging.getLogger('test-ceap'))
+
+            assert_frame_equal(expenses.sort('id'), pl.read_parquet(direct_reimbursements).sort('id'))
+            assert_frame_equal(result.sort('id'), pl.read_parquet(direct_proofs).sort('id'))
 
 
 if __name__ == '__main__':

@@ -1,4 +1,6 @@
 from logging import Logger
+from pathlib import Path
+from tempfile import TemporaryDirectory
 
 import polars as pl
 from config.projectsettings.settings import (
@@ -37,29 +39,30 @@ class EvmDataScript(DataScript):
     def process_data(self, logger: Logger):
         logger.info("process data")
         
-        bu_raw = _scan_tse_bulletins_dynamic().select("NR_URNA_EFETIVADA")
-        bu_raw = diskful_unique(bu_raw, "NR_URNA_EFETIVADA")
-
-        evm_lazy = (
-            bu_raw
-            .with_columns([
-                pl.col("NR_URNA_EFETIVADA").hash(seed=NUMERIC_HASH_SEED).alias("id"),
-                pl.col("NR_URNA_EFETIVADA").alias("numero_serie_urna")
-            ])
-            .select(["id", "numero_serie_urna"])
-            .sort(
-                by=["id"]
-            )
-        )
-
         EVM_OUTPUT_PARQUETS.parent.mkdir(exist_ok=True, parents=True)
 
-        evm_lazy.sink_parquet(EVM_OUTPUT_PARQUETS, compression="zstd")
+        with TemporaryDirectory(prefix="urns-", dir=EVM_OUTPUT_PARQUETS.parent) as directory:
+            bu_raw = _scan_tse_bulletins_dynamic(Path(directory))
+            bu_raw = diskful_unique(bu_raw, "NR_URNA_EFETIVADA")
+
+            evm_lazy = (
+                bu_raw
+                .with_columns([
+                    pl.col("NR_URNA_EFETIVADA").hash(seed=NUMERIC_HASH_SEED).alias("id"),
+                    pl.col("NR_URNA_EFETIVADA").alias("numero_serie_urna")
+                ])
+                .select(["id", "numero_serie_urna"])
+                .sort(
+                    by=["id"]
+                )
+            )
+
+            evm_lazy.sink_parquet(EVM_OUTPUT_PARQUETS, compression="zstd")
         
         logger.info("done")
     
 
-def _scan_tse_bulletins_dynamic() -> pl.LazyFrame:
+def _scan_tse_bulletins_dynamic(directory: Path) -> pl.LazyFrame:
     files = list(EVM_RAW_PARQUETS.glob("*.parquet"))
     if not files:
         raise FileNotFoundError(f"Nenhum arquivo Parquet encontrado")
@@ -85,7 +88,17 @@ def _scan_tse_bulletins_dynamic() -> pl.LazyFrame:
         else:
             lf = lf.with_columns(pl.col("NR_TURNO").cast(pl.String))
 
-        lazy_frames.append(lf)
-    return pl.concat(lazy_frames, how="diagonal_relaxed")
+        # Only the serial number reaches the global filesystem index. Reduce
+        # repetitions per source before paying for cross-batch index lookups.
+        lazy_frames.append(lf.select("NR_URNA_EFETIVADA"))
+    schema = pl.concat(lazy_frames, how="diagonal_relaxed").collect_schema()
+    parts = []
+
+    for index, frame in enumerate(lazy_frames):
+        part = directory / f"urns-{index:05d}.parquet"
+        frame.cast(schema).unique().sink_parquet(part, compression="zstd", row_group_size=16_384)
+        parts.append(part)
+
+    return pl.scan_parquet(parts)
 
 script_instance = EvmDataScript()

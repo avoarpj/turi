@@ -1,5 +1,350 @@
 # Memória técnica do Turi independente
 
+## Instalação diretamente com uv sync (2026-11-13)
+
+Removido `scripts/setup.sh`: o Core já é uma dependência Git fixada, cujo build
+gera os contratos durante o `uv sync`. O wrapper acrescentava apenas a cópia
+condicional do `.env`. O README agora usa `uv sync --locked`, seguido da criação
+separada do `.env` quando não existe e da instalação opcional do Chromium para
+os downloaders. Não há necessidade de um script de bootstrap do Core no Turi.
+As notas anteriores sobre o setup Bash descrevem a alternativa substituída.
+
+Validação: `uv sync --locked --offline --check` não propôs alterações;
+`git diff --check` passou. Nenhuma dependência, lock, `.env`, produtor, dado ou
+asset foi alterado por essa simplificação; não foi executado ETL.
+
+## Namespace avoar compatível com Pylance (2026-11-13)
+
+O Core estava corretamente instalado na `.venv` e o log do Pylance apontava para
+esse Python. A diferença era o `avoar/__init__.py` local: usava
+`pkgutil.extend_path` para juntar em runtime o código do Turi e o Core em
+site-packages. A análise estática parava no pacote local regular e não encontrava
+`avoar.core`. A [documentação do Pylance](https://github.com/microsoft/pylance-release/blob/main/docs/howto/unresolved-imports.md#works-at-runtime-but-pylance-shows-errors)
+descreve essa diferença entre runtime e resolução estática.
+
+Removido somente esse `__init__.py` de três linhas. `avoar` agora é namespace
+nativo PEP 420, como no pacote Core. Setuptools declara `namespaces = true`
+explicitamente; a alteração do pyproject também invalida o build editável antigo
+no sync. Core continua externo, sem cópia de contratos ou alterações no Venato.
+O README registra que o arquivo de raiz não deve ser recriado.
+
+VS Code aponta para `${workspaceFolder}/.venv/bin/python` neste workspace Linux e
+adiciona `${workspaceFolder}/apps/turi/src` aos extraPaths, refletindo os caminhos
+que os entrypoints já preparam. As exclusões de dados, caches e `.venv` foram
+preservadas; não foram silenciados diagnósticos. O experimento com
+defaultInterpreterPath apontando somente à pasta `.venv` fez a versão instalada
+tratar o diretório como executável e perder a indexação de bibliotecas; por isso
+o caminho final usa o executável. O log posterior confirmou esse Python e a
+indexação de 700 arquivos de biblioteca.
+
+Validação estática com Pyright 1.1.414 em ambiente temporário: fixture reproduziu
+três `reportMissingImports` com o namespace legado, usando a mesma `.venv`; a
+versão nativa resolveu os imports. Um probe gerado por AST reuniu 19 declarações
+de import, cobrindo 12 módulos Core e módulos locais de recursos/Venato, sem
+diagnósticos. Não foi coletada a lista de diagnósticos da interface do VS Code.
+
+Passaram 123 testes Turi e seis da raiz. O novo teste importa Core e Venato em
+subprocesso fora do checkout e sem PYTHONPATH, conferindo que o Core não veio de
+uma cópia em `avoar/`. O teste de limpeza após falha de auditoria do sort passou
+a isolar `TURI_UNIQUE_TEMP_DIRECTORY`, pois o `.env` local redirecionava o scratch
+e invalidava a suposição do teste; o operador não foi alterado.
+`uv sync --locked --offline` refez o pacote Turi, sem mudar dependências ou lock;
+`git diff --check` passou. Nenhum ETL ou asset foi regenerado.
+
+## Comando de setup padronizado pelo uv (2026-11-13)
+
+O comando de instalação documentado passou a ser
+`uv run --no-project bash scripts/setup.sh`. O uv executa Bash disponível no
+sistema; `--no-project` deixa o sync exclusivamente a cargo do script e permite
+o bootstrap antes da instalação do Turi. Não foi criado um alias de shell em
+`[project.scripts]`, que exige entrypoints Python, nem um wrapper Python apenas
+para chamar o Bash. Referência: [execução de comandos no uv](https://docs.astral.sh/uv/concepts/projects/run/).
+
+Smoke real offline com `uv run --no-project bash scripts/setup.sh --offline`
+passou. Pyproject/lock mantiveram os hashes; `.env` foi criado a partir do exemplo
+e removido ao final para restaurar sua ausência anterior. Nenhuma dependência,
+ETL, dado ou asset foi alterado. `git diff --check` passou.
+
+## Setup portátil do Core via Git (2026-11-13)
+
+O caminho editável `../core` era uma conveniência da extração do monorepositório
+e exigia checkouts irmãos. `uv add` substituiu essa origem por
+`https://github.com/avoarpj/core.git`, fixada no commit
+`56339faa0e7341f1abc927d0b330e66615edaa3c`, a mesma revisão do checkout local
+limpo e de `origin/main` no início desta alteração. `uv.lock` foi atualizado pelo
+uv; as versões das demais dependências foram mantidas. O Core continua externo:
+seu build gera os contratos Protobuf no ambiente, sem copiar contratos para o
+Turi ou exigir um `protoc` instalado separadamente.
+
+`scripts/setup.sh` resolve a raiz pelo próprio caminho, executa
+`uv sync --locked` e cria `.env` somente quando não existe. Argumentos adicionais
+são repassados ao sync, inclusive `--offline`. Uma falha no sync interrompe o
+script antes da criação do `.env`. Git, uv e acesso à rede no primeiro setup
+continuam necessários; submódulos de assets e Chromium seguem as instruções
+separadas do README. O Core não exige um script gerador próprio no consumidor:
+o backend de build do pacote já realiza a geração.
+
+O README removeu a exigência de diretórios irmãos e documenta setup e uso
+opcional de `uv add --editable /qualquer/caminho/core` para desenvolvimento,
+incluindo o retorno à origem Git fixada. Esse override altera pyproject/lock
+localmente; caminhos particulares não devem ser publicados como padrão.
+
+Validação: `uv sync --locked` instalou efetivamente o Core da origem Git.
+`direct_url.json` confirmou o commit e a instalação não editável; o check offline
+de sync não propôs alterações. O setup real foi executado de `/tmp`, preservando
+pyproject/lock. Fixtures cobriram caminho com espaços, repasse de argumentos,
+criação/preservação do `.env` e propagação de erro do sync. O `.env` de exemplo
+criado pelo smoke real foi removido após comparação exata, restaurando a ausência
+anterior desse arquivo. Nenhum `.env` preexistente foi removido ou sobrescrito.
+
+Uma cópia temporária de pyproject/lock em diretório sem irmão `core` resolveu
+com `uv sync --locked --offline --dry-run --no-install-project`. Esse dry-run
+valida resolução portátil com cache aquecido, não uma instalação completa a frio.
+Passaram offline 123 testes Turi e cinco da raiz, incluindo Core Protobuf real,
+Venato e BrazilGEO com fixtures. `bash -n scripts/setup.sh` e `git diff --check`
+passaram. Nenhum ETL, download de dados públicos, asset ou produtor foi executado
+fora dos testes com fixtures; o checkout externo do Core foi apenas lido.
+
+## Ordenação dos estabelecimentos por faixas UInt64 (2026-11-13)
+
+`infra/parquet_sort.py` ganhou staging particionado opcional por intervalos
+disjuntos da primeira chave `UInt64`. Estabelecimentos ativa 64 faixas de
+`empresa_id` e batches de 8.192 linhas. A chamada local tinha `batch_size=256000`,
+mas o helper ainda não aceitava esse argumento; agora o aceita e o repassa ao
+worker. Não aumentar simplesmente o batch: no ensaio isolado de um milhão de
+linhas, 256 mil linhas por batch foi mais lento que 1.024.
+
+Cada fonte é transformada uma vez e gravada diretamente nas faixas; a divisão
+inteira preserva os limites de UInt64, inclusive 2^64-1. Nulos entram na faixa
+zero. O worker ordena cada faixa por `(empresa_id, id)` e grava as faixas em ordem,
+sem um merge global. A coluna auxiliar não é publicada. Mantidos schemas,
+identidades, duplicidades, join municipal m:m, Snappy final, metadados de sort,
+row groups finais de 65.536 linhas, auditoria e troca atômica. O buffer final
+atravessa faixas; staging Zstd usa row groups de 16.384 para reduzir os buffers
+dos writers das partições. Faixas desbalanceadas continuam podendo usar spill.
+
+O pool padrão de 256 MiB e as variáveis de memória, scratch e quota continuam.
+O pool não limita RSS nem buffers Polars/Arrow. Não foi aplicado um segundo SET
+de runtime DataFusion, que perderia a quota no 55.0 instalado. As faixas exigem
+potência de dois entre 2 e 256 e chave principal UInt64; combinação com unique
+é recusada antes da escrita. Outros produtores e manutenção mantêm o sort global.
+
+Validação: 123 testes Turi offline passaram, incluindo cinco casos novos de
+limites, nulos, ordem secundária, faixas esparsas, entrada vazia, schemas ricos,
+duplicidades, fronteiras de row groups, faixa concentrada com pool pequeno,
+recusa de parâmetros e falha de auditoria sem substituir o publicado.
+`git diff --check` passou. Nenhuma dependência ou lock foi alterado.
+
+Benchmark sintético no HDD, com oito milhões de linhas largas, pool de 256 MiB
+e oito fontes: helper antigo 112,50 s; faixas 77,43 s (-31,2%). A etapa do worker
+caiu de 63,19 para 8,90 s; redistribuição/staging e demais custos aumentaram de
+49,31 para 68,53 s. Pico RSS agregado amostrado caiu de 3.389 para 2.872 GiB;
+páginas compartilhadas podem ser contadas duas vezes. Com um milhão de linhas,
+o padrão de 256 MiB regrediu de 8,74 para 11,59 s, enquanto o pool de 64 MiB
+caiu de 18,19 para 13,23 s. Faixas têm custo de arquivos e redistribuição.
+
+São observações únicas, com cache do SO e writeback, sem drop de caches ou fsync;
+não extrapolar para a base real. Um milhão de linhas teve todas as colunas
+comparadas exatamente entre saídas; oito milhões teve todos os pares de chaves
+comparados, inclusive multiplicidade oito, além de schema, contagem e ordenação
+física global. Payloads da fixture maior não foram integralmente comparados.
+Método, versões, tempos e limites no
+[relatório](audits/parquet_sort_ranges_2026-11-13.json); contrato em
+[parquet_ordering.md](parquet_ordering.md).
+
+Do dump publicado de estabelecimentos foi lido somente o footer (72.605.022
+linhas). Nenhum ETL completo, asset, download ou dump real foi executado ou
+regenerado. As fixtures e temporários exclusivos do benchmark foram removidos.
+Processos já iniciados precisam ser reiniciados para carregar o helper novo;
+nenhum processo ou checkpoint do usuário foi interrompido/removido.
+
+## Exclusões do Pylance para dados e temporários (2026-11-13)
+
+`.vscode/settings.json` tinha somente `assets/localidades` em
+`python.analysis.exclude`. A lista agora cobre `assets`, `downloads`,
+`parquet_dumps`, `venato_data`, metadados de execução `__metadata__`, scratch
+de deduplicação/ordenação/DataFusion, caches, ambiente virtual e artefatos de
+build/instalação. Código em `apps`, `avoar` e testes continua no escopo.
+Não foram desativados indexação, diagnósticos ou resolução de imports.
+
+Watchers e buscas também excluem as árvores de dados e temporários. Mantidos
+`files.exclude`, `explorer.excludeGitIgnore: false` e a regra preexistente de
+watcher para `downloads/temp/memory-profile-*`; as pastas continuam visíveis.
+A [documentação do Pylance](https://github.com/microsoft/pylance-release/blob/main/docs/settings/python_analysis_exclude.md)
+explica que exclusões limitam descoberta; arquivos abertos ou importados ainda
+podem ser analisados. A extensão instalada é 2026.4.1.
+
+Validação offline com `uv run --no-sync --offline`: JSON sem chaves duplicadas,
+tipo da configuração conferido no manifesto da extensão, 16 caminhos
+representativos cobertos por análise/watchers/busca e todos os 160 arquivos
+Python de código/testes encontrados fora das exclusões. `git diff --check`
+passou. Não foi medido o tempo de inicialização nem reproduzido o travamento
+do `turi run`; reiniciar o language server no editor para observar o efeito.
+Nenhum ETL, coleta, asset, dependência ou lock foi alterado por esta mudança.
+
+## README como apresentação do projeto (2026-11-12)
+
+O README da raiz foi reescrito para leitores do repositório: escopo do Turi,
+fontes oficiais, artefatos produzidos, instalação, coleta, processamento,
+indexação, agendamento, mapas, estrutura, desenvolvimento e licença MIT.
+Foram retiradas as notas de migração e referências à instalação específica;
+o histórico permanece na documentação técnica. O setup descreve a dependência
+editável do Core em `../core` e o submódulo dos assets de partidos.
+
+Validação estática: 15 links locais existentes, seis blocos shell aceitos por
+`bash -n`, quatro entrypoints conferidos no pyproject e IDs dos exemplos
+confirmados via AST dos produtores. Nenhum exemplo foi executado, nem foram
+iniciados downloads, ETL ou geração de assets. Alterações somente documentais.
+
+## Deduplicação sequencial para HDD (2026-11-12)
+
+`infra/diskful_unique.py` passou do índice SHA-256 com marcador/arquivo por
+chave para ordenação externa de chaves canônicas e posições. O índice anterior
+fazia consultas aleatórias, criava dois arquivos por chave e tornava execução e
+limpeza muito lentas no HDD. A assinatura pública e os produtores foram mantidos.
+
+Cada batch Arrow gera um bloco ordenado com chave exata, primeira/última posição
+e contagem. Merges de até 32 leitores coalescem as chaves. As posições escolhidas
+são ordenadas em blocos, e uma leitura sequencial recupera as linhas originais.
+Mantidos any=first, first, last, none, ordem, schemas, IDs, nan/zero assinado e
+precisão temporal, inclusive tipos aninhados. Não há dependência nova, banco,
+DISTINCT global ou coleção de todas as chaves em RAM. A contagem da seleção é
+auditada antes de devolver o LazyFrame. Sessões, retenção e limpeza continuam.
+
+`TURI_UNIQUE_MEMORY_LIMIT`/`memory_limit` agora orçam os buffers de I/O do merge,
+não um pool DataFusion; o helper lê via PyArrow. No padrão, até 32 leitores e
+um writer têm buffers de até 1 MiB cada. O orçamento não limita RSS, alocações
+anteriores, largura de um batch, listas de runs ou metadados Parquet.
+
+Validação: 118 testes Turi, incluindo 15 do helper/produtores; múltiplos passes
+forçados, escolhas de representantes, fronteiras ambíguas, todos os keeps,
+uint64, ns, categorias, listas, nulos, erros e limpeza. Benchmark offline no HDD:
+1 milhão de linhas/100 mil chaves em 1,647 s, pico RSS até saída 286,5 MiB
+(347,2 MiB com auditoria). Referência DataFusion independente conferida com
+EXCEPT ALL bidirecional. Fixture comparável de 10 mil linhas/5 mil chaves:
+índice antigo 10 mil arquivos de chave/0,157 s; novo um bloco de chaves/0,055 s.
+Fixtures pequenas cabem no cache do SO; não extrapolar esses tempos para o ETL.
+Relatório em `docs/audits/diskful_unique_external_2026-11-12.json`; contrato e
+algoritmo em `docs/turi_diskful_unique.md`. Nenhum ETL completo ou asset foi gerado.
+
+O processo já iniciado conserva o módulo antigo: precisa ser reiniciado para
+carregar a mudança, recomeçando o produtor em andamento. Checkpoints concluídos
+não foram apagados. Nenhum índice ou processo ativo do usuário foi interrompido
+ou removido; os benchmarks usaram diretórios próprios e descartaram suas fixtures.
+As medições completas dos 32 produtores abaixo precedem esta substituição.
+
+## Reaproveitamento dos caches SDS de deputados (2026-11-12)
+
+Por pedido do usuário, os Parquets antigos de detalhados e histórico foram
+copiados para `downloads/sds/federal_deputies_detailed/restored-20261027.parquet`
+e `downloads/sds/federal_deputies_history/restored-20261027.parquet`. São as
+conversões usadas na medição anterior, provenientes dos JSONs locais de 27/10
+em `downloads/sds_cache/public/datasets`; os JSONs e caches por deputado foram
+preservados. A cópia foi conferida por SHA-256.
+
+Os dois metadados Downloader foram marcados como bem-sucedidos, sem fontes
+pendentes, com caminhos absolutos existentes e `downloaded_at` de
+2026-11-12 14:41:29 (hora local). Os lifetimes continuam em 28 dias para
+detalhados e 3 dias para histórico; a data dos dados antigos não foi alterada.
+Auditoria e cópia do metadado anterior do histórico em
+`downloads/temp/sds-cache-restore-20261112T144129/`.
+
+Validação sem rede: `get_meta_files_or_download` retornou os arquivos dos dois
+caches com zero erros, com `download_from_sources` bloqueado por mock. Nenhum
+callback SDS, servidor, coleta, ETL ou regeneração de assets foi executado.
+Não houve alteração do código ou dos lifetimes para essa restauração.
+
+## Perfil de memória por produtor (2026-11-12)
+
+Por pedido explícito do usuário, os 32 produtores concluíram individualmente
+com entradas reais locais, processos novos e saídas isoladas. Não foi executado
+o runner completo para validar código, nem foram regenerados assets. Método e
+comparativo em [turi_memory_profiling.md](turi_memory_profiling.md); histórico,
+schemas, contagens e métricas no [JSON de auditoria](audits/turi_memory_profile_2026-11-12.json).
+
+Picos RSS observados: eleições ≥8.657 → 1.655 GiB; pessoas públicas
+3.685 → 1.651 GiB; CEAP 7.422 → 3.534 GiB;
+fornecedores CEAP 7.025 → 0.645 GiB; endereços
+≥10.427 → 5.642 GiB; empresas ≥10.249 → 2.708 GiB;
+estabelecimentos ≥10.741 → 7.298 GiB; sócios
+6.837 → 4.038 GiB; vínculos ≥8.423 → 2.611 GiB.
+O símbolo ≥ identifica uma tentativa original interrompida, não seu pico completo.
+Picos separados de RSS, PSS e swap não necessariamente coincidem. RSS agregado
+pode duplicar páginas compartilhadas. Os tempos não são benchmarks controlados.
+
+Itens de BU conferiu 254.345.786 linhas e 2.841.719.245 votos; seu algoritmo de
+transformação foi preservado. Pico PSS final: 6.259 GiB;
+RSS bruto agregado: 6.329 GiB. O fork pode duplicar
+temporariamente o RSS sem criar o mesmo volume de páginas físicas novas.
+PSS distribui páginas compartilhadas, mas inclui páginas recuperáveis e não
+mede só memória ativa. Não subtrair picos independentes de PSS e LazyFree.
+
+O profiler registra RSS, VmHWM, swap e memória disponível, com intervalo alvo de
+100 ms e timestamps efetivos no CSV, além de ru_maxrss, schemas e linhas. As
+rodadas finais incluem descendentes vivos; a última também registra PSS e
+LazyFree via smaps_rollup. Não foi acrescentado teto global nem alterado
+POLARS_MAX_THREADS. Cada process_data lê dependências já publicadas, ignora
+lifetimes e preserva checkpoints, Avro, Bloom filters e Venato.
+
+Causa confirmada no plano físico do Polars 1.38: cs.string().replace([""], None)
+produzia in-memory-map, materializando colunas mesmo em streaming. O helper
+scripts/bricks/nullish.py usa condição elementwise, com igualdade de valores,
+schema, ordem e hashes completos nas fixtures. Aplicado a endereços, empresas
+e estabelecimentos.
+
+Eleições reduz oito colunas por arquivo antes dos joins. Urnas reduz números
+de série por arquivo, alinhando o schema global antes do unique, inclusive
+tipos misturados, zeros à esquerda e zero assinado. Boletins reduz linhas
+iguais mantendo a primeira ocorrência e sua ordem. A deduplicação global
+existente continua; infra/diskful_unique.py não foi alterado.
+
+CEAP expande um download aninhado por vez, mantendo schema e ordem de campos
+dos hashes de despesas e comprovantes. Fornecedores projeta somente as folhas
+Parquet de documento/nome no PyArrow. Pessoas públicas projeta os campos usados
+antes da coleta que antes retinha o bruto inteiro.
+
+sink_sorted_parquet_parts transforma fontes separadamente, alinha tipos como o
+concat anterior e ordena via DataFusion com Arrow, restauração do schema,
+contagem de linhas e substituição atômica. Preserva compressão, IDs e
+multiplicidades. A unicidade opcional em 16 grupos suporta somente keep="any":
+sócios usa id global; vínculos usa empresa/sócio por fonte, mantendo repetições
+entre arquivos. Não aplicar a escolhas first/last dependentes de ordenação.
+
+DataFusion 55.0 recria o gerenciador de disco ao aplicar SET de quota/fan-in,
+perdendo o diretório anterior; um segundo SET também descarta o primeiro. O
+spill retornava ao /tmp em RAM. As notas anteriores de spill fora do tmpfs
+descreviam a intenção da configuração e devem ser lidas com esta correção.
+O helper agora usa subprocesso com TMPDIR exclusivo no scratch, sem mudar o
+ambiente do chamador. Aplica somente a quota; não foi adicionada dependência.
+Um teste força spill e observa os arquivos no destino escolhido.
+
+Os cadastros usam lotes de 1.024 linhas, pool de 256 MiB e quota de 64G. O merge
+de complementos precisou de pool de 512 MiB com um quarto reservado para merge;
+TURI_SORT_MEMORY_LIMIT explícito continua com precedência. Itens mantém seus
+padrões de lote/quota de 16.384/24G. O pool não é um teto do RSS. A leitura usa
+schema_force_view_types=false. O comando maintenance/sort_final_parquets.py
+reutiliza o helper, mantendo partições, row groups e auditoria antes da troca.
+
+Houve ensaios com scratch em HDD e SSD. A rodada corrigida de estabelecimentos
+no HDD foi interrompida por I/O; os seis produtores que usam a ordenação externa
+concluíram com scratch no SSD. Brutos e destinos isolados ficaram no HDD. Os
+logs das tentativas e as CSVs foram preservados; os temporários exclusivos
+dos ensaios foram removidos depois das medições.
+
+Os JSONs SDS existentes foram convertidos pela mesma leitura Polars do
+Downloader para uma árvore de diagnóstico, sem servidor, rede ou callbacks de
+atualização. As substituições são registradas. Fotos são selecionadas com
+movimentos simulados, preservando fontes e assets. O Parquet CEAP vazio foi
+ignorado como antes; não foi removido nem baixado novamente.
+
+Validação: 118 testes Turi com fixtures sem rede passaram, incluindo hashes,
+schemas, multiplicidades, joins municipais m:m, complementos repetidos, uint64,
+decimais, listas, tipos históricos e limpeza. Todos os 32 produtores mantiveram
+contagens e schemas dos dumps publicados como referência. Tamanho/mtime dos
+dumps e checkpoints originais foram preservados; isso não é um hash byte a byte.
+A alteração preexistente do usuário em DataScript.py foi mantida. Core,
+Venato, lock e assets não foram modificados.
+
 ## Assets locais e exclusões do VS Code (2026-11-09)
 
 `/assets/brazilgeo/` e `/assets/candidatures/` são ignorados pelo Git. Os 55

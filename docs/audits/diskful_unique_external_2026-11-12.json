@@ -1,0 +1,82 @@
+{
+  "created_at": "2026-11-12T20:33:40.786439+00:00",
+  "polars": "1.38.1",
+  "limits": {
+    "worker_rss_mib": 1536,
+    "timeout_seconds": 180
+  },
+  "cases": [
+    {
+      "kind": "synthetic",
+      "rows": 10000,
+      "input_rows": 10000,
+      "output_rows": 5000,
+      "dedup_seconds": 0.064,
+      "pipeline_peak_rss_mib": 239.2,
+      "audit": "bidirectional EXCEPT ALL against independent DataFusion DISTINCT",
+      "worker_peak_rss_mib": 303.1,
+      "total_seconds": 0.502
+    },
+    {
+      "kind": "synthetic",
+      "rows": 100000,
+      "input_rows": 100000,
+      "output_rows": 50000,
+      "dedup_seconds": 0.265,
+      "pipeline_peak_rss_mib": 261.0,
+      "audit": "bidirectional EXCEPT ALL against independent DataFusion DISTINCT",
+      "worker_peak_rss_mib": 260.7,
+      "total_seconds": 0.804
+    },
+    {
+      "kind": "synthetic",
+      "rows": 1000000,
+      "input_rows": 1000000,
+      "output_rows": 100000,
+      "dedup_seconds": 1.647,
+      "pipeline_peak_rss_mib": 286.5,
+      "audit": "bidirectional EXCEPT ALL against independent DataFusion DISTINCT",
+      "worker_peak_rss_mib": 347.2,
+      "total_seconds": 2.207
+    }
+  ],
+  "backend": "bounded sorted binary runs; exact canonical keys; source-position merge",
+  "comparison": {
+    "filesystem": {
+      "kind": "synthetic",
+      "rows": 10000,
+      "input_rows": 10000,
+      "output_rows": 5000,
+      "dedup_seconds": 0.157,
+      "pipeline_peak_rss_mib": 272.9,
+      "audit": "bidirectional EXCEPT ALL against independent DataFusion DISTINCT",
+      "backend": "filesystem",
+      "maximum_key_files": 10000,
+      "source_sha256": "3c795adc194a43214ffc7ad12958ccaf024e5981b39a1f1398a0a62dbea2a489"
+    },
+    "external": {
+      "kind": "synthetic",
+      "rows": 10000,
+      "input_rows": 10000,
+      "output_rows": 5000,
+      "dedup_seconds": 0.055,
+      "pipeline_peak_rss_mib": 241.4,
+      "audit": "bidirectional EXCEPT ALL against independent DataFusion DISTINCT",
+      "backend": "external",
+      "maximum_key_files": 1
+    }
+  },
+  "implementation_sha256": "077e6c70d9c3e0df91da7330ffc5595ac04b85365d0a9b464bdb2ab26e9e5f05",
+  "recorded_at": "2026-11-12T20:35:42.636072+00:00",
+  "scope": "Offline synthetic fixtures on the project HDD; no full ETL, network or production output writes.",
+  "tests": {
+    "total": 118,
+    "focused_unique_and_producers": 15,
+    "result": "passed"
+  },
+  "limitations": [
+    "Small fixtures can fit in the OS filesystem cache; timings are not a prediction for the complete ETL.",
+    "Worker RSS includes imports and Arrow/Polars allocations; memory_limit budgets merge buffers, not total RSS.",
+    "Run path lists and Parquet metadata also consume memory; canonical key records are bounded by batch_size and merge fan-in."
+  ]
+}

@@ -10,19 +10,14 @@ import stat
 from time import perf_counter
 from uuid import uuid4
 
-from datafusion import RuntimeEnvBuilder, SessionConfig, SessionContext
 import numpy as np
 import polars as pl
 import pyarrow as pa
 import pyarrow.parquet as pq
 
-from avoar.common.resources import parse_size
 from avoar.projectsettings.globals import OPENDATA_DUMPS_OUTPUT_DIR, PROJECT_ROOT
+from infra.parquet_sort import write_sorted_parquets
 from scripts.bricks.parquet_order import FINAL_PARQUET_SORT_KEYS
-
-
-def quote_identifier(name: str) -> str:
-    return '"' + name.replace('"', '""') + '"'
 
 
 def content_summary(path: Path, schema: pa.Schema) -> tuple:
@@ -129,63 +124,20 @@ def sort_parquet(
 
     try:
         before = content_summary(path, schema)
-        memory_bytes = parse_size(memory_limit)
         if target_partitions <= 0:
             raise ValueError("Target partitions must be positive")
 
-        config = SessionConfig().with_target_partitions(target_partitions)
-        runtime = (
-            RuntimeEnvBuilder()
-            .with_fair_spill_pool(memory_bytes)
-            .with_disk_manager_specified(str(spill_directory))
-        )
-        context = SessionContext(
-            config,
-            runtime,
-        )
-        context.sql("SET datafusion.runtime.max_temp_directory_size = '60G'").collect()
-        context.register_parquet("source", str(path))
-
-        ordering = ", ".join(f"{quote_identifier(key)} ASC NULLS FIRST" for key in keys)
-        query = f"SELECT * FROM source ORDER BY {ordering}"
-        sorting_columns = pq.SortingColumn.from_ordering(
-            schema,
-            [(name, "ascending") for name in keys],
-            null_placement="at_start",
-        )
-
-        with pq.ParquetWriter(
-            staging,
-            schema,
+        write_sorted_parquets(
+            str(path), staging, keys,
+            schema=schema,
+            work_directory=spill_directory,
+            expected_rows=rows,
+            memory_limit=memory_limit,
+            row_group_size=row_group_size,
+            target_partitions=target_partitions,
             compression=codec,
-            sorting_columns=sorting_columns,
-            write_statistics=True,
-        ) as writer:
-            pending = []
-            pending_rows = 0
-
-            for batch in context.sql(query).execute_stream():
-                # Restore original offsets, metadata and unsigned integer types.
-                pending.append(batch.to_pyarrow().cast(schema))
-                pending_rows += pending[-1].num_rows
-
-                if pending_rows >= row_group_size:
-                    table = pa.Table.from_batches(pending, schema=schema)
-                    while table.num_rows >= row_group_size:
-                        writer.write_table(
-                            table.slice(0, row_group_size),
-                            row_group_size=row_group_size,
-                        )
-                        table = table.slice(row_group_size)
-
-                    pending = table.to_batches()
-                    pending_rows = table.num_rows
-
-            if pending_rows:
-                writer.write_table(
-                    pa.Table.from_batches(pending, schema=schema),
-                    row_group_size=row_group_size,
-                )
+            max_temp_directory_size="60G",
+        )
 
         with pq.ParquetFile(staging) as output:
             if not output.schema_arrow.equals(schema, check_metadata=True):

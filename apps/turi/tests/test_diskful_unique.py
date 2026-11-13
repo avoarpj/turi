@@ -8,7 +8,6 @@ import polars as pl
 from polars.testing import assert_frame_equal
 
 from infra.diskful_unique import (
-    _DiskHashIndex,
     diskful_unique,
     diskful_unique_session,
 )
@@ -61,13 +60,16 @@ class DiskfulUniqueTests(unittest.TestCase):
 
                 assert_frame_equal(actual, expected)
 
-    def test_forced_sha256_collisions_do_not_discard_different_keys(self):
-        frame = pl.DataFrame({"id": [1, 2, 1, 3, 2], "value": list("abcde")})
+    def test_exact_keys_and_representatives_survive_multiple_merge_passes(self):
+        frame = pl.DataFrame({
+            "id": [f"prefix-{i % 23:03d}" for i in range(200)],
+            "value": list(range(200)),
+        })
 
-        with patch("infra.diskful_unique._hash_key", return_value="a" * 64):
+        with patch("infra.diskful_unique._MERGE_FAN_IN", 2):
             for keep in ("first", "last", "none"):
                 actual = diskful_unique(
-                    frame.lazy(), "id", keep=keep, batch_size=2,
+                    frame.lazy(), "id", keep=keep, batch_size=7,
                 ).collect()
                 expected = frame.unique(subset="id", keep=keep, maintain_order=True)
 
@@ -160,7 +162,7 @@ class DiskfulUniqueTests(unittest.TestCase):
         self.assertEqual([item.name for item in directories[0].iterdir()], ["result.parquet"])
 
     def test_failure_removes_partial_index_and_output(self):
-        with patch("infra.diskful_unique._hash_key", side_effect=OSError("disk full")):
+        with patch("infra.diskful_unique._write_keys", side_effect=OSError("disk full")):
             with self.assertRaisesRegex(OSError, "disk full"):
                 diskful_unique(pl.LazyFrame({"id": [1]}))
 
@@ -177,14 +179,19 @@ class DiskfulUniqueTests(unittest.TestCase):
         with self.assertRaises(FileNotFoundError):
             inner.collect()
 
-    def test_markers_are_empty_and_exact_keys_are_kept_separately(self):
-        index = _DiskHashIndex(self.workspace / "index")
-        self.assertTrue(index.observe(b"first", 0, count=False))
-        self.assertFalse(index.observe(b"first", 1, count=False))
-        self.assertTrue(index.observe(b"second", 2, count=False))
+    def test_file_creation_is_per_run_rather_than_per_distinct_key(self):
+        from infra import diskful_unique as implementation
 
-        files = [path for path in index.directory.rglob("*") if path.is_file()]
-        markers = [path for path in files if path.suffix != ".key"]
-        self.assertEqual(len(markers), 2)
-        self.assertTrue(all(path.stat().st_size == 0 for path in markers))
-        self.assertEqual(index.entries, 2)
+        frame = pl.LazyFrame({"id": list(range(1000)) * 2})
+        write_keys = implementation._write_keys
+        created = []
+
+        def observe_run(path, records, buffering):
+            created.append(path)
+            return write_keys(path, records, buffering)
+
+        with patch("infra.diskful_unique._write_keys", side_effect=observe_run):
+            result = diskful_unique(frame, batch_size=128).collect()
+
+        self.assertEqual(result["id"].to_list(), list(range(1000)))
+        self.assertLess(len(created), 25)

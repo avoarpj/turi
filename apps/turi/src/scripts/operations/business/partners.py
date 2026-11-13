@@ -7,6 +7,7 @@ from config.projectsettings.settings import (
     DUMPS_OUTPUT_DIR,
 )
 from infra.datascript.DataScript import DataScript
+from infra.parquet_sort import sink_sorted_parquet_parts
 from scripts.bricks.parquet_order import FINAL_PARQUET_SORT_KEYS
 
 
@@ -55,25 +56,16 @@ class BusinessPartnersDatascript(DataScript):
         for f in files:
             lf = pl.scan_parquet(f)
             lf = self._process_lf(lf, logger)
+            lf = lf.select("id", "nome", "documento", "faixa_etaria")
             lazyframes_op.append(lf)
 
-        final_lf_op = (
-            pl.concat(lazyframes_op, how="diagonal_relaxed")
-            .unique(subset=["id"])
-            .select([
-                "id",
-                "nome",
-                "documento",
-                "faixa_etaria"
-            ])
+        sink_sorted_parquet_parts(
+            lazyframes_op,
+            RECEITAFEDERAL_PARTNERS_OUTPUT_PARQUETS,
+            FINAL_PARQUET_SORT_KEYS["opendata_partner"],
+            compression="zstd",
+            unique_subset=["id"],
         )
-
-        final_lf_op = final_lf_op.sort(
-            by=FINAL_PARQUET_SORT_KEYS["opendata_partner"]
-        )
-
-        RECEITAFEDERAL_PARTNERS_OUTPUT_PARQUETS.parent.mkdir(exist_ok=True)
-        final_lf_op.sink_parquet(RECEITAFEDERAL_PARTNERS_OUTPUT_PARQUETS, compression="snappy")
 
     def _process_lf(self, lf: pl.LazyFrame, logger: Logger) -> pl.LazyFrame:
         def normalizar_nome(col_name: str) -> pl.Expr:

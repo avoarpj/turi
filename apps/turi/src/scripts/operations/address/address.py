@@ -1,7 +1,6 @@
 from logging import Logger
 
 import polars as pl
-import polars.selectors as cs
 
 from avoar.core.opendata.address.domain import NivelGeoCodificacao, EspecieEndereco, IndicadorQuantitativoEstabelecimento, SubIndicadorQuantitativoEstabelecimento, FinalidadeConstrucao, EspecieDomicilio
 from config.projectsettings.settings import (
@@ -13,7 +12,9 @@ from config.projectsettings.scripts import (
     IBGE_ADDRESSES_OUTPUT_PARQUETS,
 )
 from infra.datascript.DataScript import VENATO_INCLUDED, DataScript
+from infra.parquet_sort import sink_sorted_parquet_parts
 from scripts.bricks.parquet_order import FINAL_PARQUET_SORT_KEYS
+from scripts.bricks.nullish import nullify_strings
 
 
 IBGE_ADDRESSES_RAW_PARQUETS = BASE_DIR / "downloads" / "ibge" / "enderecos" / "*.parquet"
@@ -79,22 +80,21 @@ class BusinessEstablishmentsDatascript(DataScript):
             lazyframes_op.append(lf[0])
             complements_op.append(lf[1])
 
-        final_lf_op = pl.concat(lazyframes_op, how="diagonal_relaxed")
-        final_complements_lf = pl.concat(complements_op, how="diagonal_relaxed")
-
-        final_lf_op = final_lf_op.sort(
-            by=FINAL_PARQUET_SORT_KEYS["opendata_address"]
+        sink_sorted_parquet_parts(
+            lazyframes_op,
+            IBGE_ADDRESSES_OUTPUT_PARQUETS,
+            FINAL_PARQUET_SORT_KEYS["opendata_address"],
+            compression="snappy",
         )
 
-        IBGE_ADDRESSES_OUTPUT_PARQUETS.parent.mkdir(exist_ok=True)
-        final_lf_op.sink_parquet(IBGE_ADDRESSES_OUTPUT_PARQUETS, compression="snappy")
-
-        final_complements_lf = final_complements_lf.sort(
-            by=FINAL_PARQUET_SORT_KEYS["opendata_address_complement"]
+        sink_sorted_parquet_parts(
+            complements_op,
+            IBGE_ADDRESSES_COMPLEMENTS_OUTPUT_PARQUETS,
+            FINAL_PARQUET_SORT_KEYS["opendata_address_complement"],
+            compression="snappy",
+            memory_limit="512MiB",
+            reserve_merge_memory=True,
         )
-
-        IBGE_ADDRESSES_COMPLEMENTS_OUTPUT_PARQUETS.parent.mkdir(exist_ok=True)
-        final_complements_lf.sink_parquet(IBGE_ADDRESSES_COMPLEMENTS_OUTPUT_PARQUETS, compression="snappy")
 
     def _extract_complements(self, lf: pl.LazyFrame) -> pl.LazyFrame:
         pairs = [
@@ -123,7 +123,7 @@ class BusinessEstablishmentsDatascript(DataScript):
     def _process_lf(self, lf: pl.LazyFrame, logger: Logger):
         lf = (
             lf.with_columns(
-                cs.string().replace(nullish, None)
+                nullify_strings(nullish)
             )
             .with_columns(
                 pl.col("COD_UNICO_ENDERECO").hash(seed=NUMERIC_HASH_SEED).alias("id"),

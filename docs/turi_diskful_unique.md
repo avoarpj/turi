@@ -1,8 +1,9 @@
-# Deduplicação do Turi com índice de hash em disco
+# Deduplicação do Turi por ordenação externa
 
-Implementada em 2026-10-27 em `apps/turi/src/infra/diskful_unique.py`, com
-Polars 1.38.1, DataFusion 55.0.0 e PyArrow 25.0.1 já presentes no projeto.
-Não adiciona dependências nem cria um banco ou materialização para a API.
+Atualizada em 2026-11-12 em `apps/turi/src/infra/diskful_unique.py`. O índice
+anterior criava dois arquivos por chave distinta, custando muitas horas de I/O
+aleatório no HDD. O novo algoritmo usa blocos ordenados e merges sequenciais,
+com Polars, PyArrow e MessagePack já presentes. Não adiciona dependências.
 
 ## Uso e contrato
 
@@ -23,8 +24,8 @@ usando a API Polars. Não é uma expressão nem uma alteração global de `.uniq
 
 Aceita `keep="any"`, `"first"`, `"last"` e `"none"`. `any` escolhe a primeira
 ocorrência. A ordem das linhas selecionadas é preservada mesmo quando
-`maintain_order=False`; não há ordenação implícita das fontes. `last` e `none`
-precisam de duas passagens. Colunas originais e tipos são preservados, incluindo
+`maintain_order=False`; não há ordenação implícita das fontes. Todos os modos
+leem chaves e reconstroem a seleção em passagens sequenciais. Colunas e tipos são preservados, incluindo
 UInt64, Decimal, datas, precisão de nanossegundos, listas, structs e categorias.
 
 Esta é uma fronteira de execução: filtros e projeções escritos **depois** da
@@ -37,41 +38,39 @@ Não mova filtros ou remova colunas que participem da escolha de representantes.
 
 1. Executa o plano anterior em Polars streaming e grava um Parquet intermediário,
    com row groups limitados a `batch_size`, padrão 16.384 linhas.
-2. DataFusion lê esse arquivo em batches Arrow, com uma partição e sem
-   reparticionamento da leitura, preservando as posições para first/last.
-   Não há um `DISTINCT` global DataFusion no algoritmo: o estado de deduplicação
-   é o índice do sistema de arquivos.
-3. A chave usa MessagePack com limites e tipos, SHA-256 completo, normalização
+2. PyArrow lê batches em ordem física. Para cada batch, um dicionário local
+   registra chave, primeira/última posição e contagem, depois grava um bloco
+   ordenado. Esse dicionário contém somente as chaves do batch.
+3. A chave usa MessagePack com limites e tipos, normalização
    de NaN/zeros com sinal e valores físicos para temporais, inclusive aninhados.
    Não usa concatenação ambígua de strings nem hash Polars de 64 bits como chave.
-4. Cada chave distinta cria um marcador vazio com o hash completo como nome,
-   dentro de um diretório pelo prefixo hexadecimal. Um arquivo `.key` separado
-   guarda a chave original e posições/contagem. No encontro de um hash, compara
-   a chave original; colisões diferentes recebem sufixos e não perdem linhas.
-5. Para any/first, reduz repetições **apenas dentro do batch** usando Polars
-   eager antes de consultar o índice. Esse `.unique()` é limitado pelo batch,
-   não pela cardinalidade global. Isto é relevante para BUs, que repetem os
-   mesmos metadados em muitos votos consecutivos.
-6. Escreve as linhas selecionadas em batches, elimina entrada/índice/spill e
+4. Junta até 32 blocos por vez, com buffers de leitura, comparando os bytes
+   completos das chaves. Coalesce chaves iguais, preservando posições e somando
+   contagens. A igualdade não depende de hash; não existe arquivo por chave.
+5. Escolhe as posições conforme `keep` e as ordena externamente, também em
+   blocos. Uma leitura sequencial da entrada recupera as linhas originais nessa
+   ordem. Não é necessário ordenar ou hidratar todas as linhas na RAM.
+6. Confere a contagem selecionada, elimina entrada/blocos e
    mantém somente o Parquet usado pelo LazyFrame devolvido.
 
-O índice não mantém um set/dict global de chaves em RAM. Há dois arquivos por
-chave distinta e até 256 diretórios de prefixo. Marcadores vazios ainda consomem
-inodes e entradas de diretório; `.key` também usa blocos do filesystem. Dados
-muito distintos custam mais syscalls e disco. Os caches do sistema operacional,
-metadados Parquet e buffers dos motores continuam existindo.
+O algoritmo mantém no heap uma entrada por bloco de merge, e não uma por chave
+distinta global. O número de arquivos acompanha os batches e os passes de merge.
+Arquivos de entrada são removidos depois que cada merge termina e fecha seus
+readers. A largura das chaves, listas de caminhos, metadados Parquet e caches
+do sistema operacional também consomem memória; não há um teto rígido de RSS.
 
 | Configuração | Padrão | Escopo |
 |---|---|---|
-| `TURI_UNIQUE_TEMP_DIRECTORY` | `.turi_unique_tmp` no cwd | Entrada, índice, spill e resultados intermediários |
-| `TURI_UNIQUE_MEMORY_LIMIT` | `256MiB` | Pool DataFusion, não o RSS total |
+| `TURI_UNIQUE_TEMP_DIRECTORY` | `.turi_unique_tmp` no cwd | Entrada, blocos, posições e resultados intermediários |
+| `TURI_UNIQUE_MEMORY_LIMIT` | `256MiB` | Orçamento de buffers de I/O do merge, não o RSS total |
 | `batch_size=` | 16.384 | Limite de linhas por batch/row group da entrada |
-| `memory_limit=` | Variável acima | Sobrescreve o pool para uma chamada |
+| `memory_limit=` | Variável acima | Sobrescreve o orçamento de buffers para uma chamada |
 | `temp_directory=` | Variável/sessão acima | Sobrescreve o diretório para uma chamada |
 
 Escolha um diretório em disco, não tmpfs. O custo em bytes de um batch depende
 da largura das linhas. Os limites acima não abrangem alocações Polars, Python,
-Arrow, writer nem operações anteriores à chamada. O helper não transforma um
+Arrow, writer nem operações anteriores à chamada. Até 32 leitores e um writer
+usam buffers de até 1 MiB cada no padrão. O helper não transforma um
 join/sort anterior que materializa a entrada em uma operação limitada por RAM.
 
 ## Ciclo de vida
@@ -119,9 +118,22 @@ Não ampliar essa retirada de validação para joins sem essas invariantes.
 ## Validação e repetição das medidas
 
 Testes em `apps/turi/tests/test_diskful_unique*.py` comparam os quatro keeps com
-Polars em limites de batch, forçam colisões SHA-256, preservam tipos/nanossegundos,
+Polars em limites de batch e múltiplos passes de merge, preservam tipos/nanossegundos,
 testam consumo repetido do LazyFrame, limpeza/erros e executam os produtores reais
 em fixtures Parquet, com conflitos de município e arquivos duplicados.
+
+Os 118 testes Turi passaram. Nas fixtures sintéticas no HDD, o novo helper
+deduplicou 1 milhão de linhas em cerca de 1,65 s, com 286,5 MiB de pico RSS até a
+saída (347,2 MiB incluindo referência/auditoria). A fixture comparável de 10 mil
+linhas/5 mil chaves usou um bloco de chaves, contra 10 mil arquivos do índice
+antigo: 0,055 s contra 0,157 s nesse ensaio. Fixtures pequenas cabem no cache do
+filesystem; esses tempos não preveem o ETL completo sob pressão de I/O.
+Evidência em [diskful_unique_external_2026-11-12.json](audits/diskful_unique_external_2026-11-12.json).
+
+O processo que já está executando conserva o módulo antigo em memória e precisa
+ser reiniciado para usar a mudança. O produtor em andamento recomeça; checkpoints
+dos produtores que já concluíram não são apagados. A alteração não migra nem
+remove índices pertencentes a processos em execução.
 
 ```bash
 PYTHONPATH=apps/turi/src:. POLARS_MAX_THREADS=2 uv run \
@@ -150,7 +162,9 @@ a consolidação original sobre a referência já reduzida; any admite escolher 
 primeira ocorrência. A auditoria de valores não verifica ordenação final, que
 é coberta pela fixture do produtor.
 
-Evidência consolidada em
+## Medições históricas do índice por arquivos (2026-10-27)
+
+Evidência da implementação anterior em
 [audits/turi_diskful_unique_2026-10-27.json](audits/turi_diskful_unique_2026-10-27.json).
 Não há benchmark controlado contra Polars nem cache frio. `dedup_seconds` inclui
 helper e gravação da saída; com `--producer-scripts`, inclui o produtor inteiro.
