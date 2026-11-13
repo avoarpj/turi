@@ -5,6 +5,7 @@ from avoar.core.opendata.suppliers.domain import TipoDocumentoFornecedor
 from core.CEAP.camaradosdeputados.reimbursement_types import CEAP_CATEGORIES_STRUCTMAP
 from config.projectsettings.settings import NUMERIC_HASH_SEED
 from infra.datascript.DataScript import DataScript
+from infra.parquet_staging import staged_nested_parquets
 from config.projectsettings.settings import (
     BASE_DIR,
     DUMPS_OUTPUT_DIR,
@@ -56,6 +57,13 @@ class CamaraDosDeputadosCeapsDataScript(DataScript):
     tags = []
 
     def process_data(self, logger: Logger):
+        with staged_nested_parquets(
+            CD_CEAPS_RAW_PARQUETS,
+            work_directory=CD_CEAPS_OUTPUT_PARQUETS.parent,
+        ) as raw_ceaps:
+            self._process_data(raw_ceaps, logger)
+
+    def _process_data(self, raw_ceaps: pl.LazyFrame, logger: Logger):
         identificators = (
             pl.scan_parquet(PUBLIC_PEOPLE_IDENTIFICATORS_OUTPUT_PARQUETS)
             .filter(pl.col("fonte") == "camaradosdeputados")
@@ -76,10 +84,7 @@ class CamaraDosDeputadosCeapsDataScript(DataScript):
         logger.info("found %d files reading %s", numfiles, str(CD_CEAPS_RAW_PARQUETS.parent))
 
         cd_ceaps = (
-            pl.scan_parquet(CD_CEAPS_RAW_PARQUETS)
-            .select(
-                pl.col("dados").list.explode()
-            ).unnest("dados")
+            raw_ceaps
             
             .with_columns([
                 pl.col("idDeputado").cast(pl.String).str.strip_chars(),

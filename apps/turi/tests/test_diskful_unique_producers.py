@@ -53,7 +53,10 @@ class DiskfulUniqueProducerTests(unittest.TestCase):
         self.assertEqual(actual["codigo_municipio_ibge"].to_list(), ["1200138"])
 
     def test_real_producers_preserve_ids_values_locality_rules_and_cleanup(self):
-        first = pl.DataFrame([_bulletin("1", "1007")] * 3 + [_bulletin("2", "1007")])
+        conflicting_metadata = dict(_bulletin("1", "1007"), DT_BU_RECEBIDO="02/10/2022 18:00:00")
+        first = pl.DataFrame(
+            [_bulletin("1", "1007")] * 3 + [conflicting_metadata, _bulletin("2", "1007")]
+        )
         second = pl.DataFrame([_bulletin("1", "1015"), _bulletin("2", "1007")])
         municipalities = pl.DataFrame({
             "CD_MUNICIPIO_TSE": ["1007", "1015"],
@@ -108,3 +111,27 @@ class DiskfulUniqueProducerTests(unittest.TestCase):
             assert_frame_equal(actual, expected_bulletins)
             self.assertEqual(actual["codigo_municipio_ibge"].null_count(), 1)
             self.assertEqual(list((root / "work").iterdir()), [])
+
+    def test_per_file_urn_reduction_keeps_global_types_and_leading_zeros(self):
+        first = pl.DataFrame({"NR_URNA_EFETIVADA": [-0.0, 0.0, 1.0, 1.0]})
+        second = pl.DataFrame({"NR_URNA_EFETIVADA": ["0001", "1", "3", "3"]})
+
+        with TemporaryDirectory() as directory:
+            root = Path(directory)
+            raw = root / "raw"
+            raw.mkdir()
+            first.write_parquet(raw / "a.parquet")
+            second.write_parquet(raw / "b.parquet")
+            destination = root / "urns.parquet"
+
+            with patch.dict("os.environ", {"TURI_UNIQUE_TEMP_DIRECTORY": str(root / "work")}), patch.multiple(
+                evm, EVM_RAW_PARQUETS=raw, EVM_OUTPUT_PARQUETS=destination,
+            ):
+                evm.EvmDataScript().process_data(getLogger(__name__))
+
+            expected = pl.concat([first.lazy(), second.lazy()], how="diagonal_relaxed").select(
+                pl.col("NR_URNA_EFETIVADA").hash(seed=NUMERIC_HASH_SEED).alias("id"),
+                pl.col("NR_URNA_EFETIVADA").alias("numero_serie_urna"),
+            ).unique().sort("id").collect()
+            assert_frame_equal(pl.read_parquet(destination), expected)
+            self.assertEqual(expected.height, 6)

@@ -1,4 +1,8 @@
 from pathlib import Path
+import json
+import os
+import subprocess
+import sys
 from tempfile import TemporaryDirectory
 from unittest import TestCase
 from unittest.mock import patch
@@ -17,6 +21,28 @@ from apps.turi.src.config.projectsettings.settings import PROJECT_ROOT as TURI_R
 
 
 class StandaloneTests(TestCase):
+    def test_core_and_turi_import_together_outside_the_checkout(self):
+        root = Path(__file__).resolve().parents[1]
+        environment = dict(os.environ)
+        environment.pop("PYTHONPATH", None)
+        code = """
+import json
+from avoar.core.opendata.business import domain
+from avoar.infra.venato.core import Venato
+from avoar.projectsettings.globals import PROJECT_ROOT
+print(json.dumps({"root": str(PROJECT_ROOT), "core": domain.__file__}))
+"""
+
+        with TemporaryDirectory() as directory:
+            result = subprocess.run(
+                [sys.executable, "-c", code], cwd=directory, env=environment,
+                check=True, capture_output=True, text=True,
+            )
+
+        imported = json.loads(result.stdout)
+        self.assertEqual(Path(imported["root"]), root)
+        self.assertFalse(Path(imported["core"]).is_relative_to(root / "avoar"))
+
     def test_core_generated_contracts_and_repository_paths(self):
         root = Path(__file__).resolve().parents[1]
         self.assertEqual(PROJECT_ROOT, root)

@@ -1,7 +1,6 @@
 from logging import Logger
 
 import polars as pl
-import polars.selectors as cs
 
 from config.projectsettings.settings import (
     NUMERIC_HASH_SEED,
@@ -9,10 +8,11 @@ from config.projectsettings.settings import (
     DUMPS_OUTPUT_DIR,
 )
 from infra.datascript.DataScript import VENATO_INCLUDED, DataScript
+from infra.parquet_sort import sink_sorted_parquet_parts
 from scripts.bricks.parquet_order import FINAL_PARQUET_SORT_KEYS
+from scripts.bricks.nullish import nullify_strings
 
 from avoar.core.opendata.business.domain import SituacaoCadastral
-
 
 RECEITAFEDERAL_BUSINESS_ESTABLISHMENTS_RAW_PARQUETS = (
     BASE_DIR
@@ -124,14 +124,14 @@ class BusinessEstablishmentsDatascript(DataScript):
 
             lazyframes_op.append(lf)
 
-        final_lf_op = pl.concat(lazyframes_op, how="diagonal_relaxed")
-
-        final_lf_op = final_lf_op.sort(
-            by=FINAL_PARQUET_SORT_KEYS["opendata_business_establishment"]
+        sink_sorted_parquet_parts(
+            lazyframes_op,
+            RECEITAFEDERAL_BUSINESS_ESTABLISHMENTS_OUTPUT_PARQUETS,
+            FINAL_PARQUET_SORT_KEYS["opendata_business_establishment"],
+            compression="zstd",
+            batch_size=8_192,
+            range_partition_count=64,
         )
-
-        RECEITAFEDERAL_BUSINESS_ESTABLISHMENTS_OUTPUT_PARQUETS.parent.mkdir(exist_ok=True)
-        final_lf_op.sink_parquet(RECEITAFEDERAL_BUSINESS_ESTABLISHMENTS_OUTPUT_PARQUETS, compression="snappy")
 
     def _process_lf(self, lf: pl.LazyFrame, gov_municipalities: pl.LazyFrame, logger: Logger):
         lf = (
@@ -234,7 +234,7 @@ class BusinessEstablishmentsDatascript(DataScript):
                 ]).hash(seed=NUMERIC_HASH_SEED).alias("endereco_cluster_id")
             )
             .with_columns(
-                cs.string().replace(nullish, None),
+                nullify_strings(nullish),
                 pl.col("cnpj").hash(seed=NUMERIC_HASH_SEED).alias("id")
             )
             .rename({

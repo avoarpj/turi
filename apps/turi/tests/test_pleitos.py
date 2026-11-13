@@ -6,6 +6,7 @@ from unittest import TestCase
 from unittest.mock import patch
 
 import polars as pl
+from polars.testing import assert_frame_equal
 
 from avoar.core.opendata.pleito.domain import Pleito
 from avoar.core.validation import date_value, validate
@@ -136,3 +137,29 @@ class PleitosTest(TestCase):
                 for locality in ["1200138", "1200179"] for code in [426, 427]
             ]).select(election_id_expr()).to_series()
             self.assertEqual(set(elected["id"]), set(expected))
+
+            # The source reduction must retain the globally normalized types
+            # and every election, even when files use historical spellings.
+            raw = root / "raw"
+            raw.mkdir()
+            raw_rows = [dict(row, CD_TIPO_ELEICAO="0", QT_VOTOS="7") for row in rows]
+            first = pl.DataFrame(raw_rows[:2] * 3).drop("tipo_eleicao_normalizado")
+            first = first.rename({"SG_UF": "SG_ UF"}).with_columns(
+                pl.col("CD_MUNICIPIO", "CD_CARGO_PERGUNTA").cast(pl.Int64),
+            )
+            first.write_parquet(raw / "a.parquet")
+            pl.DataFrame(raw_rows[2:]).drop("tipo_eleicao_normalizado").write_parquet(raw / "b.parquet")
+            staged_outputs = {
+                name: root / "staged" / path.parent.name / path.name
+                for name, path in outputs.items()
+                if name in {"PLEITOS_OUTPUT_PARQUETS", "ELECTIONS_OUTPUT_PARQUETS", "ELECTIONS_ROUNDS_OUTPUT_PARQUETS"}
+            }
+
+            with patch.multiple(elections, **(outputs | staged_outputs), ELECTIONS_RAW_PARQUETS=raw):
+                elections.ElectionsDataScript().process_data(getLogger(__name__))
+
+            for name in staged_outputs:
+                assert_frame_equal(
+                    pl.read_parquet(staged_outputs[name]).sort("id"),
+                    pl.read_parquet(outputs[name]).sort("id"),
+                )

@@ -13,7 +13,7 @@ from infra.datascript.metadata import write_metadata
 
 
 VENATO_INCLUDED = "VENATO_INCLUDED"
-
+HAS_PHOTOGRAPHY = "HAS_PHOTOGRAPHY"
 
 class Metadata(BaseModel):
     """Execution checkpoint, compatible with the existing JSON history."""

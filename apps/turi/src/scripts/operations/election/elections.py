@@ -1,4 +1,6 @@
 from logging import Logger
+from pathlib import Path
+from tempfile import TemporaryDirectory
 
 import polars as pl
 from config.projectsettings.settings import (
@@ -55,7 +57,14 @@ class ElectionsDataScript(DataScript):
     tags = []
 
     def process_data(self, logger: Logger):
-        bu_raw = _scan_tse_bulletins_dynamic(logger).filter(~pl.col("tipo_eleicao_normalizado").is_in(["2"]))
+        ELECTIONS_OUTPUT_PARQUETS.parent.mkdir(parents=True, exist_ok=True)
+
+        with TemporaryDirectory(prefix="election-metadata-", dir=ELECTIONS_OUTPUT_PARQUETS.parent) as directory:
+            bu_raw = _scan_tse_bulletins_dynamic(logger, Path(directory))
+            self._process_data(bu_raw, logger)
+
+    def _process_data(self, bu_raw: pl.LazyFrame, logger: Logger):
+        bu_raw = bu_raw.filter(~pl.col("tipo_eleicao_normalizado").is_in(["2"]))
         tse_municipalities = pl.scan_parquet(TSE_MUNICIPALITIES_RAW_PARQUETS / "*.parquet")
         cd_legislatures = (
                     pl.scan_parquet(CD_LEGISLATURES_OUTPUT_PARQUETS)
@@ -96,7 +105,7 @@ class ElectionsDataScript(DataScript):
                 "CD_CARGO_PERGUNTA", "DT_PLEITO", "NR_TURNO",
             )
             .unique()
-            .collect()
+            .collect(engine="streaming")
             .lazy()
         )
 
@@ -204,15 +213,27 @@ class ElectionsDataScript(DataScript):
         logger.info("done")
 
 
-def _scan_tse_bulletins_dynamic(logger: Logger) -> pl.LazyFrame:
+def _scan_tse_bulletins_dynamic(logger: Logger, directory: Path) -> pl.LazyFrame:
     files = sorted(ELECTIONS_RAW_PARQUETS.glob("*.parquet"))
     if not files:
         raise FileNotFoundError("Nenhum arquivo Parquet encontrado")
     logger.info("found %d bulletin files", len(files))
-    return pl.concat(
-        [normalize_tse_bulletin(pl.scan_parquet(file)) for file in files],
-        how="diagonal_relaxed",
-    )
+    frames = [
+        normalize_tse_bulletin(pl.scan_parquet(file)).select(
+            "ANO_ELEICAO", "SG_UF", "CD_MUNICIPIO", "CD_CARGO_PERGUNTA",
+            "CD_ELEICAO", "DT_PLEITO", "NR_TURNO", "tipo_eleicao_normalizado",
+        )
+        for file in files
+    ]
+    schema = pl.concat(frames, how="diagonal_relaxed").collect_schema()
+    parts = []
+
+    for index, frame in enumerate(frames):
+        part = directory / f"metadata-{index:05d}.parquet"
+        frame.cast(schema).unique().sink_parquet(part, compression="zstd", row_group_size=16_384)
+        parts.append(part)
+
+    return pl.scan_parquet(parts)
 
 
 script_instance = ElectionsDataScript()

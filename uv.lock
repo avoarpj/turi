@@ -221,18 +221,9 @@ wheels = [
 [[package]]
 name = "avoar-core"
 version = "0.1.0"
-source = { editable = "../core" }
+source = { git = "https://github.com/avoarpj/core.git?rev=56339faa0e7341f1abc927d0b330e66615edaa3c#56339faa0e7341f1abc927d0b330e66615edaa3c" }
 dependencies = [
     { name = "protobuf" },
-]
-
-[package.metadata]
-requires-dist = [{ name = "protobuf", specifier = ">=7.36.2,<8" }]
-
-[package.metadata.requires-dev]
-dev = [
-    { name = "grpcio-tools", specifier = "==1.85.1" },
-    { name = "hatchling", specifier = "==1.33.0" },
 ]
 
 [[package]]
@@ -280,7 +271,7 @@ requires-dist = [
     { name = "aiofiles", specifier = ">=25.1.0" },
     { name = "aiohttp", specifier = ">=3.14.5" },
     { name = "apscheduler", specifier = "==3.11.2" },
-    { name = "avoar-core", editable = "../core" },
+    { name = "avoar-core", git = "https://github.com/avoarpj/core.git?rev=56339faa0e7341f1abc927d0b330e66615edaa3c" },
     { name = "ckanapi", specifier = "==4.11" },
     { name = "curl-cffi", specifier = "==0.16.2" },
     { name = "datafusion", specifier = ">=55.0.0" },

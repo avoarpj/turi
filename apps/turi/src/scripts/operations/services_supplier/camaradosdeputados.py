@@ -8,6 +8,7 @@ from config.projectsettings.settings import (
     DUMPS_OUTPUT_DIR,
 )
 from infra.datascript.DataScript import DataScript
+from infra.parquet_staging import staged_nested_parquets
 
 
 CD_SERVICES_SUPPLIER_RAW_PARQUETS = (
@@ -52,13 +53,18 @@ class CamaradosdeputadosServicesSupplierDataScript(DataScript):
     tags = []
 
     def process_data(self, logger: Logger):
+        with staged_nested_parquets(
+            CD_SERVICES_SUPPLIER_RAW_PARQUETS,
+            work_directory=CD_SERVICES_SUPPLIER_OUTPUT_PARQUETS.parent,
+            columns=["cnpjCPF", "fornecedor"],
+        ) as raw_ceaps:
+            self._process_data(raw_ceaps, logger)
+
+    def _process_data(self, raw_ceaps: pl.LazyFrame, logger: Logger):
         logger.info("process data")
 
         cd_ceaps = (
-            pl.scan_parquet(CD_SERVICES_SUPPLIER_RAW_PARQUETS)
-            .select(
-                pl.col("dados").list.explode()
-            ).unnest("dados")
+            raw_ceaps
 
             # document and name normalization
             .with_columns([

@@ -1,0 +1,138 @@
+{
+  "date": "2026-11-13",
+  "scope": "Offline synthetic fixtures on the workspace HDD; no ETL, assets, production output or checkpoints changed.",
+  "versions": {
+    "python": "3.14.9 (main, Oct 25 2026, 14:52:47) [GCC 16.2.1 20260810]",
+    "datafusion": "55.0.0",
+    "pyarrow": "25.0.1",
+    "polars": "1.38.1",
+    "numpy": "2.4.2"
+  },
+  "baseline": "Workspace infra/parquet_sort.py copied before this task, including preexisting external sort/staging changes; helper invoked without the unsupported producer batch_size argument.",
+  "baseline_sha256": "660990bf351cbd112bbe1debdb6ec31c08052491468647d7c1be48cf8105c24c",
+  "fixture": {
+    "seed": 721,
+    "base_rows": 1000000,
+    "base_file_bytes": 552997385,
+    "generator": "numpy.default_rng(721), ten chunks of 100000 rows. For each chunk, draw uint8[100000,16], hex encode each row into 32 characters; next draw empresa_id and id as uniform UInt64 arrays in [0, 2**64). Sixteen text columns contain identical copies of that chunk text vector. ParquetWriter default Snappy, row_group_size=65536.",
+    "small": "Four 250000-row LazyFrame slices of the base file, one million rows total.",
+    "large": "Eight LazyFrame scans of the base file, eight million rows total, each complete row repeated eight times.",
+    "keys": [
+      "empresa_id",
+      "id"
+    ],
+    "final_compression": "snappy",
+    "intermediate_compression": "zstd",
+    "baseline_batch_size": 1024,
+    "range_batch_size": 8192,
+    "range_count": 64,
+    "range_intermediate_row_group_size": 16384,
+    "final_row_group_size": 65536
+  },
+  "small_runs": [
+    {
+      "mode": "baseline",
+      "pool": "256MiB",
+      "seconds": 8.735232807999864,
+      "scratch_empty": true,
+      "exit_code": 0,
+      "wall_seconds": 9.085313262999989,
+      "peak_aggregate_rss_mib": 1895.91015625
+    },
+    {
+      "mode": "ranges",
+      "pool": "256MiB",
+      "seconds": 11.593727927999907,
+      "scratch_empty": true,
+      "exit_code": 0,
+      "wall_seconds": 11.904722278999998,
+      "peak_aggregate_rss_mib": 1521.390625
+    },
+    {
+      "mode": "ranges",
+      "pool": "64MiB",
+      "seconds": 13.226656086000048,
+      "scratch_empty": true,
+      "exit_code": 0,
+      "wall_seconds": 13.52359914800013,
+      "peak_aggregate_rss_mib": 1547.8828125
+    },
+    {
+      "mode": "baseline",
+      "pool": "64MiB",
+      "seconds": 18.18882039999994,
+      "scratch_empty": true,
+      "exit_code": 0,
+      "wall_seconds": 18.512299444999826,
+      "peak_aggregate_rss_mib": 2087.08984375
+    }
+  ],
+  "large_runs": [
+    {
+      "mode": "baseline",
+      "pool": "256MiB",
+      "seconds": 112.49736999200013,
+      "scratch_empty": true,
+      "exit_code": 0,
+      "wall_seconds": 112.85949805900009,
+      "peak_aggregate_rss_mib": 3470.078125,
+      "sort_worker_seconds": 63.192,
+      "other_helper_seconds": 49.30536999200013
+    },
+    {
+      "mode": "ranges",
+      "pool": "256MiB",
+      "seconds": 77.42872956199994,
+      "scratch_empty": true,
+      "exit_code": 0,
+      "wall_seconds": 84.339053616,
+      "peak_aggregate_rss_mib": 2940.94921875,
+      "sort_worker_seconds": 8.9,
+      "other_helper_seconds": 68.52872956199994
+    }
+  ],
+  "large_helper_time_reduction_percent": 31.172853580927253,
+  "large_worker_time_reduction_percent": 85.91593872642107,
+  "content_audit": {
+    "small_all_columns_exact_rows": 1000000,
+    "large_exact_sort_key_rows": 8000000,
+    "output_0": {
+      "rows": 1000000,
+      "sorted": true,
+      "bytes": 549408881,
+      "schema": "empresa_id: uint64\nid: uint64\ntext0: large_string\ntext1: large_string\ntext2: large_string\ntext3: large_string\ntext4: large_string\ntext5: large_string\ntext6: large_string\ntext7: large_string\ntext8: large_string\ntext9: large_string\ntext10: large_string\ntext11: large_string\ntext12: large_string\ntext13: large_string\ntext14: large_string\ntext15: large_string"
+    },
+    "output_1": {
+      "rows": 1000000,
+      "sorted": true,
+      "bytes": 549374049,
+      "schema": "empresa_id: uint64\nid: uint64\ntext0: large_string\ntext1: large_string\ntext2: large_string\ntext3: large_string\ntext4: large_string\ntext5: large_string\ntext6: large_string\ntext7: large_string\ntext8: large_string\ntext9: large_string\ntext10: large_string\ntext11: large_string\ntext12: large_string\ntext13: large_string\ntext14: large_string\ntext15: large_string"
+    },
+    "output_4": {
+      "rows": 8000000,
+      "sorted": true,
+      "bytes": 587475847,
+      "schema": "empresa_id: uint64\nid: uint64\ntext0: large_string\ntext1: large_string\ntext2: large_string\ntext3: large_string\ntext4: large_string\ntext5: large_string\ntext6: large_string\ntext7: large_string\ntext8: large_string\ntext9: large_string\ntext10: large_string\ntext11: large_string\ntext12: large_string\ntext13: large_string\ntext14: large_string\ntext15: large_string"
+    },
+    "output_5": {
+      "rows": 8000000,
+      "sorted": true,
+      "bytes": 587475847,
+      "schema": "empresa_id: uint64\nid: uint64\ntext0: large_string\ntext1: large_string\ntext2: large_string\ntext3: large_string\ntext4: large_string\ntext5: large_string\ntext6: large_string\ntext7: large_string\ntext8: large_string\ntext9: large_string\ntext10: large_string\ntext11: large_string\ntext12: large_string\ntext13: large_string\ntext14: large_string\ntext15: large_string"
+    }
+  },
+  "limitations": [
+    "Single observations per configuration, run sequentially with OS cache enabled, without cache eviction or explicit fsync; cache, writeback and other workloads affect timings. This is not a controlled cold-disk benchmark or a forecast for the full dataset.",
+    "RSS sampled at 50 ms and summed over the helper process and living descendants. Shared pages may be counted twice; includes imports and allocator-retained pages, not just active sort memory.",
+    "All column values were compared exactly between the one-million-row outputs. For eight million rows, compared all sort-key pairs exactly, including their eightfold multiplicity, plus schemas, row counts and global physical order. Large payload columns were not compared in that audit.",
+    "Range redistribution costs more staging work and creates more files. The one-million-row fixture regressed with the default 256 MiB pool. Only the establishments producer opts into this strategy.",
+    "Only the published establishments footer was read (72605022 rows); production inputs and the full ETL were not executed."
+  ],
+  "validation": {
+    "turi_tests": 123,
+    "test_result": "OK",
+    "command": "PYTHONPATH=apps/turi/src:. UV_CACHE_DIR=/tmp/turi-uv-cache uv run --no-sync --offline python -m unittest discover -s apps/turi/tests -v",
+    "git_diff_check": "passed",
+    "benchmark_scratch_and_outputs_removed": true
+  }
+}

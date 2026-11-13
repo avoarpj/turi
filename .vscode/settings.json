@@ -1,4 +1,8 @@
 {
+    "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+    "python.analysis.extraPaths": [
+        "${workspaceFolder}/apps/turi/src"
+    ],
     "workbench.editorAssociations": {
         "*.copilotmd": "vscode.markdown.preview.editor",
         "file:/**/*.parquet": "jupyter-data-wrangler",
@@ -14,16 +18,50 @@
         "**/assets/localidades": false
     },
     "files.watcherExclude": {
-        "**/assets/brazilgeo/**": true,
-        "**/assets/candidatures/**": true,
-        "**/assets/localidades/**": true
+        "**/assets/**": true,
+        "**/downloads/**": true,
+        "**/downloads/temp/memory-profile-*/**": true,
+        "**/parquet_dumps/**": true,
+        "**/venato_data/**": true,
+        "**/__metadata__/**": true,
+        "**/.turi_unique_tmp/**": true,
+        "**/.parquet_sort_tmp/**": true,
+        "**/.datafusion_tmp/**": true,
+        "**/__pycache__/**": true,
+        "**/*.egg-info/**": true,
+        "**/.venv/**": true
     },
     "search.exclude": {
-        "**/assets/brazilgeo": true,
-        "**/assets/candidatures": true,
-        "**/assets/localidades": true
+        "**/assets": true,
+        "**/downloads": true,
+        "**/parquet_dumps": true,
+        "**/venato_data": true,
+        "**/__metadata__": true,
+        "**/.turi_unique_tmp": true,
+        "**/.parquet_sort_tmp": true,
+        "**/.datafusion_tmp": true,
+        "**/__pycache__": true,
+        "**/*.egg-info": true,
+        "**/.venv": true
     },
     "python.analysis.exclude": [
-        "**/assets/localidades"
+        "assets",
+        "downloads",
+        "parquet_dumps",
+        "venato_data",
+        "build",
+        "dist",
+        "**/__metadata__",
+        "**/.turi_unique_tmp",
+        "**/.parquet_sort_tmp",
+        "**/.datafusion_tmp",
+        "**/*.egg-info",
+        "**/.git",
+        "**/.venv",
+        "**/node_modules",
+        "**/__pycache__",
+        "**/.pytest_cache",
+        "**/.mypy_cache",
+        "**/.ruff_cache"
     ]
 }

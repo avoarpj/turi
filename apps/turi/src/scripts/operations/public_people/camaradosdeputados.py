@@ -249,6 +249,11 @@ class PublicPeopleDataScript(DataScript):
                 descending=[True, False, False, False, False],
             )
             .unique(subset=["id"], keep="first", maintain_order=True)
+            .select(
+                "id", "identifier", "identifier_type", "NM_CANDIDATO",
+                "NM_URNA_CANDIDATO", "CD_GENERO", "DT_NASCIMENTO",
+                "SG_UF_NASCIMENTO", "NR_CANDIDATO", "ANO_ELEICAO",
+            )
             .collect()
             .lazy()
         )

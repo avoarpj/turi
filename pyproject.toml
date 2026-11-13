@@ -50,6 +50,7 @@ turi-index = "apps.turi.src.cli:indexes"
 
 [tool.setuptools.packages.find]
 include = ["apps*", "avoar*"]
+namespaces = true
 exclude = [
     "assets*",
     "downloads*",
@@ -66,4 +67,4 @@ exclude = [
 "apps.turi.src.downloaders._sds" = ["datasets/*/*.json", "datasets/*/*.txt", "LICENSE"]
 
 [tool.uv.sources]
-avoar-core = { path = "../core", editable = true }
+avoar-core = { git = "https://github.com/avoarpj/core.git", rev = "56339faa0e7341f1abc927d0b330e66615edaa3c" }

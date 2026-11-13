@@ -55,6 +55,9 @@ class EvmBulletinDataScript(DataScript):
             lf = normalize_tse_bulletin(pl.scan_parquet(f))
 
             lf = _process_data(lf, municipalities)
+            # Preserve first occurrences: consolidation below keeps the first
+            # metadata row for each physical bulletin, even when rows disagree.
+            lf = lf.unique(keep="first", maintain_order=True)
             lf = diskful_unique(lf)
 
             lazyframes_op.append(lf)
@@ -87,7 +90,7 @@ def _consolidate_bulletins(frame: pl.LazyFrame) -> pl.LazyFrame:
     bulletins = frame.drop("codigo_municipio_ibge")
     bulletins = diskful_unique(bulletins, "id")
 
-    # Both inputs are unique by id: filesystem deduplication and group_by above.
+    # Both inputs are unique by id: external deduplication and group_by above.
     # Runtime join validation would force an in-memory fallback in Polars 1.38.
     return bulletins.join(localities, on="id", how="left")
 
